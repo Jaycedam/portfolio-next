@@ -8,14 +8,14 @@ export default function Navbar() {
       md:bottom-auto md:top-0"
     >
       <div
-        className="w-full h-20 
+        className="w-full h-14 
           rounded-2xl px-7 
           flex items-center
-          bg-neutral-50/75 shadow-lg backdrop-blur-md
-          dark:bg-neutral-950/70 dark:shadow-neutral-950"
+          bg-gray-50/70 shadow-md backdrop-blur-md
+          dark:bg-neutral-800/70 dark:shadow-neutral-950"
       >
         <div className="w-1/5 h-1/3">
-          <Image src={logo} alt="Logo" className="max-h-full" />
+          <Image src={logo} alt="Logo" className="max-h-full dark:invert" />
         </div>
         <div
           className="w-4/5 flex flex-row justify-center gap-5
