@@ -1,3 +1,30 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* reutilizable tailwind components */
+@layer components {
+  .title {
+    @apply font-black text-2xl py-4;
+  }
+
+  .container {
+    @apply scroll-mt-20 overflow-hidden;
+  }
+
+  .flex-center {
+    @apply flex justify-center items-center text-center;
+  }
+
+  .line-navbar {
+    @apply h-0 w-full 
+    rounded-lg bg-primary 
+    group-hover:h-1 
+    transition-all;
+  }
+
+  .absolute-center {
+    @apply absolute top-[50%] left-[50%] 
+    transform -translate-x-1/2 -translate-y-1/2;
+  }
+}
