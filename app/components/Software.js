@@ -1,12 +1,16 @@
-export default async function Projects() {
+export default async function Software() {
   const projects = await getData();
   return (
-    <div>
-      <h1>PROYECTOS DESTACADOS</h1>
+    <div id="software" className="container mx-auto">
+      <h1 className="title">Proyectos Destacados</h1>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">
         {projects.map((p) => (
-          <div className="grid md:grid-cols-2" key={p.id}>
+          <div
+            className="grid gap-2 
+          md:grid-cols-2 md:gap-8"
+            key={p.id}
+          >
             {/* image with link to project */}
             <div className="aspect-[4/3] overflow-hidden rounded-xl">
               <a href={p.url}>
@@ -21,8 +25,7 @@ export default async function Projects() {
             {/* text section */}
             <div
               className="grid gap-3 
-              place-content-center 
-              md:ml-4"
+              place-content-center"
             >
               <div>
                 <h1 className="font-black text-lg">
@@ -39,6 +42,7 @@ export default async function Projects() {
   );
 }
 
+// GET PROJECTS FROM REST API, PROVIDED IN .env as API_URL
 async function getData() {
   const res = await fetch(process.env.API_URL);
 
