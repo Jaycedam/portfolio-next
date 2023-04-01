@@ -61,9 +61,9 @@ export default function Navbar() {
           </a>
 
           <a
-            className="group cursor-pointer
+            className="group cursor-pointer text-primary
             transition-all
-            hover:scale-125 hover:text-primary"
+            hover:scale-125"
             href="mailto:lorem@ipsum.com"
           >
             <MdEmail className="h-full text-2xl" />

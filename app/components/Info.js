@@ -20,7 +20,7 @@ import { SiOracle } from "react-icons/si";
 
 export default function Info() {
   return (
-    <div id="info" className="container">
+    <div id="info" className="container container-fix mx-auto">
       <div
         className="grid gap-8
           md:grid-cols-2"

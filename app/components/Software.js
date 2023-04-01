@@ -1,7 +1,7 @@
 export default async function Software() {
   const projects = await getData();
   return (
-    <div id="software" className="container mx-auto">
+    <div id="software" className="container container-fix mx-auto">
       <h1 className="title">Proyectos Destacados</h1>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">

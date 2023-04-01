@@ -3,7 +3,7 @@ import Image from "next/image";
 
 export default function Motion() {
   return (
-    <div id="motion" className="container">
+    <div id="motion" className="container container-fix mx-auto">
       {/* text section  */}
       <div
         className="flex gap-4
@@ -13,10 +13,10 @@ export default function Motion() {
         <a
           target="_blank"
           href="https://dribbble.com/jaycedam"
-          className="flex gap-2 flex-center"
+          className="button-primary"
         >
-          Ve los videos en Dribbble
-          <AiFillDribbbleCircle />
+          <AiFillDribbbleCircle className="text-xl" />
+          VER PORTAFOLIO
         </a>
       </div>
 
@@ -24,7 +24,7 @@ export default function Motion() {
       <div className="flex-center">
         <video
           className="w-full rounded-xl
-        md:w-3/5"
+        md:w-3/4"
           controls
           loop
           src={process.env.MOTION_VIDEO_URL}

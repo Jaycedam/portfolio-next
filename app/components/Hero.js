@@ -5,7 +5,7 @@ export default function Hero() {
   return (
     <div
       className="flex flex-col container mx-auto
-      pt-20 h-[80vh]
+      pt-20 pb-4 h-[80vh]
       lg:flex-row"
     >
       {/* text  */}
