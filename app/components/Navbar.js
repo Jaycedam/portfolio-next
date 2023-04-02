@@ -20,10 +20,13 @@ export default function Navbar() {
         {/* logo section  */}
         <div
           className="hidden 
+          cursor-pointer hover:scale-125 transition-all
           md:block md:h-1/3
           dark:invert"
         >
-          <Image src={logo} alt="Logo" className="max-h-full" />
+          <a href="#top">
+            <Image src={logo} alt="Logo" className="max-h-full" />
+          </a>
         </div>
 
         {/* links section */}
@@ -32,16 +35,6 @@ export default function Navbar() {
           font-semibold
           md:justify-end"
         >
-          <a
-            href="#top"
-            className="hidden group cursor-pointer
-            md:block"
-          >
-            INICIO
-            {/* line that appears when hover the link  */}
-            <div className="line-navbar"></div>
-          </a>
-
           <a href="#software" className="group cursor-pointer">
             SOFTWARE
             {/* line that appears when hover the link  */}

@@ -21,7 +21,7 @@ export default function Motion() {
         <video
           className="w-full rounded-xl
         md:w-3/4"
-          autoPlay
+          controls
           loop
           src={process.env.MOTION_VIDEO_URL}
         />
