@@ -8,9 +8,8 @@ export default function Footer() {
   return (
     <div
       className="flex flex-col items-center justify-center gap-8
-      bg-slate-300 
-    dark:bg-neutral-900 p-8 pb-28
-    md:flex-row md:justify-end"
+      theme-footer p-8 pb-28
+      md:flex-row md:justify-end"
     >
       <a
         href="https://github.com/Jaycedam"

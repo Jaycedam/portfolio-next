@@ -10,11 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className="scroll-smooth">
       <body>
-        <div
-          className="bg-gray-100
-          dark:bg-neutral-950
-          dark:text-gray-100"
-        >
+        <div className="theme">
           <Navbar />
           {children}
         </div>

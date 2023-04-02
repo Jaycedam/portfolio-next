@@ -14,8 +14,7 @@ export default function Navbar() {
         className="w-full h-16 
           rounded-2xl px-4 
           flex justify-center items-center gap-5
-          bg-gray-50/75 shadow-sm backdrop-blur-md
-          dark:bg-neutral-800/75 dark:shadow-neutral-950
+          theme-navbar
           md:justify-between md:h-14 md:px-8"
       >
         {/* logo section  */}
@@ -30,7 +29,8 @@ export default function Navbar() {
         {/* links section */}
         <div
           className="flex flex-row justify-center gap-5 items-center
-          md:justify-end text-sm"
+          font-semibold
+          md:justify-end"
         >
           <a
             href="#top"

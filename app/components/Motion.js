@@ -1,22 +1,18 @@
-import { AiFillDribbbleCircle } from "react-icons/ai";
-import Image from "next/image";
+import { FaDribbble } from "react-icons/fa";
 
 export default function Motion() {
   return (
     <div id="motion" className="container container-fix mx-auto">
       {/* text section  */}
-      <div
-        className="flex gap-4
-      md:flex-center"
-      >
+      <div className="flex gap-4 flex-center pb-4">
         <h1 className="title">Motion Graphics</h1>
         <a
           target="_blank"
           href="https://dribbble.com/jaycedam"
           className="button-primary"
         >
-          <AiFillDribbbleCircle className="text-xl" />
-          VER PORTAFOLIO
+          VIDEOS
+          <FaDribbble className="text-xl" />
         </a>
       </div>
 
@@ -25,7 +21,7 @@ export default function Motion() {
         <video
           className="w-full rounded-xl
         md:w-3/4"
-          controls
+          autoPlay
           loop
           src={process.env.MOTION_VIDEO_URL}
         />
