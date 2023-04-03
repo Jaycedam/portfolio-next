@@ -19,8 +19,7 @@ export default function Motion() {
       {/* video section  */}
       <div className="flex-center">
         <video
-          className="w-full rounded-xl
-        md:w-3/4"
+          className="w-full rounded-xl shadow-md"
           controls
           loop
           src={process.env.MOTION_VIDEO_URL}

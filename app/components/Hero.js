@@ -1,11 +1,14 @@
 import Image from "next/image";
 import avatar from "../assets/avatar.png";
+import watermark from "../assets/hero-watermark.svg";
 
 export default function Hero() {
   return (
     <div
-      className="flex flex-col container mx-auto
-      pt-20 pb-4 h-[80vh]
+      className="flex flex-col container mx-auto relative
+      pt-20 pb-4 
+      md:h-[60vh]
+      lg:h-[80vh]
       lg:flex-row"
     >
       {/* text  */}
@@ -28,7 +31,7 @@ export default function Hero() {
 
       {/* image  */}
       <div
-        className="relative flex-center h-3/5 z-10
+        className="flex-center h-3/5 relative z-10
         md:h-full
         lg:w-2/4 lg:h-full"
       >
@@ -39,6 +42,10 @@ export default function Hero() {
           priority
           className="object-contain"
         />
+      </div>
+
+      <div className="absolute-center w-2/5 h-full">
+        <Image src={watermark} fill priority className="dark:invert" />
       </div>
     </div>
   );
