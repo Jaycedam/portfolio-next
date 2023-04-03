@@ -35,7 +35,7 @@
     w-fit
     bg-zinc-950 text-zinc-100 rounded-lg p-2
     dark:bg-zinc-100 dark:text-zinc-900
-    hover:bg-primary hover:text-zinc-100
+    hover:bg-primary hover:text-zinc-100 hover:scale-110
     transition-all;
   }
 
@@ -46,8 +46,8 @@
   }
 
   .theme-navbar {
-    @apply bg-zinc-50/80 shadow-sm backdrop-blur-md
-  dark:bg-zinc-800/80 dark:shadow-zinc-950;
+    @apply bg-zinc-50/60 backdrop-blur-md shadow-md
+  dark:bg-zinc-800/60;
   }
 
   .theme-footer {

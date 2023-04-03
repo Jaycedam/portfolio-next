@@ -12,12 +12,17 @@ export default async function Software() {
             key={p.id}
           >
             {/* image with link to project */}
-            <div className="aspect-[4/3] overflow-hidden rounded-xl">
+            <div
+              className="aspect-[4/3] overflow-hidden rounded-xl 
+              shadow-md"
+            >
               <a href={p.url}>
                 <img
                   src={p.image_url}
                   alt="project-image"
-                  className="hover:scale-125 transition-all object-cover h-full w-full"
+                  className="object-cover h-full w-full
+                  hover:scale-125 
+                  transition ease-in-out duration-300"
                 />
               </a>
             </div>
