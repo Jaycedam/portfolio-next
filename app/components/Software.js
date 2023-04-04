@@ -2,13 +2,20 @@ export default async function Software() {
   const projects = await getData();
   return (
     <div id="software" className="container container-fix mx-auto">
-      <h1 className="title">Proyectos Destacados</h1>
+      {/* title */}
+      <div
+        className="flex flex-col items-center gap-4 py-4
+        md:flex-row"
+      >
+        <h1 className="title-no-padding">Proyectos Destacados</h1>
+        <p className="italic font-light">Click en imagen para ver proyecto</p>
+      </div>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">
         {projects.map((p) => (
           <div
             className="grid gap-2 
-          md:grid-cols-2 md:gap-8"
+            md:grid-cols-2 md:gap-8"
             key={p.id}
           >
             {/* image with link to project */}
@@ -16,13 +23,13 @@ export default async function Software() {
               className="aspect-[4/3] overflow-hidden rounded-xl 
               shadow-md"
             >
-              <a href={p.url}>
+              <a href={p.url} target="_blank">
                 <img
                   src={p.image_url}
                   alt="project-image"
                   className="object-cover h-full w-full
-                  hover:scale-125 
-                  transition ease-in-out duration-300"
+                    hover:scale-125
+                    transition ease-in-out duration-300"
                 />
               </a>
             </div>
