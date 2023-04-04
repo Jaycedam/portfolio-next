@@ -20,26 +20,31 @@ import { SiOracle } from "react-icons/si";
 
 export default function Info() {
   return (
-    <div id="info" className="container container-fix mx-auto">
+    <section id="info" className="container container-fix mx-auto">
       <div
         className="grid gap-8
           md:grid-cols-2"
       >
         <div>
-          <h1 className="title">Info</h1>
+          <header>
+            <h1 className="title">Info</h1>
+          </header>
+
           <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque
-            beatae omnis consectetur quia, nam quidem enim accusantium sapiente
-            magni non quasi, quos corporis quam? Ex voluptates eos est veniam
-            totam magnam laboriosam repellat, ducimus corrupti blanditiis
-            repudiandae eum quia voluptate aliquid at, commodi, rem quo nobis
-            distinctio facilis deleniti similique.
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Dicta,
+            quis! Vero, veritatis quod nisi nulla iure debitis blanditiis
+            molestiae distinctio. Modi beatae consectetur eligendi, repellendus
+            illum aut? Natus, necessitatibus est nisi fugit pariatur sapiente
+            sunt, vel repudiandae quod excepturi ducimus ex distinctio odit
+            molestiae sit nobis? Aliquam molestias facere quidem suscipit eos
+            expedita rerum distinctio, quo alias illum labore?
           </p>
         </div>
+
         <div>
-          <div>
+          <header>
             <h1 className="title">Conocimientos</h1>
-          </div>
+          </header>
           <div className="flex flex-center flex-wrap gap-4 text-4xl">
             <DiReact />
             <DiHtml5 />
@@ -59,6 +64,6 @@ export default function Info() {
           </div>
         </div>
       </div>
-    </div>
+    </section>
   );
 }

@@ -2,9 +2,9 @@ import { FaDribbble } from "react-icons/fa";
 
 export default function Motion() {
   return (
-    <div id="motion" className="container container-fix mx-auto">
+    <section id="motion" className="container container-fix mx-auto">
       {/* text section  */}
-      <div className="flex gap-4 flex-center pb-4">
+      <header className="flex gap-4 flex-center pb-4">
         <h1 className="title">Motion Graphics</h1>
         <a
           target="_blank"
@@ -14,7 +14,7 @@ export default function Motion() {
           VIDEOS
           <FaDribbble className="text-xl" />
         </a>
-      </div>
+      </header>
 
       {/* video section  */}
       <div className="flex-center">
@@ -26,6 +26,6 @@ export default function Motion() {
           src={process.env.MOTION_VIDEO_URL}
         />
       </div>
-    </div>
+    </section>
   );
 }

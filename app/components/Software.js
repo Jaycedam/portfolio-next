@@ -1,15 +1,15 @@
 export default async function Software() {
   const projects = await getData();
   return (
-    <div id="software" className="container container-fix mx-auto">
+    <section id="software" className="container container-fix mx-auto">
       {/* title */}
-      <div
+      <header
         className="flex flex-col items-center gap-4 py-4
         md:flex-row"
       >
         <h1 className="title-no-padding">Proyectos Destacados</h1>
         <p className="italic font-light">Click en imagen para ver proyecto</p>
-      </div>
+      </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">
         {projects.map((p) => (
@@ -50,7 +50,7 @@ export default async function Software() {
           </div>
         ))}
       </div>
-    </div>
+    </section>
   );
 }
 

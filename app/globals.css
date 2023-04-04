@@ -8,9 +8,13 @@
     @apply font-black text-2xl py-4;
   }
 
+  .title-no-padding {
+    @apply font-black text-2xl;
+  }
+
   /* margin for anchor scrolling and adds whitespace  */
   .container-fix {
-    @apply scroll-mt-20 mb-20 px-4;
+    @apply md:scroll-mt-20 mb-20 px-4;
   }
 
   .flex-center {

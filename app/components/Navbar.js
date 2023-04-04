@@ -10,7 +10,7 @@ export default function Navbar() {
       md:bottom-auto md:top-0"
     >
       {/* navbar  */}
-      <div
+      <nav
         className="w-full h-16 
           rounded-2xl px-4 
           flex justify-center items-center gap-5
@@ -20,9 +20,9 @@ export default function Navbar() {
         {/* logo section  */}
         <div
           className="hidden 
-          cursor-pointer hover:scale-125 transition-all
-          md:block md:h-1/3
-          dark:invert"
+            cursor-pointer hover:scale-125 transition-all
+            md:block md:h-1/3
+            dark:invert"
         >
           <a href="#top">
             <Image src={logo} alt="Logo" className="max-h-full" />
@@ -30,39 +30,47 @@ export default function Navbar() {
         </div>
 
         {/* links section */}
-        <div
+        <ul
           className="flex flex-row justify-center gap-5 items-center
-          font-semibold
-          md:justify-end"
+            font-bold
+            md:justify-end"
         >
-          <a href="#software" className="group cursor-pointer">
-            SOFTWARE
-            {/* line that appears when hover the link  */}
-            <div className="line-navbar"></div>
-          </a>
+          <li>
+            <a href="#software" className="group cursor-pointer">
+              SOFTWARE
+              {/* line that appears when hover the link  */}
+              <div className="line-navbar"></div>
+            </a>
+          </li>
 
-          <a href="#motion" className="group cursor-pointer">
-            MOTION
-            {/* line that appears when hover the link  */}
-            <div className="line-navbar"></div>
-          </a>
+          <li>
+            <a href="#motion" className="group cursor-pointer">
+              MOTION
+              {/* line that appears when hover the link  */}
+              <div className="line-navbar"></div>
+            </a>
+          </li>
 
-          <a href="#info" className="group cursor-pointer">
-            INFO
-            {/* line that appears when hover the link  */}
-            <div className="line-navbar"></div>
-          </a>
+          <li>
+            <a href="#info" className="group cursor-pointer">
+              INFO
+              {/* line that appears when hover the link  */}
+              <div className="line-navbar"></div>
+            </a>
+          </li>
 
-          <a
-            className="group cursor-pointer text-primary
-            transition-all
-            hover:scale-125"
-            href="mailto:lorem@ipsum.com"
-          >
-            <MdEmail className="h-full text-2xl" />
-          </a>
-        </div>
-      </div>
+          <li>
+            <a
+              className="group cursor-pointer text-primary
+                transition-all
+                hover:scale-125"
+              href="mailto:lorem@ipsum.com"
+            >
+              <MdEmail className="h-full text-2xl" />
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   );
 }
