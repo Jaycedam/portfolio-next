@@ -5,7 +5,7 @@ export default function TimelineCard(props) {
       <p className="font-light text-sm">{props.type}</p>
       <div className="flex items-center gap-2">
         <h2 className="font-extrabold text-lg">{props.title}</h2>
-        <h3 className="text-sm font-light">{props.date}</h3>
+        <p className="text-sm font-light">{props.date}</p>
       </div>
       <p>{props.desc}</p>
     </li>

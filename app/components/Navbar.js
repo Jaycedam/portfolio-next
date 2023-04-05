@@ -7,7 +7,7 @@ export default function Navbar() {
     // container
     <div
       className="w-screen p-4 fixed bottom-0 z-50
-      md:bottom-auto md:top-0 md:flex md:justify-end"
+        md:bottom-auto md:top-0 md:flex md:justify-end"
     >
       {/* navbar  */}
       <nav
@@ -37,7 +37,7 @@ export default function Navbar() {
         >
           <li>
             <a href="#software" className="group cursor-pointer">
-              Software
+              SOFTWARE
               {/* line that appears when hover the link  */}
               <div className="line-navbar"></div>
             </a>
@@ -45,7 +45,7 @@ export default function Navbar() {
 
           <li>
             <a href="#motion" className="group cursor-pointer">
-              Motion
+              MOTION
               {/* line that appears when hover the link  */}
               <div className="line-navbar"></div>
             </a>
@@ -53,19 +53,33 @@ export default function Navbar() {
 
           <li>
             <a href="#about" className="group cursor-pointer">
-              Acerca
+              ACERCA
               {/* line that appears when hover the link  */}
               <div className="line-navbar"></div>
             </a>
           </li>
 
-          <li>
-            <a
-              className="cursor-pointer text-primary"
-              href="mailto:lorem@ipsum.com"
-            >
-              <MdEmail className="h-full text-2xl hover:scale-125 transition-all" />
+          {/* mobile mail icon  */}
+          <li className="md:hidden">
+            <a className="cursor-pointer" href="mailto:lorem@ipsum.com">
+              <MdEmail
+                className="h-full text-2xl 
+                  hover:scale-125 hover:text-primary 
+                  transition-all"
+              />
             </a>
+          </li>
+
+          {/* regular mail btn  */}
+          <li
+            className="hidden
+              md:block"
+          >
+            <button>
+              <a href="mailto:loremipsum" className="btn-secondary">
+                CONTACTAR <MdEmail className="text-xl" />
+              </a>
+            </button>
           </li>
         </ul>
       </nav>

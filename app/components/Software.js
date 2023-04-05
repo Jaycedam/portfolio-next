@@ -10,7 +10,7 @@ export default async function Software() {
         md:flex-row"
       >
         <h1 className="title-no-padding">Proyectos Destacados</h1>
-        <p className="italic font-light">Click en imagen para ver proyecto</p>
+        <p className="font-light">Click en imagen para ver proyecto</p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">

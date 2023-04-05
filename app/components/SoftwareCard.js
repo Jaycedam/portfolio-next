@@ -28,10 +28,10 @@ export default function SoftwareCard(props) {
             place-content-center"
       >
         <div>
-          <h1 className="font-black text-lg">
+          <h2 className="font-black text-lg">
             {props.name} - {props.area}
-          </h1>
-          <h2 className="font-thin text-sm">{props.technologies}</h2>
+          </h2>
+          <p className="font-thin text-sm">{props.technologies}</p>
         </div>
         <p>{props.about}</p>
       </div>

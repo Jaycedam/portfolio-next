@@ -5,7 +5,7 @@
 /* reutilizable tailwind components */
 @layer components {
   .title {
-    @apply font-black text-2xl pb-4;
+    @apply font-black text-2xl py-4;
   }
 
   .title-no-padding {
@@ -36,13 +36,13 @@
 
   .btn-primary {
     @apply flex gap-2 flex-center w-fit font-bold
-    bg-primary text-zinc-100 rounded-lg p-2
+    bg-primary text-zinc-100 rounded-lg p-3
     hover:scale-110
     transition-all;
   }
 
   .btn-secondary {
-    @apply flex gap-2 flex-center
+    @apply flex gap-2 flex-center font-bold
     w-fit
     bg-zinc-950 text-zinc-100 rounded-lg p-2
     dark:bg-zinc-100 dark:text-zinc-900
@@ -73,6 +73,6 @@
 
   .timeline {
     @apply grid gap-4 w-full mx-auto
-    md:w-3/4;
+    lg:w-3/4;
   }
 }
