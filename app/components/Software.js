@@ -43,7 +43,7 @@ export default async function Software() {
                 <h1 className="font-black text-lg">
                   {p.name} - {p.area}
                 </h1>
-                <h4 className="font-light text-sm">{p.technologies}</h4>
+                <h2 className="font-thin text-sm">{p.technologies}</h2>
               </div>
               <p>{p.about}</p>
             </div>

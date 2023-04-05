@@ -5,7 +5,7 @@
 /* reutilizable tailwind components */
 @layer components {
   .title {
-    @apply font-black text-2xl py-4;
+    @apply font-black text-2xl pb-4;
   }
 
   .title-no-padding {
@@ -14,7 +14,7 @@
 
   /* margin for anchor scrolling and adds whitespace  */
   .container-fix {
-    @apply md:scroll-mt-20 mb-20 px-4;
+    @apply md:scroll-mt-20 mb-24 px-4;
   }
 
   .flex-center {
@@ -34,7 +34,14 @@
     transform -translate-x-1/2 -translate-y-1/2;
   }
 
-  .button-primary {
+  .btn-primary {
+    @apply flex gap-2 flex-center w-fit font-bold
+    bg-primary text-zinc-100 rounded-lg p-2
+    hover:scale-110
+    transition-all;
+  }
+
+  .btn-secondary {
     @apply flex gap-2 flex-center
     w-fit
     bg-zinc-950 text-zinc-100 rounded-lg p-2
