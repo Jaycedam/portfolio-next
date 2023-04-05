@@ -65,4 +65,14 @@
     @apply bg-zinc-200 
     dark:bg-zinc-900;
   }
+
+  .theme-card {
+    @apply bg-white rounded-lg p-2
+    dark:bg-zinc-800;
+  }
+
+  .timeline {
+    @apply grid gap-4 w-full mx-auto
+    md:w-3/4;
+  }
 }

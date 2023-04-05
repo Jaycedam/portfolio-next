@@ -1,3 +1,5 @@
+import SoftwareCard from "./SoftwareCard";
+
 export default async function Software() {
   const projects = await getData();
   return (
@@ -13,41 +15,15 @@ export default async function Software() {
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">
         {projects.map((p) => (
-          <div
-            className="grid gap-2 
-            md:grid-cols-2 md:gap-8"
-            key={p.id}
-          >
-            {/* image with link to project */}
-            <div
-              className="aspect-[4/3] overflow-hidden rounded-xl 
-              shadow-md"
-            >
-              <a href={p.url} target="_blank">
-                <img
-                  src={p.image_url}
-                  alt="project-image"
-                  className="object-cover h-full w-full
-                    hover:scale-125
-                    transition ease-in-out duration-300"
-                />
-              </a>
-            </div>
-
-            {/* text section */}
-            <div
-              className="grid gap-3 
-              place-content-center"
-            >
-              <div>
-                <h1 className="font-black text-lg">
-                  {p.name} - {p.area}
-                </h1>
-                <h2 className="font-thin text-sm">{p.technologies}</h2>
-              </div>
-              <p>{p.about}</p>
-            </div>
-          </div>
+          <SoftwareCard
+            id={p.id}
+            url={p.url}
+            image_url={p.image_url}
+            name={p.name}
+            area={p.area}
+            technologies={p.technologies}
+            about={p.about}
+          />
         ))}
       </div>
     </section>
