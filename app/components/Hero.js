@@ -11,12 +11,34 @@ import {
 export default function Hero() {
   return (
     <section
-      className="container px-4 mx-auto pt-16 pb-16 grid gap-4 h-80vh
+      className="container px-4 mx-auto pt-32 mb-16 grid gap-4 h-[70vh] 
+        portrait:h-[50vh]
+        md:h-[80vh]
         md:grid-cols-2 grid-flow-dense"
     >
       {/* image section  */}
-      <div className="md:col-start-2">
-        <Image src={image} className="h-full w-full object-cover rounded-2xl" />
+      <div className="md:col-start-2 relative">
+        {/* <Image src={image} className="w-full h-full object-cover rounded-2xl" /> */}
+
+        {/* animated blurred blobs background */}
+        <div
+          className="absolute top-0 -left-4 w-96 h-96 
+            bg-purple-500 rounded-full mix-blend-multiply filter blur-xl opacity-30 
+            animate-blob
+            dark:mix-blend-hard-light"
+        ></div>
+        <div
+          className="absolute top-0 -right-4 w-96 h-96 
+            bg-cyan-300 rounded-full mix-blend-multiply filter blur-xl opacity-30 
+            animate-blob animation-delay-2000
+            dark:mix-blend-hard-light"
+        ></div>
+        <div
+          className="absolute -bottom-8 left-20 w-96 h-96 
+            bg-pink-400 rounded-full mix-blend-multiply filter blur-xl opacity-30 
+            animate-blob animation-delay-4000
+            dark:mix-blend-hard-light"
+        ></div>
       </div>
 
       {/* text section */}
@@ -57,7 +79,7 @@ export default function Hero() {
           </ul>
 
           <h1
-            className="font-black text-6xl
+            className="font-black text-5xl md:text-6xl
               lg:text-7xl"
           >
             Developer
@@ -74,8 +96,8 @@ export default function Hero() {
 
         {/* call to action  */}
         <button>
-          <a href="mailto:loremipsum}" className="btn-primary">
-            Contactar <MdEmail className="text-xl" />
+          <a href="#software" className="btn-primary">
+            Ver proyectos
           </a>
         </button>
       </div>

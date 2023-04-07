@@ -1,56 +1,26 @@
 import Image from "next/image";
-import profile from "../assets/avatar2.png";
-import TimelineCard from "./TimelineCard";
+import profile from "../assets/profile.jpg";
 import StackSlide from "./StackSlide";
-import data from "@/mockup/carreer";
 
 export default function About() {
   return (
     <section id="about" className="container container-fix mx-auto">
-      <div
-        className="grid gap-4
-          md:grid-cols-2"
-      >
-        <div className="grid gap-8">
-          {/* about me desc  */}
-          <div>
-            <header>
-              <h1 className="title">Acerca de mi</h1>
-            </header>
+      <div className="grid grid-cols-3 gap-4 place-items-center">
+        {/* info about me */}
+        <div className="col-span-2">
+          <header>
+            <h1 className="title">Acerca de mi</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Quasi
               esse officiis tempore minus odit natus et reprehenderit
               architecto, modi rem?
             </p>
-          </div>
-
-          <div>
-            <div className="timeline">
-              {data.map((e) => (
-                <TimelineCard
-                  id={e.id}
-                  type={e.type}
-                  title={e.title}
-                  date={e.date}
-                  desc={e.desc}
-                />
-              ))}
-            </div>
-          </div>
+          </header>
+          <StackSlide />
         </div>
 
-        {/* image side  */}
-        <div>
-          <Image
-            src={profile}
-            className="rounded-3xl aspect-[4/3] object-contain
-            md:h-full md:aspect-auto"
-            alt="about me image"
-          />
-        </div>
+        <Image src={profile} className="h-full object-cover rounded-xl" />
       </div>
-
-      <StackSlide />
     </section>
   );
 }
