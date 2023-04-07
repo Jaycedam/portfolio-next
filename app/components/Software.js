@@ -9,8 +9,8 @@ export default async function Software() {
         className="flex flex-col items-center gap-4 py-4
         md:flex-row"
       >
-        <h1 className="title-no-padding">Proyectos Destacados</h1>
-        <p className="font-light">Click en imagen para ver proyecto</p>
+        <h1 className="title">Proyectos Destacados</h1>
+        <p className="font-light">Click para más detalles</p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">

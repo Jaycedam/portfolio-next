@@ -6,17 +6,10 @@ export default function Navbar() {
   return (
     // container
     <div
-      className="w-screen p-4 fixed bottom-0 z-50
-        md:bottom-auto md:top-0 md:flex md:justify-end"
+      className="w-screen fixed bottom-0 z-50 
+      md:bottom-auto md:top-0 md:flex md:justify-end"
     >
-      {/* navbar  */}
-      <nav
-        className="w-full h-16
-          rounded-2xl px-4 
-          flex justify-center items-center
-          theme-navbar
-          md:h-14 md:px-8 md:justify-between"
-      >
+      <nav className="theme-navbar w-full">
         {/* logo section  */}
         <div
           className="hidden 
@@ -31,29 +24,52 @@ export default function Navbar() {
 
         {/* links section */}
         <ul
-          className="flex flex-row justify-center gap-5 items-center
-            font-bold
+          className="flex flex-row justify-center gap-12 items-center
             md:justify-end"
         >
           <li>
-            <a href="#software" className="group cursor-pointer">
-              SOFTWARE
+            <a
+              href="#top"
+              className="group cursor-pointer 
+                hover:text-primary"
+            >
+              Inicio
               {/* line that appears when hover the link  */}
               <div className="line-navbar"></div>
             </a>
           </li>
 
           <li>
-            <a href="#motion" className="group cursor-pointer">
-              MOTION
+            <a
+              href="#software"
+              className="group cursor-pointer 
+              hover:text-primary"
+            >
+              Software
               {/* line that appears when hover the link  */}
               <div className="line-navbar"></div>
             </a>
           </li>
 
           <li>
-            <a href="#about" className="group cursor-pointer">
-              ACERCA
+            <a
+              href="#motion"
+              className="group cursor-pointer
+              hover:text-primary"
+            >
+              Motion
+              {/* line that appears when hover the link  */}
+              <div className="line-navbar"></div>
+            </a>
+          </li>
+
+          <li>
+            <a
+              href="#about"
+              className="group cursor-pointer
+              hover:text-primary"
+            >
+              Acerca
               {/* line that appears when hover the link  */}
               <div className="line-navbar"></div>
             </a>
@@ -69,19 +85,13 @@ export default function Navbar() {
               />
             </a>
           </li>
-
-          {/* regular mail btn  */}
-          <li
-            className="hidden
-              md:block"
-          >
-            <button>
-              <a href="mailto:loremipsum" className="btn-secondary">
-                CONTACTAR <MdEmail className="text-xl" />
-              </a>
-            </button>
-          </li>
         </ul>
+
+        <button>
+          <a href="mailto:loremipsum" className="btn-secondary">
+            Contactar <MdEmail className="text-xl" />
+          </a>
+        </button>
       </nav>
     </div>
   );
