@@ -17,7 +17,7 @@ export default function SoftwareCard(props) {
         <a href={props.url} target="_blank">
           {/* overlay for hover image  */}
           <div
-            className="absolute bottom-0 left-0 z-40
+            className="absolute bottom-0 left-0 z-30
             w-full pt-12 pb-4 flex-center gap-2
             text-zinc-50 font-bold 
             bg-gradient-to-t from-zinc-950/90 
