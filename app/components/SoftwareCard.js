@@ -10,9 +10,10 @@ export default function SoftwareCard(props) {
     >
       {/* image with link to project */}
       <div
-        className="aspect-[4/3] overflow-hidden rounded-xl group shadow-lg relative
-            hover:shadow-2xl
-            transition-all ease-in-out duration-500"
+        className="overflow-hidden relative isolate group 
+        rounded-xl aspect-[4/3] shadow-lg 
+        hover:shadow-2xl
+        transition-all ease-in-out duration-500"
       >
         <a href={props.url} target="_blank">
           {/* overlay for hover image  */}
@@ -32,7 +33,7 @@ export default function SoftwareCard(props) {
             src={props.image_url}
             alt="project-image"
             className="object-cover h-full w-full
-            group-hover:scale-110
+            group-hover:scale-110 
             transition ease-in-out duration-500"
           />
         </a>

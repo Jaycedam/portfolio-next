@@ -10,7 +10,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className="scroll-smooth">
       <body>
-        <div className="theme overflow-hidden">
+        <div className="theme overflow-x-hidden">
           <Navbar />
           {children}
         </div>

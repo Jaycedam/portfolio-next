@@ -22,7 +22,7 @@ export default function NavToggle() {
   useEffect(() => {
     // gets all elements
     const nav = document.querySelector("#navbar");
-    const navLinks = document.querySelectorAll("#nav-link");
+    const navLinks = document.querySelectorAll(".nav-link");
 
     // adds onClick event to each nav item,
     navLinks.forEach((link) =>
@@ -39,6 +39,7 @@ export default function NavToggle() {
         md:hidden"
     >
       <button
+        aria-label="Toggle navbar"
         onClick={navToggle}
         id="nav-toggle"
         className="rounded-full p-4
