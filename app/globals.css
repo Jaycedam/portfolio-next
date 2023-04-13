@@ -10,39 +10,36 @@
 
   /* margin for anchor scrolling and adds whitespace  */
   .container-fix {
-    @apply md:scroll-mt-20 mb-24 px-4;
+    @apply mx-auto mb-20 p-4 md:px-0 scroll-mt-16;
   }
 
   .flex-center {
     @apply flex justify-center items-center text-center;
   }
 
-  /* line that appears bellow text when hovering link  */
-  .line-navbar {
-    @apply h-0 w-0 
-    rounded-lg bg-primary 
-    group-hover:h-1 group-hover:w-full
-    transition-all ease-out duration-200;
-  }
-
-  .absolute-center {
-    @apply absolute top-[50%] left-[50%] 
-    transform -translate-x-1/2 -translate-y-1/2;
-  }
-
   .btn-primary {
-    @apply flex gap-2 flex-center w-fit font-bold
-    bg-primary text-zinc-100 rounded-lg p-3
+    @apply flex gap-2 flex-center w-fit font-bold shadow-lg
+    bg-primary
+    text-zinc-100 rounded-lg py-3 px-6
     hover:scale-110 active:scale-90
     transition-all ease-in-out duration-200;
   }
 
   .btn-secondary {
-    @apply flex gap-2 flex-center font-bold
-    w-fit
-    bg-zinc-950 text-zinc-100 rounded-lg p-2
+    @apply flex gap-2 flex-center font-bold w-fit shadow-lg
+    bg-zinc-950 text-zinc-100 rounded-lg py-3 px-6
     dark:bg-zinc-100 dark:text-zinc-900
+
     hover:bg-primary hover:text-zinc-100 hover:scale-110 active:scale-90
+    transition-all ease-in-out duration-200;
+  }
+
+  .btn-hero {
+    @apply flex gap-2 flex-center font-bold w-fit shadow-lg
+    rounded-lg py-3 px-6
+    bg-zinc-950 text-zinc-50
+
+    hover:bg-zinc-50 hover:text-zinc-950 hover:scale-110 active:scale-90
     transition-all ease-in-out duration-200;
   }
 
@@ -53,22 +50,32 @@
   }
 
   .theme-navbar {
-    @apply bg-zinc-50/80 backdrop-blur-md shadow font-semibold
-    w-3/5 h-full fixed bottom-0 right-0 z-40 flex-center flex-col gap-12
-    translate-x-full opacity-0
+    @apply bg-zinc-50/80 backdrop-blur-lg w-full
+    fixed bottom-0 right-0 z-40 
+    translate-x-full opacity-0 shadow
     data-[visible=true]:translate-x-0 data-[visible=true]:opacity-100
     transition-all ease-in-out duration-500
 
-    md:translate-x-0 md:opacity-100 md:w-full
-    md:justify-between md:px-8 md:flex-row
-    md:bottom-auto md:top-0 md:h-16
+    dark:bg-zinc-900/80
+    
+    md:bottom-auto md:top-0
+    md:translate-x-0 md:opacity-100;
+  }
 
-    dark:bg-zinc-900/80;
+  .navbar {
+    @apply h-screen flex-center flex-col gap-12 
+    md:justify-between md:flex-row md:w-full md:h-14;
   }
 
   .nav-links {
-    @apply flex-center flex-col gap-12
+    @apply flex-center flex-col gap-12 font-bold text-zinc-700 dark:text-zinc-300
     md:justify-end md:flex-row;
+  }
+
+  .nav-hover-bar {
+    @apply bg-primary w-0 h-0 rounded-xl
+    group-hover:w-full group-hover:h-1
+    transition-all;
   }
 
   .theme-footer {
@@ -88,5 +95,10 @@
   }
   .animation-delay-4000 {
     animation-delay: 4s;
+  }
+
+  .bg-clip {
+    -webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
+    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
   }
 }
