@@ -8,6 +8,24 @@
     @apply font-bold text-2xl;
   }
 
+  .gallery-selection {
+    @apply rounded-xl cursor-pointer overflow-hidden relative aspect-video
+    hover:brightness-75
+    transition-all duration-500
+
+    after:opacity-0 after:pointer-events-none
+    after:content-['Reproduciendo']
+    after:bg-black/70 after:text-xl after:text-white
+    after:absolute after:inset-0 after:z-20 after:flex-center
+    after:transition-all after:duration-500
+
+    after:data-[active=true]:opacity-100;
+  }
+
+  .gallery-image {
+    @apply object-cover w-full h-full;
+  }
+
   /* margin for anchor scrolling and adds whitespace  */
   section {
     @apply mb-20 scroll-mt-16;
@@ -54,42 +72,40 @@
   }
 
   .theme-navbar {
-    @apply bg-zinc-50/80 backdrop-blur-lg w-full
+    @apply bg-zinc-50/70 backdrop-blur-lg w-full h-screen
     fixed bottom-0 right-0 z-40 
     translate-x-full opacity-0 shadow
     data-[visible=true]:translate-x-0 data-[visible=true]:opacity-100
     transition-all ease-in-out duration-500
 
-    dark:bg-zinc-900/80
+    dark:bg-zinc-900/70
     
-    md:bottom-auto md:top-0
+    md:bottom-auto md:top-0 md:h-auto md:min-h-[3rem]
     md:translate-x-0 md:opacity-100;
   }
 
   .navbar {
-    @apply h-screen flex-center flex-col gap-12 
-    md:justify-between md:flex-row md:w-full md:h-14;
+    @apply h-full w-full flex-center flex-col gap-12 
+    md:justify-between md:flex-row;
   }
 
   .nav-links {
-    @apply flex-center flex-col gap-12 font-bold text-zinc-700 dark:text-zinc-300
+    @apply flex-center flex-col gap-12 flex-wrap
     md:justify-end md:flex-row;
   }
 
-  .nav-hover-bar {
-    @apply bg-primary w-0 h-0 rounded-xl
-    group-hover:w-full group-hover:h-1
-    transition-all;
+  .nav-link {
+    @apply text-zinc-600 dark:text-zinc-300
+    p-3 rounded-lg
+    hover:bg-zinc-950 hover:text-zinc-50
+
+    dark:hover:text-zinc-950 dark:hover:bg-zinc-50
+    transition-all ease-out duration-500;
   }
 
   .theme-footer {
     @apply bg-zinc-200 
     dark:bg-zinc-900;
-  }
-
-  .theme-card {
-    @apply bg-white rounded-lg p-2
-    dark:bg-zinc-800;
   }
 }
 
@@ -99,10 +115,5 @@
   }
   .animation-delay-4000 {
     animation-delay: 4s;
-  }
-
-  .bg-clip {
-    -webkit-clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
-    clip-path: polygon(0 10%, 100% 0, 100% 90%, 0 100%);
   }
 }

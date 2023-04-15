@@ -1,5 +1,5 @@
 import { FaDribbble } from "react-icons/fa";
-import Image from "next/image";
+import MotionGallery from "./MotionGallery";
 
 export default function Motion() {
   return (
@@ -13,11 +13,14 @@ export default function Motion() {
         
         after:dark:bg-zinc-900"
     >
-      <div className="container">
+      <div className="container max-w-5xl">
         {/* text section  */}
-        <header className="flex flex-col gap-4 flex-center pb-4 place-items-center">
+        <header
+          className="flex flex-col gap-4 flex-center pb-4 place-items-center
+            md:flex-row md:text-start md:justify-between"
+        >
           <div>
-            <h1 className="title">Motion Graphics</h1>
+            <h1 className="title">Motion: Destacados</h1>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
               aliquid!
@@ -25,7 +28,7 @@ export default function Motion() {
           </div>
 
           <a
-            className="btn-secondary"
+            className="btn-primary"
             target="_blank"
             href="https://dribbble.com/jaycedam"
           >
@@ -34,15 +37,7 @@ export default function Motion() {
           </a>
         </header>
 
-        {/* video section  */}
-        <div className="flex-center">
-          <video
-            className="w-full rounded-xl shadow-xl max-w-6xl"
-            controls
-            loop
-            src={process.env.MOTION_VIDEO_URL}
-          />
-        </div>
+        <MotionGallery />
       </div>
     </section>
   );

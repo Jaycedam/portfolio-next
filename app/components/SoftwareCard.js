@@ -33,7 +33,7 @@ export default function SoftwareCard(props) {
             src={props.image_url}
             alt="project-image"
             className="object-cover h-full w-full
-            group-hover:scale-110 
+            group-hover:scale-125
             transition ease-in-out duration-500"
           />
         </a>

@@ -13,7 +13,7 @@ export default function Hero() {
       h-screen max-h-[1500px]
 
       after:content-[''] after:absolute after:inset-0
-      after:w-screen after:h-full 
+      after:w-full after:h-full 
       after:bg-[url('/bg.png')] after:bg-cover after:bg-center after:bg-fixed
       after:rounded-b-2xl after:-z-10"
     >
@@ -28,9 +28,9 @@ export default function Hero() {
               md:text-7xl
               lg:text-8xl"
           >
-            Software
+            DEV /
             <br />
-            Dev.
+            MOTION
           </h1>
 
           <p>
