@@ -11,10 +11,11 @@ export default function Hero() {
   return (
     <section
       className="relative isolate grid place-items-center
-      min-h-[100vh] min-h-[100svh] max-h-[1500px] overflow-hidden"
+      min-h-[100vh] min-h-[100svh] max-h-[1500px] overflow-hidden
+      rounded-b-3xl"
     >
       <div
-        className="container w-full 
+        className="container w-full min-h-full
           flex-center flex-col gap-8 relative"
       >
         <header className="grid gap-2 text-white">

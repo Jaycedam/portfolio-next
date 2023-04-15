@@ -16,7 +16,7 @@ import { SiOracle } from "react-icons/si";
 
 export default function StackSlide() {
   return (
-    <div className="flex justify-between flex-wrap gap-10 py-8 text-4xl">
+    <div className="flex justify-around flex-wrap gap-10 py-8 text-4xl">
       <TbSql />
       <DiPython />
       <TbBrandCSharp />
@@ -25,7 +25,7 @@ export default function StackSlide() {
       <DiBootstrap />
       <DiReact />
       <TbBrandNextjs />
-      <DiDjango className="h-full" />
+      <DiDjango />
       <DiPostgresql />
       <SiOracle />
     </div>
