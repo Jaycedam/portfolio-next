@@ -3,7 +3,7 @@ import SoftwareCard from "./SoftwareCard";
 export default async function Software() {
   const projects = await getData();
   return (
-    <section id="software">
+    <section id="software" className="relative z-10">
       <div className="container">
         {/* title */}
         <header

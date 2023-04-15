@@ -35,7 +35,7 @@ export default function MotionGallery() {
   }, []);
 
   return (
-    <div className="flex flex-col gap-8">
+    <div className="flex flex-col gap-8 mt-8">
       <div className="w-full h-full aspect-[16/9]">
         <video
           className="w-full h-full rounded-xl shadow-xl"

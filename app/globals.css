@@ -5,7 +5,7 @@
 /* reutilizable tailwind components */
 @layer components {
   .title {
-    @apply font-bold text-2xl;
+    @apply font-bold text-3xl;
   }
 
   .gallery-selection {

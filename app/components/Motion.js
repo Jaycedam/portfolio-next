@@ -13,7 +13,7 @@ export default function Motion() {
         
         after:dark:bg-zinc-900"
     >
-      <div className="container max-w-5xl">
+      <div className="container">
         {/* text section  */}
         <header
           className="flex flex-col gap-4 flex-center pb-4 place-items-center
