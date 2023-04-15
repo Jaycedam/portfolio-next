@@ -4,21 +4,17 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
+import Image from "next/image";
 
 export default function Hero() {
   // bg is inside "after:"
   return (
     <section
-      className="relative isolate
-      h-screen max-h-[1500px]
-
-      after:content-[''] after:absolute after:inset-0
-      after:w-full after:h-full 
-      after:bg-[url('/bg.png')] after:bg-cover after:bg-center after:bg-fixed
-      after:rounded-b-2xl after:-z-10"
+      className="relative isolate grid place-items-center
+      min-h-[100vh] min-h-[100svh] max-h-[1500px] overflow-hidden"
     >
       <div
-        className="container h-full w-full 
+        className="container w-full 
           flex-center flex-col gap-8 relative"
       >
         <header className="grid gap-2 text-white">
@@ -73,6 +69,15 @@ export default function Hero() {
           hello, world.
         </div>
       </div>
+      <Image
+        src={"/bg.png"}
+        quality={100}
+        alt=""
+        fill
+        sizes="100vh"
+        className="object-cover -z-10"
+        priority
+      />
     </section>
   );
 }
