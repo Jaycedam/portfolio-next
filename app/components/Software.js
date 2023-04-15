@@ -19,7 +19,7 @@ export default async function Software() {
         <div className="grid gap-10">
           {projects.map((p) => (
             <SoftwareCard
-              id={p.id}
+              key={p.id}
               url={p.url}
               image_url={p.image_url}
               name={p.name}
@@ -35,8 +35,9 @@ export default async function Software() {
 }
 
 // GET PROJECTS FROM REST API, PROVIDED IN .env as API_URL
+// change nostore on prod
 async function getData() {
-  const res = await fetch(process.env.API_URL);
+  const res = await fetch(process.env.API_URL, { cache: "no-store" });
 
   if (!res.ok) {
     throw new Error("Failed to fetch data");

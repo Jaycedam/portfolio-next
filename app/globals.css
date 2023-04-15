@@ -71,24 +71,6 @@
     dark:bg-zinc-950 dark:text-zinc-100;
   }
 
-  .theme-navbar {
-    @apply bg-zinc-50/70 backdrop-blur-lg w-full h-screen
-    fixed bottom-0 right-0 z-40 
-    translate-x-full opacity-0 shadow
-    data-[visible=true]:translate-x-0 data-[visible=true]:opacity-100
-    transition-all ease-in-out duration-500
-
-    dark:bg-zinc-900/70
-    
-    md:bottom-auto md:top-0 md:h-auto md:min-h-[3rem]
-    md:translate-x-0 md:opacity-100;
-  }
-
-  .navbar {
-    @apply h-full w-full flex-center flex-col gap-12 
-    md:justify-between md:flex-row;
-  }
-
   .nav-links {
     @apply flex-center flex-col gap-12 flex-wrap
     md:justify-end md:flex-row;
@@ -106,14 +88,5 @@
   .theme-footer {
     @apply bg-zinc-200 
     dark:bg-zinc-900;
-  }
-}
-
-@layer utilities {
-  .animation-delay-2000 {
-    animation-delay: 2s;
-  }
-  .animation-delay-4000 {
-    animation-delay: 4s;
   }
 }

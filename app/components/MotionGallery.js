@@ -60,7 +60,11 @@ export default function MotionGallery() {
             )
           }
         >
-          <Image src={image1} className="gallery-image" />
+          <Image
+            alt="Change video source"
+            src={image1}
+            className="gallery-image"
+          />
         </div>
         <div
           className="gallery-selection"
@@ -71,7 +75,11 @@ export default function MotionGallery() {
             )
           }
         >
-          <Image src={image2} className="gallery-image" />
+          <Image
+            alt="Change video source"
+            src={image2}
+            className="gallery-image"
+          />
         </div>
         <div
           className="gallery-selection"
@@ -82,7 +90,11 @@ export default function MotionGallery() {
             )
           }
         >
-          <Image src={image3} className="gallery-image" />
+          <Image
+            alt="Change video source"
+            src={image3}
+            className="gallery-image"
+          />
         </div>
         <div
           className="gallery-selection"
@@ -93,7 +105,11 @@ export default function MotionGallery() {
             )
           }
         >
-          <Image src={image4} className="gallery-image" />
+          <Image
+            alt="Change video source"
+            src={image4}
+            className="gallery-image"
+          />
         </div>
       </div>
     </div>

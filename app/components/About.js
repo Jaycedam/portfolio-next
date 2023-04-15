@@ -11,6 +11,7 @@ export default function About() {
         {/* info about me */}
         <div className="flex-center flex-col gap-8">
           <Image
+            alt=""
             src={profile}
             className="rounded-full w-2/4 h-auto aspect-square
             md:w-80"
