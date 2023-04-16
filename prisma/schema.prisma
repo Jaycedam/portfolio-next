@@ -1,11 +1,33 @@
-// This is your Prisma schema file,
-// learn more about it in the docs: https://pris.ly/d/prisma-schema
-
 generator client {
   provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "mysql"
-  url      = env("DATABASE_URL")
+  provider     = "mysql"
+  url          = env("DATABASE_URL")
+  relationMode = "prisma"
+}
+
+model Area {
+  id       Int        @id @default(autoincrement())
+  name     String     @db.VarChar(50)
+  software Software[]
+}
+
+model Software {
+  id        Int    @id @default(autoincrement())
+  name      String @db.VarChar(50)
+  stack     String @db.VarChar(250)
+  about     String @db.VarChar(250)
+  imageUrl  String @db.VarChar(250)
+  url       String @db.VarChar(250)
+  areaId    Int
+  area      Area   @relation(fields: [areaId], references: [id])
+  @@index([areaId])
+}
+
+model Motion {
+  id   Int    @id @default(autoincrement())
+  name String @db.VarChar(50)
+  url  String @db.VarChar(250)
 }
