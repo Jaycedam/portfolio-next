@@ -10,6 +10,10 @@ export default function Home() {
   return (
     <main>
       <Hero />
+
+      {/* disable ts check due to bug, 
+      details https://beta.nextjs.org/docs/data-fetching/fetching#asyncawait-in-server-components */}
+      {/* @ts-expect-error Server Component */}
       <Software />
       <Motion />
       <About />
