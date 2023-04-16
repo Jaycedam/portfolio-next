@@ -2,7 +2,7 @@ import { BiLinkExternal } from "react-icons/bi";
 import Image from "next/image";
 
 export default function SoftwareCard(props) {
-  // all props = id, url, image_url, name, area, technologies, about
+  // props = id, url, image_url, name, area, technologies, about
   return (
     <div
       className="grid gap-2 

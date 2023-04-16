@@ -28,7 +28,9 @@ export default function MotionGallery() {
     // adds event for gallery, gets closest panel selected
     const gallery = document.querySelector("#gallery");
     gallery.addEventListener("click", (e) => {
-      const activePanel = e.target.closest(".gallery-selection");
+      const activePanel = (e.target as HTMLElement).closest(
+        ".gallery-selection"
+      );
       if (!activePanel) return;
       toggleGallery(activePanel);
     });
