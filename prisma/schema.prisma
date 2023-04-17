@@ -25,9 +25,3 @@ model Software {
   area      Area   @relation(fields: [areaId], references: [id])
   @@index([areaId])
 }
-
-model Motion {
-  id   Int    @id @default(autoincrement())
-  name String @db.VarChar(50)
-  url  String @db.VarChar(250)
-}
