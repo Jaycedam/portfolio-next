@@ -7,9 +7,9 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="theme-footer py-8 pb-28">
+    <footer className="py-8 pb-28">
       <div
-        className="container mx-auto flex-center flex-col gap-8
+        className="flex-center container mx-auto flex-col gap-8
           md:flex-row md:justify-between"
       >
         <a href="#top" className="flex items-center gap-2">
@@ -24,7 +24,7 @@ export default function Footer() {
             <a
               href="https://github.com/Jaycedam"
               target="_blank"
-              className="flex gap-2 items-center text-center"
+              className="flex items-center gap-2 text-center"
             >
               <AiFillGithub />
               GitHub
@@ -35,7 +35,7 @@ export default function Footer() {
             <a
               href="https://dribbble.com/jaycedam"
               target="_blank"
-              className="flex gap-2 items-center text-center"
+              className="flex items-center gap-2 text-center"
             >
               <AiFillDribbbleCircle />
               Dribble
@@ -46,7 +46,7 @@ export default function Footer() {
             <a
               href="https://www.linkedin.com/in/jaycedam/"
               target="_blank"
-              className="flex gap-2 items-center text-center"
+              className="flex items-center gap-2 text-center"
             >
               <AiFillLinkedin />
               Linkedin

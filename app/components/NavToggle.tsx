@@ -35,18 +35,18 @@ export default function NavToggle() {
 
   return (
     <div
-      className="fixed right-8 bottom-8 z-50
+      className="fixed bottom-8 right-8 z-50
         md:hidden"
     >
       <button
         aria-label="Toggle navbar"
         onClick={navToggle}
         id="nav-toggle"
-        className="rounded-full p-4
-        bg-zinc-950 text-zinc-50 
-        dark:bg-zinc-100 dark:text-zinc-900
-        active:scale-90
-        transition-all"
+        className="rounded-full bg-zinc-950
+        p-4 text-zinc-50 
+        transition-all active:scale-90
+        dark:bg-zinc-100
+        dark:text-zinc-900"
       >
         <GiHamburgerMenu className="text-xl" />
       </button>

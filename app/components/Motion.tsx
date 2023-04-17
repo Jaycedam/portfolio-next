@@ -1,23 +1,22 @@
 import { FaDribbble } from "react-icons/fa";
-import MotionGallery from "./MotionGallery";
 
-export default function Motion() {
+export default async function Motion() {
   return (
     <section
       id="motion"
-      className="isolate relative
+      className="relative isolate
     
-        after:content-[''] after:-my-8
-        after:absolute after:inset-0 after:-z-10
-        after:bg-zinc-200 after:skew-y-[-5deg]
+        after:absolute after:inset-0
+        after:-z-10 after:-my-8 after:skew-y-[-5deg]
+        after:bg-zinc-200 after:content-['']
         
         after:dark:bg-zinc-900"
     >
-      <div className="container">
+      <div className="container md:px-20">
         {/* text section  */}
         <header
-          className="flex flex-col gap-4 flex-center pb-4 place-items-center
-            md:flex-row md:text-start md:justify-between"
+          className="flex-center flex flex-col place-items-center gap-4 pb-4
+            md:flex-row md:justify-between md:text-start"
         >
           <div>
             <h1 className="title">Motion: Destacados</h1>
@@ -37,7 +36,12 @@ export default function Motion() {
           </a>
         </header>
 
-        <MotionGallery />
+        <video
+          className="aspect-[16/9] w-full rounded-xl shadow-xl"
+          controls
+          loop
+          src={process.env.MOTION_VIDEO_URL}
+        />
       </div>
     </section>
   );

@@ -9,11 +9,11 @@ export default function Navbar() {
       <nav
         id="navbar"
         data-visible="false"
-        className="bg-zinc-50/70 backdrop-blur-lg w-full h-screen
-          fixed bottom-0 right-0 z-40 
-          translate-x-full opacity-0 shadow
-          data-[visible=true]:translate-x-0 data-[visible=true]:opacity-100
-          transition-all ease-in-out duration-500
+        className="fixed bottom-0 right-0 z-40
+          h-screen w-full translate-x-full bg-zinc-50/70 
+          opacity-0 shadow backdrop-blur-lg
+          transition-all duration-500
+          ease-in-out data-[visible=true]:translate-x-0 data-[visible=true]:opacity-100
 
           dark:bg-zinc-900/70
           
@@ -21,9 +21,9 @@ export default function Navbar() {
           md:translate-x-0 md:opacity-100"
       >
         <div
-          className="container mx-auto
-            h-full w-full flex-center flex-col gap-12 
-            md:justify-between md:flex-row md:py-2"
+          className="flex-center container
+            mx-auto h-full w-full flex-col gap-12 
+            md:flex-row md:justify-between md:py-2"
         >
           {/* logo section  */}
           <a
@@ -35,7 +35,11 @@ export default function Navbar() {
           </a>
 
           {/* links section */}
-          <ul className="nav-links">
+          <ul
+            className="
+              flex-center flex-col flex-wrap gap-12
+              md:flex-row md:justify-end"
+          >
             <li>
               <a href="#software" className="nav-link">
                 Software

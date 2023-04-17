@@ -13,7 +13,7 @@ export default function About() {
           <Image
             alt=""
             src={profile}
-            className="rounded-full w-2/4 h-auto aspect-square
+            className="aspect-square h-auto w-2/4 rounded-full
             md:w-80"
           />
           <header>

@@ -1,4 +1,5 @@
 "use client";
+
 import {
   AiFillGithub,
   AiFillDribbbleCircle,
@@ -6,6 +7,7 @@ import {
 } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
 import Image from "next/image";
+import bg from "../../public/bg.webp";
 
 import { motion, useScroll, useTransform } from "framer-motion";
 
@@ -27,12 +29,14 @@ export default function Hero() {
 
   return (
     <section
-      className="relative isolate grid place-items-center
-      min-h-[100vh] min-h-[100svh] max-h-[1500px]"
+      className="
+      relative isolate grid max-h-[1500px]
+      min-h-[100vh] place-items-center"
     >
       <div
-        className="container w-full min-h-full
-          flex-center flex-col gap-8 relative"
+        className="
+          flex-center container relative
+          min-h-full w-full flex-col gap-8"
       >
         <header className="grid gap-2 text-white">
           <motion.h1
@@ -40,7 +44,8 @@ export default function Hero() {
             initial="hidden"
             animate="visible"
             transition={{ duration: 0.5 }}
-            className="font-black text-5xl 
+            className="
+              text-5xl font-black 
               drop-shadow-2xl
               md:text-7xl
               lg:text-8xl"
@@ -71,8 +76,9 @@ export default function Hero() {
         {/* social icons  */}
         <motion.div
           style={{ y }}
-          className="absolute top-10 text-3xl flex gap-4 text-zinc-50
-          md:left-0 md:top-auto md:flex-col"
+          className="
+            absolute top-10 flex gap-4 text-3xl text-zinc-50
+            md:left-0 md:top-auto md:flex-col"
         >
           <a href="#" aria-label="GitHub Link">
             <AiFillGithub />
@@ -90,27 +96,33 @@ export default function Hero() {
         {/* decoration right  */}
         <motion.div
           style={{ y }}
-          className="-right-12 absolute 
+          className="absolute -right-12 
             hidden
             md:block"
         >
-          <p className="rotate-90 text-zinc-50 font-thin text-3xl tracking-wider">
+          <p
+            className="
+              rotate-90 text-3xl font-thin tracking-wider text-zinc-50"
+          >
             hello, world.
           </p>
         </motion.div>
       </div>
 
       <motion.div
-        className="absolute w-full h-full inset-0 -z-10"
+        className="
+          absolute inset-0 -z-10 h-full w-full"
         style={{ y }}
       >
         <Image
-          src={"/bg.png"}
+          src={bg}
           quality={100}
           alt=""
+          placeholder="blur"
           fill
           sizes="100vh"
-          className="object-cover rounded-b-3xl"
+          className="
+            rounded-b-3xl object-cover"
           priority
         />
       </motion.div>
