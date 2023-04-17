@@ -1,4 +1,9 @@
 import SoftwareCard from "./SoftwareCard";
+import prisma from "../../lib/prisma";
+import { Software } from "@prisma/client";
+
+// revalidate cache every hour
+// export const revalidate = 60*60;
 
 export default async function Software() {
   const projects = await getData();
@@ -7,11 +12,12 @@ export default async function Software() {
       <div className="container">
         {/* title */}
         <header
-          className="flex flex-col items-center gap-4 py-4
-        md:flex-row"
+          className="
+            flex flex-col items-center gap-4 py-4
+            md:flex-row"
         >
           <h1 className="title">Software: Destacados</h1>
-          <p className="font-light text-sm italic">
+          <p className="text-sm font-light italic">
             Click imagen para más detalles
           </p>
         </header>
@@ -21,10 +27,9 @@ export default async function Software() {
             <SoftwareCard
               key={p.id}
               url={p.url}
-              image_url={p.image_url}
+              image_url={p.imageUrl}
               name={p.name}
-              area={p.area}
-              technologies={p.technologies}
+              technologies={p.stack}
               about={p.about}
             />
           ))}
@@ -34,14 +39,14 @@ export default async function Software() {
   );
 }
 
-// GET PROJECTS FROM REST API, PROVIDED IN .env as API_URL
-// change nostore on prod
-async function getData() {
-  const res = await fetch(process.env.API_URL, { cache: "no-store" });
-
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-
-  return res.json();
+// get data from database, using Prisma model interface
+// update prisma interface when doing migrations with
+// npx prisma generate
+async function getData(): Promise<Software[]> {
+  const result = await prisma.software.findMany({
+    orderBy: {
+      id: "desc",
+    },
+  });
+  return result;
 }

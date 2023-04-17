@@ -11,21 +11,21 @@ export default function SoftwareCard(props) {
       {/* image with link to project */}
       <a href={props.url} target="_blank">
         <div
-          className="overflow-hidden relative isolate group 
-            rounded-xl aspect-[4/3] shadow-lg 
-            hover:shadow-2xl
-            transition-all ease-in-out duration-500"
+          className="group relative isolate aspect-[4/3] 
+            overflow-hidden rounded-xl shadow-lg 
+            transition-all
+            duration-500 ease-in-out hover:shadow-2xl"
         >
           {/* overlay  */}
           <div
-            className="absolute bottom-0 left-0 z-10
-            w-full pt-12 pb-8 flex-center gap-2
-            text-zinc-50 font-bold 
-            bg-gradient-to-t from-zinc-950/80
-            pointer-events-none
-            lg:-bottom-2 lg:group-hover:bottom-0
-            lg:opacity-0 lg:group-hover:opacity-100
-            transition-all ease-in-out duration-500"
+            className="flex-center pointer-events-none absolute bottom-0
+            left-0 z-10 w-full gap-2 bg-gradient-to-t
+            from-zinc-950/80 pb-8 
+            pt-12 font-bold
+            text-zinc-50
+            transition-all duration-500
+            ease-in-out lg:-bottom-2
+            lg:opacity-0 lg:group-hover:bottom-0 lg:group-hover:opacity-100"
           >
             Ver projecto <BiLinkExternal />
           </div>
@@ -35,23 +35,21 @@ export default function SoftwareCard(props) {
             alt="project-image"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
-            className="object-cover h-full w-full
-            group-hover:scale-125
-            transition ease-in-out duration-500"
+            className="h-full w-full object-cover
+            transition
+            duration-500 ease-in-out group-hover:scale-125"
           />
         </div>
       </a>
 
       {/* text section */}
       <div
-        className="grid gap-3 
-            place-content-center"
+        className="grid place-content-center 
+            gap-3"
       >
         <div>
-          <h2 className="font-black text-lg">
-            {props.name} - {props.area}
-          </h2>
-          <p className="font-light text-sm">{props.technologies}</p>
+          <h2 className="text-lg font-black">{props.name}</h2>
+          <p className="text-sm font-light">{props.technologies}</p>
         </div>
         <p>{props.about}</p>
       </div>
