@@ -1,6 +1,6 @@
 import { FaDribbble } from "react-icons/fa";
 
-export default async function Motion() {
+export default function Motion() {
   return (
     <section
       id="motion"

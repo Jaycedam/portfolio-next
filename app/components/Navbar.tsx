@@ -1,6 +1,7 @@
 import Image from "next/image";
 import logo from "../../public/logoipsum.svg";
 import NavToggle from "./NavToggle";
+import { HiMail } from "react-icons/hi";
 
 export default function Navbar() {
   return (
@@ -17,7 +18,7 @@ export default function Navbar() {
 
           dark:bg-zinc-900/70
           
-          md:bottom-auto md:top-0 md:h-auto md:min-h-[3rem]
+          md:bottom-auto md:top-0 md:h-auto md:min-h-[2rem]
           md:translate-x-0 md:opacity-100"
       >
         <div
@@ -61,6 +62,7 @@ export default function Navbar() {
 
           <a className="btn-secondary" href="#">
             Contactar
+            <HiMail className="text-xl" />
           </a>
         </div>
       </nav>
