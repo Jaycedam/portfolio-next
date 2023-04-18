@@ -31,7 +31,7 @@ export default function SoftwareCard(props) {
           </div>
 
           <Image
-            src={props.image_url + ".jpg"}
+            src={props.image_url}
             alt="project-image"
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
