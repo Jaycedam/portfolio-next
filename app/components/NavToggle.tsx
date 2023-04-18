@@ -22,7 +22,7 @@ export default function NavToggle() {
   useEffect(() => {
     // gets all elements
     const nav = document.querySelector("#navbar");
-    const navLinks = document.querySelectorAll(".nav-link");
+    const navLinks = document.querySelectorAll(".close-nav");
 
     // adds onClick event to each nav item,
     navLinks.forEach((link) =>

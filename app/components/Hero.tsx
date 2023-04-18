@@ -11,8 +11,8 @@ export default function Hero() {
   return (
     <section
       className="
-      relative isolate mb-2 grid max-h-[1500px] min-h-[90vh]
-      place-items-center overflow-hidden rounded-b-2xl"
+      relative isolate mb-4 grid max-h-[1500px] min-h-[90vh]
+      place-items-center overflow-hidden rounded-b-xl"
     >
       <div
         className="
@@ -27,19 +27,16 @@ export default function Hero() {
               md:text-7xl
               lg:text-8xl"
           >
-            DEV /
+            JORDAN
             <br />
-            MOTION
+            CORTÉS
           </h1>
 
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
-            ipsum.
-          </p>
+          <p>Software Developer / Motion Graphics</p>
         </header>
 
         <a href="#software" className="btn-hero">
-          Proyectos destacados
+          Proyectos
           <span>
             <FaCode className="text-xl" />
           </span>
@@ -51,15 +48,27 @@ export default function Hero() {
             absolute top-10 flex gap-4 text-3xl text-zinc-50
             md:left-0 md:top-auto md:flex-col"
         >
-          <a href="#" aria-label="GitHub Link">
+          <a
+            href="#"
+            aria-label="GitHub Link"
+            className="transition-all hover:scale-90"
+          >
             <AiFillGithub />
           </a>
 
-          <a href="#" aria-label="Dribbble Link">
+          <a
+            href="#"
+            aria-label="Dribbble Link"
+            className="transition-all hover:scale-90"
+          >
             <AiFillDribbbleCircle />
           </a>
 
-          <a href="#" aria-label="Linkedin Link">
+          <a
+            href="#"
+            aria-label="Linkedin Link"
+            className="transition-all hover:scale-90"
+          >
             <AiFillLinkedin />
           </a>
         </div>

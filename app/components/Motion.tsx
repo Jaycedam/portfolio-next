@@ -19,10 +19,10 @@ export default function Motion() {
             md:flex-row md:justify-between md:text-start"
         >
           <div>
-            <h1 className="title">Motion: Destacados</h1>
+            <h1 className="title">Motion Graphics</h1>
             <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Non,
-              aliquid!
+              Reel de proyectos Motion. Para ver más, click en botón para
+              visitar Dribbble.
             </p>
           </div>
 

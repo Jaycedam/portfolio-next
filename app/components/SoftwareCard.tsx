@@ -5,16 +5,17 @@ export default function SoftwareCard(props) {
   // props = id, url, image_url, name, area, technologies, about
   return (
     <div
-      className="grid gap-2 
+      className="grid gap-2
         md:grid-cols-2 md:gap-8"
     >
       {/* image with link to project */}
       <a href={props.url} target="_blank">
         <div
           className="group relative isolate aspect-[4/3] 
-            overflow-hidden rounded-xl shadow-lg 
-            transition-all
-            duration-500 ease-in-out hover:shadow-2xl"
+            overflow-hidden
+            rounded-xl shadow-xl transition-all 
+            duration-500
+            ease-in-out hover:scale-[98%] hover:shadow-lg"
         >
           {/* overlay  */}
           <div
@@ -37,7 +38,7 @@ export default function SoftwareCard(props) {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full w-full object-cover
             transition
-            duration-500 ease-in-out group-hover:scale-125"
+            duration-500 ease-in-out group-hover:scale-110"
           />
         </div>
       </a>
