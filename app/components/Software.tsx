@@ -2,8 +2,8 @@ import SoftwareCard from "./SoftwareCard";
 import prisma from "../../lib/prisma";
 import { Software } from "@prisma/client";
 
-// revalidate cache every hour
-// export const revalidate = 60*60;
+// revalidate cache every week
+export const revalidate = 604800;
 
 export default async function Software() {
   const projects = await getData();
