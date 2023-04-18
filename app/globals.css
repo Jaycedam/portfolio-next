@@ -10,7 +10,7 @@
 
   /* margin for anchor scrolling and adds whitespace  */
   section {
-    @apply mb-20 scroll-mt-16;
+    @apply mb-20 md:scroll-mt-16;
   }
 
   .container {

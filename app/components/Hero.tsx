@@ -1,5 +1,3 @@
-"use client";
-
 import {
   AiFillGithub,
   AiFillDribbbleCircle,
@@ -9,29 +7,12 @@ import { FaCode } from "react-icons/fa";
 import Image from "next/image";
 import bg from "../../public/bg.webp";
 
-import { motion, useScroll, useTransform } from "framer-motion";
-
-const variant = {
-  hidden: {
-    opacity: 0,
-    scale: 0.5,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-  },
-};
 export default function Hero() {
-  // gets overall scroll progress of page
-  const { scrollYProgress } = useScroll();
-  // parses from top to bottom scroll value into %
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "40%"]);
-
   return (
     <section
       className="
-      relative isolate grid max-h-[1500px]
-      min-h-[100vh] place-items-center"
+      relative isolate grid max-h-[1500px] min-h-[80vh] place-items-center
+      overflow-hidden rounded-b-2xl"
     >
       <div
         className="
@@ -39,11 +20,7 @@ export default function Hero() {
           min-h-full w-full flex-col gap-8"
       >
         <header className="grid gap-2 text-white">
-          <motion.h1
-            variants={variant}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.5 }}
+          <h1
             className="
               text-5xl font-black 
               drop-shadow-2xl
@@ -53,29 +30,23 @@ export default function Hero() {
             DEV /
             <br />
             MOTION
-          </motion.h1>
+          </h1>
 
-          <motion.p
-            variants={variant}
-            initial="hidden"
-            animate="visible"
-            transition={{ duration: 0.5, delay: 0.2 }}
-          >
+          <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis,
             ipsum.
-          </motion.p>
+          </p>
         </header>
 
         <a href="#software" className="btn-hero">
           Proyectos destacados
           <span>
-            <FaCode />
+            <FaCode className="text-xl" />
           </span>
         </a>
 
         {/* social icons  */}
-        <motion.div
-          style={{ y }}
+        <div
           className="
             absolute top-10 flex gap-4 text-3xl text-zinc-50
             md:left-0 md:top-auto md:flex-col"
@@ -91,11 +62,10 @@ export default function Hero() {
           <a href="#" aria-label="Linkedin Link">
             <AiFillLinkedin />
           </a>
-        </motion.div>
+        </div>
 
         {/* decoration right  */}
-        <motion.div
-          style={{ y }}
+        <div
           className="absolute -right-12 
             hidden
             md:block"
@@ -106,26 +76,20 @@ export default function Hero() {
           >
             hello, world.
           </p>
-        </motion.div>
+        </div>
       </div>
 
-      <motion.div
+      <Image
+        src={bg}
+        quality={100}
+        alt=""
+        placeholder="blur"
+        fill
+        sizes="100vh"
         className="
-          absolute inset-0 -z-10 h-full w-full"
-        style={{ y }}
-      >
-        <Image
-          src={bg}
-          quality={100}
-          alt=""
-          placeholder="blur"
-          fill
-          sizes="100vh"
-          className="
-            rounded-b-3xl object-cover"
-          priority
-        />
-      </motion.div>
+            absolute inset-0 -z-10 h-full w-full object-cover"
+        priority
+      />
     </section>
   );
 }

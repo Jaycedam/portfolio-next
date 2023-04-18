@@ -7,18 +7,19 @@ export default function Navbar() {
   return (
     <>
       <NavToggle />
+
       <nav
         id="navbar"
         data-visible="false"
-        className="fixed bottom-0 right-0 z-40
-          h-screen w-full translate-x-full bg-zinc-50/70 
-          opacity-0 shadow backdrop-blur-lg
-          transition-all duration-500
-          ease-in-out data-[visible=true]:translate-x-0 data-[visible=true]:opacity-100
+        className="fixed inset-0
+          z-40 h-screen w-screen 
+          translate-x-full
+          bg-zinc-50/70 shadow backdrop-blur-lg transition-all
+          duration-500 ease-in-out
 
-          dark:bg-zinc-900/70
+          data-[visible=true]:translate-x-0
           
-          md:bottom-auto md:top-0 md:h-auto md:min-h-[2rem]
+          dark:bg-zinc-900/70 md:md:top-0 md:h-fit
           md:translate-x-0 md:opacity-100"
       >
         <div
