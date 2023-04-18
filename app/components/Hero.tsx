@@ -11,8 +11,8 @@ export default function Hero() {
   return (
     <section
       className="
-      relative isolate grid max-h-[1500px] min-h-[80vh] place-items-center
-      overflow-hidden rounded-b-2xl"
+      relative isolate mb-2 grid max-h-[1500px] min-h-[90vh]
+      place-items-center overflow-hidden rounded-b-2xl"
     >
       <div
         className="

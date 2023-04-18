@@ -19,7 +19,7 @@ export default function Navbar() {
 
           data-[visible=true]:translate-x-0
           
-          dark:bg-zinc-900/70 md:md:top-0 md:h-fit
+          dark:bg-zinc-900/70 md:md:top-0 md:h-fit md:min-h-[3.5rem]
           md:translate-x-0 md:opacity-100"
       >
         <div
