@@ -1,5 +1,3 @@
-import { button } from "../../utils/animations";
-
 export default function Button(props) {
   return (
     <a
