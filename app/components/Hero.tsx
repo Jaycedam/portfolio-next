@@ -1,3 +1,4 @@
+import Button from "./Button";
 import {
   AiFillGithub,
   AiFillDribbbleCircle,
@@ -37,12 +38,12 @@ export default function Hero() {
           </p>
         </header>
 
-        <a href="#software" className="btn-hero">
-          Proyectos
-          <span>
-            <FaCode className="text-xl" />
-          </span>
-        </a>
+        <Button
+          link="#software"
+          color="secondary"
+          text="Ver proyectos"
+          icon={<FaCode />}
+        />
 
         {/* social icons  */}
         <div

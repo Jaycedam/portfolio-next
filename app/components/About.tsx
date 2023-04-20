@@ -1,8 +1,13 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { fadeInDown } from "../../utils/animations";
 import Image from "next/image";
 import profile from "../assets/profile.jpg";
 import StackSlide from "./StackSlide";
 import { MdEmail } from "react-icons/md";
 import { HiDocumentText } from "react-icons/hi";
+import Button from "./Button";
 
 export default function About() {
   return (
@@ -18,38 +23,33 @@ export default function About() {
           />
           <header>
             <h1 className="title mb-4">Acerca de mi</h1>
-            <p className="max-w-lg text-justify">
+            <motion.p
+              variants={fadeInDown}
+              initial="initial"
+              whileInView={"animate"}
+              className="max-w-lg text-justify"
+            >
               Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
               aprendiendo nuevas tecnologías. Titulado Analista Programador en
               Duoc UC, 2022. Previamente mantuve una carrera trabajando en
               Motion Graphics por 4 años aprox, después de terminar de estudiar
               Comunicación Audiovisual en Santo Tomas, 2015.
-            </p>
+            </motion.p>
           </header>
           <div className="flex gap-8">
-            <a
-              href={process.env.CV_URL}
-              target="_blank"
-              className="btn-secondary"
-            >
-              CV
-              <span className="text-lg">
-                <HiDocumentText />
-              </span>
-            </a>
-            <a
-              href={
-                "mailto:" +
-                process.env.EMAIL +
-                "?subject=Contacto desde jordancortes.dev"
-              }
-              className="btn-primary"
-            >
-              Contactar
-              <span className="text-xl">
-                <MdEmail />
-              </span>
-            </a>
+            <Button
+              link="#"
+              color="secondary"
+              text="CV"
+              icon={<HiDocumentText />}
+            />
+
+            <Button
+              link="#"
+              color="primary"
+              text="Contactar"
+              icon={<MdEmail />}
+            />
           </div>
         </div>
         <StackSlide />

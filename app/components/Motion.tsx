@@ -1,4 +1,5 @@
 import { FaDribbble } from "react-icons/fa";
+import Button from "./Button";
 
 export default function Motion() {
   return (
@@ -15,7 +16,7 @@ export default function Motion() {
       <div className="container md:px-20">
         {/* text section  */}
         <header
-          className="flex-center flex flex-col place-items-center gap-4 pb-4
+          className="flex-center flex-col gap-4 pb-4
             md:flex-row md:justify-between md:text-start"
         >
           <div>
@@ -23,14 +24,12 @@ export default function Motion() {
             <p>Ve más videos destacados en Dribbble.</p>
           </div>
 
-          <a
-            className="btn-secondary"
-            target="_blank"
-            href="https://dribbble.com/jaycedam"
-          >
-            Videos
-            <FaDribbble className="text-xl" />
-          </a>
+          <Button
+            link="https://dribbble.com/jaycedam"
+            text="Videos"
+            icon={<FaDribbble />}
+            color="secondary"
+          />
         </header>
 
         <video
