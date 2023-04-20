@@ -12,7 +12,7 @@ export default function Hero() {
     <section
       className="
       relative isolate mb-4 grid max-h-[1500px] min-h-[90vh]
-      place-items-center overflow-hidden rounded-b-xl"
+      place-items-center overflow-hidden rounded-b-3xl"
     >
       <div
         className="
@@ -22,17 +22,19 @@ export default function Hero() {
         <header className="grid gap-2 text-white">
           <h1
             className="
-              text-5xl font-black 
+              text-6xl font-black 
               drop-shadow-2xl
-              md:text-7xl
-              lg:text-8xl"
+              md:text-8xl"
           >
-            JORDAN
+            DEV &
             <br />
-            CORTÉS
+            MOTION
           </h1>
 
-          <p>Software Developer / Motion Graphics</p>
+          <p className="max-w-md">
+            Hola! soy Jordan. Desarrollo software y ocacionalmente trabajo en
+            Motion Graphics.
+          </p>
         </header>
 
         <a href="#software" className="btn-hero">
@@ -48,27 +50,15 @@ export default function Hero() {
             absolute top-10 flex gap-4 text-3xl text-zinc-50
             md:left-0 md:top-auto md:flex-col"
         >
-          <a
-            href="#"
-            aria-label="GitHub Link"
-            className="transition-all hover:scale-90"
-          >
+          <a href="#" aria-label="GitHub Link">
             <AiFillGithub />
           </a>
 
-          <a
-            href="#"
-            aria-label="Dribbble Link"
-            className="transition-all hover:scale-90"
-          >
+          <a href="#" aria-label="Dribbble Link">
             <AiFillDribbbleCircle />
           </a>
 
-          <a
-            href="#"
-            aria-label="Linkedin Link"
-            className="transition-all hover:scale-90"
-          >
+          <a href="#" aria-label="Linkedin Link">
             <AiFillLinkedin />
           </a>
         </div>

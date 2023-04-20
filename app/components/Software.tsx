@@ -18,7 +18,7 @@ export default async function Software() {
         >
           <h1 className="title">Software: Destacados</h1>
           <p className="text-sm font-light italic">
-            Click imagen para más detalles
+            Click imagen para ver proyecto o repo.
           </p>
         </header>
         {/* GRID LAYOUR FOR PROJECTS */}

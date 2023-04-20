@@ -34,22 +34,20 @@ export default function NavToggle() {
   }, []);
 
   return (
-    <div
-      className="fixed bottom-8 right-8 z-50
+    <button
+      aria-label="Toggle navbar"
+      onClick={navToggle}
+      id="nav-toggle"
+      className="
+      fixed
+        bottom-8 right-8 z-50 rounded-xl bg-zinc-950/70
+        px-3 py-2 text-zinc-50 backdrop-blur-lg
+        transition-all 
+        active:scale-90 dark:bg-zinc-100/70
+        dark:text-zinc-900
         md:hidden"
     >
-      <button
-        aria-label="Toggle navbar"
-        onClick={navToggle}
-        id="nav-toggle"
-        className="rounded-full bg-zinc-950
-        p-4 text-zinc-50 
-        transition-all active:scale-90
-        dark:bg-zinc-100
-        dark:text-zinc-900"
-      >
-        <GiHamburgerMenu className="text-xl" />
-      </button>
-    </div>
+      <GiHamburgerMenu className="text-2xl" />
+    </button>
   );
 }

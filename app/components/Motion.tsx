@@ -19,11 +19,8 @@ export default function Motion() {
             md:flex-row md:justify-between md:text-start"
         >
           <div>
-            <h1 className="title">Motion Graphics</h1>
-            <p>
-              Reel de proyectos Motion. Para ver más, click en botón para
-              visitar Dribbble.
-            </p>
+            <h1 className="title">Motion Graphics Reel</h1>
+            <p>Ve más videos destacados en Dribbble.</p>
           </div>
 
           <a
