@@ -15,9 +15,6 @@ module.exports = {
         secondary: "#00F5FF",
         // ...
       },
-      fontFamily: {
-        sans: ["var(--font-poppins)"],
-      },
     },
   },
   plugins: [],
