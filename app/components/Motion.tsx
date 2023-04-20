@@ -24,11 +24,11 @@ export default function Motion() {
           </div>
 
           <a
-            className="btn-primary"
+            className="btn-secondary"
             target="_blank"
             href="https://dribbble.com/jaycedam"
           >
-            Ver más videos
+            Videos
             <FaDribbble className="text-xl" />
           </a>
         </header>
