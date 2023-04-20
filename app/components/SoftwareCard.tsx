@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { fadeRight } from "../../utils/animations";
 import { BiLinkExternal } from "react-icons/bi";
 import Image from "next/image";
 
@@ -48,10 +44,7 @@ export default function SoftwareCard(props) {
       </a>
 
       {/* text section */}
-      <motion.div
-        variants={fadeRight}
-        initial="initial"
-        whileInView={"animate"}
+      <div
         className="grid place-content-center 
             gap-3"
       >
@@ -60,7 +53,7 @@ export default function SoftwareCard(props) {
           <p className="text-sm font-light">{props.technologies}</p>
         </div>
         <p>{props.about}</p>
-      </motion.div>
+      </div>
     </div>
   );
 }

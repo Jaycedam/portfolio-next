@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-import { fadeInDown } from "../../utils/animations";
 import Image from "next/image";
 import profile from "../assets/profile.jpg";
 import StackSlide from "./StackSlide";
@@ -23,29 +19,24 @@ export default function About() {
           />
           <header>
             <h1 className="title mb-4">Acerca de mi</h1>
-            <motion.p
-              variants={fadeInDown}
-              initial="initial"
-              whileInView={"animate"}
-              className="max-w-lg text-justify"
-            >
+            <p className="max-w-lg text-justify">
               Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
               aprendiendo nuevas tecnologías. Titulado Analista Programador en
               Duoc UC, 2022. Previamente mantuve una carrera trabajando en
               Motion Graphics por 4 años aprox, después de terminar de estudiar
               Comunicación Audiovisual en Santo Tomas, 2015.
-            </motion.p>
+            </p>
           </header>
           <div className="flex gap-8">
             <Button
-              link="#"
+              link={process.env.CV_URL}
               color="secondary"
               text="CV"
               icon={<HiDocumentText />}
             />
 
             <Button
-              link="#"
+              link={process.env.EMAIL}
               color="primary"
               text="Contactar"
               icon={<MdEmail />}
