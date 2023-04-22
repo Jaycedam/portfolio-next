@@ -8,7 +8,7 @@ export const revalidate = 604800;
 export default async function Software() {
   const projects = await getData();
   return (
-    <section id="software" className="relative z-10">
+    <section id="projects" className="relative z-10">
       <div className="container">
         {/* title */}
         <header
@@ -16,7 +16,7 @@ export default async function Software() {
             flex flex-col items-center gap-4 py-4
             md:flex-row"
         >
-          <h1 className="title">Software: Destacados</h1>
+          <h1 className="title">Proyectos Destacados</h1>
           <p className="text-sm font-light italic">
             Click imagen para ver proyecto o repo.
           </p>

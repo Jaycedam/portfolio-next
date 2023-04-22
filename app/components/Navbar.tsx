@@ -2,93 +2,85 @@ import NavToggle from "./NavToggle";
 
 export default function Navbar() {
   return (
-    <>
-      <NavToggle />
-
+    <header className="container fixed bottom-0 left-0 right-0 isolate z-50 md:bottom-auto md:top-0 lg:top-0">
       <nav
-        id="navbar"
-        data-visible="false"
-        className="fixed inset-0
-          z-40 h-screen w-screen 
-          translate-x-full
-          bg-zinc-50/70 shadow backdrop-blur-md transition-all
-          duration-500 ease-in-out
-
-          data-[visible=true]:translate-x-0
-          
-          dark:bg-zinc-900/70 md:md:top-0 md:h-fit md:min-h-[3rem]
-          md:translate-x-0 md:py-2 md:opacity-100"
+        className="relative mx-auto flex h-16 w-full items-center justify-between rounded-xl
+        bg-zinc-50/50 p-4 shadow-lg backdrop-blur-lg dark:bg-zinc-800/50"
       >
-        <div
-          className="flex-center container
-            mx-auto h-full w-full flex-col gap-12 
-            md:flex-row md:justify-between md:py-2"
+        {/* logo section  */}
+        <a href="#top" className="close-nav" aria-label="home button">
+          <svg className="h-8 w-auto" viewBox="0 0 932 716" version="1.1">
+            <g
+              className="fill-zinc-950 dark:fill-zinc-50"
+              id="letters"
+              transform="matrix(1,0,0,1,-0.0384978,0)"
+            >
+              <path d="M559.24,398.12C559.24,427.49 559.24,464.02 571.17,492.33C583.7,523.61 610.66,539.57 651.28,539.57C690.05,539.57 717.33,522.31 732.34,488.29L732.34,488.18L732.4,488.05C740.6,467.94 743.56,445.21 744.64,424.9C744.915,419.823 749.175,415.797 754.26,415.81L921.69,415.81C921.694,415.81 921.698,415.81 921.702,415.81C926.974,415.81 931.312,420.148 931.312,425.42C931.312,425.48 931.311,425.54 931.31,425.6C929.31,513.6 915.78,567.16 856.31,633.6C789.31,707.29 692.01,715.27 649.31,715.27C562.66,715.27 501.21,687.44 448.31,632.58C401.8,584.27 372.97,528.21 372.97,398.13L404.85,238.46" />
+              <path d="M559.24,606.65L559.24,317.14C559.24,287.77 559.24,251.24 571.17,222.93C583.7,191.64 610.66,175.69 651.28,175.69C690.05,175.69 717.33,192.95 732.34,226.97L732.34,227.08L732.4,227.21C740.6,247.32 743.56,270.05 744.64,290.36C744.915,295.436 749.177,299.458 754.26,299.44L921.69,299.44C921.697,299.44 921.704,299.44 921.712,299.44C926.978,299.44 931.312,295.106 931.312,289.84C931.312,289.78 931.311,289.72 931.31,289.66C929.31,201.66 915.78,148.1 856.31,81.66C789.26,8 692,0 649.25,0C562.6,0 501.15,27.82 448.25,82.69C401.74,130.99 372.91,187.06 372.91,317.14L372.91,543.08" />
+              <path d="M558.89,416.32C558.89,546.4 529.55,584.26 483.04,632.57C430.16,687.43 368.71,715.26 282.04,715.26C239.33,715.26 142.04,707.26 75.04,633.59C15.53,567.16 2.04,513.59 0.04,425.59C0.039,425.533 0.038,425.477 0.038,425.42C0.038,420.143 4.381,415.8 9.658,415.8C9.659,415.8 9.659,415.8 9.66,415.8L177,415.8C182.083,415.788 186.34,419.814 186.61,424.89C187.7,445.2 190.66,467.89 198.85,488.04L198.91,488.17L198.91,488.28C213.91,522.28 241.2,539.56 279.98,539.56C320.59,539.56 347.56,523.56 360.09,492.32C372.01,464.01 373.03,445.68 373.03,416.32" />
+            </g>
+            <g
+              className="fill-primary"
+              id="circle"
+              transform="matrix(1,0,0,1,-0.0384978,0)"
+            >
+              <circle cx="279.06" cy="88.9" r="88.37" />
+            </g>
+          </svg>
+        </a>
+
+        <NavToggle />
+        {/* links section */}
+        <ul
+          id="nav-links"
+          data-visible="false"
+          className="absolute bottom-0 left-0 right-0 -z-10 m-0 mb-16 flex h-fit w-full flex-col gap-8 rounded-xl
+          bg-zinc-50/50
+          px-4 py-8 transition-all
+          duration-500 ease-in-out data-[visible=false]:pointer-events-none data-[visible=true]:pointer-events-auto data-[visible=false]:translate-y-8 
+
+          data-[visible=true]:translate-y-0 data-[visible=false]:opacity-0 
+          data-[visible=true]:opacity-100 
+          dark:bg-zinc-900 
+          md:bottom-auto md:top-0 md:mt-16
+
+          md:data-[visible=false]:-translate-y-8 
+          lg:static lg:mb-0 lg:mt-0 lg:w-auto lg:flex-row lg:items-center 
+          lg:bg-transparent lg:data-[visible=false]:pointer-events-auto lg:data-[visible=false]:translate-y-0 lg:data-[visible=false]:opacity-100
+          lg:dark:bg-transparent"
         >
-          {/* logo section  */}
-          <a
-            href="#top"
-            className="close-nav h-6 text-zinc-950"
-            aria-label="home button"
-          >
-            <svg width="100%" height="100%" viewBox="0 0 932 716" version="1.1">
-              <g
-                className="fill-zinc-950 dark:fill-zinc-50"
-                id="letters"
-                transform="matrix(1,0,0,1,-0.0384978,0)"
-              >
-                <path d="M559.24,398.12C559.24,427.49 559.24,464.02 571.17,492.33C583.7,523.61 610.66,539.57 651.28,539.57C690.05,539.57 717.33,522.31 732.34,488.29L732.34,488.18L732.4,488.05C740.6,467.94 743.56,445.21 744.64,424.9C744.915,419.823 749.175,415.797 754.26,415.81L921.69,415.81C921.694,415.81 921.698,415.81 921.702,415.81C926.974,415.81 931.312,420.148 931.312,425.42C931.312,425.48 931.311,425.54 931.31,425.6C929.31,513.6 915.78,567.16 856.31,633.6C789.31,707.29 692.01,715.27 649.31,715.27C562.66,715.27 501.21,687.44 448.31,632.58C401.8,584.27 372.97,528.21 372.97,398.13L404.85,238.46" />
-                <path d="M559.24,606.65L559.24,317.14C559.24,287.77 559.24,251.24 571.17,222.93C583.7,191.64 610.66,175.69 651.28,175.69C690.05,175.69 717.33,192.95 732.34,226.97L732.34,227.08L732.4,227.21C740.6,247.32 743.56,270.05 744.64,290.36C744.915,295.436 749.177,299.458 754.26,299.44L921.69,299.44C921.697,299.44 921.704,299.44 921.712,299.44C926.978,299.44 931.312,295.106 931.312,289.84C931.312,289.78 931.311,289.72 931.31,289.66C929.31,201.66 915.78,148.1 856.31,81.66C789.26,8 692,0 649.25,0C562.6,0 501.15,27.82 448.25,82.69C401.74,130.99 372.91,187.06 372.91,317.14L372.91,543.08" />
-                <path d="M558.89,416.32C558.89,546.4 529.55,584.26 483.04,632.57C430.16,687.43 368.71,715.26 282.04,715.26C239.33,715.26 142.04,707.26 75.04,633.59C15.53,567.16 2.04,513.59 0.04,425.59C0.039,425.533 0.038,425.477 0.038,425.42C0.038,420.143 4.381,415.8 9.658,415.8C9.659,415.8 9.659,415.8 9.66,415.8L177,415.8C182.083,415.788 186.34,419.814 186.61,424.89C187.7,445.2 190.66,467.89 198.85,488.04L198.91,488.17L198.91,488.28C213.91,522.28 241.2,539.56 279.98,539.56C320.59,539.56 347.56,523.56 360.09,492.32C372.01,464.01 373.03,445.68 373.03,416.32" />
-              </g>
-              <g
-                className="fill-primary"
-                id="circle"
-                transform="matrix(1,0,0,1,-0.0384978,0)"
-              >
-                <circle cx="279.06" cy="88.9" r="88.37" />
-              </g>
-            </svg>
-          </a>
+          <li>
+            <a href="#projects" className="nav-link close-nav">
+              Software
+            </a>
+          </li>
 
-          {/* links section */}
-          <ul
-            className="
-              flex-center flex-col flex-wrap gap-12
-              md:flex-row md:justify-end"
-          >
-            <li>
-              <a href="#software" className="nav-link close-nav">
-                Software
-              </a>
-            </li>
+          <li>
+            <a href="#motion" className="nav-link close-nav">
+              Motion
+            </a>
+          </li>
 
-            <li>
-              <a href="#motion" className="nav-link close-nav">
-                Motion
-              </a>
-            </li>
+          <li>
+            <a href="#about" className="nav-link close-nav">
+              Acerca
+            </a>
+          </li>
 
-            <li>
-              <a href="#about" className="nav-link close-nav">
-                Acerca
-              </a>
-            </li>
-
-            <li>
-              <a
-                className="nav-link close-nav"
-                href={
-                  "mailto:" +
-                  process.env.EMAIL +
-                  "?subject=Contacto desde jordancortes.dev"
-                }
-              >
-                Contactar
-              </a>
-            </li>
-          </ul>
-        </div>
+          <li>
+            <a
+              className="nav-link close-nav"
+              href={
+                "mailto:" +
+                process.env.EMAIL +
+                "?subject=Contacto desde jordancortes.dev"
+              }
+            >
+              Contactar
+            </a>
+          </li>
+        </ul>
       </nav>
-    </>
+    </header>
   );
 }

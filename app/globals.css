@@ -29,10 +29,14 @@
 
   .nav-link {
     @apply rounded-lg p-3
-    text-zinc-600 transition-all
+    transition-all
     duration-500 ease-out
 
     hover:bg-zinc-950 hover:text-zinc-50
-    dark:text-zinc-300 dark:hover:bg-zinc-50 dark:hover:text-zinc-950;
+    dark:hover:bg-zinc-50 dark:hover:text-zinc-950;
+  }
+
+  .social-icon {
+    @apply transition-all duration-300 ease-in-out hover:scale-110 hover:text-primary active:scale-90;
   }
 }
