@@ -9,19 +9,54 @@ datasource db {
 }
 
 model Area {
-  id       Int        @id @default(autoincrement())
-  name     String     @db.VarChar(50)
+  id       Int          @id @default(autoincrement())
+  name     String       @db.VarChar(50)
   software Software[]
 }
 
 model Software {
-  id        Int    @id @default(autoincrement())
-  name      String @db.VarChar(50)
-  stack     String @db.VarChar(250)
-  about     String @db.VarChar(250)
-  imageUrl  String @db.VarChar(250)
-  url       String @db.VarChar(250)
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(50)
+  stack     String      @db.VarChar(250)
+  about     String      @db.VarChar(250)
+  imageUrl  String      @db.VarChar(250)
+  url       String?     @db.VarChar(250)
+  repoUrl   String?     @db.VarChar(250)
   areaId    Int
-  area      Area   @relation(fields: [areaId], references: [id])
+  area      Area        @relation(fields: [areaId], references: [id])
   @@index([areaId])
+}
+
+model Motion {
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(50)
+  about     String      @db.VarChar(250)
+  image     String      @db.VarChar(250)
+  url       String      @db.VarChar(250)
+}
+
+model Certifications {
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(50)
+  issuedBy  String      @db.VarChar(50)
+  about     String      @db.VarChar(250)
+  url       String      @db.VarChar(250)
+}
+
+model Type {
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(50)
+  carreer   Carreer[]
+}
+
+model Carreer {
+  id        Int         @id @default(autoincrement())
+  name      String      @db.VarChar(50)
+  company   String      @db.VarChar(50)
+  about     String      @db.VarChar(250)
+  start     DateTime    @db.Date
+  end       DateTime?   @db.Date
+  typeId    Int
+  type      Type        @relation(fields: [typeId], references: [id])
+  @@index([typeId])
 }

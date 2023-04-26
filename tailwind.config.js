@@ -11,12 +11,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#E11299",
+        primary: "#A760FF",
         secondary: "#00F5FF",
         // ...
       },
       animation: {
-        text: "text 10s ease infinite",
+        text: "text 8s ease infinite",
       },
       keyframes: {
         text: {
