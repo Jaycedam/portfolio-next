@@ -1,6 +1,6 @@
 import StackSlide from "./StackSlide";
 import prisma from "../../lib/prisma";
-import { Carreer, Certifications } from "@prisma/client";
+import { Certifications } from "@prisma/client";
 
 export default async function About(props: { email: string; cv: string }) {
   const certifications = await getCerts();
@@ -39,7 +39,7 @@ export default async function About(props: { email: string; cv: string }) {
           </div>
         </div>
 
-        {/* <StackSlide /> */}
+        <StackSlide />
       </div>
     </section>
   );

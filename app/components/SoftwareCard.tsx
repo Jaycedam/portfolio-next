@@ -1,7 +1,8 @@
 import { BiLinkExternal } from "react-icons/bi";
 import Image from "next/image";
+import { Software } from "@prisma/client";
 
-export default function SoftwareCard(props) {
+export default function SoftwareCard(props: Software) {
   // props = id, url, image_url, name, area, technologies, about
   return (
     <div
@@ -32,7 +33,7 @@ export default function SoftwareCard(props) {
           </div>
 
           <Image
-            src={props.image_url}
+            src={props.imageUrl}
             alt="project-image"
             quality={100}
             fill
@@ -48,7 +49,7 @@ export default function SoftwareCard(props) {
       <div className="grid place-content-center gap-3">
         <div>
           <h2 className="text-xl font-bold">{props.name}</h2>
-          <p className="text-sm font-thin">{props.technologies}</p>
+          <p className="text-sm font-thin">{props.stack}</p>
         </div>
         <p>{props.about}</p>
       </div>

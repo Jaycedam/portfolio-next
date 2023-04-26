@@ -18,7 +18,7 @@ export default async function Software() {
         >
           <h1 className="title">Proyectos personales</h1>
           <p className="text-sm font-light">
-            Click imagen para ver proyecto o repo.
+            Click imagen para ver proyecto o código.
           </p>
         </header>
         {/* GRID LAYOUR FOR PROJECTS */}
@@ -26,11 +26,13 @@ export default async function Software() {
           {projects.map((p) => (
             <SoftwareCard
               key={p.id}
+              id={p.id}
               url={p.url}
-              image_url={p.imageUrl}
+              imageUrl={p.imageUrl}
               name={p.name}
-              technologies={p.stack}
+              stack={p.stack}
               about={p.about}
+              areaId={p.areaId}
             />
           ))}
         </div>

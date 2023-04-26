@@ -21,7 +21,6 @@ model Software {
   about     String      @db.VarChar(250)
   imageUrl  String      @db.VarChar(250)
   url       String?     @db.VarChar(250)
-  repoUrl   String?     @db.VarChar(250)
   areaId    Int
   area      Area        @relation(fields: [areaId], references: [id])
   @@index([areaId])

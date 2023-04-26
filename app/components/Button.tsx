@@ -1,4 +1,8 @@
-export default function Button(props) {
+export default function Button(props: {
+  text: string;
+  link: string;
+  icon?: any;
+}) {
   return (
     <a
       className="flex-center w-fit gap-2 rounded-xl
