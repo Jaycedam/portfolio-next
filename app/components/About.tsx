@@ -25,6 +25,7 @@ export default async function About(props: { email: string; cv: string }) {
             <h2 className="title mb-4">Certificaciones</h2>
             {certifications.map((e) => (
               <a
+                key={e.id}
                 className="rounded-xl bg-neutral-600/50 p-8 shadow-xl backdrop-blur-xl 
                 transition-all duration-500 ease-in-out
                 hover:scale-105 hover:shadow-md"

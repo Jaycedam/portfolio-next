@@ -17,6 +17,7 @@ export default async function Carreer() {
 
       {carreer.map((e, i) => (
         <div
+          key={e.id}
           className="grid w-full gap-2 p-6 md:w-2/4
             md:odd:place-self-start md:odd:text-end md:even:place-self-end"
         >
