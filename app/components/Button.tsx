@@ -1,7 +1,7 @@
 export default function Button(props: {
   text: string;
   link: string;
-  icon?: any;
+  icon?: JSX.Element;
 }) {
   return (
     <a

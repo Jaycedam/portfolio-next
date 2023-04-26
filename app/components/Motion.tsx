@@ -19,7 +19,6 @@ export default function Motion(props: { motion_reel: string }) {
             link="https://dribbble.com/jaycedam"
             text="Videos"
             icon={<FaDribbble />}
-            color="secondary"
           />
         </header>
 

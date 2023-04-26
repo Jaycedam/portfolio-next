@@ -38,12 +38,7 @@ export default function Hero() {
             eum!
           </p>
 
-          <Button
-            link="#projects"
-            color="secondary"
-            text="Ver proyectos"
-            icon={<FaCode />}
-          />
+          <Button link="#projects" text="Ver proyectos" icon={<FaCode />} />
         </header>
 
         {/* social icons  */}
