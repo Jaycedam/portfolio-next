@@ -16,8 +16,8 @@ export default async function Software() {
             flex flex-col items-center gap-4 py-4
             md:flex-row"
         >
-          <h1 className="title">Proyectos Destacados</h1>
-          <p className="text-sm font-light italic">
+          <h1 className="title">Proyectos personales</h1>
+          <p className="text-sm font-light">
             Click imagen para ver proyecto o repo.
           </p>
         </header>

@@ -1,18 +1,9 @@
 import { FaDribbble } from "react-icons/fa";
 import Button from "./Button";
 
-export default function Motion() {
+export default function Motion(props: { motion_reel: string }) {
   return (
-    <section
-      id="motion"
-      className="relative isolate
-    
-        after:absolute after:inset-0
-        after:-z-10 after:-my-8 after:skew-y-[-5deg]
-        after:bg-zinc-200 after:content-['']
-        
-        after:dark:bg-zinc-900"
-    >
+    <section id="motion" className="isolate">
       <div className="container md:px-20">
         {/* text section  */}
         <header
@@ -36,7 +27,7 @@ export default function Motion() {
           className="aspect-[16/9] w-full rounded-xl shadow-xl"
           controls
           loop
-          src={process.env.MOTION_VIDEO_URL}
+          src={props.motion_reel}
         />
       </div>
     </section>

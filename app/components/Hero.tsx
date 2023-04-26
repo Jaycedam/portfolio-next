@@ -5,46 +5,46 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
+import Image from "next/image";
+import image from "../../public/hero.png";
 
 export default function Hero() {
   return (
     <section
       className="
-      relative
-      isolate mb-4 mt-16 grid place-items-center
-      overflow-hidden rounded-b-3xl py-24"
+      relative mb-0
+      grid max-h-[1080px] min-h-[90vh] place-items-center pt-14"
     >
       <div
         className="
-          flex-center container relative
+          flex-center container
           min-h-full w-full flex-col gap-8"
       >
-        <header className="grid gap-2">
-          <h1
-            className="animate-text bg-gradient-to-r from-teal-500 via-purple-500 to-orange-500 
-              bg-clip-text text-8xl font-black text-transparent drop-shadow-md"
-          >
+        <header className="grid place-items-center gap-4">
+          <h1 className="text-6xl font-black drop-shadow-md md:text-8xl">
             Hola, soy
             <br />
-            Jordan Cortés.
+            <span
+              className="animate-text bg-gradient-to-r from-cyan-400 via-primary to-pink-400
+              bg-clip-text text-transparent "
+            >
+              Jordan Cortés.
+            </span>
           </h1>
 
-          <h2 className="mx-auto text-2xl font-bold">
-            Desarrollador de Software y Motion Graphics.
-          </h2>
-
-          <p className="mx-auto max-w-lg">
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Animi rerum
-            dignissimos pariatur esse sed laudantium quidem voluptatem.
+          <p className="max-w-lg">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab ipsa
+            labore assumenda quae explicabo veniam dolor, quisquam eius suscipit
+            eum!
           </p>
-        </header>
 
-        <Button
-          link="#projects"
-          color="secondary"
-          text="Ver proyectos"
-          icon={<FaCode />}
-        />
+          <Button
+            link="#projects"
+            color="secondary"
+            text="Ver proyectos"
+            icon={<FaCode />}
+          />
+        </header>
 
         {/* social icons  */}
         <div
@@ -53,7 +53,7 @@ export default function Hero() {
         >
           <a
             target="_blank"
-            href="#"
+            href="https://github.com/Jaycedam/"
             aria-label="GitHub Link"
             className="social-icon"
           >
@@ -62,7 +62,7 @@ export default function Hero() {
 
           <a
             target="_blank"
-            href="#"
+            href="https://dribbble.com/Jaycedam"
             aria-label="Dribbble Link"
             className="social-icon"
           >
@@ -71,7 +71,7 @@ export default function Hero() {
 
           <a
             target="_blank"
-            href="#"
+            href="https://www.linkedin.com/in/jaycedam"
             aria-label="Linkedin Link"
             className="social-icon"
           >
@@ -79,6 +79,14 @@ export default function Hero() {
           </a>
         </div>
       </div>
+
+      <Image
+        src={image}
+        priority
+        fill
+        alt="Hero"
+        className="absolute top-0 -z-10"
+      />
     </section>
   );
 }

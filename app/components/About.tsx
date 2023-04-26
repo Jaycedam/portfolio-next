@@ -1,50 +1,54 @@
-import Image from "next/image";
-import profile from "../assets/profile.jpg";
 import StackSlide from "./StackSlide";
-import { MdEmail } from "react-icons/md";
-import { HiDocumentText } from "react-icons/hi";
-import Button from "./Button";
+import prisma from "../../lib/prisma";
+import { Carreer, Certifications } from "@prisma/client";
 
-export default function About() {
+export default async function About(props: { email: string; cv: string }) {
+  const certifications = await getCerts();
+
   return (
     <section id="about">
-      <div className="container grid gap-8">
+      <div className="container grid gap-12">
         {/* info about me */}
-        <div className="flex-center flex-col gap-8">
-          <Image
-            alt=""
-            src={profile}
-            className="aspect-square h-auto w-2/4 rounded-full
-            md:w-80"
-          />
-          <header>
-            <h1 className="title mb-4">Acerca de mi</h1>
-            <p className="max-w-lg text-justify">
+        <div className="grid gap-8 md:grid-cols-2">
+          <div>
+            <h2 className="title mb-4">Acerca de mí</h2>
+            <p className="text-justify">
               Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
               aprendiendo nuevas tecnologías. Titulado Analista Programador en
               Duoc UC, 2022. Previamente mantuve una carrera trabajando en
               Motion Graphics por 4 años aprox, después de terminar de estudiar
               Comunicación Audiovisual en Santo Tomas, 2015.
             </p>
-          </header>
-          <div className="flex gap-8">
-            <Button
-              link={process.env.CV_URL}
-              color="secondary"
-              text="CV"
-              icon={<HiDocumentText />}
-            />
+          </div>
 
-            <Button
-              link={process.env.EMAIL}
-              color="primary"
-              text="Contactar"
-              icon={<MdEmail />}
-            />
+          <div className="grid">
+            <h2 className="title mb-4">Certificaciones</h2>
+            {certifications.map((e) => (
+              <a
+                className="rounded-xl bg-neutral-600/50 p-8 shadow-xl backdrop-blur-xl 
+                transition-all duration-500 ease-in-out
+                hover:scale-105 hover:shadow-md"
+                href={e.url}
+                target="_blank"
+              >
+                <h3 className="text-xl font-bold">{e.name}</h3>
+                <p className="font-thin">{e.issuedBy}</p>
+                <p>{e.about}</p>
+              </a>
+            ))}
           </div>
         </div>
-        <StackSlide />
+
+        {/* <StackSlide /> */}
       </div>
     </section>
   );
+}
+
+// get data from database, using Prisma model interface
+// update prisma interface when doing migrations with
+// npx prisma generate
+async function getCerts(): Promise<Certifications[]> {
+  const result = await prisma.certifications.findMany();
+  return result;
 }

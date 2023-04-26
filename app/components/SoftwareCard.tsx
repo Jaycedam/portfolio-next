@@ -11,11 +11,11 @@ export default function SoftwareCard(props) {
       {/* image with link to project */}
       <a href={props.url} target="_blank">
         <div
-          className="group relative isolate aspect-[4/3] 
-            overflow-hidden
-            rounded-xl shadow-xl transition-all 
-            duration-500
-            ease-in-out hover:scale-[98%] hover:shadow-lg"
+          className="group relative isolate aspect-square
+            overflow-hidden rounded-xl shadow-xl transition-all
+            duration-500 ease-in-out
+            hover:scale-105
+            hover:shadow-md"
         >
           {/* overlay  */}
           <div
@@ -25,7 +25,7 @@ export default function SoftwareCard(props) {
             pt-12 font-bold
             text-zinc-50
             transition-all duration-500
-            ease-in-out lg:-bottom-2
+            ease-in-out lg:-bottom-4
             lg:opacity-0 lg:group-hover:bottom-0 lg:group-hover:opacity-100"
           >
             Ver projecto <BiLinkExternal />
@@ -34,6 +34,7 @@ export default function SoftwareCard(props) {
           <Image
             src={props.image_url}
             alt="project-image"
+            quality={100}
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full w-full object-cover
@@ -44,13 +45,10 @@ export default function SoftwareCard(props) {
       </a>
 
       {/* text section */}
-      <div
-        className="grid place-content-center 
-            gap-3"
-      >
+      <div className="grid place-content-center gap-3">
         <div>
-          <h2 className="text-lg font-black">{props.name}</h2>
-          <p className="text-sm font-light">{props.technologies}</p>
+          <h2 className="text-xl font-bold">{props.name}</h2>
+          <p className="text-sm font-thin">{props.technologies}</p>
         </div>
         <p>{props.about}</p>
       </div>

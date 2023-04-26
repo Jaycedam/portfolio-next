@@ -5,12 +5,16 @@
 /* reutilizable tailwind components */
 @layer components {
   .title {
-    @apply text-2xl font-bold;
+    @apply text-3xl font-bold;
+  }
+
+  header {
+    @apply mb-4;
   }
 
   /* margin for anchor scrolling and adds whitespace  */
   section {
-    @apply mb-20 md:scroll-mt-16;
+    @apply mb-24 md:scroll-mt-16;
   }
 
   .container {
@@ -21,19 +25,21 @@
     @apply flex items-center justify-center text-center;
   }
 
-  /* theme that applies BG and text for light/dark mode  */
   .theme {
-    @apply bg-zinc-100 text-zinc-900
-    dark:bg-zinc-950 dark:text-zinc-100;
+    @apply bg-neutral-950 text-neutral-100;
   }
+
+  /* .theme {
+    @apply bg-neutral-100 text-neutral-900
+    dark:bg-neutral-950 dark:text-neutral-100;
+  } */
 
   .nav-link {
     @apply rounded-lg p-3
     transition-all
     duration-500 ease-out
 
-    hover:bg-zinc-950 hover:text-zinc-50
-    dark:hover:bg-zinc-50 dark:hover:text-zinc-950;
+     hover:text-primary;
   }
 
   .social-icon {
