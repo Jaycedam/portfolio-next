@@ -4,10 +4,12 @@ import {
   AiFillLinkedin,
   AiOutlineArrowUp,
 } from "react-icons/ai";
+import Image from "next/image";
+import bg from "../../public/hero.png";
 
 export default function Footer() {
   return (
-    <footer className="py-8 pb-28">
+    <footer className="relative py-8 pb-28">
       <div
         className="flex-center container mx-auto flex-col gap-8
           md:flex-row md:justify-between"
@@ -54,6 +56,7 @@ export default function Footer() {
           </li>
         </ul>
       </div>
+      <Image src={bg} alt="bg" className="absolute bottom-0 -z-10 rotate-180" />
     </footer>
   );
 }

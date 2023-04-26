@@ -16,10 +16,10 @@ module.exports = {
         // ...
       },
       animation: {
-        text: "text 8s ease infinite",
+        gradient: "gradient 6s ease infinite",
       },
       keyframes: {
-        text: {
+        gradient: {
           "0%, 100%": {
             "background-size": "200% 200%",
             "background-position": "left center",

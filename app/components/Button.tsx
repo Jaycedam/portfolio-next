@@ -6,13 +6,13 @@ export default function Button(props: {
   return (
     <a
       className="flex-center w-fit gap-2 rounded-xl
-      border-[1px] border-solid border-zinc-50/30 
-      bg-zinc-50/20 px-6 
+      border-[1px] border-zinc-50/30 
+      bg-zinc-500/20 px-6 
       py-2.5 font-bold shadow-xl
       backdrop-blur-lg
   
       transition-all duration-300 ease-in-out 
-      hover:scale-110 hover:bg-zinc-500/20
+      hover:scale-105 hover:bg-zinc-300/20
       active:scale-95"
       href={props.link}
     >

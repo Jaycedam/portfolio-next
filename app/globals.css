@@ -25,13 +25,16 @@
     @apply flex items-center justify-center text-center;
   }
 
+  .gradient {
+    @apply bg-gradient-to-br from-fuchsia-500 via-purple-500 to-pink-500;
+  }
   .theme {
-    @apply bg-neutral-950 text-neutral-100;
+    @apply bg-zinc-950 text-zinc-100;
   }
 
   /* .theme {
-    @apply bg-neutral-100 text-neutral-900
-    dark:bg-neutral-950 dark:text-neutral-100;
+    @apply bg-zinc-100 text-zinc-900
+    dark:bg-zinc-950 dark:text-zinc-100;
   } */
 
   .nav-link {
@@ -43,6 +46,6 @@
   }
 
   .social-icon {
-    @apply transition-all duration-300 ease-in-out hover:scale-110 hover:text-primary active:scale-90;
+    @apply transition-all duration-300 ease-in-out hover:scale-110 active:scale-90;
   }
 }

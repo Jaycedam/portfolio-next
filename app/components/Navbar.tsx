@@ -8,12 +8,12 @@ export default function Navbar() {
         id="navbar"
         data-visible="false"
         className="fixed inset-0 isolate z-40 h-full w-full
-        bg-zinc-950/30 shadow-lg backdrop-blur-lg 
+        bg-zinc-950/30 shadow-md backdrop-blur-lg 
         transition-all duration-500 ease-out
         data-[visible=false]:translate-x-full data-[visible=true]:translate-x-0
 
         md:h-14
-       md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
+        md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
       >
         <nav
           className="flex-center container mx-auto h-full w-full flex-col gap-8
@@ -59,6 +59,12 @@ export default function Navbar() {
             <li>
               <a href="#carreer" className="nav-link close-nav">
                 Carrera
+              </a>
+            </li>
+
+            <li>
+              <a href="#carreer" className="nav-link close-nav">
+                Motion
               </a>
             </li>
 

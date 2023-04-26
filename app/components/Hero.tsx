@@ -21,11 +21,11 @@ export default function Hero() {
           min-h-full w-full flex-col gap-8"
       >
         <header className="grid place-items-center gap-4">
-          <h1 className="text-6xl font-black drop-shadow-md md:text-8xl">
+          <h1 className="text-6xl font-black drop-shadow-xl md:text-8xl">
             Hola, soy
             <br />
             <span
-              className="animate-text bg-gradient-to-r from-cyan-400 via-primary to-pink-400
+              className="gradient animate-gradient
               bg-clip-text text-transparent "
             >
               Jordan Cortés.
