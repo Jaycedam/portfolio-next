@@ -4,6 +4,7 @@ import { Certifications } from "@prisma/client";
 import Button from "./Button";
 import Image from "next/image";
 import profile from "../assets/profile.jpg";
+import bg from "../../public/bg2.webp";
 
 export default async function About(props: { email: string; cv: string }) {
   const certifications = await getCerts();
@@ -11,7 +12,13 @@ export default async function About(props: { email: string; cv: string }) {
   return (
     <section id="about" className="relative">
       <div className="container grid gap-8 md:grid-cols-2">
-        <div className="flex flex-col justify-center gap-8">
+        <Image
+          className="h-auto w-full rounded-xl object-cover"
+          src={profile}
+          alt=""
+        />
+
+        <div className="flex flex-col gap-8">
           <div>
             <h2 className="title mb-4">Acerca de mí</h2>
             <p className="text-justify">
@@ -53,13 +60,8 @@ export default async function About(props: { email: string; cv: string }) {
 
           <StackSlide />
         </div>
-
-        <Image
-          className="h-auto w-full rounded-xl object-cover"
-          src={profile}
-          alt=""
-        />
       </div>
+      <Image src={bg} alt="" fill className="absolute bottom-0 -z-10" />
     </section>
   );
 }

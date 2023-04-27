@@ -6,7 +6,7 @@ import {
 } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
 import Image from "next/image";
-import image from "../../public/hero.png";
+import image from "../../public/bg.webp";
 
 export default function Hero() {
   return (
@@ -32,14 +32,12 @@ export default function Hero() {
             </span>
           </h1>
 
-          <p className="max-w-lg">
-            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Ab ipsa
-            labore assumenda quae explicabo veniam dolor, quisquam eius suscipit
-            eum!
+          <p className="text-xl font-bold">
+            Software Developer / Motion Graphics
           </p>
-
-          <Button link="#projects" text="Ver proyectos" icon={<FaCode />} />
         </header>
+
+        <Button link="#projects" text="Ver proyectos" icon={<FaCode />} />
 
         {/* social icons  */}
         <div

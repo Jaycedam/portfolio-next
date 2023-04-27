@@ -2,7 +2,6 @@ import Hero from "./components/Hero";
 import Software from "./components/Software";
 import Motion from "./components/Motion";
 import About from "./components/About";
-import Footer from "./components/Footer";
 import Carreer from "./components/Carreer";
 
 export default function Home() {
@@ -23,7 +22,6 @@ export default function Home() {
       <Motion motion_reel={motion_reel} />
       {/* @ts-expect-error Server Component */}
       <About email={email} cv={cv} />
-      <Footer />
     </main>
   );
 }

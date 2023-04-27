@@ -52,7 +52,7 @@ export default function Navbar() {
 
             <li>
               <a href="#projects" className="nav-link close-nav">
-                Software
+                Proyectos
               </a>
             </li>
 
@@ -63,7 +63,7 @@ export default function Navbar() {
             </li>
 
             <li>
-              <a href="#carreer" className="nav-link close-nav">
+              <a href="#motion" className="nav-link close-nav">
                 Motion
               </a>
             </li>

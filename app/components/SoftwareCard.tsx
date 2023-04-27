@@ -1,6 +1,7 @@
 import { BiLinkExternal } from "react-icons/bi";
 import Image from "next/image";
 import { Software } from "@prisma/client";
+import { ProjectType } from "../../utils/enums";
 
 export default function SoftwareCard(props: Software) {
   // props = id, url, image_url, name, area, technologies, about
@@ -48,7 +49,9 @@ export default function SoftwareCard(props: Software) {
       {/* text section */}
       <div className="grid place-content-center gap-3">
         <div>
-          <h2 className="text-xl font-bold">{props.name}</h2>
+          <h2 className="text-xl font-bold">
+            {props.name} - {ProjectType[props.areaId]}
+          </h2>
           <p className="text-sm font-thin">{props.stack}</p>
         </div>
         <p>{props.about}</p>

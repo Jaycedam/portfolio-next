@@ -3,8 +3,8 @@ import Button from "./Button";
 
 export default function Motion(props: { motion_reel: string }) {
   return (
-    <section id="motion" className="isolate">
-      <div className="container md:px-20">
+    <section id="motion">
+      <div className="container">
         {/* text section  */}
         <header
           className="flex-center flex-col gap-4 pb-4

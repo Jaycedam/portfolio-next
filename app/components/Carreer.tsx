@@ -1,5 +1,8 @@
 import prisma from "../../lib/prisma";
 import { Carreer } from "@prisma/client";
+import { CarreerType } from "../../utils/enums";
+
+const options = { year: "numeric", month: "long" };
 
 export default async function Carreer() {
   const carreer = await getCarreer();
@@ -18,21 +21,30 @@ export default async function Carreer() {
       {carreer.map((e, i) => (
         <div
           key={e.id}
-          className="grid w-full gap-2 p-6 md:w-2/4
+          className="grid w-full p-6 md:w-2/4
             md:odd:place-self-start md:odd:text-end md:even:place-self-end"
         >
-          <div>
-            <p className="font-thin">
-              {/* gets dates, month+1 because it starts at 0 index */}
-              {e.start.getMonth() + 1}/{e.start.getFullYear()} -{" "}
-              {e.end && e.end.getMonth() + 1}/{e.end && e.end.getFullYear()}
-            </p>
-            <p className="text-lg font-bold">
-              {e.name} - {e.company}
-            </p>
-          </div>
+          <p className="text-sm font-thin">
+            <span className="font-normal uppercase">
+              {CarreerType[e.typeId]}{" "}
+            </span>
 
-          <p>{e.about}</p>
+            {e.start.toLocaleDateString("es-ES", {
+              month: "short",
+              year: "numeric",
+            }) + " - "}
+            {e.end &&
+              e.end.toLocaleDateString("es-ES", {
+                month: "short",
+                year: "numeric",
+              })}
+          </p>
+
+          <p className="text-lg font-bold">
+            {e.name} - {e.company}
+          </p>
+
+          <p className="mt-1">{e.about}</p>
         </div>
       ))}
     </section>
