@@ -50,8 +50,11 @@ export default async function About(props: { email: string; cv: string }) {
                 transition-all duration-500 
                 hover:scale-105 hover:bg-zinc-500/40"
               >
-                <h3 className="text-xl font-bold">{e.name}</h3>
-                <p className="font-thin">Issued by: {e.issuedBy}</p>
+                <div>
+                  <h3 className="text-xl font-bold">{e.name}</h3>
+                  <p className="font-thin">Issued by: {e.issuedBy}</p>
+                </div>
+                <p>{e.about}</p>
               </a>
             ))}
           </div>
