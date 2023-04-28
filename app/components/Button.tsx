@@ -5,15 +5,18 @@ export default function Button(props: {
 }) {
   return (
     <a
-      className="flex-center w-fit gap-2 rounded-xl
-      border-[1px] border-zinc-50/30 
-      bg-zinc-500/20 px-6 
-      py-2.5 font-bold shadow-xl
-      backdrop-blur-lg
+      className="flex-center  w-fit 
+        gap-2
+        rounded-xl
+        bg-zinc-100 px-6
+        py-2.5 
+        font-bold text-zinc-900 backdrop-blur-lg
+        transition-all
+        duration-500 hover:scale-105
+        hover:bg-primary hover:text-zinc-100
+        hover:shadow-lg active:scale-95
   
-      transition-all duration-300 ease-in-out 
-      hover:scale-105 hover:bg-zinc-300/20
-      active:scale-95"
+     "
       href={props.link}
     >
       {props.text}

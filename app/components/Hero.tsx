@@ -13,7 +13,7 @@ export default function Hero() {
     <section
       className="
       relative mb-0
-      grid max-h-[1080px] min-h-[90vh] place-items-center pt-14"
+      grid max-h-[1080px] min-h-[80vh] place-items-center pt-14"
     >
       <div
         className="
@@ -21,18 +21,17 @@ export default function Hero() {
           min-h-full w-full flex-col gap-8"
       >
         <header className="grid place-items-center gap-4">
-          <h1 className="text-6xl font-black drop-shadow-xl md:text-8xl">
+          <h1 className="text-6xl font-bold drop-shadow-xl md:text-7xl">
             Hola, soy
             <br />
-            <span
-              className="gradient animate-gradient
-              bg-clip-text text-transparent "
+            <strong
+              className="gradient animate-gradient bg-clip-text font-black
+              text-transparent md:text-8xl "
             >
               Jordan Cortés.
-            </span>
+            </strong>
           </h1>
-
-          <p className="text-xl font-bold">
+          <p className="text-xl font-bold md:text-2xl">
             Software Developer / Motion Graphics
           </p>
         </header>
@@ -73,13 +72,7 @@ export default function Hero() {
         </div>
       </div>
 
-      <Image
-        src={image}
-        priority
-        fill
-        alt="Hero"
-        className="absolute top-0 -z-10"
-      />
+      <Image src={image} priority fill alt="Hero" className="top-0 -z-10" />
     </section>
   );
 }

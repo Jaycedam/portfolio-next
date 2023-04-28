@@ -9,7 +9,7 @@
   }
 
   header {
-    @apply mb-4;
+    @apply mb-2;
   }
 
   /* margin for anchor scrolling and adds whitespace  */
@@ -26,26 +26,22 @@
   }
 
   .gradient {
-    @apply bg-gradient-to-br from-fuchsia-500 via-purple-500 to-pink-500;
+    @apply bg-gradient-to-r from-[#54b5ff] via-[#8e3dff] to-primary;
   }
+
   .theme {
     @apply bg-zinc-950 text-zinc-100;
   }
 
-  /* .theme {
-    @apply bg-zinc-100 text-zinc-900
-    dark:bg-zinc-950 dark:text-zinc-100;
-  } */
-
   .nav-link {
     @apply rounded-lg p-3
     transition-all
-    duration-500 ease-out
+    duration-500
 
      hover:text-primary;
   }
 
   .social-icon {
-    @apply transition-all duration-300 ease-in-out hover:scale-110 active:scale-90;
+    @apply transition-all duration-300 hover:scale-110 active:scale-90;
   }
 }

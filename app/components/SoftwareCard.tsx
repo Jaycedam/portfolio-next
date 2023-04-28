@@ -15,7 +15,7 @@ export default function SoftwareCard(props: Software) {
         <div
           className="group relative isolate aspect-square
             overflow-hidden rounded-xl shadow-xl transition-all
-            duration-500 ease-in-out
+            duration-500
             hover:scale-105
             hover:shadow-md"
         >
@@ -27,7 +27,7 @@ export default function SoftwareCard(props: Software) {
             pt-12 font-bold
             text-zinc-50
             transition-all duration-500
-            ease-in-out lg:-bottom-4
+            lg:-bottom-4
             lg:opacity-0 lg:group-hover:bottom-0 lg:group-hover:opacity-100"
           >
             Ver projecto <BiLinkExternal />
@@ -40,8 +40,8 @@ export default function SoftwareCard(props: Software) {
             fill
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full w-full object-cover
-            transition
-            duration-500 ease-in-out group-hover:scale-110"
+            transition-all duration-500
+            group-hover:scale-110"
           />
         </div>
       </a>

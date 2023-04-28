@@ -24,7 +24,7 @@ export default async function Carreer() {
           className="grid w-full p-6 md:w-2/4
             md:odd:place-self-start md:odd:text-end md:even:place-self-end"
         >
-          <p className="text-sm font-thin">
+          <p className="text-sm font-light">
             <span className="font-normal uppercase">
               {CarreerType[e.typeId]}{" "}
             </span>

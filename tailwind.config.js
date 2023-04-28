@@ -11,12 +11,12 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#A760FF",
+        primary: "#ff399c",
         secondary: "#00F5FF",
         // ...
       },
       animation: {
-        gradient: "gradient 6s ease infinite",
+        gradient: "gradient 5s ease infinite",
       },
       keyframes: {
         gradient: {

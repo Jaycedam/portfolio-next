@@ -9,7 +9,7 @@ export default function Navbar() {
         data-visible="false"
         className="fixed inset-0 isolate z-40 h-full w-full
         bg-zinc-950/30 shadow-md backdrop-blur-lg 
-        transition-all duration-500 ease-out
+        transition-all duration-500
         data-[visible=false]:translate-x-full data-[visible=true]:translate-x-0
 
         md:h-14
@@ -23,7 +23,7 @@ export default function Navbar() {
           <a href="#top" className="close-nav" aria-label="home button">
             <svg className="h-6 w-auto" viewBox="0 0 932 716" version="1.1">
               <g
-                className="fill-zinc-50"
+                className="fill-zinc-100"
                 id="letters"
                 transform="matrix(1,0,0,1,-0.0384978,0)"
               >
@@ -44,12 +44,6 @@ export default function Navbar() {
           {/* <NavToggle /> */}
           {/* links section */}
           <ul className="flex flex-col gap-8 text-2xl md:flex-row md:text-base">
-            <li>
-              <a href="#top" className="nav-link close-nav">
-                Inicio
-              </a>
-            </li>
-
             <li>
               <a href="#projects" className="nav-link close-nav">
                 Proyectos
