@@ -11,11 +11,7 @@ export default async function Software() {
     <section id="projects" className="relative z-10">
       <div className="container">
         {/* title */}
-        <header
-          className="
-            flex flex-col items-center gap-4 py-4
-            md:flex-row"
-        >
+        <header>
           <h1 className="title">Proyectos personales</h1>
           <p className="text-sm font-light">
             Click imagen para ver proyecto o código.

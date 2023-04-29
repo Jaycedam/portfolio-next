@@ -37,9 +37,8 @@ model Motion {
 model Certifications {
   id        Int         @id @default(autoincrement())
   name      String      @db.VarChar(50)
-  issuedBy  String      @db.VarChar(50)
-  about     String      @db.VarChar(250)
   url       String      @db.VarChar(250)
+  imageUrl  String?     @db.VarChar(250)
 }
 
 model Type {

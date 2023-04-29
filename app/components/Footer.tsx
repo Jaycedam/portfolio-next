@@ -7,7 +7,7 @@ import {
 
 export default function Footer() {
   return (
-    <footer className="py-8">
+    <footer className="py-16">
       <div
         className="flex-center container mx-auto flex-col gap-8
           md:flex-row md:justify-between"

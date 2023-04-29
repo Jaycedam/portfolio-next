@@ -3,65 +3,72 @@ import { Certifications } from "@prisma/client";
 import Button from "./Button";
 import Image from "next/image";
 import profile from "../assets/profile.jpg";
-import bg from "../../public/bg2.webp";
 import { MdEmail } from "react-icons/md";
 import { HiDocumentText } from "react-icons/hi";
-
 export default async function About(props: { email: string; cv: string }) {
   const certifications = await getCerts();
 
   return (
     <section id="about" className="relative">
-      <div className="container grid gap-8 md:grid-flow-col md:grid-cols-2">
+      <div className="container grid items-center gap-8 md:grid-flow-col md:grid-cols-2">
         <Image
-          className="h-auto w-full rounded-xl object-cover"
+          className="mx-auto aspect-square h-auto w-2/4 rounded-xl object-cover md:w-full"
           src={profile}
           alt=""
         />
 
-        <div className="col-start-1 flex flex-col gap-16">
-          <div>
-            <h2 className="title mb-4">Acerca de mí</h2>
-            <p>
-              Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
-              aprendiendo nuevas tecnologías. Titulado Analista Programador en
-              Duoc UC, 2022. Previamente mantuve una carrera trabajando en
-              Motion Graphics por 4 años aprox, después de terminar de estudiar
-              Comunicación Audiovisual en Santo Tomas, 2015.
-            </p>
-
-            <div className="mt-4 flex gap-4">
-              <Button text="Ver CV" link={props.cv} icon={<HiDocumentText />} />
-              <Button text="Contactar" link={props.email} icon={<MdEmail />} />
-            </div>
-          </div>
-
-          <div className="col-start-1 row-start-2 grid">
-            <h2 className="title mb-4">Certificaciones</h2>
+        <div className="col-start-1 flex flex-col gap-8">
+          {/* certifications  */}
+          <div className="flex justify-center gap-4">
             {certifications.map((e) => (
               <a
                 target="_blank"
                 href={e.url}
                 key={e.id}
-                className="grid gap-2 rounded-xl 
-                border-[1px] border-zinc-100/20 
-                bg-zinc-500/20 
-                p-4 backdrop-blur-lg 
-                transition-all duration-500 
-                hover:scale-105 hover:bg-zinc-500/40"
+                className="relative
+                aspect-square 
+                h-auto w-1/3 transition-all duration-300 hover:scale-105"
               >
-                <div>
-                  <h3 className="text-xl font-bold">{e.name}</h3>
-                  <p className="font-thin">Issued by: {e.issuedBy}</p>
-                </div>
-                <p>{e.about}</p>
+                <Image fill src={e.imageUrl} alt={e.name} />
               </a>
             ))}
           </div>
+
+          {/* text section  */}
+          <div className="text-center">
+            <header>
+              <h2 className="title">Acerca de mí</h2>
+            </header>
+            <p>
+              Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
+              aprendiendo nuevas tecnologías. Titulado Analista Programador en
+              Duoc UC - 2022.
+              <br />
+              <br />
+              Previamente, mantuve una carrera trabajando en Motion Graphics por
+              un poco más de 4 años, después de finalizar Comunicación
+              Audiovisual en Santo Tomas - 2015.
+              <br />
+              <br />
+              Para ver mis proyectos destacados Motion Graphics, visitar{" "}
+              <a
+                href="https://dribbble.com/Jaycedam"
+                target="_blank"
+                className="font-bold text-primary"
+              >
+                Dribbble
+              </a>
+              .
+            </p>
+          </div>
+
+          {/* call to action  */}
+          <div className="flex justify-center gap-4">
+            <Button text="CV" link={props.cv} icon={<HiDocumentText />} />
+            <Button text="Contactar" link={props.email} icon={<MdEmail />} />
+          </div>
         </div>
       </div>
-
-      <Image src={bg} alt="" fill className="absolute bottom-0 -z-10" />
     </section>
   );
 }

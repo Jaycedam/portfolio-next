@@ -5,15 +5,13 @@ import {
   AiFillLinkedin,
 } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
-import Image from "next/image";
-import image from "../../public/bg.webp";
 
 export default function Hero() {
   return (
     <section
       className="
       relative mb-0
-      grid max-h-[1080px] min-h-[80vh] place-items-center pt-14"
+      grid min-h-[80vh] place-items-center pt-14"
     >
       <div
         className="
@@ -21,18 +19,19 @@ export default function Hero() {
           min-h-full w-full flex-col gap-8"
       >
         <header className="grid place-items-center gap-4">
-          <h1 className="text-6xl font-bold drop-shadow-xl md:text-7xl">
+          <h1 className="text-6xl font-black md:text-8xl">
             Hola, soy
             <br />
             <strong
-              className="gradient animate-gradient bg-clip-text font-black
-              text-transparent md:text-8xl "
+              className="gradient animate-gradient bg-clip-text
+              text-transparent"
             >
               Jordan Cortés.
             </strong>
           </h1>
-          <p className="text-xl font-bold md:text-2xl">
-            Software Developer / Motion Graphics
+
+          <p className="text-lg font-light">
+            Desarrollador de Software / Motion Gtaphics.
           </p>
         </header>
 
@@ -71,8 +70,6 @@ export default function Hero() {
           </a>
         </div>
       </div>
-
-      <Image src={image} priority fill alt="Hero" className="top-0 -z-10" />
     </section>
   );
 }

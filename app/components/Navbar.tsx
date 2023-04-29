@@ -1,4 +1,5 @@
 import NavToggle from "./NavToggle";
+import NavLink from "./NavLink";
 
 export default function Navbar() {
   return (
@@ -8,12 +9,11 @@ export default function Navbar() {
         id="navbar"
         data-visible="false"
         className="fixed inset-0 isolate z-40 h-full w-full
-        bg-zinc-950/30 shadow-md backdrop-blur-lg 
-        transition-all duration-500
-        data-[visible=false]:translate-x-full data-[visible=true]:translate-x-0
-
-        md:h-14
-        md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
+          bg-zinc-100/30 shadow backdrop-blur-lg transition-all 
+          duration-500 data-[visible=false]:translate-x-full
+          data-[visible=true]:translate-x-0 dark:bg-zinc-950/30
+          md:h-14
+          md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
       >
         <nav
           className="flex-center container mx-auto h-full w-full flex-col gap-8
@@ -23,7 +23,7 @@ export default function Navbar() {
           <a href="#top" className="close-nav" aria-label="home button">
             <svg className="h-6 w-auto" viewBox="0 0 932 716" version="1.1">
               <g
-                className="fill-zinc-100"
+                className="fill-zinc-950 dark:fill-zinc-100"
                 id="letters"
                 transform="matrix(1,0,0,1,-0.0384978,0)"
               >
@@ -43,43 +43,11 @@ export default function Navbar() {
 
           {/* <NavToggle /> */}
           {/* links section */}
-          <ul className="flex flex-col gap-8 text-2xl md:flex-row md:text-base">
-            <li>
-              <a href="#projects" className="nav-link close-nav">
-                Proyectos
-              </a>
-            </li>
-
-            <li>
-              <a href="#carreer" className="nav-link close-nav">
-                Carrera
-              </a>
-            </li>
-
-            <li>
-              <a href="#motion" className="nav-link close-nav">
-                Motion
-              </a>
-            </li>
-
-            <li>
-              <a href="#about" className="nav-link close-nav">
-                Acerca
-              </a>
-            </li>
-
-            <li>
-              <a
-                className="nav-link close-nav"
-                href={
-                  "mailto:" +
-                  process.env.EMAIL +
-                  "?subject=Contacto desde jordancortes.dev"
-                }
-              >
-                Contactar
-              </a>
-            </li>
+          <ul className="flex flex-col gap-12 md:flex-row">
+            <NavLink href="#projects" text="Proyectos" />
+            <NavLink href="#carreer" text="Carrera" />
+            <NavLink href="#about" text="Acerca" />
+            <NavLink href={process.env.EMAIL} text="Contactar" />
           </ul>
         </nav>
       </header>

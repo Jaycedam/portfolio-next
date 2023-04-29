@@ -1,6 +1,5 @@
 import Hero from "./components/Hero";
 import Software from "./components/Software";
-import Motion from "./components/Motion";
 import About from "./components/About";
 import Carreer from "./components/Carreer";
 
@@ -19,7 +18,6 @@ export default function Home() {
       <Software />
       {/* @ts-expect-error Server Component */}
       <Carreer />
-      <Motion motion_reel={motion_reel} />
       {/* @ts-expect-error Server Component */}
       <About email={email} cv={cv} />
     </main>

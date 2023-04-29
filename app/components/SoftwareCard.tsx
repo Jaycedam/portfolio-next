@@ -26,7 +26,7 @@ export default function SoftwareCard(props: Software) {
             from-zinc-950/80 pb-8 
             pt-12 font-bold
             text-zinc-50
-            transition-all duration-500
+            transition-all duration-300
             lg:-bottom-4
             lg:opacity-0 lg:group-hover:bottom-0 lg:group-hover:opacity-100"
           >
@@ -41,7 +41,7 @@ export default function SoftwareCard(props: Software) {
             sizes="(max-width: 768px) 100vw, 50vw"
             className="h-full w-full object-cover
             transition-all duration-500
-            group-hover:scale-110"
+            group-hover:scale-105"
           />
         </div>
       </a>
