@@ -31,7 +31,7 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg font-light">
-            Desarrollador de Software / Motion Gtaphics.
+            Desarrollador de Software / Motion Graphics.
           </p>
         </header>
 
