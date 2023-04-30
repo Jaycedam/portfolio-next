@@ -8,7 +8,7 @@ export default function NavLink(props: {
     <li>
       <a
         href={props.href}
-        className="close-nav relative isolate rounded-lg p-3 text-xl font-semibold
+        className="close-nav relative isolate rounded-lg p-3 text-xl
             transition-all duration-300 after:absolute
             after:inset-0 after:-z-10 after:h-full 
             after:w-full after:scale-75 after:rounded-xl after:bg-zinc-950

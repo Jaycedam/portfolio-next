@@ -13,20 +13,18 @@ export default function Hero() {
         flex min-h-[80vh] flex-col items-center justify-center gap-4 pt-14 text-center"
     >
       <header className="space-y-2">
-        <h1 className="text-6xl font-black md:text-8xl">
+        <h1 className="text-6xl font-bold md:text-7xl">
           Hola, soy
           <br />
           <strong
-            className="gradient animate-gradient bg-clip-text
-              text-transparent"
+            className="gradient animate-gradient bg-clip-text text-7xl font-black text-transparent
+              md:text-8xl"
           >
             Jordan Cortés.
           </strong>
         </h1>
 
-        <p className="text-lg font-light">
-          Desarrollador de Software / Motion Graphics.
-        </p>
+        <p className="text-lg font-light">Software Dev / Motion Graphics.</p>
       </header>
 
       <Button link="#projects" text="Ver proyectos" icon={<FaCode />} />

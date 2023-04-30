@@ -30,6 +30,9 @@ module.exports = {
           },
         },
       },
+      fontFamily: {
+        sans: ["var(--font-poppins)"],
+      },
     },
   },
   plugins: [],
