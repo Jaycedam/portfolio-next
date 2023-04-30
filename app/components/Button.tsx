@@ -5,7 +5,7 @@ export default function Button(props: {
 }) {
   return (
     <a
-      className="flex-center h-fit w-fit
+      className="flex h-fit w-fit items-center
         gap-2
         rounded-xl
         bg-zinc-950 px-6 py-2.5

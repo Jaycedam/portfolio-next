@@ -21,16 +21,8 @@
     @apply mx-auto p-4 md:px-0;
   }
 
-  .flex-center {
-    @apply flex items-center justify-center text-center;
-  }
-
   .gradient {
     @apply bg-gradient-to-r from-cyan-500 via-purple-500 to-primary;
-  }
-
-  .theme {
-    @apply bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100;
   }
 
   .social-icon {

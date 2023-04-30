@@ -39,9 +39,9 @@ export default function NavToggle() {
       onClick={navToggle}
       id="nav-toggle"
       className="fixed bottom-4 right-4 z-50 rounded-xl 
-      border-[1px] border-zinc-50/30 bg-zinc-500/20
-      p-4 text-zinc-100 shadow-xl backdrop-blur-lg 
-      active:scale-90 
+      bg-zinc-950/30 p-4 text-zinc-100
+      shadow backdrop-blur-lg active:scale-90
+      dark:bg-zinc-100/30 
       md:hidden"
     >
       <GiHamburgerMenu className="text-2xl" />

@@ -16,7 +16,7 @@ export default function Navbar() {
           md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
       >
         <nav
-          className="flex-center container mx-auto h-full w-full flex-col gap-8
+          className="container flex h-full w-full flex-col items-center justify-center gap-8 text-center
             md:flex-row md:justify-between"
         >
           {/* logo section  */}

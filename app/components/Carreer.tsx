@@ -9,7 +9,7 @@ export default async function Carreer() {
   return (
     <section
       id="carreer"
-      className="container relative mx-auto grid gap-4
+      className="container relative grid gap-4
         from-transparent via-purple-500 to-transparent
         after:absolute
         after:left-4 after:h-full after:w-1 after:bg-gradient-to-b md:w-3/4 md:after:left-2/4"

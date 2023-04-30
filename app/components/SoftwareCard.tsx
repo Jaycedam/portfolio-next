@@ -21,8 +21,8 @@ export default function SoftwareCard(props: Software) {
         >
           {/* overlay  */}
           <div
-            className="flex-center pointer-events-none absolute bottom-0
-            left-0 z-10 w-full gap-2 bg-gradient-to-t
+            className="pointer-events-none absolute bottom-0 left-0 z-10
+            flex w-full items-center justify-center gap-2 bg-gradient-to-t
             from-zinc-950/80 pb-8 
             pt-12 font-bold
             text-zinc-50
