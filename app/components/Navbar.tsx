@@ -9,9 +9,9 @@ export default function Navbar() {
         id="navbar"
         data-visible="false"
         className="fixed inset-0 isolate z-40 h-full w-full
-          bg-zinc-100/30 shadow backdrop-blur-lg transition-all 
+          bg-zinc-100/70 shadow backdrop-blur-lg transition-all 
           duration-500 data-[visible=false]:translate-x-full
-          data-[visible=true]:translate-x-0 dark:bg-zinc-950/30
+          data-[visible=true]:translate-x-0 dark:bg-zinc-950/70
           md:h-14
           md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
       >

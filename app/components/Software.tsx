@@ -11,7 +11,7 @@ export default async function Software() {
     <section id="projects" className="container">
       {/* title */}
       <header>
-        <h1 className="title">Proyectos personales</h1>
+        <h1 className="title">Proyectos</h1>
         <p className="text-sm font-light">
           Click imagen para ver proyecto o código.
         </p>

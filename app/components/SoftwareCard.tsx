@@ -14,14 +14,13 @@ export default function SoftwareCard(props: Software) {
       <a href={props.url} target="_blank">
         <div
           className="group relative isolate aspect-square
-            overflow-hidden rounded-xl shadow-xl transition-all
+            overflow-hidden rounded-xl shadow-md transition-all
             duration-500
-            hover:scale-105
-            hover:shadow-md"
+            hover:scale-[1.03]"
         >
           {/* overlay  */}
           <div
-            className="pointer-events-none absolute bottom-0 left-0 z-10
+            className="pointer-events-none absolute bottom-0 left-0 z-20
             flex w-full items-center justify-center gap-2 bg-gradient-to-t
             from-zinc-950/80 pb-8 
             pt-12 font-bold
