@@ -88,7 +88,8 @@ export default function Hero() {
         >
           {/* terminal  */}
           <div
-            className="pointer-events-none absolute left-[-15%] top-[10%] z-10 aspect-video h-[40%] rounded-xl 
+            className="absolute left-[-15%] top-[10%] z-10 aspect-video h-[40%] 
+              rounded-xl
               bg-gradient-to-tl
               from-zinc-100/30 from-50% to-zinc-300/30 
               shadow-xl backdrop-blur-xl
