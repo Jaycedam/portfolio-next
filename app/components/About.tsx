@@ -20,6 +20,7 @@ export default async function About(props: { email: string; cv: string }) {
           h-auto w-2/4 
           rounded-xl object-cover 
           md:w-full"
+        placeholder="blur"
         src={profile}
         alt=""
       />
@@ -36,7 +37,7 @@ export default async function About(props: { email: string; cv: string }) {
                 aspect-square 
                 h-auto w-1/3 transition-all duration-300 hover:scale-105"
             >
-              <Image fill src={e.imageUrl} alt={e.name} />
+              <Image sizes="50vw" fill src={e.imageUrl} alt={e.name} />
             </a>
           ))}
         </div>
