@@ -1,10 +1,13 @@
+"use client";
+
 import { BiLinkExternal } from "react-icons/bi";
 import Image from "next/image";
 import { Software } from "@prisma/client";
 import { ProjectType } from "../../utils/enums";
+import { motion } from "framer-motion";
+import { fadeInRight } from "../../utils/animations";
 
 export default function SoftwareCard(props: Software) {
-  // props = id, url, image_url, name, area, technologies, about
   return (
     <div
       className="grid gap-2
@@ -46,7 +49,13 @@ export default function SoftwareCard(props: Software) {
       </a>
 
       {/* text section */}
-      <div className="grid place-content-center gap-3">
+      <motion.div
+        variants={fadeInRight}
+        initial="initial"
+        whileInView="animate"
+        viewport={{ amount: 0.5 }}
+        className="grid place-content-center gap-3"
+      >
         <div>
           <h2 className="text-xl font-bold">
             {props.name} - {ProjectType[props.areaId]}
@@ -55,8 +64,14 @@ export default function SoftwareCard(props: Software) {
             {props.stack}
           </p>
         </div>
-        <p>{props.about}</p>
-      </div>
+        <motion.p
+          variants={fadeInRight}
+          initial="initial"
+          whileInView="animate"
+        >
+          {props.about}
+        </motion.p>
+      </motion.div>
     </div>
   );
 }

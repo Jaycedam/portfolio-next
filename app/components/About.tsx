@@ -2,9 +2,10 @@ import prisma from "../../lib/prisma";
 import { Certifications } from "@prisma/client";
 import Button from "./Button";
 import Image from "next/image";
-import profile from "../assets/profile.jpg";
+import profile from "../../public/profile.webp";
 import { MdEmail } from "react-icons/md";
 import { HiDocumentText } from "react-icons/hi";
+
 export default async function About(props: { email: string; cv: string }) {
   const certifications = await getCerts();
 
