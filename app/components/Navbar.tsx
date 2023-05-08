@@ -46,6 +46,7 @@ export default function Navbar() {
           <ul className="flex flex-col gap-12 md:flex-row">
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
+            <NavLink href="#motion" text="Motion" />
             <NavLink href="#about" text="Acerca" />
             <NavLink href={process.env.EMAIL} text="Contactar" />
           </ul>

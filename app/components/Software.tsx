@@ -12,9 +12,7 @@ export default async function Software() {
       {/* title */}
       <header>
         <h1 className="title">Proyectos</h1>
-        <p className="text-sm font-light">
-          Click imagen para ver proyecto o código.
-        </p>
+        <p className="text-sm font-light">Click imagen para ver proyecto.</p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">

@@ -4,13 +4,13 @@
 export const fadeInRight = {
   initial: {
     opacity: 0,
-    x: -30,
+    x: -10,
   },
   animate: {
     opacity: 1,
     x: 0,
     transition: {
-      duration: 0.7,
+      duration: 0.5,
       ease: "easeOut",
       staggerChildren: 0.5,
     },
@@ -25,7 +25,7 @@ export const fadeIn = {
   animate: {
     opacity: 1,
     transition: {
-      duration: 0.7,
+      duration: 0.5,
     },
   },
 };

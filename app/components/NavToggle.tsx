@@ -35,6 +35,7 @@ export default function NavToggle() {
 
   return (
     <button
+      type="button"
       aria-label="Toggle navbar"
       onClick={navToggle}
       id="nav-toggle"

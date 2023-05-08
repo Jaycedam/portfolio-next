@@ -2,6 +2,7 @@ import Hero from "./components/Hero";
 import Software from "./components/Software";
 import About from "./components/About";
 import Carreer from "./components/Carreer";
+import Motion from "./components/Motion";
 
 export default function Home() {
   const motion_reel: string = process.env.MOTION_VIDEO_URL;
@@ -18,6 +19,7 @@ export default function Home() {
       <Software />
       {/* @ts-expect-error Server Component */}
       <Carreer />
+      <Motion motion_reel={motion_reel} />
       {/* @ts-expect-error Server Component */}
       <About email={email} cv={cv} />
     </main>
