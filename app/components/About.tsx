@@ -4,7 +4,6 @@ import Button from "./Button";
 import Image from "next/image";
 import profile from "../../public/profile.webp";
 import { MdEmail } from "react-icons/md";
-import { HiDocumentText } from "react-icons/hi";
 
 export default async function About(props: { email: string; cv: string }) {
   const certifications = await getCerts();
@@ -72,7 +71,6 @@ export default async function About(props: { email: string; cv: string }) {
 
         {/* call to action  */}
         <div className="flex justify-center gap-4">
-          <Button text="CV" link={props.cv} icon={<HiDocumentText />} />
           <Button text="Contactar" link={props.email} icon={<MdEmail />} />
         </div>
       </div>
