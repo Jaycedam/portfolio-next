@@ -24,8 +24,9 @@ export default function Motion(props: { motion_reel: string }) {
 
         <video
           className="aspect-[16/9] w-full rounded-xl shadow-xl"
-          controls
           loop
+          muted
+          autoPlay
           src={props.motion_reel}
         />
       </div>

@@ -8,7 +8,7 @@ export default function Button(props: {
       className="flex h-fit w-fit items-center
         gap-2
         rounded-xl
-        bg-zinc-950 px-6 py-2.5
+        bg-zinc-950 px-4 py-2
         font-bold 
         text-zinc-100 backdrop-blur-lg transition-all duration-300
         hover:scale-105

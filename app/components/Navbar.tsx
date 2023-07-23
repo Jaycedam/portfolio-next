@@ -1,5 +1,7 @@
 import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
+import Button from "./Button";
+import { MdEmail } from "react-icons/md";
 
 export default function Navbar() {
   return (
@@ -43,12 +45,16 @@ export default function Navbar() {
 
           {/* <NavToggle /> */}
           {/* links section */}
-          <ul className="flex flex-col gap-12 md:flex-row">
+          <ul className="flex flex-col items-center gap-12 md:flex-row">
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#motion" text="Motion" />
             <NavLink href="#about" text="Acerca" />
-            <NavLink href={process.env.EMAIL} text="Contactar" />
+            <Button
+              link={process.env.EMAIL}
+              text="Contactar"
+              icon={<MdEmail />}
+            />
           </ul>
         </nav>
       </header>
