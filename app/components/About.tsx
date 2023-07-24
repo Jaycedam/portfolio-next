@@ -4,7 +4,7 @@ import Button from "./Button";
 import Image from "next/image";
 import { MdEmail } from "react-icons/md";
 import LottieAnimation from "./LottieAnimation";
-import data from "../../utils/lottie/dev.json";
+import data from "../../utils/lottie/about.json";
 
 export default async function About(props: { email: string }) {
   const certifications = await getCerts();
