@@ -3,8 +3,7 @@ import { Certifications } from "@prisma/client";
 import Button from "./Button";
 import Image from "next/image";
 import { MdEmail } from "react-icons/md";
-import LottieAnimation from "./LottieAnimation";
-import data from "../../utils/lottie/about.json";
+import profile from "../../public/profile.webp";
 
 export default async function About(props: { email: string }) {
   const certifications = await getCerts();
@@ -15,7 +14,15 @@ export default async function About(props: { email: string }) {
       className="container grid items-center gap-8 
         md:grid-flow-col md:grid-cols-2"
     >
-      <LottieAnimation data={data} />
+      <Image
+        className="mx-auto aspect-square 
+          h-auto w-2/4 
+          rounded-xl object-cover 
+          md:w-full"
+        placeholder="blur"
+        src={profile}
+        alt=""
+      />
 
       <div className="col-start-1 flex flex-col gap-8">
         {/* certifications  */}
