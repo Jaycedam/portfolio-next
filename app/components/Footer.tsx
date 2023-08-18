@@ -1,9 +1,4 @@
-import {
-  AiFillGithub,
-  AiFillDribbbleCircle,
-  AiFillLinkedin,
-  AiOutlineArrowUp,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin, AiOutlineArrowUp } from "react-icons/ai";
 
 export default function Footer() {
   return (
@@ -27,17 +22,6 @@ export default function Footer() {
           >
             <AiFillGithub />
             GitHub
-          </a>
-        </li>
-
-        <li>
-          <a
-            href="https://dribbble.com/jaycedam"
-            target="_blank"
-            className="flex items-center gap-2 text-center"
-          >
-            <AiFillDribbbleCircle />
-            Dribble
           </a>
         </li>
 

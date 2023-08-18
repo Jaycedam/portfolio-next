@@ -1,9 +1,5 @@
 import Button from "./Button";
-import {
-  AiFillGithub,
-  AiFillDribbbleCircle,
-  AiFillLinkedin,
-} from "react-icons/ai";
+import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
 import LaptopAnimation from "./LaptopAnimation";
 
@@ -38,15 +34,6 @@ export default function Hero() {
               className="social-icon"
             >
               <AiFillGithub />
-            </a>
-
-            <a
-              target="_blank"
-              href="https://dribbble.com/Jaycedam"
-              aria-label="Dribbble Link"
-              className="social-icon"
-            >
-              <AiFillDribbbleCircle />
             </a>
 
             <a
