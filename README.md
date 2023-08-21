@@ -23,6 +23,12 @@ Planetscale for MySQL database management.
 
 ---
 
+## Update next
+
+```bash
+npm i next@latest react@latest react-dom@latest eslint-config-next@latest
+```
+
 ## Next.js instructions
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
