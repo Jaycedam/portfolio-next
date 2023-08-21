@@ -1,5 +1,5 @@
 export default function Button(props: {
-  text: string;
+  text?: string;
   link: string;
   icon?: JSX.Element;
 }) {
@@ -15,7 +15,7 @@ export default function Button(props: {
         dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-primary dark:hover:text-zinc-50"
       href={props.link}
     >
-      {props.text}
+      {props.text && props.text}
       {/* checks if prop icon exist  */}
       {props.icon && <span>{props.icon}</span>}
     </a>
