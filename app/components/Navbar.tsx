@@ -50,7 +50,7 @@ export default function Navbar() {
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
 
-            <li className="border-l border-zinc-200 pl-6 dark:border-zinc-800">
+            <li className="md:border-l md:border-zinc-200 md:pl-6 md:dark:border-zinc-800">
               <ThemeToggle />
             </li>
             <li>
