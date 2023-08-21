@@ -49,11 +49,13 @@ export default function Navbar() {
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
-            <Button
-              link={process.env.EMAIL}
-              text="Contactar"
-              icon={<MdEmail />}
-            />
+            <li>
+              <Button
+                link={process.env.EMAIL}
+                text="Contactar"
+                icon={<MdEmail />}
+              />
+            </li>
           </ul>
         </nav>
       </header>
