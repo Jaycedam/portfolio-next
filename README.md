@@ -23,7 +23,7 @@ Planetscale for MySQL database management.
 
 ---
 
-## Update next
+## Update Next.js
 
 ```bash
 npm i next@latest react@latest react-dom@latest eslint-config-next@latest

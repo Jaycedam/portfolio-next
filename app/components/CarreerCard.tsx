@@ -17,9 +17,9 @@ export default function CarreerCard(props: Carreer) {
         md:odd:place-self-start md:odd:text-end md:even:place-self-end"
     >
       <p className="text-sm font-light">
-        <span className="font-normal uppercase text-primary">
+        <strong className="font-normal uppercase text-primary">
           {CarreerType[props.typeId]}{" "}
-        </span>
+        </strong>
 
         {props.start.toLocaleDateString("es-ES", {
           month: "short",
