@@ -2,6 +2,7 @@ import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
 import Button from "./Button";
 import { MdEmail } from "react-icons/md";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
@@ -46,6 +47,9 @@ export default function Navbar() {
           {/* <NavToggle /> */}
           {/* links section */}
           <ul className="flex flex-col items-center gap-12 md:flex-row">
+            <li>
+              <ThemeToggle />
+            </li>
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
