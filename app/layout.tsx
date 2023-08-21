@@ -2,6 +2,7 @@ import Footer from "./components/Footer";
 import Navbar from "./components/Navbar";
 import "./globals.css";
 import { Poppins } from "next/font/google";
+import { Providers } from "./components/Providers";
 
 export const metadata = {
   title: "Jordan Cortes",
@@ -22,9 +23,11 @@ export default function RootLayout({
   return (
     <html lang="es" className={`${poppins.variable} scroll-smooth`}>
       <body className="overflow-x-hidden bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
-        <Navbar />
-        {children}
-        <Footer />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+        </Providers>
       </body>
     </html>
   );
