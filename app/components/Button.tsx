@@ -12,8 +12,7 @@ export default function Button(props: {
         transition-all duration-300
         hover:scale-105 hover:bg-primary hover:shadow-lg
         active:scale-95
-        dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-primary dark:hover:text-zinc-50
-     "
+        dark:bg-zinc-50 dark:text-zinc-900 dark:hover:bg-primary dark:hover:text-zinc-50"
       href={props.link}
     >
       {props.text}

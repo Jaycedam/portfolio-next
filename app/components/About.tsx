@@ -61,9 +61,8 @@ export default async function About() {
               target="_blank"
               className="font-bold text-primary"
             >
-              Dribbble
+              Dribbble.
             </a>
-            .
           </p>
         </div>
       </div>
