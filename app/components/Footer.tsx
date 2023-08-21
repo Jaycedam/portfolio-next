@@ -11,7 +11,7 @@ export default function Footer() {
       </a>
 
       <ul
-        className="flex flex-col items-center gap-8
+        className="flex flex-col items-center gap-8 text-2xl
           md:flex-row"
       >
         <li>
@@ -21,7 +21,6 @@ export default function Footer() {
             className="flex items-center gap-2 text-center"
           >
             <AiFillGithub />
-            GitHub
           </a>
         </li>
 
@@ -32,7 +31,6 @@ export default function Footer() {
             className="flex items-center gap-2 text-center"
           >
             <AiFillLinkedin />
-            Linkedin
           </a>
         </li>
       </ul>

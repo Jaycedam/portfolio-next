@@ -1,11 +1,9 @@
 import prisma from "../../lib/prisma";
 import { Certifications } from "@prisma/client";
-import Button from "./Button";
 import Image from "next/image";
-import { MdEmail } from "react-icons/md";
 import profile from "../../public/profile.webp";
 
-export default async function About(props: { email: string }) {
+export default async function About() {
   const certifications = await getCerts();
 
   return (
@@ -34,7 +32,7 @@ export default async function About(props: { email: string }) {
               key={e.id}
               className="relative
                 aspect-square 
-                h-auto w-1/3 transition-all duration-300 hover:scale-105"
+                h-auto w-1/4 transition-all duration-300 hover:scale-105"
             >
               <Image sizes="50vw" fill src={e.imageUrl} alt={e.name} />
             </a>
@@ -67,11 +65,6 @@ export default async function About(props: { email: string }) {
             </a>
             .
           </p>
-        </div>
-
-        {/* call to action  */}
-        <div className="flex justify-center gap-4">
-          <Button text="Contactar" link={props.email} icon={<MdEmail />} />
         </div>
       </div>
     </section>
