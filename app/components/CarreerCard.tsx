@@ -16,7 +16,9 @@ export default function CarreerCard(props: Carreer) {
       className="grid w-full p-6 md:w-2/4
         md:odd:place-self-start md:odd:text-end md:even:place-self-end"
     >
-      <p className="text-sm font-light">
+      {/* due to localization mismatch on server/client 
+      I added suppressHydrationWarning to prevent log this issue on browser */}
+      <p className="text-sm font-light" suppressHydrationWarning>
         <strong className="font-normal uppercase text-primary">
           {CarreerType[props.typeId]}{" "}
         </strong>
