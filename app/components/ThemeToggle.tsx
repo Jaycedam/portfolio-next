@@ -14,23 +14,33 @@ const ThemeToggle = () => {
     setMounted(true);
   }, []);
 
+  // Returns placeholder if client hasn't mounted the component yet
+  // this is to prevent desync from server and client UI due to next-themes pckg
   if (!mounted) {
-    return null;
+    return (
+      <div className="relative z-10 inline-block text-left">
+        <div
+          className="inline-flex w-full items-center justify-center gap-2 rounded-md
+          px-4 py-2 text-zinc-900 
+          focus:outline-none focus-visible:ring-2 focus-visible:ring-white
+          dark:text-zinc-50"
+        >
+          <BsMoonStars />
+        </div>
+      </div>
+    );
   }
 
   return (
     <Menu as="div" className="relative z-10 inline-block text-left">
-      <div>
-        <Menu.Button
-          className="inline-flex w-full items-center justify-center gap-2 rounded-md 
+      <Menu.Button
+        className="inline-flex w-full items-center justify-center gap-2 rounded-md
           px-4 py-2 text-zinc-900 
           focus:outline-none focus-visible:ring-2 focus-visible:ring-white
-          dark:text-zinc-50
-         "
-        >
-          <BsMoonStars />
-        </Menu.Button>
-      </div>
+          dark:text-zinc-50"
+      >
+        <BsMoonStars />
+      </Menu.Button>
       <Transition
         as={Fragment}
         enter="transition ease-out duration-100"
