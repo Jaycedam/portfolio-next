@@ -21,12 +21,16 @@ const ThemeToggle = () => {
 
   // Returns placeholder if client hasn't mounted the component yet
   // this is to prevent desync from server and client UI due to next-themes pckg
+  // Hidden from screenreaders
   if (!mounted) {
     return (
       <div className="relative z-10 inline-block text-left">
         <div
-          className="inline-flex h-fit w-fit items-center justify-center rounded-md px-4 
-         py-2  text-zinc-50 "
+          aria-hidden="true"
+          className="flex h-9 w-fit items-center gap-2 rounded-md bg-zinc-800  px-4 capitalize 
+          text-zinc-50 outline outline-1 
+          outline-zinc-50/30 transition-all
+          duration-150 hover:bg-zinc-600"
         >
           <BsFillMoonStarsFill />
         </div>
@@ -38,8 +42,10 @@ const ThemeToggle = () => {
     <Menu as="div" className="relative z-10 inline-block text-left">
       <Menu.Button
         aria-label="Theme Toggle"
-        className="inline-flex h-fit w-fit items-center justify-center rounded-md px-4 py-2
-          hover:text-primary"
+        className="flex h-9 w-fit items-center gap-2 rounded-md bg-zinc-800  px-4 capitalize 
+        text-zinc-50 outline outline-1 
+        outline-zinc-50/30 transition-all
+        duration-150 hover:bg-zinc-600"
       >
         <BsFillMoonStarsFill />
       </Menu.Button>

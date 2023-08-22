@@ -1,7 +1,8 @@
 import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
-import ThemeToggle from "./ThemeToggle";
 import { MdEmail } from "react-icons/md";
+import Button from "./Button";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
@@ -49,17 +50,14 @@ export default function Navbar() {
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
-            <li className="md:border-l md:border-zinc-300 md:pl-4 md:dark:border-zinc-700">
+            <li className="md:border-l md:border-zinc-300 md:pl-8 md:dark:border-zinc-700">
               <ThemeToggle />
             </li>
             <li>
-              <a
-                aria-label="Email"
-                href={process.env.EMAIL}
-                className="text-xl hover:text-primary"
-              >
-                <MdEmail />
-              </a>
+              <Button
+                link={process.env.EMAIL}
+                icon={<MdEmail className="text-xl" />}
+              />
             </li>
           </ul>
         </nav>
