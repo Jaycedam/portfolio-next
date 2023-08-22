@@ -6,7 +6,7 @@ import { Menu, Transition } from "@headlessui/react";
 
 const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);
-  const { setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
 
   // useEffect only runs on the client, so now we can safely show the UI
   // Prevents desynct UI server - client
@@ -20,9 +20,8 @@ const ThemeToggle = () => {
     return (
       <div className="relative z-10 inline-block text-left">
         <div
-          className="inline-flex w-full items-center justify-center gap-2 rounded-md
+          className="inline-flex w-full items-center justify-center rounded-md
           px-4 py-2 text-zinc-900 
-          focus:outline-none focus-visible:ring-2 focus-visible:ring-white
           dark:text-zinc-50"
         >
           <BsMoonStars />
@@ -34,10 +33,9 @@ const ThemeToggle = () => {
   return (
     <Menu as="div" className="relative z-10 inline-block text-left">
       <Menu.Button
-        className="inline-flex w-full items-center justify-center gap-2 rounded-md
-          px-4 py-2 text-zinc-900 
-          focus:outline-none focus-visible:ring-2 focus-visible:ring-white
-          dark:text-zinc-50"
+        className="inline-flex h-fit w-fit items-center justify-center gap-2 rounded-md bg-zinc-800 px-4 
+          py-2 font-bold  text-zinc-50 outline 
+          outline-1 outline-zinc-50/30 duration-150 hover:bg-zinc-600"
       >
         <BsMoonStars />
       </Menu.Button>

@@ -60,7 +60,7 @@ export default function SoftwareCard(props: Software) {
           <h2 className="text-xl font-bold">
             {props.name} - {ProjectType[props.areaId]}
           </h2>
-          <p className="text-sm font-light text-zinc-800 dark:text-zinc-300">
+          <p className="text-sm font-light text-zinc-800 dark:text-zinc-400">
             {props.stack}
           </p>
         </div>

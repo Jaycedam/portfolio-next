@@ -28,7 +28,7 @@ export default function RootLayout({
       className={`${poppins.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body className="overflow-x-hidden bg-gray-100 text-gray-900 dark:bg-gray-950 dark:text-gray-100">
+      <body className="overflow-x-hidden bg-zinc-100 text-zinc-900 dark:bg-zinc-950 dark:text-zinc-100">
         <Providers>
           <Navbar />
           {children}

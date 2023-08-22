@@ -2,6 +2,7 @@ import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
 import ThemeToggle from "./ThemeToggle";
 import { MdOutlineEmail } from "react-icons/md";
+import Button from "./Button";
 
 export default function Navbar() {
   return (
@@ -49,14 +50,11 @@ export default function Navbar() {
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
-
-            <li className="md:border-l md:border-zinc-200 md:pl-6 md:dark:border-zinc-800">
+            <li className="md:border-l md:border-zinc-200 md:pl-8 md:dark:border-zinc-800">
               <ThemeToggle />
             </li>
             <li>
-              <a href={process.env.EMAIL} className="text-xl">
-                <MdOutlineEmail />
-              </a>
+              <Button link={process.env.EMAIL} icon={<MdOutlineEmail />} />
             </li>
           </ul>
         </nav>

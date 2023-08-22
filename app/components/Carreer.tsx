@@ -2,8 +2,6 @@ import prisma from "../../lib/prisma";
 import { Carreer } from "@prisma/client";
 import CarreerCard from "./CarreerCard";
 
-const options = { year: "numeric", month: "long" };
-
 export default async function Carreer() {
   const carreer = await getCarreer();
   return (
