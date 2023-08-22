@@ -1,8 +1,7 @@
 import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
 import ThemeToggle from "./ThemeToggle";
-import { MdOutlineEmail } from "react-icons/md";
-import Button from "./Button";
+import { MdEmail } from "react-icons/md";
 
 export default function Navbar() {
   return (
@@ -46,15 +45,21 @@ export default function Navbar() {
 
           {/* <NavToggle /> */}
           {/* links section */}
-          <ul className="flex flex-col items-center gap-8 md:flex-row">
+          <ul className="flex flex-col items-center gap-8 md:flex-row md:gap-4">
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
-            <li className="md:border-l md:border-zinc-200 md:pl-8 md:dark:border-zinc-800">
+            <li className="md:border-l md:border-zinc-300 md:pl-4 md:dark:border-zinc-700">
               <ThemeToggle />
             </li>
             <li>
-              <Button link={process.env.EMAIL} icon={<MdOutlineEmail />} />
+              <a
+                aria-label="Email"
+                href={process.env.EMAIL}
+                className="text-xl hover:text-primary"
+              >
+                <MdEmail />
+              </a>
             </li>
           </ul>
         </nav>

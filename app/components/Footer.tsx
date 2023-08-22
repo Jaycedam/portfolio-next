@@ -6,7 +6,11 @@ export default function Footer() {
       className="container flex flex-col items-center justify-center gap-8 py-16
         md:flex-row md:justify-between"
     >
-      <a href="#top" className="flex items-center gap-2">
+      <a
+        aria-label="Back to top"
+        href="#top"
+        className="flex items-center gap-2"
+      >
         <AiOutlineArrowUp /> Volver al inicio
       </a>
 
@@ -16,6 +20,7 @@ export default function Footer() {
       >
         <li>
           <a
+            aria-label="Github"
             href="https://github.com/Jaycedam"
             target="_blank"
             className="flex items-center gap-2 text-center"
@@ -26,6 +31,7 @@ export default function Footer() {
 
         <li>
           <a
+            aria-label="LinkedIn"
             href="https://www.linkedin.com/in/jaycedam/"
             target="_blank"
             className="flex items-center gap-2 text-center"

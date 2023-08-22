@@ -1,5 +1,10 @@
 "use client";
-import { BsMoonStars, BsSun, BsGear } from "react-icons/bs";
+import {
+  BsFillMoonStarsFill,
+  BsMoonStars,
+  BsSun,
+  BsGear,
+} from "react-icons/bs";
 import { useState, useEffect, Fragment } from "react";
 import { useTheme } from "next-themes";
 import { Menu, Transition } from "@headlessui/react";
@@ -20,11 +25,10 @@ const ThemeToggle = () => {
     return (
       <div className="relative z-10 inline-block text-left">
         <div
-          className="inline-flex w-full items-center justify-center rounded-md
-          px-4 py-2 text-zinc-900 
-          dark:text-zinc-50"
+          className="inline-flex h-fit w-fit items-center justify-center rounded-md px-4 
+         py-2  text-zinc-50 "
         >
-          <BsMoonStars />
+          <BsFillMoonStarsFill />
         </div>
       </div>
     );
@@ -33,11 +37,11 @@ const ThemeToggle = () => {
   return (
     <Menu as="div" className="relative z-10 inline-block text-left">
       <Menu.Button
-        className="inline-flex h-fit w-fit items-center justify-center gap-2 rounded-md bg-zinc-800 px-4 
-          py-2 font-bold  text-zinc-50 outline 
-          outline-1 outline-zinc-50/30 duration-150 hover:bg-zinc-600"
+        aria-label="Theme Toggle"
+        className="inline-flex h-fit w-fit items-center justify-center rounded-md px-4 py-2
+          hover:text-primary"
       >
-        <BsMoonStars />
+        <BsFillMoonStarsFill />
       </Menu.Button>
       <Transition
         as={Fragment}
@@ -56,39 +60,33 @@ const ThemeToggle = () => {
             dark:divide-zinc-700 dark:bg-zinc-800 dark:text-zinc-50"
         >
           <Menu.Item>
-            {({ active }) => (
-              <button
-                className="flex h-fit w-full items-center gap-2 px-4 py-2 
+            <button
+              className="flex h-fit w-full items-center gap-2 px-4 py-2 
                 hover:bg-primary hover:text-zinc-50 focus-visible:bg-primary focus-visible:text-zinc-50"
-                onClick={() => setTheme("light")}
-              >
-                <BsSun /> Light
-              </button>
-            )}
+              onClick={() => setTheme("light")}
+            >
+              <BsSun /> Light
+            </button>
           </Menu.Item>
 
           <Menu.Item>
-            {({ active }) => (
-              <button
-                className="flex h-fit w-full items-center gap-2 px-4 py-2 
+            <button
+              className="flex h-fit w-full items-center gap-2 px-4 py-2 
               hover:bg-primary hover:text-zinc-50 focus-visible:bg-primary focus-visible:text-zinc-50"
-                onClick={() => setTheme("dark")}
-              >
-                <BsMoonStars /> Dark
-              </button>
-            )}
+              onClick={() => setTheme("dark")}
+            >
+              <BsMoonStars /> Dark
+            </button>
           </Menu.Item>
 
           <Menu.Item>
-            {({ active }) => (
-              <button
-                className="flex h-fit w-full items-center gap-2 px-4 py-2 
+            <button
+              className="flex h-fit w-full items-center gap-2 px-4 py-2 
               hover:bg-primary hover:text-zinc-50 focus-visible:bg-primary focus-visible:text-zinc-50"
-                onClick={() => setTheme("system")}
-              >
-                <BsGear /> System
-              </button>
-            )}
+              onClick={() => setTheme("system")}
+            >
+              <BsGear /> System
+            </button>
           </Menu.Item>
         </Menu.Items>
       </Transition>
