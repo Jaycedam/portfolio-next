@@ -1,17 +1,50 @@
-import prisma from "../../lib/prisma";
-import { Certifications } from "@prisma/client";
 import Image from "next/image";
 import profile from "../../public/profile.webp";
+import Button from "./Button";
+import { MdEmail } from "react-icons/md";
 
-export default async function About() {
-  const certifications = await getCerts();
-
+export default function About() {
   return (
     <section
       id="about"
       className="container grid items-center gap-8 
         md:grid-flow-col md:grid-cols-2"
     >
+      {/* text section  */}
+      <div className="grid place-items-center text-center">
+        <header>
+          <h2 className="title">Acerca de mí</h2>
+        </header>
+        <p>
+          Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
+          aprendiendo nuevas tecnologías. Titulado Analista Programador en Duoc
+          UC - 2022.
+          <br />
+          <br />
+          Previamente, mantuve una carrera trabajando en Motion Graphics por un
+          poco más de 4 años, después de finalizar Comunicación Audiovisual en
+          Santo Tomas - 2015.
+          <br />
+          <br />
+          Para ver mis proyectos destacados Motion Graphics, visitar{" "}
+          <a
+            href="https://dribbble.com/Jaycedam"
+            target="_blank"
+            className="font-bold text-primary"
+          >
+            Dribbble.
+          </a>
+        </p>
+
+        <div className="mt-4">
+          <Button
+            text="Contactar"
+            link={process.env.EMAIL}
+            icon={<MdEmail className="h-full w-auto" />}
+          />
+        </div>
+      </div>
+
       <Image
         className="mx-auto aspect-square 
           h-auto w-2/4 
@@ -21,59 +54,6 @@ export default async function About() {
         src={profile}
         alt=""
       />
-
-      <div className="col-start-1 flex flex-col gap-8">
-        {/* certifications  */}
-        <div className="flex justify-center gap-4">
-          {certifications.map((e) => (
-            <a
-              target="_blank"
-              href={e.url}
-              key={e.id}
-              className="relative
-                aspect-square 
-                h-auto w-1/4 transition-all duration-300 hover:scale-105"
-            >
-              <Image sizes="50vw" fill src={e.imageUrl} alt={e.name} />
-            </a>
-          ))}
-        </div>
-
-        {/* text section  */}
-        <div className="text-center">
-          <header>
-            <h2 className="title">Acerca de mí</h2>
-          </header>
-          <p>
-            Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
-            aprendiendo nuevas tecnologías. Titulado Analista Programador en
-            Duoc UC - 2022.
-            <br />
-            <br />
-            Previamente, mantuve una carrera trabajando en Motion Graphics por
-            un poco más de 4 años, después de finalizar Comunicación Audiovisual
-            en Santo Tomas - 2015.
-            <br />
-            <br />
-            Para ver mis proyectos destacados Motion Graphics, visitar{" "}
-            <a
-              href="https://dribbble.com/Jaycedam"
-              target="_blank"
-              className="font-bold text-primary"
-            >
-              Dribbble.
-            </a>
-          </p>
-        </div>
-      </div>
     </section>
   );
-}
-
-// get data from database, using Prisma model interface
-// update prisma interface when doing migrations with
-// npx prisma generate
-async function getCerts(): Promise<Certifications[]> {
-  const result = await prisma.certifications.findMany();
-  return result;
 }
