@@ -12,7 +12,7 @@ export default function NavLink(props: {
             duration-300 after:absolute after:inset-0
             after:-z-10 after:h-full hover:text-primary 
            
-            dark:text-zinc-300 dark:hover:text-primary md:text-sm"
+            dark:text-zinc-400 dark:hover:text-zinc-50 md:text-sm"
       >
         {props.text}
         <span>{props.icon && props.icon}</span>
