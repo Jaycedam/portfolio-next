@@ -35,15 +35,6 @@ export default function Hero() {
             >
               <AiFillGithub />
             </a>
-
-            <a
-              target="_blank"
-              href="https://www.linkedin.com/in/jaycedam"
-              aria-label="Linkedin Link"
-              className="social-icon"
-            >
-              <AiFillLinkedin />
-            </a>
           </div>
 
           <header className="max-w-xl space-y-2">

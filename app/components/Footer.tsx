@@ -28,17 +28,6 @@ export default function Footer() {
             <AiFillGithub />
           </a>
         </li>
-
-        <li>
-          <a
-            aria-label="LinkedIn"
-            href="https://www.linkedin.com/in/jaycedam/"
-            target="_blank"
-            className="flex items-center gap-2 text-center"
-          >
-            <AiFillLinkedin />
-          </a>
-        </li>
       </ul>
     </footer>
   );
