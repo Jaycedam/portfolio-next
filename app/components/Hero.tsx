@@ -2,6 +2,7 @@ import Button from "./Button";
 import { AiFillGithub, AiFillLinkedin } from "react-icons/ai";
 import { FaCode } from "react-icons/fa";
 import LaptopAnimation from "./LaptopAnimation";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Hero() {
   return (
@@ -22,22 +23,9 @@ export default function Hero() {
           className="flex flex-col items-center gap-4 text-center
             md:items-start md:text-start"
         >
-          {/* social icons  */}
-          <div
-            className="
-            flex gap-4 text-3xl"
-          >
-            <a
-              target="_blank"
-              href="https://github.com/Jaycedam/"
-              aria-label="GitHub Link"
-              className="social-icon"
-            >
-              <AiFillGithub />
-            </a>
-          </div>
+          <ThemeToggle />
 
-          <header className="max-w-xl space-y-2">
+          <header className="mt-4 max-w-xl space-y-2">
             <h1 className="text-3xl font-bold md:text-4xl">
               Hola, soy
               <br />
