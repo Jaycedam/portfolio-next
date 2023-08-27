@@ -9,8 +9,7 @@ export default function Button(props: {
         px-4 font-bold
         text-zinc-50 outline
         outline-1 outline-zinc-50/30 transition-all 
-        duration-150
-        hover:bg-zinc-600 
+        hover:bg-zinc-600 focus:bg-zinc-600
         active:scale-95"
       href={props.link}
     >
