@@ -2,8 +2,8 @@ import SoftwareCard from "./SoftwareCard";
 import prisma from "../../lib/prisma";
 import { Software } from "@prisma/client";
 
-// revalidate cache every week
-export const revalidate = 604800;
+// disable caching, turn on for development
+// export const revalidate = 0;
 
 export default async function Software() {
   const projects = await getData();
@@ -12,7 +12,10 @@ export default async function Software() {
       {/* title */}
       <header>
         <h1 className="title">Proyectos</h1>
-        <p className="text-sm font-light">Click imagen para ver proyecto.</p>
+        <p className=" text-sm font-light">
+          Algunos de mis proyectos destacados, click en imagen para más
+          detalles.
+        </p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-10">

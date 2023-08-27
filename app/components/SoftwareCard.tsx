@@ -28,11 +28,9 @@ export default function SoftwareCard(props: Software) {
             from-zinc-950/80 pb-8 
             pt-12 font-bold
             text-zinc-50
-            transition-all duration-300
-            lg:-bottom-4
-            lg:opacity-0 lg:group-hover:bottom-0 lg:group-hover:opacity-100"
+            transition-all duration-300"
           >
-            Ver projecto <BiLinkExternal />
+            Ver proyecto <BiLinkExternal />
           </div>
 
           <Image
