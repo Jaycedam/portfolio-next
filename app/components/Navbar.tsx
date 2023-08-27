@@ -23,7 +23,7 @@ export default function Navbar() {
         >
           {/* links section */}
           <ul className="flex flex-col items-center gap-8 md:flex-row md:gap-4">
-            <li>
+            <li className="md:mr-4">
               {/* logo  */}
               <a href="#top" className="close-nav" aria-label="home button">
                 <svg className="h-6 w-auto" viewBox="0 0 932 716" version="1.1">
