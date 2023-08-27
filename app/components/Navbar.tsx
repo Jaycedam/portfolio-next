@@ -1,7 +1,7 @@
 import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
-import Button from "./Button";
 import { MdEmail } from "react-icons/md";
+import Button from "./Button";
 
 export default function Navbar() {
   return (
@@ -11,7 +11,7 @@ export default function Navbar() {
         id="navbar"
         data-visible="false"
         className="fixed inset-0 isolate z-40 h-full w-full
-          bg-zinc-100/70 shadow backdrop-blur-lg transition-all 
+          bg-zinc-100/70 shadow backdrop-blur-lg transition-transform 
           duration-500 data-[visible=false]:translate-x-full
           data-[visible=true]:translate-x-0 dark:bg-zinc-950/70
           md:h-14
@@ -45,15 +45,15 @@ export default function Navbar() {
 
           {/* <NavToggle /> */}
           {/* links section */}
-          <ul className="flex flex-col items-center gap-12 md:flex-row">
+          <ul className="flex flex-col items-center gap-8 md:flex-row md:gap-4">
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
             <li>
               <Button
-                link={process.env.EMAIL}
                 text="Contactar"
-                icon={<MdEmail />}
+                link={process.env.EMAIL}
+                icon={<MdEmail className="h-full w-auto" />}
               />
             </li>
           </ul>
