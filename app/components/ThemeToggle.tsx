@@ -39,10 +39,10 @@ const ThemeToggle = () => {
   }
 
   return (
-    <Menu as="div" className="relative z-10 inline-block text-left">
+    <Menu as="div" className="relative z-10">
       <Menu.Button
         aria-label="Theme Toggle"
-        className="flex h-9 w-fit items-center gap-2 rounded-md bg-zinc-800  px-4 capitalize 
+        className="flex h-10 w-auto items-center gap-2 rounded-md bg-zinc-800  px-4 capitalize 
         text-zinc-50 outline outline-1 
         outline-zinc-50/30 transition-all
         duration-150 hover:bg-zinc-600"

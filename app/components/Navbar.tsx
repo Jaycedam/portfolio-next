@@ -2,7 +2,6 @@ import NavToggle from "./NavToggle";
 import NavLink from "./NavLink";
 import { MdEmail } from "react-icons/md";
 import Button from "./Button";
-import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   return (
