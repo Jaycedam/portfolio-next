@@ -50,13 +50,11 @@ export default function Navbar() {
             <NavLink href="#projects" text="Proyectos" />
             <NavLink href="#carreer" text="Carrera" />
             <NavLink href="#about" text="Acerca" />
-            <li className="md:border-l md:border-zinc-300 md:pl-8 md:dark:border-zinc-700">
-              <ThemeToggle />
-            </li>
             <li>
               <Button
+                text="Contactar"
                 link={process.env.EMAIL}
-                icon={<MdEmail className="text-xl" />}
+                icon={<MdEmail className="h-full w-auto" />}
               />
             </li>
           </ul>
