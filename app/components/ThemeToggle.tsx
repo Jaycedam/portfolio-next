@@ -20,15 +20,18 @@ const ThemeToggle = () => {
   // Hidden from screenreaders
   if (!mounted) {
     return (
-      <div className="flex h-9 items-center rounded-full px-1 outline outline-1 outline-zinc-50/30">
-        <button className="flex aspect-square h-8 items-center justify-center rounded-full">
-          <BsSun />
+      <div
+        aria-hidden
+        className="flex h-10 items-center rounded-full px-1 outline outline-1 outline-zinc-50/30"
+      >
+        <button className="aspect-square h-9 rounded-full p-2">
+          <BsSun className="h-full w-auto" />
         </button>
-        <button className="flex aspect-square h-8 items-center justify-center rounded-full">
-          <HiComputerDesktop />
+        <button className="aspect-square h-9 rounded-full p-2">
+          <HiComputerDesktop className="h-full w-auto" />
         </button>
-        <button className="flex aspect-square h-8 items-center justify-center rounded-full">
-          <BsMoonStars />
+        <button className="aspect-square h-9 rounded-full p-2">
+          <BsMoonStars className="h-full w-auto" />
         </button>
       </div>
     );
@@ -37,12 +40,12 @@ const ThemeToggle = () => {
   return (
     <div
       role="radiogroup"
-      className="flex h-9 items-center rounded-full px-1 outline outline-1 outline-zinc-500/60"
+      className="flex h-10 items-center rounded-full px-1 outline outline-1 outline-zinc-500/60"
     >
       <button
         role="radio"
         aria-label="Switch to light theme"
-        className={`aspect-square h-8 rounded-full p-2 ${
+        className={`aspect-square h-9 rounded-full p-2 ${
           theme === "light" ? "bg-zinc-300 dark:bg-zinc-600" : ""
         }`}
         onClick={() => setTheme("light")}
@@ -52,7 +55,7 @@ const ThemeToggle = () => {
       <button
         role="radio"
         aria-label="Switch to light theme"
-        className={`aspect-square h-8 rounded-full p-2 ${
+        className={`aspect-square h-9 rounded-full p-2 ${
           theme === "system" ? "bg-zinc-600" : ""
         }`}
         onClick={() => setTheme("system")}
@@ -62,7 +65,7 @@ const ThemeToggle = () => {
       <button
         role="radio"
         aria-label="Switch to light theme"
-        className={`aspect-square h-8 rounded-full p-2 ${
+        className={`aspect-square h-9 rounded-full p-2 ${
           theme === "dark" ? "bg-zinc-600" : ""
         }`}
         onClick={() => setTheme("dark")}
