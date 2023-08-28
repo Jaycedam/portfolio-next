@@ -13,14 +13,6 @@ The website showcases my software developer projects, a short reel of my Motion 
 Vercel for hosting and deployment,
 Planetscale for MySQL database management.
 
-## TODOS
-
-- Implement API support in app direcory, for future DB manipulation
-- Implement GitHub API in a new page to show more projects
-- Animations
-- Remove anchor tag from link
-- Add screenshots to readme
-
 ---
 
 ## Update Next.js
