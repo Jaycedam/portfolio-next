@@ -1,13 +1,11 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
 
 export default async function MDX(props: { url: string }) {
-  const revalidate = 0;
-
   try {
     const parsedUrl = new URL(props.url);
     // disable cache, enable only on dev env
-    const res = await fetch(parsedUrl.toString(), { next: { revalidate: 0 } });
-    // const res = await fetch(parsedUrl.toString(), { next: { revalidate: 0 } });
+    const res = await fetch(parsedUrl.toString(), { cache: "no-store" });
+    // const res = await fetch(parsedUrl.toString(), { next: { revalidate: 604800 } });
 
     if (!res.ok) {
       throw new Error(`Failed to fetch content from ${parsedUrl}`);

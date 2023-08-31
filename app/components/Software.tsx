@@ -3,9 +3,6 @@ import prisma from "../../lib/prisma";
 import { Software } from "@prisma/client";
 import MDX from "./MDX";
 
-// disable caching, turn on for development
-export const revalidate = 0;
-
 export default async function Software() {
   const projects = await getData();
   return (
