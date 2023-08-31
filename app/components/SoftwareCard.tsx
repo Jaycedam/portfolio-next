@@ -6,15 +6,26 @@ import { Software } from "@prisma/client";
 import { ProjectType } from "../../utils/enums";
 import { motion } from "framer-motion";
 import { fadeInRight } from "../../utils/animations";
+import Modal from "./Modal";
+import { useState } from "react";
 
-export default function SoftwareCard(props: Software) {
+interface ISoftware extends Software {
+  children: React.ReactNode;
+}
+
+export default function SoftwareCard(props: ISoftware) {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
+
   return (
     <div
       className="grid gap-2
         md:grid-cols-2 md:gap-8"
     >
       {/* image with link to project */}
-      <a href={props.url} target="_blank">
+      <button onClick={openModal}>
         <div
           className="group relative isolate aspect-square
             overflow-hidden rounded-xl shadow-md transition-all
@@ -44,7 +55,11 @@ export default function SoftwareCard(props: Software) {
             group-hover:scale-105"
           />
         </div>
-      </a>
+      </button>
+
+      <Modal isOpen={isOpen} onClose={closeModal} title="Example Modal">
+        {props.children}
+      </Modal>
 
       {/* text section */}
       <motion.div
@@ -52,16 +67,11 @@ export default function SoftwareCard(props: Software) {
         initial="initial"
         whileInView="animate"
         viewport={{ amount: 0.5 }}
-        className="grid place-content-center gap-3"
+        className="flex flex-col items-start justify-center gap-3"
       >
-        <div>
-          <h2 className="text-xl font-bold">
-            {props.name} - {ProjectType[props.areaId]}
-          </h2>
-          <p className="text-sm font-light text-zinc-800 dark:text-zinc-400">
-            {props.stack}
-          </p>
-        </div>
+        <h2 className="text-xl font-bold">
+          {props.name} - {ProjectType[props.areaId]}
+        </h2>
         <motion.p
           variants={fadeInRight}
           initial="initial"

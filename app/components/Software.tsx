@@ -1,9 +1,7 @@
 import SoftwareCard from "./SoftwareCard";
 import prisma from "../../lib/prisma";
 import { Software } from "@prisma/client";
-
-// disable caching, turn on for development
-// export const revalidate = 0;
+import MDX from "./MDX";
 
 export default async function Software() {
   const projects = await getData();
@@ -29,7 +27,9 @@ export default async function Software() {
             stack={p.stack}
             about={p.about}
             areaId={p.areaId}
-          />
+          >
+            <MDX url={p.url} />
+          </SoftwareCard>
         ))}
       </div>
     </section>
