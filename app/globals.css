@@ -5,11 +5,15 @@
 /* reutilizable tailwind components */
 @layer components {
   .title {
-    @apply text-3xl font-bold;
+    @apply text-4xl font-black uppercase;
+  }
+
+  .subtitle {
+    @apply font-light;
   }
 
   header {
-    @apply mb-3;
+    @apply mb-4;
   }
 
   /* margin for anchor scrolling and adds whitespace  */

@@ -5,7 +5,6 @@ import { AiFillCloseCircle } from "react-icons/ai";
 interface ModalProps {
   isOpen: boolean;
   onClose: () => void;
-  title: string;
   children: React.ReactNode;
 }
 
@@ -22,7 +21,7 @@ export default function Modal(props: ModalProps) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-zinc-950/70" />
+          <div className="fixed inset-0 bg-zinc-950/80" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -41,15 +40,16 @@ export default function Modal(props: ModalProps) {
               bg-zinc-100 p-8 text-left align-bottom shadow-xl transition-all dark:bg-zinc-900"
               >
                 <button
-                  className="fixed right-4 top-4 rounded-full text-4xl text-red-600"
+                  className="fixed right-4 top-4 rounded-full text-4xl text-primary"
                   onClick={props.onClose}
                 >
                   <AiFillCloseCircle />
                 </button>
                 {/* tailwind typography automatically styles remote markdown received as children using prose */}
                 <article
-                  className="prose max-w-none dark:prose-invert prose-a:rounded-md prose-a:bg-zinc-900
-                  prose-a:px-3 prose-a:py-2 prose-a:font-bold prose-a:text-zinc-50 prose-a:no-underline prose-img:rounded-xl prose-img:shadow-lg 
+                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-md
+                  prose-a:bg-zinc-900 prose-a:px-3 prose-a:py-2 prose-a:font-bold prose-a:text-zinc-50 prose-a:underline 
+                  prose-img:rounded-xl prose-img:shadow-lg 
                   dark:prose-a:bg-zinc-100 dark:prose-a:text-zinc-900"
                 >
                   {props.children}
