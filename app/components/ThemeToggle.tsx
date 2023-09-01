@@ -45,6 +45,7 @@ const ThemeToggle = () => {
       <button
         role="radio"
         aria-label="Switch to light theme"
+        aria-checked={theme === "light" ? "true" : "false"}
         className={`aspect-square h-9 rounded-full p-2 ${
           theme === "light" ? "bg-zinc-300 dark:bg-zinc-600" : ""
         }`}
@@ -54,7 +55,8 @@ const ThemeToggle = () => {
       </button>
       <button
         role="radio"
-        aria-label="Switch to light theme"
+        aria-label="Switch to system theme"
+        aria-checked={theme === "system" ? "true" : "false"}
         className={`aspect-square h-9 rounded-full p-2 ${
           theme === "system" ? "bg-zinc-600" : ""
         }`}
@@ -64,7 +66,8 @@ const ThemeToggle = () => {
       </button>
       <button
         role="radio"
-        aria-label="Switch to light theme"
+        aria-label="Switch to dark theme"
+        aria-checked={theme === "dark" ? "true" : "false"}
         className={`aspect-square h-9 rounded-full p-2 ${
           theme === "dark" ? "bg-zinc-600" : ""
         }`}
