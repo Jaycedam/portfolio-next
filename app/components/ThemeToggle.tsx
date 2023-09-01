@@ -3,7 +3,6 @@ import { BsMoonStars, BsSun } from "react-icons/bs";
 import { useState, useEffect, Fragment } from "react";
 import { useTheme } from "next-themes";
 import { HiComputerDesktop } from "react-icons/hi2";
-import { BiSun } from "react-icons/bi";
 
 const ThemeToggle = () => {
   const [mounted, setMounted] = useState(false);

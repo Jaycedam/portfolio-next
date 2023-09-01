@@ -17,21 +17,11 @@ model Area {
 model Software {
   id        Int         @id @default(autoincrement())
   name      String      @db.VarChar(50)
-  stack     String      @db.VarChar(250)
-  about     String      @db.VarChar(250)
   imageUrl  String      @db.VarChar(250)
   url       String?     @db.VarChar(250)
   areaId    Int
   area      Area        @relation(fields: [areaId], references: [id])
   @@index([areaId])
-}
-
-model Motion {
-  id        Int         @id @default(autoincrement())
-  name      String      @db.VarChar(50)
-  about     String      @db.VarChar(250)
-  image     String      @db.VarChar(250)
-  url       String      @db.VarChar(250)
 }
 
 model Type {

@@ -16,7 +16,7 @@ export default async function Software() {
         </p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
-      <div className="grid gap-10">
+      <div className="grid gap-10 md:grid-cols-2">
         {projects.map((p) => (
           <SoftwareCard
             key={p.id}
@@ -24,8 +24,6 @@ export default async function Software() {
             url={p.url}
             imageUrl={p.imageUrl}
             name={p.name}
-            stack={p.stack}
-            about={p.about}
             areaId={p.areaId}
           >
             <MDX url={p.url} />
