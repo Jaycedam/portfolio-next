@@ -8,15 +8,12 @@ export default async function Software() {
   return (
     <section id="projects" className="container">
       {/* title */}
-      <header>
+      <header className="flex items-center gap-2">
         <h1 className="title">Proyectos</h1>
-        <p className=" text-sm font-light">
-          Algunos de mis proyectos destacados, click en imagen para más
-          detalles.
-        </p>
+        <p className="subtitle">click en imagen para más detalles.</p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
-      <div className="grid gap-10 md:grid-cols-2">
+      <div className="grid gap-2 md:grid-cols-2">
         {projects.map((p) => (
           <SoftwareCard
             key={p.id}
