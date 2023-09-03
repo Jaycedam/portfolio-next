@@ -5,11 +5,11 @@
 /* reutilizable tailwind components */
 @layer components {
   .title {
-    @apply text-4xl font-black uppercase;
+    @apply text-4xl font-bold uppercase;
   }
 
   .subtitle {
-    @apply font-light;
+    @apply text-sm font-light italic text-zinc-700 dark:text-zinc-400;
   }
 
   header {

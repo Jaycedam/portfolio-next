@@ -36,21 +36,22 @@ export default function Modal(props: ModalProps) {
               leaveTo="opacity-0 translate-y-8"
             >
               <Dialog.Panel
-                className="h-full w-full max-w-6xl overflow-hidden rounded-lg 
+                className="h-full w-full max-w-5xl overflow-hidden rounded-lg 
               bg-zinc-100 p-8 text-left align-bottom shadow-xl transition-all dark:bg-zinc-900"
               >
                 <button
-                  className="fixed right-4 top-4 rounded-full text-4xl text-red-500 focus:outline-none"
+                  aria-label="Close panel"
+                  className="fixed right-4 top-4 rounded-full text-4xl text-primary focus:outline-none"
                   onClick={props.onClose}
                 >
                   <AiFillCloseCircle />
                 </button>
                 {/* tailwind typography automatically styles remote markdown received as children using prose */}
                 <article
-                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-lg prose-a:bg-zinc-900
-                  prose-a:px-3 prose-a:py-2 prose-a:font-bold prose-a:text-zinc-50 prose-a:no-underline 
+                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-lg prose-a:px-3
+                  prose-a:py-2 prose-a:no-underline
                   prose-img:rounded-lg prose-img:shadow-lg 
-                  dark:prose-a:bg-zinc-100 dark:prose-a:text-zinc-900"
+                  dark:prose-a:bg-zinc-700"
                 >
                   {props.children}
                 </article>

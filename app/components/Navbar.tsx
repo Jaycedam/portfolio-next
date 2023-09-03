@@ -11,7 +11,7 @@ export default function Navbar() {
         id="navbar"
         data-visible="false"
         className="fixed inset-0 isolate z-40 h-full w-full
-          bg-zinc-100/70 shadow
+          bg-zinc-100/70
           backdrop-blur-lg transition-transform
           duration-500 data-[visible=false]:translate-x-full
           data-[visible=true]:translate-x-0
