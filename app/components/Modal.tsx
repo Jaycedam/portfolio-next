@@ -48,8 +48,8 @@ export default function Modal(props: ModalProps) {
                 </button>
                 {/* tailwind typography automatically styles remote markdown received as children using prose */}
                 <article
-                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-lg prose-a:px-3
-                  prose-a:py-2 prose-a:no-underline
+                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-lg prose-a:bg-zinc-200
+                  prose-a:px-3 prose-a:py-2 prose-a:no-underline
                   prose-img:rounded-lg prose-img:shadow-lg 
                   dark:prose-a:bg-zinc-700"
                 >
