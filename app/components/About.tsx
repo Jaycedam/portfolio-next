@@ -48,7 +48,7 @@ export default function About() {
       <Image
         className="mx-auto aspect-square 
           h-auto w-2/4 
-          rounded-xl object-cover 
+          rounded-lg object-cover 
           md:w-full"
         placeholder="blur"
         src={profile}

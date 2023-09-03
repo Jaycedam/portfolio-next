@@ -5,7 +5,7 @@ export default function Button(props: {
 }) {
   return (
     <a
-      className="flex h-10 w-fit cursor-pointer items-center gap-2 rounded-md
+      className="flex h-10 w-fit cursor-pointer items-center gap-2 rounded-lg
         bg-zinc-900 px-3
         font-bold
          text-zinc-50 transition-all

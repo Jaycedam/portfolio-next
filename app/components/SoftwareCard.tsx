@@ -21,7 +21,7 @@ export default function SoftwareCard(props: ISoftware) {
       {/* image with link to project */}
       <button onClick={openModal}>
         <div
-          className="group relative isolate aspect-square overflow-hidden rounded-md
+          className="group relative isolate aspect-square overflow-hidden rounded-lg
              transition-all duration-500"
         >
           {/* overlay  */}
