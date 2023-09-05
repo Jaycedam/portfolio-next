@@ -21,7 +21,7 @@ export default function Hero() {
           <h1 className="text-3xl font-bold md:text-4xl">
             Hola, soy
             <br />
-            <strong className="gradient animate-gradient bg-clip-text text-6xl font-black text-transparent md:text-8xl">
+            <strong className="gradient animate-gradient bg-clip-text text-6xl font-black text-transparent md:text-7xl">
               Jordan Cortés
             </strong>
           </h1>
