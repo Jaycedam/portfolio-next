@@ -41,7 +41,7 @@ export default function Modal(props: ModalProps) {
               >
                 <button
                   aria-label="Close panel"
-                  className="fixed right-4 top-4 rounded-full text-4xl text-primary focus:outline-none"
+                  className="fixed right-4 top-4 rounded-full text-4xl text-red-500 focus:outline-none"
                   onClick={props.onClose}
                 >
                   <AiFillCloseCircle />
@@ -49,8 +49,8 @@ export default function Modal(props: ModalProps) {
                 {/* tailwind typography automatically styles remote markdown received as children using prose */}
                 <article
                   className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-lg prose-a:bg-zinc-200
-                  prose-a:px-3 prose-a:py-2 prose-a:no-underline
-                  prose-img:rounded-lg prose-img:shadow-lg 
+                  prose-a:px-3 prose-a:py-2 prose-a:no-underline prose-img:aspect-square prose-img:w-full
+                  prose-img:rounded-lg prose-img:object-cover prose-img:shadow-lg
                   dark:prose-a:bg-zinc-700"
                 >
                   {props.children}
