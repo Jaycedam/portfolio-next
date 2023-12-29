@@ -1,7 +1,5 @@
 import Image from "next/image";
 import profile from "../../public/profile.webp";
-import Button from "./Button";
-import { MdEmail } from "react-icons/md";
 
 export default function About() {
   return (
@@ -35,14 +33,6 @@ export default function About() {
             Dribbble.
           </a>
         </p>
-
-        <div className="mt-4">
-          <Button
-            text="Contactar"
-            link={process.env.EMAIL}
-            icon={<MdEmail className="h-full w-auto" />}
-          />
-        </div>
       </div>
 
       <Image
