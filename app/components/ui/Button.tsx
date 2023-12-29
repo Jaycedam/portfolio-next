@@ -5,8 +5,8 @@ export default function Button(props: {
 }) {
   return (
     <a
-      className="flex h-9 w-fit cursor-pointer items-center gap-2 rounded-lg
-        bg-zinc-200 px-3
+      className="flex h-9 w-fit cursor-pointer items-center gap-2 rounded-md
+        bg-zinc-200 px-4 py-2
         transition-all
         duration-300 hover:bg-primary hover:text-zinc-50 focus:bg-primary focus:text-zinc-50  active:scale-95 
         
