@@ -36,7 +36,7 @@ export default function Modal(props: ModalProps) {
               leaveTo="opacity-0 translate-y-8"
             >
               <Dialog.Panel
-                className="h-full w-full max-w-5xl overflow-hidden rounded-lg 
+                className="h-full w-full max-w-5xl overflow-hidden rounded-md 
               bg-zinc-100 p-8 text-left align-bottom shadow-xl transition-all dark:bg-zinc-900"
               >
                 <button
@@ -48,9 +48,9 @@ export default function Modal(props: ModalProps) {
                 </button>
                 {/* tailwind typography automatically styles remote markdown received as children using prose */}
                 <article
-                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-lg prose-a:bg-zinc-200
+                  className="prose max-w-none dark:prose-invert prose-a:my-2 prose-a:rounded-md prose-a:bg-zinc-200
                   prose-a:px-3 prose-a:py-2 prose-a:no-underline prose-img:aspect-square prose-img:w-full
-                  prose-img:rounded-lg prose-img:object-cover prose-img:shadow-lg
+                  prose-img:rounded-md prose-img:object-cover prose-img:shadow-lg
                   dark:prose-a:bg-zinc-700"
                 >
                   {props.children}
