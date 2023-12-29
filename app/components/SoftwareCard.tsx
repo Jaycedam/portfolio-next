@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { Software } from "@prisma/client";
-import { ProjectType } from "../../utils/enums";
+import { ProjectType } from "../utils/enums";
 import Modal from "./ui/Modal";
 import { useState } from "react";
 

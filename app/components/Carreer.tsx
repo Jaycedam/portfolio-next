@@ -1,4 +1,4 @@
-import prisma from "../../lib/prisma";
+import prisma from "../lib/prisma";
 import { Carreer } from "@prisma/client";
 import CarreerCard from "./CarreerCard";
 

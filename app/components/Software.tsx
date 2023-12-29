@@ -1,5 +1,5 @@
 import SoftwareCard from "./SoftwareCard";
-import prisma from "../../lib/prisma";
+import prisma from "../lib/prisma";
 import { Software } from "@prisma/client";
 import MDX from "./MDX";
 

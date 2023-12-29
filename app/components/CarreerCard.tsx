@@ -1,9 +1,9 @@
 "use client";
 
 import { Carreer } from "@prisma/client";
-import { CarreerType } from "../../utils/enums";
+import { CarreerType } from "../utils/enums";
 import { motion } from "framer-motion";
-import { fadeIn } from "../../utils/animations";
+import { fadeIn } from "../utils/animations";
 
 export default function CarreerCard(props: Carreer) {
   return (
