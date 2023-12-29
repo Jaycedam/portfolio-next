@@ -1,7 +1,7 @@
-import Button from "./Button";
+import Button from "./ui/Button";
 import { FaCode } from "react-icons/fa";
 import LaptopSVG from "./LaptopSVG";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "./ui/ThemeToggle";
 
 export default function Hero() {
   return (

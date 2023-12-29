@@ -1,7 +1,7 @@
-import NavToggle from "./NavToggle";
-import NavLink from "./NavLink";
+import NavToggle from "./ui/NavToggle";
+import NavLink from "./ui/NavLink";
 import { MdEmail } from "react-icons/md";
-import Button from "./Button";
+import Button from "./ui/Button";
 
 export default function Navbar() {
   return (

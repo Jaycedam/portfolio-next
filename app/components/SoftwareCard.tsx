@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { Software } from "@prisma/client";
 import { ProjectType } from "../../utils/enums";
-import Modal from "./Modal";
+import Modal from "./ui/Modal";
 import { useState } from "react";
 
 interface ISoftware extends Software {
