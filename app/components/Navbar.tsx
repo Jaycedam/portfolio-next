@@ -11,7 +11,7 @@ export default function Navbar() {
         id="navbar"
         data-visible="false"
         className="fixed inset-0 z-40 flex h-full w-full flex-col items-center justify-center bg-zinc-100/70 backdrop-blur-lg 
-        transition-all duration-500 ease-out 
+        transition-transform duration-300 ease-out 
         data-[visible=false]:translate-x-full data-[visible=true]:translate-x-0 data-[visible=false]:opacity-50 data-[visible=true]:opacity-100 
         dark:bg-zinc-950/70 
         md:h-14 md:flex-row md:justify-between md:px-4 md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
