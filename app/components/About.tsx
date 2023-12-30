@@ -28,7 +28,7 @@ export default function About() {
           <a
             href="https://dribbble.com/Jaycedam"
             target="_blank"
-            className="font-bold text-primary"
+            className="font-bold text-pink-500"
           >
             Dribbble.
           </a>
