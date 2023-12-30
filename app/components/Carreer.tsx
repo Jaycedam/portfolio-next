@@ -8,7 +8,7 @@ export default async function Carreer() {
     <section
       id="carreer"
       className="container relative grid gap-4
-        from-transparent from-5% via-primary to-transparent
+        from-transparent from-5% via-pink-500 to-transparent
         after:absolute
         after:left-4 after:h-full after:w-1 after:bg-gradient-to-b md:w-3/4 md:after:left-2/4"
     >
