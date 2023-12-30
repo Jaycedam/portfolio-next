@@ -1,6 +1,6 @@
 import { FaCode } from "react-icons/fa";
 import LaptopSVG from "./LaptopSVG";
-import { buttonVariants } from "@/components/ui/test";
+import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
 
 export default function Hero() {

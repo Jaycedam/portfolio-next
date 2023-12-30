@@ -4,7 +4,7 @@ import * as React from "react";
 import { BsMoonStars, BsSun } from "react-icons/bs";
 import { useTheme } from "next-themes";
 
-import { Button } from "@/components/ui/test";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,

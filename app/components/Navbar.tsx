@@ -1,6 +1,6 @@
 import NavToggle from "./ui/NavToggle";
 import { MdEmail } from "react-icons/md";
-import { buttonVariants } from "@/components/ui/test";
+import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { FaGithub } from "react-icons/fa";
 

@@ -1,5 +1,5 @@
 import { AiOutlineArrowUp } from "react-icons/ai";
-import { buttonVariants } from "@/components/ui/test";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Footer() {
   return (
