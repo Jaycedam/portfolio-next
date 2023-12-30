@@ -1,34 +1,17 @@
-import { AiFillGithub, AiFillLinkedin, AiOutlineArrowUp } from "react-icons/ai";
+import { AiOutlineArrowUp } from "react-icons/ai";
+import { buttonVariants } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer
-      className="container flex flex-col items-center justify-center gap-8 py-16
-        md:flex-row md:justify-between"
-    >
+    <footer className="container flex items-center justify-start py-16">
       <a
         aria-label="Back to top"
         href="#top"
-        className="flex items-center gap-2"
+        className={buttonVariants({ variant: "ghost" })}
       >
-        <AiOutlineArrowUp /> Volver al inicio
+        <AiOutlineArrowUp className="h-[1.2rem] w-[1.2rem]" />
+        &nbsp;Volver al inicio
       </a>
-
-      <ul
-        className="flex flex-col items-center gap-8 text-2xl
-          md:flex-row"
-      >
-        <li>
-          <a
-            aria-label="Github"
-            href="https://github.com/Jaycedam"
-            target="_blank"
-            className="flex items-center gap-2 text-center"
-          >
-            <AiFillGithub />
-          </a>
-        </li>
-      </ul>
     </footer>
   );
 }
