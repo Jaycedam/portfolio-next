@@ -1,25 +1,13 @@
-"use client";
-
 import Image from "next/image";
 import { Software } from "@prisma/client";
 import { ProjectType } from "../utils/enums";
-import Modal from "./ui/Modal";
-import { useState } from "react";
+import Link from "next/link";
 
-interface ISoftware extends Software {
-  children: React.ReactNode;
-}
-
-export default function SoftwareCard(props: ISoftware) {
-  const [isOpen, setIsOpen] = useState(false);
-
-  const openModal = () => setIsOpen(true);
-  const closeModal = () => setIsOpen(false);
-
+export default function SoftwareCard(props: Software) {
   return (
     <>
       {/* image with link to project */}
-      <button onClick={openModal}>
+      <Link href={`/projects/${props.id}`}>
         <div
           className="group relative isolate aspect-square overflow-hidden rounded-md
              transition-all duration-500"
@@ -46,11 +34,7 @@ export default function SoftwareCard(props: ISoftware) {
             "
           />
         </div>
-      </button>
-
-      <Modal isOpen={isOpen} onClose={closeModal}>
-        {props.children}
-      </Modal>
+      </Link>
     </>
   );
 }

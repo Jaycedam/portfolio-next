@@ -1,7 +1,6 @@
 import SoftwareCard from "./SoftwareCard";
 import prisma from "../lib/prisma";
 import { Software } from "@prisma/client";
-import MDX from "./MDX";
 
 export default async function Software() {
   const projects = await getData();
@@ -22,9 +21,7 @@ export default async function Software() {
             imageUrl={p.imageUrl}
             name={p.name}
             areaId={p.areaId}
-          >
-            <MDX url={p.url} />
-          </SoftwareCard>
+          ></SoftwareCard>
         ))}
       </div>
     </section>
