@@ -1,7 +1,8 @@
 import NavToggle from "./ui/NavToggle";
-import NavLink from "./ui/NavLink";
 import { MdEmail } from "react-icons/md";
-import Button from "./ui/Button";
+import { buttonVariants } from "@/components/ui/button";
+import { ThemeToggle } from "./ui/ThemeToggle";
+import { FaGithub } from "react-icons/fa";
 
 export default function Navbar() {
   return (
@@ -10,20 +11,20 @@ export default function Navbar() {
       <nav
         id="navbar"
         data-visible="false"
-        className="fixed inset-0 z-40 flex h-full w-full flex-col items-center justify-center bg-zinc-100/70 backdrop-blur-lg 
+        className="fixed inset-0  z-40 flex h-full w-full flex-col items-center justify-center border-b border-border/40 bg-background/60 backdrop-blur 
         transition-transform duration-300 ease-out 
         data-[visible=false]:translate-x-full data-[visible=true]:translate-x-0 data-[visible=false]:opacity-50 data-[visible=true]:opacity-100 
-        dark:bg-zinc-950/70 
+        
         md:h-14 md:flex-row md:justify-between md:px-4 md:data-[visible=false]:translate-x-0 md:data-[visible=false]:opacity-100"
       >
         {/* links section */}
-        <ul className="flex w-full flex-col items-center gap-8 py-8 md:flex-row">
+        <ul className="flex w-full flex-col items-center gap-4 py-8 md:flex-row">
           <li>
             {/* logo  */}
             <a href="#top" className="close-nav" aria-label="home button">
-              <svg className="h-6 w-auto" viewBox="0 0 932 716" version="1.1">
+              <svg className="h-5 w-auto" viewBox="0 0 932 716" version="1.1">
                 <g
-                  className="fill-zinc-950 dark:fill-zinc-100"
+                  className="fill-foreground"
                   id="letters"
                   transform="matrix(1,0,0,1,-0.0384978,0)"
                 >
@@ -32,7 +33,7 @@ export default function Navbar() {
                   <path d="M558.89,416.32C558.89,546.4 529.55,584.26 483.04,632.57C430.16,687.43 368.71,715.26 282.04,715.26C239.33,715.26 142.04,707.26 75.04,633.59C15.53,567.16 2.04,513.59 0.04,425.59C0.039,425.533 0.038,425.477 0.038,425.42C0.038,420.143 4.381,415.8 9.658,415.8C9.659,415.8 9.659,415.8 9.66,415.8L177,415.8C182.083,415.788 186.34,419.814 186.61,424.89C187.7,445.2 190.66,467.89 198.85,488.04L198.91,488.17L198.91,488.28C213.91,522.28 241.2,539.56 279.98,539.56C320.59,539.56 347.56,523.56 360.09,492.32C372.01,464.01 373.03,445.68 373.03,416.32" />
                 </g>
                 <g
-                  className="fill-primary"
+                  className="fill-foreground"
                   id="circle"
                   transform="matrix(1,0,0,1,-0.0384978,0)"
                 >
@@ -41,16 +42,60 @@ export default function Navbar() {
               </svg>
             </a>
           </li>
-          <NavLink href="#projects" text="Proyectos" />
-          <NavLink href="#carreer" text="Carrera" />
-          <NavLink href="#about" text="Acerca" />
+          <li>
+            <a
+              href="#projects"
+              className="close-nav transition-color p-3 text-xl text-muted-foreground
+              duration-300 hover:text-foreground
+              md:text-sm"
+            >
+              Proyectos
+            </a>
+          </li>{" "}
+          <li>
+            <a
+              href="#carreer"
+              className="close-nav transition-color p-3 text-xl text-muted-foreground
+              duration-300 hover:text-foreground
+              md:text-sm"
+            >
+              Carrera
+            </a>
+          </li>
+          <li>
+            <a
+              href="#about"
+              className="close-nav transition-color p-3 text-xl text-muted-foreground
+              duration-300 hover:text-foreground
+              md:text-sm"
+            >
+              Acerca
+            </a>
+          </li>
         </ul>
 
-        <Button
-          text="Contactar"
-          link={process.env.EMAIL}
-          icon={<MdEmail className="h-full w-auto" />}
-        />
+        {/* right side navigation, icons */}
+        <ul className="flex gap-2">
+          <li>
+            <ThemeToggle />
+          </li>
+          <li>
+            <a
+              href="github.com"
+              className={buttonVariants({ variant: "ghost", size: "icon" })}
+            >
+              <FaGithub className="h-4 w-4" />
+            </a>
+          </li>
+          <li>
+            <a
+              href={process.env.EMAIL}
+              className={buttonVariants({ variant: "ghost", size: "icon" })}
+            >
+              <MdEmail className="h-[1.25rem] w-[1.25rem]" />
+            </a>
+          </li>
+        </ul>
       </nav>
     </>
   );
