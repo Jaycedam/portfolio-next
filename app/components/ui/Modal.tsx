@@ -21,7 +21,7 @@ export default function Modal(props: ModalProps) {
           leaveFrom="opacity-100"
           leaveTo="opacity-0"
         >
-          <div className="fixed inset-0 bg-zinc-950/80" />
+          <div className="fixed inset-0 bg-background/50 backdrop-blur" />
         </Transition.Child>
 
         <div className="fixed inset-0 overflow-y-auto">
@@ -36,8 +36,8 @@ export default function Modal(props: ModalProps) {
               leaveTo="opacity-0 translate-y-8"
             >
               <Dialog.Panel
-                className="h-full w-full max-w-5xl overflow-hidden rounded-md 
-              bg-zinc-100 p-8 text-left align-bottom shadow-xl transition-all dark:bg-zinc-900"
+                className="h-full w-full max-w-5xl overflow-hidden rounded-md border
+              bg-card p-8 text-left align-bottom shadow-xl transition-all"
               >
                 <button
                   aria-label="Close panel"
