@@ -3,6 +3,7 @@ import { MdEmail } from "react-icons/md";
 import { buttonVariants } from "@/components/ui/button";
 import { ThemeToggle } from "./ui/ThemeToggle";
 import { FaGithub } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Navbar() {
   return (
@@ -21,7 +22,7 @@ export default function Navbar() {
         <ul className="flex w-full flex-col items-center gap-4 py-8 md:flex-row">
           <li>
             {/* logo  */}
-            <a href="#top" className="close-nav" aria-label="home button">
+            <Link href="/" className="close-nav" aria-label="home button">
               <svg className="h-5 w-auto" viewBox="0 0 932 716" version="1.1">
                 <g
                   className="fill-foreground"
@@ -40,37 +41,37 @@ export default function Navbar() {
                   <circle cx="279.06" cy="88.9" r="88.37" />
                 </g>
               </svg>
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#projects"
+            <Link
+              href="/#projects"
               className="close-nav transition-color p-3 text-xl text-muted-foreground
               duration-300 hover:text-foreground
               md:text-sm"
             >
               Proyectos
-            </a>
+            </Link>
           </li>{" "}
           <li>
-            <a
-              href="#carreer"
+            <Link
+              href="/#carreer"
               className="close-nav transition-color p-3 text-xl text-muted-foreground
               duration-300 hover:text-foreground
               md:text-sm"
             >
               Carrera
-            </a>
+            </Link>
           </li>
           <li>
-            <a
-              href="#about"
+            <Link
+              href="/#about"
               className="close-nav transition-color p-3 text-xl text-muted-foreground
               duration-300 hover:text-foreground
               md:text-sm"
             >
               Acerca
-            </a>
+            </Link>
           </li>
         </ul>
 
