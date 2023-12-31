@@ -3,7 +3,7 @@ import prisma from "@/lib/prisma";
 import React from "react";
 import { notFound } from "next/navigation";
 
-export default async function ProjectDetails({
+export default async function SoftwareDetails({
   params,
 }: {
   params: { id: string };

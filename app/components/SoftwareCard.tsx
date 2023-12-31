@@ -7,7 +7,7 @@ export default function SoftwareCard(props: Software) {
   return (
     <>
       {/* image with link to project */}
-      <Link href={`/projects/${props.id}`}>
+      <Link href={`/software/${props.id}`}>
         <div
           className="group relative isolate aspect-square overflow-hidden rounded-md
              transition-all duration-500"
