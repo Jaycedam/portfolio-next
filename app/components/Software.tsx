@@ -5,10 +5,10 @@ import { Software } from "@prisma/client";
 export default async function Software() {
   const projects = await getData();
   return (
-    <section id="projects" className="container">
+    <section id="software" className="container">
       {/* title */}
       <header className="flex items-center gap-2">
-        <h1 className="title">Proyectos</h1>
+        <h1 className="title">Software</h1>
         <p className="subtitle">click en imagen para más detalles.</p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}

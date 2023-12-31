@@ -45,14 +45,24 @@ export default function Navbar() {
           </li>
           <li>
             <Link
-              href="/#projects"
+              href="/#top"
               className="close-nav transition-color p-3 text-xl text-muted-foreground
               duration-300 hover:text-foreground
               md:text-sm"
             >
-              Proyectos
+              Inicio
             </Link>
-          </li>{" "}
+          </li>
+          <li>
+            <Link
+              href="/#software"
+              className="close-nav transition-color p-3 text-xl text-muted-foreground
+              duration-300 hover:text-foreground
+              md:text-sm"
+            >
+              Software
+            </Link>
+          </li>
           <li>
             <Link
               href="/#carreer"
