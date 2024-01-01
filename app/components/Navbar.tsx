@@ -7,7 +7,6 @@ import {
 } from "@/components/ui/sheet";
 import { BiMenuAltRight } from "react-icons/bi";
 import { ThemeToggle } from "./ui/ThemeToggle";
-import { FaGithub } from "react-icons/fa";
 import { buttonVariants } from "./ui/button";
 import { MdEmail } from "react-icons/md";
 
@@ -94,7 +93,7 @@ export default function Navbar() {
             side="top"
             className="grid items-center justify-center text-center"
           >
-            <ul className="flex flex-col gap-8 py-16">
+            <ul className="flex flex-col gap-4 py-16">
               {navLinks.map((item, index) => (
                 <li key={index}>
                   {/* SheetClose is used as child to close the nav when the child is clicked */}
@@ -110,7 +109,9 @@ export default function Navbar() {
                   </SheetClose>
                 </li>
               ))}
+            </ul>
 
+            <ul className="flex items-center justify-center gap-4">
               <li>
                 <ThemeToggle />
               </li>
@@ -119,7 +120,7 @@ export default function Navbar() {
                   href={email}
                   className={buttonVariants({ variant: "ghost", size: "icon" })}
                 >
-                  <MdEmail className="h-[1.25rem] w-[1.25rem]" />
+                  <MdEmail className="h-6 w-6" />
                 </a>
               </li>
             </ul>
