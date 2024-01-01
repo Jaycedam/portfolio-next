@@ -28,7 +28,7 @@ export default function Hero() {
       </header>
 
       <div className="flex gap-4">
-        <a href="#projects" className={buttonVariants({ variant: "default" })}>
+        <a href="#software" className={buttonVariants({ variant: "default" })}>
           <FaCode />
           &nbsp; Proyectos
         </a>
