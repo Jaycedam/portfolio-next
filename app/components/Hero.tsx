@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Hero() {
   return (
-    <section className="container my-16 flex flex-col items-center justify-center gap-4 text-center">
+    <section className="container flex flex-col items-center justify-center gap-4 text-center">
       {/* hero graphic  */}
       <div className="w-full max-w-md [&>*]:h-full [&>*]:w-full [&>*]:object-contain">
         <LaptopSVG />
