@@ -9,35 +9,45 @@ datasource db {
 }
 
 model Area {
-  id       Int          @id @default(autoincrement())
-  name     String       @db.VarChar(50)
+  id       Int        @id @default(autoincrement())
+  name     String     @db.VarChar(50)
   software Software[]
 }
 
 model Software {
-  id        Int         @id @default(autoincrement())
-  name      String      @db.VarChar(50)
-  imageUrl  String      @db.VarChar(250)
-  url       String?     @db.VarChar(250)
-  areaId    Int
-  area      Area        @relation(fields: [areaId], references: [id])
+  id       Int     @id @default(autoincrement())
+  name     String  @db.VarChar(50)
+  homepage Boolean @default(false)
+  imageUrl String  @db.VarChar(250)
+  url      String? @db.VarChar(250)
+  areaId   Int
+  area     Area    @relation(fields: [areaId], references: [id])
+
   @@index([areaId])
 }
 
 model Type {
-  id        Int         @id @default(autoincrement())
-  name      String      @db.VarChar(50)
-  carreer   Carreer[]
+  id      Int       @id @default(autoincrement())
+  name    String    @db.VarChar(50)
+  carreer Carreer[]
 }
 
 model Carreer {
-  id        Int         @id @default(autoincrement())
-  name      String      @db.VarChar(50)
-  company   String      @db.VarChar(50)
-  about     String      @db.VarChar(250)
-  start     DateTime    @db.Date
-  end       DateTime?   @db.Date
-  typeId    Int
-  type      Type        @relation(fields: [typeId], references: [id])
+  id      Int       @id @default(autoincrement())
+  name    String    @db.VarChar(50)
+  company String    @db.VarChar(50)
+  about   String    @db.VarChar(250)
+  start   DateTime  @db.Date
+  end     DateTime? @db.Date
+  typeId  Int
+  type    Type      @relation(fields: [typeId], references: [id])
+
   @@index([typeId])
+}
+
+model Motion {
+  id    Int    @id @default(autoincrement())
+  name  String @db.VarChar(50)
+  about String? @db.VarChar(250)
+  url   String @db.VarChar(250)
 }
