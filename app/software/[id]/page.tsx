@@ -1,6 +1,5 @@
 import MDX from "@/components/MDX";
 import prisma from "@/lib/prisma";
-import React from "react";
 import { notFound } from "next/navigation";
 
 export default async function SoftwareDetails({
@@ -15,7 +14,7 @@ export default async function SoftwareDetails({
     const project = await getData(id);
 
     return (
-      <section className="container mt-24">
+      <section className="container">
         <article
           className="prose mx-auto max-w-4xl dark:prose-invert prose-a:my-2 prose-a:rounded-md prose-a:bg-zinc-200
           prose-a:px-3 prose-a:py-2 prose-a:no-underline prose-img:aspect-square prose-img:w-full
