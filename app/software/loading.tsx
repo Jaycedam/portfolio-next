@@ -2,17 +2,22 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 export default function Loading() {
   return (
-    <div className="container mx-auto mt-24 grid max-w-4xl gap-6">
-      <Skeleton className="h-12 w-2/4" />
-      <Skeleton className="h-4 w-3/4" />
-      <Skeleton className="my-8 h-1 w-full" />
-
-      <div className="mt-4 grid gap-6">
-        <Skeleton className="h-3 w-full" />
-        <Skeleton className="h-3 w-full" />
-        <Skeleton className="h-3 w-full" />
-        <Skeleton className="aspect-video w-full" />
+    <section className="container">
+      <header className="flex items-center gap-2">
+        <h1 className="title">Software</h1>
+        <p className="text-sm font-light text-muted-foreground">
+          click en imagen para más detalles.
+        </p>
+      </header>
+      {/* GRID LAYOUR FOR PROJECTS */}
+      <div className="grid gap-2 md:grid-cols-3">
+        <Skeleton className="aspect-square" />
+        <Skeleton className="aspect-square" />
+        <Skeleton className="aspect-square" />
+        <Skeleton className="aspect-square" />
+        <Skeleton className="aspect-square" />
+        <Skeleton className="aspect-square" />
       </div>
-    </div>
+    </section>
   );
 }

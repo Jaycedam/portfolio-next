@@ -1,13 +1,16 @@
 import SoftwareCard from "./SoftwareCard";
 import prisma from "../lib/prisma";
 import { Software } from "@prisma/client";
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
+import { FaAngleRight } from "react-icons/fa6";
 
 export default async function Software() {
   const projects = await getData();
   return (
     <section id="software" className="container">
       {/* title */}
-      <header className="flex items-center gap-2">
+      <header className="flex flex-col">
         <h1 className="title">Software</h1>
         <p className="text-sm font-light text-muted-foreground">
           click en imagen para más detalles.
@@ -23,8 +26,19 @@ export default async function Software() {
             imageUrl={p.imageUrl}
             name={p.name}
             areaId={p.areaId}
+            homepage
           ></SoftwareCard>
         ))}
+      </div>
+
+      <div className="mt-8 grid justify-end">
+        <Link
+          href="/software"
+          className={buttonVariants({ variant: "outline" })}
+        >
+          Ver más &nbsp;
+          <FaAngleRight />
+        </Link>
       </div>
     </section>
   );
@@ -35,6 +49,10 @@ export default async function Software() {
 // npx prisma generate
 async function getData(): Promise<Software[]> {
   const result = await prisma.software.findMany({
+    where: {
+      homepage: true,
+    },
+    take: 4,
     orderBy: {
       id: "desc",
     },
