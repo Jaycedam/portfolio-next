@@ -2,6 +2,7 @@ import { FaCode } from "react-icons/fa";
 import LaptopSVG from "./LaptopSVG";
 import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -28,10 +29,13 @@ export default function Hero() {
       </header>
 
       <div className="flex gap-4">
-        <a href="#software" className={buttonVariants({ variant: "default" })}>
+        <Link
+          href="#software"
+          className={buttonVariants({ variant: "default" })}
+        >
           <FaCode />
           &nbsp; Proyectos
-        </a>
+        </Link>
 
         <a href="#projects" className={buttonVariants({ variant: "outline" })}>
           <MdEmail />
