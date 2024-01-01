@@ -71,7 +71,7 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply min-h-screen bg-background text-foreground;
   }
 
   .title {
@@ -88,7 +88,7 @@
 
   /* margin for anchor scrolling and adds whitespace  */
   section {
-    @apply mb-16 md:scroll-mt-16;
+    @apply mb-16 scroll-mt-16;
   }
 
   .container {
