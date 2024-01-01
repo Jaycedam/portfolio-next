@@ -33,7 +33,7 @@ export default function Navbar() {
   const email: string = process.env.EMAIL;
 
   return (
-    <div className=" fixed inset-0 z-50 h-14 border border-b bg-background/50 backdrop-blur">
+    <div className=" fixed inset-0 z-50 h-14 border-b bg-background/70 backdrop-blur">
       <nav className="container flex h-full items-center justify-between">
         {/* logo  */}
         <Link href="/">
