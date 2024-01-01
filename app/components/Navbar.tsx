@@ -16,17 +16,13 @@ const navLinks = [
     label: "Inicio",
   },
   {
-    href: "/#software",
+    href: "/software",
     label: "Software",
   },
-  {
-    href: "/#carreer",
-    label: "Carrera",
-  },
-  {
-    href: "/#about",
-    label: "Acerca de mí",
-  },
+  // {
+  //   href: "/motion",
+  //   label: "Motion",
+  // },
 ];
 
 export default function Navbar() {
