@@ -3,7 +3,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 export default function Loading() {
   return (
     <section className="container">
-      <header className="flex items-center gap-2">
+      <header className="flex flex-col">
         <h1 className="title">Software</h1>
         <p className="text-sm font-light text-muted-foreground">
           click en imagen para más detalles.
