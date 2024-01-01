@@ -9,7 +9,9 @@ export default async function Software() {
       {/* title */}
       <header className="flex items-center gap-2">
         <h1 className="title">Software</h1>
-        <p className="subtitle">click en imagen para más detalles.</p>
+        <p className="text-sm font-light text-muted-foreground">
+          click en imagen para más detalles.
+        </p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-2 md:grid-cols-2">

@@ -71,15 +71,11 @@
     @apply border-border;
   }
   body {
-    @apply min-h-screen bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
 
   .title {
     @apply text-4xl font-bold uppercase;
-  }
-
-  .subtitle {
-    @apply text-sm font-light text-zinc-700 dark:text-zinc-400;
   }
 
   header {
