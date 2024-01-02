@@ -1,6 +1,15 @@
 import SoftwareCard from "@/components/SoftwareCard";
+import { Skeleton } from "@/components/ui/skeleton";
 import prisma from "@/lib/prisma";
 import { Software } from "@prisma/client";
+import { Suspense } from "react";
+
+// skeleton for image in the software list
+function SkeletonLoader(props: { count: number }) {
+  return Array.from({ length: props.count }, (_, index) => (
+    <Skeleton key={index} className="aspect-square" />
+  ));
+}
 
 export default async function SoftwareHome() {
   const projects = await getData();
@@ -15,17 +24,19 @@ export default async function SoftwareHome() {
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-2 md:grid-cols-3">
-        {projects.map((p) => (
-          <SoftwareCard
-            key={p.id}
-            id={p.id}
-            url={p.url}
-            imageUrl={p.imageUrl}
-            name={p.name}
-            areaId={p.areaId}
-            homepage
-          ></SoftwareCard>
-        ))}
+        <Suspense fallback={<SkeletonLoader count={6} />}>
+          {projects.map((p) => (
+            <SoftwareCard
+              key={p.id}
+              id={p.id}
+              url={p.url}
+              imageUrl={p.imageUrl}
+              name={p.name}
+              areaId={p.areaId}
+              homepage
+            ></SoftwareCard>
+          ))}
+        </Suspense>
       </div>
     </section>
   );
