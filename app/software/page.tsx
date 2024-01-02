@@ -1,8 +1,8 @@
 import SoftwareCard from "@/components/SoftwareCard";
 import { Skeleton } from "@/components/ui/skeleton";
 import prisma from "@/lib/prisma";
-import { Software } from "@prisma/client";
 import { Suspense } from "react";
+import { ExtendedSoftware } from "../utils/interfaces";
 
 // skeleton for image in the software list
 function SkeletonLoader(props: { count: number }) {
@@ -34,6 +34,7 @@ export default async function SoftwareHome() {
                 imageUrl={p.imageUrl}
                 name={p.name}
                 areaId={p.areaId}
+                area={p.area}
                 homepage
               ></SoftwareCard>
             ))}
@@ -44,10 +45,13 @@ export default async function SoftwareHome() {
   );
 }
 
-async function getData(): Promise<Software[]> {
+async function getData(): Promise<ExtendedSoftware[]> {
   const result = await prisma.software.findMany({
     orderBy: {
       id: "desc",
+    },
+    include: {
+      area: true,
     },
   });
   return result;

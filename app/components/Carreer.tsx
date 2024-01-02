@@ -1,6 +1,7 @@
 import prisma from "../lib/prisma";
 import { Carreer } from "@prisma/client";
 import CarreerCard from "./CarreerCard";
+import { ExtendedCarreer } from "@/utils/interfaces";
 
 export default async function Carreer() {
   const carreer = await getCarreer();
@@ -16,14 +17,18 @@ export default async function Carreer() {
         <h1 className="title text-center">Carrera Profesional</h1>
       </header>
 
-      {carreer.map((e) => (
-        <CarreerCard key={e.id} {...e} />
+      {carreer.map((item) => (
+        <CarreerCard key={item.id} {...item} />
       ))}
     </section>
   );
 }
 
-async function getCarreer(): Promise<Carreer[]> {
-  const result = await prisma.carreer.findMany();
+async function getCarreer(): Promise<ExtendedCarreer[]> {
+  const result = await prisma.carreer.findMany({
+    include: {
+      type: true,
+    },
+  });
   return result;
 }

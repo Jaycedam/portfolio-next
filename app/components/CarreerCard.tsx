@@ -1,11 +1,10 @@
 "use client";
 
-import { Carreer } from "@prisma/client";
-import { CarreerType } from "../utils/enums";
 import { motion } from "framer-motion";
 import { fadeIn } from "../utils/animations";
+import { ExtendedCarreer } from "@/utils/interfaces";
 
-export default function CarreerCard(props: Carreer) {
+export default function CarreerCard(props: ExtendedCarreer) {
   return (
     <motion.div
       variants={fadeIn}
@@ -20,7 +19,7 @@ export default function CarreerCard(props: Carreer) {
       I added suppressHydrationWarning to prevent log this issue on browser */}
       <p className="text-sm font-light" suppressHydrationWarning>
         <strong className="font-normal uppercase text-pink-500">
-          {CarreerType[props.typeId]}{" "}
+          {props.type.name} &nbsp;
         </strong>
 
         {props.start.toLocaleDateString("es-ES", {

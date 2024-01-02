@@ -1,9 +1,8 @@
 import Image from "next/image";
-import { Software } from "@prisma/client";
-import { ProjectType } from "../utils/enums";
 import Link from "next/link";
+import { ExtendedSoftware } from "@/utils/interfaces";
 
-export default function SoftwareCard(props: Software) {
+export default function SoftwareCard(props: ExtendedSoftware) {
   return (
     <Link href={`/software/${props.id}`}>
       <div
@@ -18,7 +17,7 @@ export default function SoftwareCard(props: Software) {
               pt-12 text-lg 
               text-zinc-50"
         >
-          {props.name} - {ProjectType[props.areaId]}
+          {props.name} - {props.area.name}
         </div>
         <Image
           src={props.imageUrl}

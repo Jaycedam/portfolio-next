@@ -4,9 +4,11 @@ import { Software } from "@prisma/client";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { FaAngleRight } from "react-icons/fa6";
+import { ExtendedSoftware } from "@/utils/interfaces";
 
 export default async function Software() {
   const projects = await getData();
+  console.log(projects);
   return (
     <section id="software" className="container">
       {/* title */}
@@ -18,16 +20,8 @@ export default async function Software() {
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-2 md:grid-cols-2">
-        {projects.map((p) => (
-          <SoftwareCard
-            key={p.id}
-            id={p.id}
-            url={p.url}
-            imageUrl={p.imageUrl}
-            name={p.name}
-            areaId={p.areaId}
-            homepage
-          ></SoftwareCard>
+        {projects.map((item) => (
+          <SoftwareCard key={item.id} {...item}></SoftwareCard>
         ))}
       </div>
 
@@ -47,7 +41,7 @@ export default async function Software() {
 // get data from database, using Prisma model interface
 // update prisma interface when doing migrations with
 // npx prisma generate
-async function getData(): Promise<Software[]> {
+async function getData(): Promise<ExtendedSoftware[]> {
   const result = await prisma.software.findMany({
     where: {
       homepage: true,
@@ -55,6 +49,9 @@ async function getData(): Promise<Software[]> {
     take: 4,
     orderBy: {
       id: "desc",
+    },
+    include: {
+      area: true,
     },
   });
   return result;
