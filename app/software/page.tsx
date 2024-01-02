@@ -14,31 +14,33 @@ function SkeletonLoader(props: { count: number }) {
 export default async function SoftwareHome() {
   const projects = await getData();
   return (
-    <section className="container">
-      {/* title */}
-      <header className="flex flex-col">
-        <h1 className="title">Software</h1>
-        <p className="text-sm font-light text-muted-foreground">
-          click en imagen para más detalles.
-        </p>
-      </header>
-      {/* GRID LAYOUR FOR PROJECTS */}
-      <div className="grid gap-2 md:grid-cols-3">
-        <Suspense fallback={<SkeletonLoader count={6} />}>
-          {projects.map((p) => (
-            <SoftwareCard
-              key={p.id}
-              id={p.id}
-              url={p.url}
-              imageUrl={p.imageUrl}
-              name={p.name}
-              areaId={p.areaId}
-              homepage
-            ></SoftwareCard>
-          ))}
-        </Suspense>
-      </div>
-    </section>
+    <main>
+      <section className="container">
+        {/* title */}
+        <header className="flex flex-col">
+          <h1 className="title">Software</h1>
+          <p className="text-sm font-light text-muted-foreground">
+            click en imagen para más detalles.
+          </p>
+        </header>
+        {/* GRID LAYOUR FOR PROJECTS */}
+        <div className="grid gap-2 md:grid-cols-3">
+          <Suspense fallback={<SkeletonLoader count={6} />}>
+            {projects.map((p) => (
+              <SoftwareCard
+                key={p.id}
+                id={p.id}
+                url={p.url}
+                imageUrl={p.imageUrl}
+                name={p.name}
+                areaId={p.areaId}
+                homepage
+              ></SoftwareCard>
+            ))}
+          </Suspense>
+        </div>
+      </section>
+    </main>
   );
 }
 
