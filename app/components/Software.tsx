@@ -8,7 +8,6 @@ import { ExtendedSoftware } from "@/utils/interfaces";
 
 export default async function Software() {
   const projects = await getData();
-  console.log(projects);
   return (
     <section id="software" className="container">
       {/* title */}
