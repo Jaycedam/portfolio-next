@@ -6,8 +6,8 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { BiMenuAltRight } from "react-icons/bi";
-import { ThemeToggle } from "./ui/theme-toggle";
-import { buttonVariants } from "./ui/button";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
+import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
 
 const navLinks = [
@@ -19,10 +19,6 @@ const navLinks = [
     href: "/software",
     label: "Software",
   },
-  // {
-  //   href: "/motion",
-  //   label: "Motion",
-  // },
 ];
 
 export default function Navbar() {

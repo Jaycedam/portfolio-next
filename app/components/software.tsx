@@ -1,8 +1,8 @@
-import SoftwareCard from "./software-card";
-import prisma from "../lib/prisma";
+import SoftwareCard from "@/components/software-card";
+import prisma from "@/lib/prisma";
 import { Software } from "@prisma/client";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { FaAngleRight } from "react-icons/fa6";
 import { ExtendedSoftware } from "@/utils/interfaces";
 

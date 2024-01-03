@@ -1,5 +1,5 @@
 import { FaCode } from "react-icons/fa";
-import LaptopSVG from "./laptop-svg";
+import LaptopSVG from "@/components/laptop-svg";
 import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
 import Link from "next/link";
