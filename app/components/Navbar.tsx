@@ -57,9 +57,7 @@ export default function Navbar() {
           {navLinks.map((item, index) => (
             <li key={index}>
               <Link
-                className="transition-color p-3 text-sm
-            text-muted-foreground duration-300
-            hover:text-foreground"
+                className="transition-color p-3 text-sm text-muted-foreground duration-300 hover:text-foreground"
                 href={item.href}
               >
                 {item.label}

@@ -12,8 +12,7 @@ export default function CarreerCard(props: ExtendedCarreer) {
       whileInView="animate"
       viewport={{ amount: 0.5 }}
       key={props.id}
-      className="grid w-full p-6 md:w-2/4
-        md:odd:place-self-start md:odd:text-end md:even:place-self-end"
+      className="grid w-full p-6 md:w-2/4 md:odd:place-self-start md:odd:text-end md:even:place-self-end"
     >
       {/* due to localization mismatch on server/client 
       I added suppressHydrationWarning to prevent log this issue on browser */}

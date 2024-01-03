@@ -36,10 +36,7 @@ export default function About() {
       </div>
 
       <Image
-        className="mx-auto aspect-square 
-          h-auto w-2/4 
-          rounded-md object-cover 
-          md:w-full"
+        className="mx-auto aspect-square h-auto w-2/4 rounded-md object-cover md:w-full"
         placeholder="blur"
         src={profile}
         alt=""
