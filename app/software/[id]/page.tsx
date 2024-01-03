@@ -1,4 +1,4 @@
-import MDX from "@/components/MDX";
+import MDX from "@/components/mdx-temp";
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 

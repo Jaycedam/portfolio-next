@@ -1,7 +1,7 @@
-import Footer from "./components/Footer";
-import Navbar from "./components/Navbar";
+import Footer from "./components/footer-temp";
+import Navbar from "./components/navbar-temp";
 import "./globals.css";
-import { Providers } from "./components/Providers";
+import { Providers } from "./components/providers-temp";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 

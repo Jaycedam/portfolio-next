@@ -1,4 +1,4 @@
-import SoftwareCard from "./SoftwareCard";
+import SoftwareCard from "./software-card";
 import prisma from "../lib/prisma";
 import { Software } from "@prisma/client";
 import Link from "next/link";
