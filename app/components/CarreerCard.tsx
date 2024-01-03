@@ -14,7 +14,7 @@ export default function CarreerCard(props: ExtendedCarreer) {
       key={props.id}
       className="grid w-full p-6 md:w-2/4 md:odd:place-self-start md:odd:text-end md:even:place-self-end"
     >
-      {/* due to localization mismatch on server/client 
+      {/* due to date localization mismatch on server/client 
       I added suppressHydrationWarning to prevent log this issue on browser */}
       <p className="text-sm font-light" suppressHydrationWarning>
         <strong className="font-normal uppercase text-pink-500">
@@ -36,7 +36,7 @@ export default function CarreerCard(props: ExtendedCarreer) {
         {props.name} - {props.company}
       </p>
 
-      <p className="mt-1">{props.about}</p>
+      <p className="mt-1 text-muted-foreground">{props.about}</p>
     </motion.div>
   );
 }
