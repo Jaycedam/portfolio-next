@@ -1,7 +1,7 @@
-import Hero from "./components/Hero";
-import Software from "./components/Software";
-import About from "./components/About";
-import Carreer from "./components/Carreer";
+import Hero from "@/components/hero";
+import Software from "@/components/software";
+import About from "@/components/about";
+import Carreer from "@/components/carreer";
 
 export default function Home() {
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "../utils/animations";
+import { fadeIn } from "@/utils/animations";
 import { ExtendedCarreer } from "@/utils/interfaces";
 
 export default function CarreerCard(props: ExtendedCarreer) {

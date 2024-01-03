@@ -1,6 +1,6 @@
-import prisma from "../lib/prisma";
+import prisma from "@/lib/prisma";
 import { Carreer } from "@prisma/client";
-import CarreerCard from "./CarreerCard";
+import CarreerCard from "@/components/carreer-card";
 import { ExtendedCarreer } from "@/utils/interfaces";
 
 export default async function Carreer() {

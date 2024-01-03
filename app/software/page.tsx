@@ -1,8 +1,8 @@
-import SoftwareCard from "@/components/SoftwareCard";
+import SoftwareCard from "@/components/software-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import prisma from "@/lib/prisma";
 import { Suspense } from "react";
-import { ExtendedSoftware } from "../utils/interfaces";
+import { ExtendedSoftware } from "@/utils/interfaces";
 
 // skeleton for image in the software list
 function SkeletonLoader(props: { count: number }) {
