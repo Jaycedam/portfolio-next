@@ -16,8 +16,8 @@ const navLinks = [
     label: "Inicio",
   },
   {
-    href: "/software",
-    label: "Software",
+    href: "/projects",
+    label: "Proyectos",
   },
 ];
 

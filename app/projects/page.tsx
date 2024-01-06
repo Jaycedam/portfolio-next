@@ -4,21 +4,21 @@ import prisma from "@/lib/prisma";
 import { Suspense } from "react";
 import { ExtendedProject } from "@/utils/interfaces";
 
-// skeleton for image in the software list
+// skeleton for image in the project list
 function SkeletonLoader(props: { count: number }) {
   return Array.from({ length: props.count }, (_, index) => (
     <Skeleton key={index} className="aspect-square" />
   ));
 }
 
-export default async function SoftwareHome() {
+export default async function ProjectsHome() {
   const projects = await getData();
   return (
     <main>
       <section className="container">
         {/* title */}
         <header className="flex flex-col">
-          <h1 className="title">Software</h1>
+          <h1 className="title">Proyectos</h1>
           <p className="text-sm font-light text-muted-foreground">
             click en imagen para más detalles.
           </p>

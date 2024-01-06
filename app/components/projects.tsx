@@ -8,10 +8,10 @@ import { ExtendedProject } from "@/utils/interfaces";
 export default async function Projects() {
   const projects = await getData();
   return (
-    <section id="software" className="container">
+    <section id="projects" className="container">
       {/* title */}
       <header className="flex flex-col">
-        <h1 className="title">Software</h1>
+        <h1 className="title">Proyectos destacados</h1>
         <p className="text-sm font-light text-muted-foreground">
           click en imagen para más detalles.
         </p>
