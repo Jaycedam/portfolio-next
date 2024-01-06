@@ -22,10 +22,15 @@ export default async function Carreer() {
 }
 
 async function getCarreer(): Promise<ExtendedCarreer[]> {
-  const result = await prisma.carreer.findMany({
-    include: {
-      type: true,
-    },
-  });
-  return result;
+  try {
+    const result = await prisma.carreer.findMany({
+      include: {
+        type: true,
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching data from db: ", error);
+    return [];
+  }
 }
