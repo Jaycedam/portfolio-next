@@ -22,8 +22,6 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const email: string = process.env.EMAIL;
-
   return (
     <div className=" fixed inset-0 z-50 h-14 border-b bg-background/70 backdrop-blur">
       <nav className="container flex h-full items-center justify-between">
@@ -66,7 +64,7 @@ export default function Navbar() {
           </li>
           <li>
             <a
-              href={email}
+              href={process.env.EMAIL}
               className={buttonVariants({ variant: "ghost", size: "icon" })}
             >
               <MdEmail className="h-[1.25rem] w-[1.25rem]" />
@@ -108,7 +106,7 @@ export default function Navbar() {
                 </li>
                 <li>
                   <a
-                    href={email}
+                    href={process.env.EMAIL}
                     className={buttonVariants({
                       variant: "ghost",
                       size: "icon",

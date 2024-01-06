@@ -37,7 +37,13 @@ export default function Hero() {
           &nbsp; Proyectos
         </Link>
 
-        <a href="#" className={buttonVariants({ variant: "outline" })}>
+        <a
+          href={process.env.EMAIL}
+          className={buttonVariants({
+            variant: "outline",
+          })}
+        >
+          {" "}
           <MdEmail />
           &nbsp; Contactar
         </a>
