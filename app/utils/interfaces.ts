@@ -1,6 +1,6 @@
-import { Area, Carreer, Software, Type } from "@prisma/client";
+import { Area, Carreer, Project, Type } from "@prisma/client";
 
-export interface ExtendedSoftware extends Software {
+export interface ExtendedProject extends Project {
   area: Area;
 }
 

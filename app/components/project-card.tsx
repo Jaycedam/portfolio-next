@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExtendedSoftware } from "@/utils/interfaces";
+import { ExtendedProject } from "@/utils/interfaces";
 
-export default function SoftwareCard(props: ExtendedSoftware) {
+export default function ProjectCard(props: ExtendedProject) {
   return (
     <Link href={`/software/${props.id}`}>
       <div className="group relative isolate aspect-square overflow-hidden rounded-md transition-all duration-500">

@@ -1,8 +1,8 @@
-import SoftwareCard from "@/components/software-card";
+import ProjectCard from "@/components/project-card";
 import { Skeleton } from "@/components/ui/skeleton";
 import prisma from "@/lib/prisma";
 import { Suspense } from "react";
-import { ExtendedSoftware } from "@/utils/interfaces";
+import { ExtendedProject } from "@/utils/interfaces";
 
 // skeleton for image in the software list
 function SkeletonLoader(props: { count: number }) {
@@ -27,7 +27,7 @@ export default async function SoftwareHome() {
         <div className="grid gap-2 md:grid-cols-3">
           <Suspense fallback={<SkeletonLoader count={6} />}>
             {projects.map((p) => (
-              <SoftwareCard
+              <ProjectCard
                 key={p.id}
                 id={p.id}
                 url={p.url}
@@ -36,7 +36,7 @@ export default async function SoftwareHome() {
                 areaId={p.areaId}
                 area={p.area}
                 homepage
-              ></SoftwareCard>
+              ></ProjectCard>
             ))}
           </Suspense>
         </div>
@@ -45,8 +45,8 @@ export default async function SoftwareHome() {
   );
 }
 
-async function getData(): Promise<ExtendedSoftware[]> {
-  const result = await prisma.software.findMany({
+async function getData(): Promise<ExtendedProject[]> {
+  const result = await prisma.project.findMany({
     orderBy: {
       id: "desc",
     },

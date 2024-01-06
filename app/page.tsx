@@ -1,5 +1,5 @@
 import Hero from "@/components/hero";
-import Software from "@/components/software";
+import Projects from "@/components/projects";
 import About from "@/components/about";
 import Carreer from "@/components/carreer";
 
@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <main>
       <Hero />
-      <Software />
+      <Projects />
       <Carreer />
       <About />
     </main>

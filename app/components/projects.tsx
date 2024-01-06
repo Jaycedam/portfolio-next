@@ -1,12 +1,11 @@
-import SoftwareCard from "@/components/software-card";
+import ProjectCard from "@/components/project-card";
 import prisma from "@/lib/prisma";
-import { Software } from "@prisma/client";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { FaAngleRight } from "react-icons/fa6";
-import { ExtendedSoftware } from "@/utils/interfaces";
+import { ExtendedProject } from "@/utils/interfaces";
 
-export default async function Software() {
+export default async function Projects() {
   const projects = await getData();
   return (
     <section id="software" className="container">
@@ -20,7 +19,7 @@ export default async function Software() {
       {/* GRID LAYOUR FOR PROJECTS */}
       <div className="grid gap-2 md:grid-cols-2">
         {projects.map((item) => (
-          <SoftwareCard key={item.id} {...item}></SoftwareCard>
+          <ProjectCard key={item.id} {...item}></ProjectCard>
         ))}
       </div>
 
@@ -40,8 +39,8 @@ export default async function Software() {
 // get data from database, using Prisma model interface
 // update prisma interface when doing migrations with
 // npx prisma generate
-async function getData(): Promise<ExtendedSoftware[]> {
-  const result = await prisma.software.findMany({
+async function getData(): Promise<ExtendedProject[]> {
+  const result = await prisma.project.findMany({
     where: {
       homepage: true,
     },
