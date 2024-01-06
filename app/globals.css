@@ -73,6 +73,8 @@
   body {
     @apply bg-background text-foreground;
   }
+
+  /* offset for navbar height, can't put it in body since shadcn dropdown changes all padding when open */
   main {
     @apply pt-14;
   }
@@ -87,6 +89,6 @@
 
   /* margin for anchor scrolling and adds whitespace  */
   section {
-    @apply mb-20 mt-16 scroll-mt-16;
+    @apply my-16 scroll-mt-16;
   }
 }
