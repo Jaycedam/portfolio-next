@@ -20,11 +20,12 @@ export default async function Projects(props: { highlights: boolean }) {
   const projects = await getData(props.highlights);
   // changes the skeleton loading items, use double the number of the md:grid-cols of the skeleton parent
   const skeletonCount: number = props.highlights ? 4 : 6;
+  const title: string = props.highlights ? "Proyectos destacados" : "Proyectos";
   return (
     <section id="projects" className="container">
       {/* title */}
       <header className="flex flex-col">
-        <h1 className="title">Proyectos</h1>
+        <h1 className="title">{title}</h1>
         <p className="text-sm font-light text-muted-foreground">
           click en imagen para más detalles.
         </p>
