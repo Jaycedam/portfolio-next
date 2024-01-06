@@ -28,7 +28,7 @@ export default async function SoftwareDetails({
 }
 
 async function getData(id: number) {
-  const result = await prisma.software.findUnique({
+  const result = await prisma.project.findUnique({
     where: { id: id },
     select: {
       url: true,

@@ -25,7 +25,7 @@ export default async function Projects() {
 
       <div className="mt-8 grid justify-end">
         <Link
-          href="/software"
+          href="/projects"
           className={buttonVariants({ variant: "outline" })}
         >
           Ver más &nbsp;
