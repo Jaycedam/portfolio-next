@@ -8,7 +8,7 @@ export default function page() {
       <header className="flex items-center gap-4">
         <h1 className="title">Projects</h1>
         <Link
-          className={buttonVariants({ variant: "outline" })}
+          className={buttonVariants({ variant: "default" })}
           href={"/admin/projects/create"}
         >
           Create
