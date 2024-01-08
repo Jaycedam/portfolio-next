@@ -17,8 +17,8 @@ export default function DeleteFormButton(props: { id: number }) {
   // add check for selected option to delete based on interface
   return (
     <AlertDialog>
-      <AlertDialogTrigger>
-        <Button variant="destructive">Delete</Button>
+      <AlertDialogTrigger asChild>
+        <Button variant="destructive">Deletete</Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -30,7 +30,7 @@ export default function DeleteFormButton(props: { id: number }) {
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction>
+          <AlertDialogAction asChild>
             <form action={DeleteProject}>
               <input type="hidden" readOnly name="id" defaultValue={props.id} />
               <button type="submit">Delete</button>
