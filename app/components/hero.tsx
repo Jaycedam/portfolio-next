@@ -16,7 +16,7 @@ export default function Hero() {
         <h1 className="text-3xl font-bold md:text-4xl">
           Hola, soy
           <br />
-          <strong className="animate-gradient bg-gradient-to-r from-orange-400 via-purple-500 to-pink-500 bg-clip-text text-6xl font-black text-transparent md:text-7xl">
+          <strong className="animate-gradient bg-gradient-to-r from-blue-400 via-purple-400 to-primary bg-clip-text text-6xl font-black text-transparent md:text-7xl">
             Jordan Cortés
           </strong>
         </h1>
