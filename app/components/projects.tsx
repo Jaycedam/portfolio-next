@@ -4,15 +4,6 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import { FaAngleRight } from "react-icons/fa6";
 import { ExtendedProject } from "@/utils/interfaces";
-import { Suspense } from "react";
-import { Skeleton } from "@/components/ui/skeleton";
-
-// skeleton for image in the project list
-function SkeletonLoader(props: { count: number }) {
-  return Array.from({ length: props.count }, (_, index) => (
-    <Skeleton key={index} className="aspect-square" />
-  ));
-}
 
 // prop highlights defines if we return all items or only the ones that have homepage: true on the db
 // it also changes the grid layout
@@ -36,11 +27,9 @@ export default async function Projects(props: { highlights: boolean }) {
           props.highlights ? "md:grid-cols-2" : "md:grid-cols-3"
         }`}
       >
-        <Suspense fallback={<SkeletonLoader count={skeletonCount} />}>
-          {projects.map((item) => (
-            <ProjectCard key={item.id} {...item}></ProjectCard>
-          ))}
-        </Suspense>
+        {projects.map((item) => (
+          <ProjectCard key={item.id} {...item}></ProjectCard>
+        ))}
       </div>
 
       {props.highlights && (
