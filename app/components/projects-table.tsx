@@ -51,7 +51,7 @@ export default async function ProjectsTable() {
               >
                 Edit
               </Link>
-              <DeleteFormButton id={item.id} />
+              <DeleteFormButton id={item.id} action={"project"} />
             </TableCell>
           </TableRow>
         ))}

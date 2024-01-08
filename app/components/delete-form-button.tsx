@@ -1,4 +1,4 @@
-import { DeleteProject } from "@/utils/actions";
+import { DeleteProject } from "@/actions/project";
 import React from "react";
 import { Button } from "@/components/ui/button";
 import {
@@ -13,7 +13,12 @@ import {
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
 
-export default function DeleteFormButton(props: { id: number }) {
+interface Props {
+  id: number;
+  action: "project" | "projectArea" | "carreer" | "carreerType";
+}
+
+export default function DeleteFormButton(props: Props) {
   // add check for selected option to delete based on interface
   return (
     <AlertDialog>

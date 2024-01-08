@@ -1,6 +1,6 @@
 "use client";
 
-import { CreateProject, UpdateProject } from "@/utils/actions";
+import { CreateProject, UpdateProject } from "@/actions/project";
 import { Project } from "@prisma/client";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";

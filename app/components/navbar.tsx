@@ -10,7 +10,7 @@ import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
 import NavLink from "@/components/nav-link";
-import LogoSVG from "@/components/logo-svg";
+import LogoSVG from "@/components/svg/logo-svg";
 
 const navLinks = [
   {
