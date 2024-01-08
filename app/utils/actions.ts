@@ -31,8 +31,8 @@ export async function CreateProject(formData: FormData) {
       areaId: Number(formData.get("areaId")),
     },
   });
-  revalidatePath("/admin");
-  redirect("/admin");
+  revalidatePath("/admin/projects");
+  redirect("/admin/projects");
 }
 
 export async function DeleteProject(formData: FormData) {
@@ -41,5 +41,5 @@ export async function DeleteProject(formData: FormData) {
       id: Number(formData.get("id")),
     },
   });
-  revalidatePath("/admin");
+  revalidatePath("/admin/projects");
 }
