@@ -9,6 +9,7 @@ import { BiMenuAltRight } from "react-icons/bi";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
+import NavLink from "@/components/nav-link";
 
 const navLinks = [
   {
@@ -38,7 +39,7 @@ export default function Navbar() {
               <path d="M558.89,416.32C558.89,546.4 529.55,584.26 483.04,632.57C430.16,687.43 368.71,715.26 282.04,715.26C239.33,715.26 142.04,707.26 75.04,633.59C15.53,567.16 2.04,513.59 0.04,425.59C0.039,425.533 0.038,425.477 0.038,425.42C0.038,420.143 4.381,415.8 9.658,415.8C9.659,415.8 9.659,415.8 9.66,415.8L177,415.8C182.083,415.788 186.34,419.814 186.61,424.89C187.7,445.2 190.66,467.89 198.85,488.04L198.91,488.17L198.91,488.28C213.91,522.28 241.2,539.56 279.98,539.56C320.59,539.56 347.56,523.56 360.09,492.32C372.01,464.01 373.03,445.68 373.03,416.32" />
             </g>
             <g
-              className="fill-foreground"
+              className="fill-primary"
               id="circle"
               transform="matrix(1,0,0,1,-0.0384978,0)"
             >
@@ -50,12 +51,7 @@ export default function Navbar() {
         <ul className="hidden items-center gap-4 md:flex">
           {navLinks.map((item, index) => (
             <li key={index}>
-              <Link
-                className="transition-color p-3 text-sm text-muted-foreground duration-300 hover:text-foreground"
-                href={item.href}
-              >
-                {item.label}
-              </Link>
+              <NavLink href={item.href} label={item.label} />
             </li>
           ))}
 
@@ -87,14 +83,7 @@ export default function Navbar() {
                   <li key={index}>
                     {/* SheetClose is used as child to close the nav when the child is clicked */}
                     <SheetClose asChild>
-                      <Link
-                        className="transition-color p-3 text-lg
-                      text-muted-foreground duration-300
-                      hover:text-foreground"
-                        href={item.href}
-                      >
-                        {item.label}
-                      </Link>
+                      <NavLink href={item.href} label={item.label} />
                     </SheetClose>
                   </li>
                 ))}
