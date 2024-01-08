@@ -17,7 +17,7 @@ export default function CarreerCard(props: ExtendedCarreer) {
       {/* due to date localization mismatch on server/client 
       I added suppressHydrationWarning to prevent log this issue on browser */}
       <p className="text-sm font-light" suppressHydrationWarning>
-        <strong className="font-normal uppercase text-pink-500">
+        <strong className="font-normal uppercase text-primary">
           {props.type.name} &nbsp;
         </strong>
 
