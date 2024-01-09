@@ -17,6 +17,7 @@ export async function CreateCarreer(formData: FormData) {
         date: formData.get("date") as string,
       },
     });
+    console.log(Number(formData.get("typeId")));
   } catch (error) {
     console.log(error);
   } finally {
@@ -35,7 +36,7 @@ export async function UpdateCarreer(formData: FormData) {
         name: formData.get("name") as string,
         company: formData.get("company") as string,
         about: formData.get("about") as string,
-        typeId: Number(formData.get("type")),
+        typeId: Number(formData.get("typeId")),
         date: formData.get("date") as string,
       },
     });

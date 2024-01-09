@@ -1,7 +1,7 @@
 "use client";
 
 import { CreateProject, UpdateProject } from "@/actions/project";
-import { Project } from "@prisma/client";
+import { Area, Project } from "@prisma/client";
 import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
@@ -14,9 +14,19 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
 
-export default function ProjectForm(props: { project?: Project }) {
+export default function ProjectForm(props: {
+  project?: Project;
+  areaCbo: Area[];
+}) {
   // check if project is being passed down to update, else create new one on db
   const formAction = props.project ? UpdateProject : CreateProject;
   const formTitle = props.project ? "Update Project" : "Create Project";
@@ -78,12 +88,23 @@ export default function ProjectForm(props: { project?: Project }) {
           </div>
           <div className="grid w-full  items-center gap-1.5">
             <Label htmlFor="areaId">Area ID</Label>
-            <Input
-              required
-              type="number"
+
+            <Select
               name="areaId"
-              defaultValue={props.project?.areaId}
-            />
+              required
+              defaultValue={props.project?.areaId.toString()}
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Type" />
+              </SelectTrigger>
+              <SelectContent>
+                {props.areaCbo.map((item) => (
+                  <SelectItem value={item.id.toString()}>
+                    {item.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
           <div className="flex items-center space-x-2">
             <Checkbox

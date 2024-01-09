@@ -1,6 +1,6 @@
 "use client";
 
-import { Carreer } from "@prisma/client";
+import { Carreer, Type } from "@prisma/client";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
@@ -13,8 +13,18 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { CreateCarreer, UpdateCarreer } from "@/actions/carreer";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "../ui/select";
 
-export default function CarreerForm(props: { carreer?: Carreer }) {
+export default function CarreerForm(props: {
+  carreer?: Carreer;
+  typeCbo: Type[];
+}) {
   // check if object is being passed down to update, else create new one on db
   const formAction = props.carreer ? UpdateCarreer : CreateCarreer;
   const formTitle = props.carreer ? "Update Carreer" : "Create Carreer";
@@ -73,12 +83,22 @@ export default function CarreerForm(props: { carreer?: Carreer }) {
 
           <div className="grid w-full  items-center gap-1.5">
             <Label htmlFor="typeId">Type</Label>
-            <Input
+            <Select
               required
-              type="number"
+              defaultValue={props.carreer?.typeId.toString()}
               name="typeId"
-              defaultValue={props.carreer?.typeId}
-            />
+            >
+              <SelectTrigger className="w-[180px]">
+                <SelectValue placeholder="Type" />
+              </SelectTrigger>
+              <SelectContent>
+                {props.typeCbo.map((item) => (
+                  <SelectItem value={item.id.toString()}>
+                    {item.name}
+                  </SelectItem>
+                ))}
+              </SelectContent>
+            </Select>
           </div>
         </CardContent>
         <CardFooter>
