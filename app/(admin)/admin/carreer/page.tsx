@@ -1,4 +1,4 @@
-import CarreerTable from "@/components/carreer-table";
+import CarreerTable from "@/components/table/carreer-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";

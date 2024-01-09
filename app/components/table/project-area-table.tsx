@@ -9,12 +9,12 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import DeleteFormButton from "./delete-form-button";
+import DeleteFormButton from "../delete-form-button";
 import { FaEdit } from "react-icons/fa";
-import { getCarreerList } from "@/utils/get-data";
+import { getProjectAreaList } from "@/utils/get-data";
 
-export default async function CarreerTable() {
-  const data = await getCarreerList();
+export default async function ProjectAreaTable() {
+  const data = await getProjectAreaList();
 
   return (
     <Table>
@@ -23,10 +23,6 @@ export default async function CarreerTable() {
         <TableRow>
           <TableHead>Id</TableHead>
           <TableHead>Name</TableHead>
-          <TableHead>Company</TableHead>
-          <TableHead>About</TableHead>
-          <TableHead>Type</TableHead>
-          <TableHead>Date</TableHead>
           <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -35,20 +31,6 @@ export default async function CarreerTable() {
           <TableRow key={index}>
             <TableCell>{item.id}</TableCell>
             <TableCell>{item.name}</TableCell>
-            <TableCell>{item.company}</TableCell>
-            <TableCell>{item.about}</TableCell>
-            <TableCell>{item.type.name}</TableCell>
-            <TableCell>
-              {item.start.toLocaleDateString("es-ES", {
-                month: "short",
-                year: "numeric",
-              }) + " - "}
-              {item.end &&
-                item.end.toLocaleDateString("es-ES", {
-                  month: "short",
-                  year: "numeric",
-                })}
-            </TableCell>
             <TableCell className="flex gap-4">
               <Link
                 href={`/admin/project-area/update/${item.id}`}

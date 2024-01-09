@@ -1,4 +1,4 @@
-import ProjectsTable from "@/components/projects-table";
+import ProjectsTable from "@/components/table/projects-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import { IoMdAdd } from "react-icons/io";

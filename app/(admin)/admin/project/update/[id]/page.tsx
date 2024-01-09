@@ -1,4 +1,4 @@
-import ProjectForm from "@/components/project-form";
+import ProjectForm from "@/components/form/project-form";
 import { getProject } from "@/utils/get-data";
 import React from "react";
 

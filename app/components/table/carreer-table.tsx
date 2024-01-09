@@ -9,12 +9,12 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import DeleteFormButton from "./delete-form-button";
+import DeleteFormButton from "../delete-form-button";
 import { FaEdit } from "react-icons/fa";
-import { getProjectAreaList } from "@/utils/get-data";
+import { getCarreerList } from "@/utils/get-data";
 
-export default async function ProjectAreaTable() {
-  const data = await getProjectAreaList();
+export default async function CarreerTable() {
+  const data = await getCarreerList();
 
   return (
     <Table>
@@ -23,6 +23,10 @@ export default async function ProjectAreaTable() {
         <TableRow>
           <TableHead>Id</TableHead>
           <TableHead>Name</TableHead>
+          <TableHead>Company</TableHead>
+          <TableHead>About</TableHead>
+          <TableHead>Type</TableHead>
+          <TableHead>Date</TableHead>
           <TableHead>Actions</TableHead>
         </TableRow>
       </TableHeader>
@@ -31,9 +35,13 @@ export default async function ProjectAreaTable() {
           <TableRow key={index}>
             <TableCell>{item.id}</TableCell>
             <TableCell>{item.name}</TableCell>
+            <TableCell>{item.company}</TableCell>
+            <TableCell>{item.about}</TableCell>
+            <TableCell>{item.type.name}</TableCell>
+            <TableCell>{item.date}</TableCell>
             <TableCell className="flex gap-4">
               <Link
-                href={`/admin/project-area/update/${item.id}`}
+                href={`/admin/carreer/update/${item.id}`}
                 className={buttonVariants({
                   variant: "secondary",
                   size: "icon",
@@ -41,7 +49,7 @@ export default async function ProjectAreaTable() {
               >
                 <FaEdit className="h-4 w-auto" />
               </Link>
-              <DeleteFormButton id={item.id} action={"projectArea"} />
+              <DeleteFormButton id={item.id} action={"carreer"} />
             </TableCell>
           </TableRow>
         ))}

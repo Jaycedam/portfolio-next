@@ -1,4 +1,4 @@
-import ProjectAreaTable from "@/components/project-area-table";
+import ProjectAreaTable from "@/components/table/project-area-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
 import React from "react";

@@ -6,25 +6,24 @@ import { redirect } from "next/navigation";
 
 const url: string = "/admin/carreer";
 
-// export async function CreateCarreer(formData: FormData) {
-//   try {
-//     const update = await prisma.carreer.create({
-//       data: {
-//         name: formData.get("name") as string,
-//         about: formData.get("about") as string,
-//         company: formData.get("company") as string,
-//         typeId: Number(formData.get("typeId")),
-//         // start: Date.parse(formData.get("startDate") as),
-//         // end: formData.get("endDate")
-//       },
-//     });
-//   } catch (error) {
-//     console.log(error);
-//   } finally {
-//     revalidatePath(url);
-//     redirect(url);
-//   }
-// }
+export async function CreateCarreer(formData: FormData) {
+  try {
+    const create = await prisma.carreer.create({
+      data: {
+        name: formData.get("name") as string,
+        about: formData.get("about") as string,
+        company: formData.get("company") as string,
+        typeId: Number(formData.get("typeId")),
+        date: formData.get("date") as string,
+      },
+    });
+  } catch (error) {
+    console.log(error);
+  } finally {
+    revalidatePath(url);
+    redirect(url);
+  }
+}
 
 export async function UpdateCarreer(formData: FormData) {
   try {
@@ -34,6 +33,10 @@ export async function UpdateCarreer(formData: FormData) {
       },
       data: {
         name: formData.get("name") as string,
+        company: formData.get("company") as string,
+        about: formData.get("about") as string,
+        typeId: Number(formData.get("type")),
+        date: formData.get("date") as string,
       },
     });
   } catch (error) {

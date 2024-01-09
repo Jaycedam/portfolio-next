@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import DeleteFormButton from "./delete-form-button";
+import DeleteFormButton from "../delete-form-button";
 import { FaEdit } from "react-icons/fa";
 import { getProjectList } from "@/utils/get-data";
 

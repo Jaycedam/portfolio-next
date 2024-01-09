@@ -4,7 +4,7 @@ import prisma from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
-const url: string = "/admin/projects";
+const url: string = "/admin/project";
 
 export async function CreateProject(formData: FormData) {
   try {
