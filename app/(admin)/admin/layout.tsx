@@ -4,6 +4,11 @@ import { GeistMono } from "geist/font/mono";
 import "@/globals.css";
 import { Providers } from "@/components/providers";
 
+export const metadata = {
+  title: "Portfolio Dashboard",
+  description: "Admin site",
+};
+
 export default function layout({ children }: { children: React.ReactNode }) {
   return (
     <html

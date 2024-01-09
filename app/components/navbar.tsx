@@ -21,10 +21,6 @@ const navLinks = [
     href: "/projects",
     label: "Proyectos",
   },
-  {
-    href: "/admin",
-    label: "Admin",
-  },
 ];
 
 export default function Navbar() {

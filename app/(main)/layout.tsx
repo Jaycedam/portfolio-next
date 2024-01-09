@@ -6,8 +6,8 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata = {
-  title: "Admin Portfolio",
-  description: "Portfolio's dashboard",
+  title: "Jordan Cortés",
+  description: "Portfolio",
 };
 
 export default function RootLayout({
