@@ -12,6 +12,10 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog";
+import { FaTrash } from "react-icons/fa";
+import { DeleteProjectArea } from "@/actions/project-area";
+import { DeleteCarreer } from "@/actions/carreer";
+import { DeleteCarreerType } from "@/actions/carreer-type";
 
 interface Props {
   id: number;
@@ -19,11 +23,32 @@ interface Props {
 }
 
 export default function DeleteFormButton(props: Props) {
-  // add check for selected option to delete based on interface
+  let action;
+  // check for selected option to delete from x table
+  switch (props.action) {
+    case "project":
+      action = DeleteProject;
+      break;
+    case "projectArea":
+      action = DeleteProjectArea;
+      break;
+    case "carreer":
+      action = DeleteCarreer;
+      break;
+    case "carreerType":
+      action = DeleteCarreerType;
+      break;
+    default:
+      console.log("Unknown action");
+      break;
+  }
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button variant="destructive">Deletete</Button>
+        <Button size="icon" variant="destructive">
+          <FaTrash className="h-4 w-auto" />
+        </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
@@ -36,7 +61,7 @@ export default function DeleteFormButton(props: Props) {
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction asChild>
-            <form action={DeleteProject}>
+            <form action={action}>
               <input type="hidden" readOnly name="id" defaultValue={props.id} />
               <button type="submit">Delete</button>
             </form>
