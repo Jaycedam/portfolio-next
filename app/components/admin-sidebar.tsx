@@ -1,4 +1,5 @@
 import NavLink from "./nav-link";
+import { ThemeToggle } from "./ui/theme-toggle";
 
 const navLinks = [
   {
@@ -25,10 +26,11 @@ const navLinks = [
 
 export default function AdminSidebar() {
   return (
-    <section className="flex h-full w-fit flex-col items-start gap-8 px-8">
+    <nav className="fixed left-0 z-50 flex h-full w-48 flex-col items-start justify-center gap-8 border-r bg-popover px-8">
       {navLinks.map((item, index) => (
         <NavLink href={item.href} label={item.label} key={index} />
       ))}
-    </section>
+      <ThemeToggle />
+    </nav>
   );
 }
