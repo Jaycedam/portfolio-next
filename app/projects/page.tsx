@@ -6,7 +6,7 @@ export default async function ProjectsHome() {
   return (
     <main>
       <Suspense fallback={<SkeletonProjects highlights={false} />}>
-        <Projects highlights={false} />
+        <Projects homepage={false} />
       </Suspense>
     </main>
   );

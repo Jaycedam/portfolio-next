@@ -7,14 +7,14 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import prisma from "@/lib/prisma";
-import { ExtendedProject } from "@/utils/interfaces";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import DeleteFormButton from "./delete-form-button";
+import { FaEdit } from "react-icons/fa";
+import { getProjectList } from "@/utils/get-data";
 
 export default async function ProjectsTable() {
-  const data = await getData();
+  const data = await getProjectList();
 
   return (
     <Table>
@@ -46,10 +46,13 @@ export default async function ProjectsTable() {
             <TableCell>{item.homepage.toString()}</TableCell>
             <TableCell className="flex gap-4">
               <Link
-                href={`/admin/projects/update/${item.id}`}
-                className={buttonVariants({ variant: "secondary" })}
+                href={`/admin/project/update/${item.id}`}
+                className={buttonVariants({
+                  variant: "secondary",
+                  size: "icon",
+                })}
               >
-                Edit
+                <FaEdit className="h-4 w-auto" />
               </Link>
               <DeleteFormButton id={item.id} action={"project"} />
             </TableCell>
@@ -58,22 +61,4 @@ export default async function ProjectsTable() {
       </TableBody>
     </Table>
   );
-}
-
-async function getData(): Promise<ExtendedProject[]> {
-  try {
-    const result = await prisma.project.findMany({
-      orderBy: {
-        id: "desc",
-      },
-      include: {
-        area: true,
-      },
-    });
-
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
 }

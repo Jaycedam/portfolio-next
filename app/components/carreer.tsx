@@ -1,10 +1,9 @@
-import prisma from "@/lib/prisma";
 import { Carreer } from "@prisma/client";
 import CarreerCard from "@/components/carreer-card";
-import { ExtendedCarreer } from "@/utils/interfaces";
+import { getCarreerList } from "@/utils/get-data";
 
 export default async function Carreer() {
-  const carreer = await getCarreer();
+  const carreer = await getCarreerList();
   return (
     <section
       id="carreer"
@@ -19,18 +18,4 @@ export default async function Carreer() {
       ))}
     </section>
   );
-}
-
-async function getCarreer(): Promise<ExtendedCarreer[]> {
-  try {
-    const result = await prisma.carreer.findMany({
-      include: {
-        type: true,
-      },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
 }

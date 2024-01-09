@@ -10,7 +10,7 @@ export default function Home() {
     <main>
       <Hero />
       <Suspense fallback={<SkeletonProjects highlights={true} />}>
-        <Projects highlights={true} />
+        <Projects homepage={true} />
       </Suspense>
       <Carreer />
       <About />
