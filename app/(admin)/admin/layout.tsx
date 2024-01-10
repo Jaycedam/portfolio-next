@@ -19,7 +19,7 @@ export default function layout({ children }: { children: React.ReactNode }) {
       <body>
         <Providers>
           <AdminSidebar />
-          <main className="ml-48 p-8">{children}</main>
+          <main className="p-4 md:ml-48 md:p-8">{children}</main>
         </Providers>
       </body>
     </html>
