@@ -6,7 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 
 export const metadata = {
-  title: "Jordan Cortés",
+  title: "Jordan Cortés Portfolio",
   description: "Portfolio",
 };
 

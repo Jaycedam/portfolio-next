@@ -1,5 +1,5 @@
 import prisma from "@/lib/prisma";
-import { ExtendedCarreer, ExtendedProject } from "./interfaces";
+import { ExtendedCarreer, ExtendedProject } from "@/utils/interfaces";
 import { notFound } from "next/navigation";
 import { Area, Type } from "@prisma/client";
 
