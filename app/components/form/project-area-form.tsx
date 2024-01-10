@@ -30,7 +30,7 @@ export default function ProjectAreaForm(props: { projectArea?: Area }) {
         </CardDescription>
       </CardHeader>
       <form action={formAction}>
-        <CardContent className="grid gap-4">
+        <CardContent className="grid gap-6">
           <Input
             type="hidden"
             readOnly
