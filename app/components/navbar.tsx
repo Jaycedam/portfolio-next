@@ -11,6 +11,8 @@ import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
 import NavLink from "@/components/nav-link";
 import LogoSVG from "@/components/svg/logo-svg";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/api/auth/[...nextauth]/options";
 
 const navLinks = [
   {
@@ -23,7 +25,9 @@ const navLinks = [
   },
 ];
 
-export default function Navbar() {
+export default async function Navbar() {
+  // get current session of user if logged in
+  const session = await getServerSession(options);
   return (
     <div className=" fixed inset-0 z-50 h-14 border-b bg-background/70 backdrop-blur">
       <nav className="container flex h-full items-center justify-between">
@@ -38,6 +42,12 @@ export default function Navbar() {
               <NavLink href={item.href} label={item.label} />
             </li>
           ))}
+
+          {session && (
+            <li>
+              <NavLink href="/admin" label="Admin" />
+            </li>
+          )}
 
           <li>
             <ThemeToggle />
