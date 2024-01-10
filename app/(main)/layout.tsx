@@ -4,6 +4,8 @@ import "@/globals.css";
 import { Providers } from "@/components/providers";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/react";
 
 export const metadata = {
   title: "Jordan Cortés Portfolio",
@@ -27,6 +29,8 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {children}
+          <SpeedInsights />
+          <Analytics />
           <Footer />
         </Providers>
       </body>
