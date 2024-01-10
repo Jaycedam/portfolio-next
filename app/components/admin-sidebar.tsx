@@ -1,6 +1,6 @@
 import { BiMenuAltRight } from "react-icons/bi";
 import NavLink from "./nav-link";
-import { ThemeToggle } from "./ui/theme-toggle";
+import { ThemeToggle } from "@/components/ui/theme-toggle";
 import LogoSVG from "@/components/svg/logo-svg";
 import {
   Sheet,
@@ -8,6 +8,10 @@ import {
   SheetContent,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { getServerSession } from "next-auth/next";
+import { options } from "@/api/auth/[...nextauth]/options";
+import Link from "next/link";
+import { buttonVariants } from "./ui/button";
 
 const navLinks = [
   {
@@ -32,20 +36,32 @@ const navLinks = [
   },
 ];
 
-export default function AdminSidebar() {
+export default async function AdminSidebar() {
+  const session = await getServerSession(options);
   return (
     <nav className="z-50 md:fixed md:left-0 md:h-full md:w-48 ">
       <ul className="hidden h-full flex-col items-start justify-center gap-8 border-r bg-popover px-8 md:flex">
-        <li>
-          <header>
-            <h1 className="p-3 font-bold">Portfolio Admin</h1>
+        <li className="w-full">
+          <header className="flex flex-col items-center gap-4 text-center">
+            <LogoSVG />
+            <h1 className="font-bold">Admin Site</h1>
           </header>
         </li>
         {navLinks.map((item, index) => (
-          <li>
+          <li key={index}>
             <NavLink href={item.href} label={item.label} key={index} />
           </li>
         ))}
+        {session && (
+          <li>
+            <Link
+              className={buttonVariants({ variant: "outline" })}
+              href="/api/auth/signout"
+            >
+              Sign out
+            </Link>
+          </li>
+        )}
 
         <li>
           <ThemeToggle />
