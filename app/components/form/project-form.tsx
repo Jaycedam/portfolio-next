@@ -98,8 +98,8 @@ export default function ProjectForm(props: {
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
-                {props.areaCbo.map((item) => (
-                  <SelectItem value={item.id.toString()}>
+                {props.areaCbo.map((item, index) => (
+                  <SelectItem key={index} value={item.id.toString()}>
                     {item.name}
                   </SelectItem>
                 ))}

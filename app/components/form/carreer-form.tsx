@@ -92,8 +92,8 @@ export default function CarreerForm(props: {
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
-                {props.typeCbo.map((item) => (
-                  <SelectItem value={item.id.toString()}>
+                {props.typeCbo.map((item, index) => (
+                  <SelectItem key={index} value={item.id.toString()}>
                     {item.name}
                   </SelectItem>
                 ))}
