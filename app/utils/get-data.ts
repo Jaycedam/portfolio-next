@@ -3,7 +3,6 @@ import { ExtendedCarreer, ExtendedProject } from "./interfaces";
 import { notFound } from "next/navigation";
 import { Area, Type } from "@prisma/client";
 
-// PROJECT
 export async function getProjectListHome(): Promise<ExtendedProject[]> {
   try {
     const result = await prisma.project.findMany({
@@ -55,9 +54,7 @@ export async function getProject(id: number) {
     return notFound();
   }
 }
-// END PROJECT
 
-// PROJECT AREA
 export async function getProjectAreaList(): Promise<Area[]> {
   try {
     const result = await prisma.area.findMany({
@@ -84,9 +81,7 @@ export async function getProjectArea(id: number) {
     return notFound();
   }
 }
-// END PROJECT AREA
 
-// CARREER
 export async function getCarreerList(): Promise<ExtendedCarreer[]> {
   try {
     const result = await prisma.carreer.findMany({
@@ -116,9 +111,7 @@ export async function getCarreer(id: number) {
     return notFound();
   }
 }
-// END CARREER
 
-// CARREER TYPE
 export async function getCarreerTypeList(): Promise<Type[]> {
   try {
     const result = await prisma.type.findMany({
@@ -144,4 +137,15 @@ export async function getCarreerType(id: number) {
     return notFound();
   }
 }
-// END CARREER TYPE
+
+export async function getUser(username: string) {
+  try {
+    const result = await prisma.user.findUniqueOrThrow({
+      where: { username: username },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching user: ", error);
+    return notFound();
+  }
+}

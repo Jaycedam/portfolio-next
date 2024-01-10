@@ -47,5 +47,5 @@ model Project {
 model User {
   id       Int    @id @default(autoincrement())
   username String @unique
-  password String @db.VarChar(50)
+  password String @db.VarChar(250)
 }
