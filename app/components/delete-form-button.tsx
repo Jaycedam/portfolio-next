@@ -16,25 +16,25 @@ import { DeleteProjectArea } from "@/actions/project-area";
 import { DeleteCarreer } from "@/actions/carreer";
 import { DeleteCarreerType } from "@/actions/carreer-type";
 
-interface Props {
+export interface DeleteFormProps {
   id: number;
-  action: "project" | "projectArea" | "carreer" | "carreerType";
+  action: "project" | "project-area" | "carreer" | "carreer-type";
 }
 
-export default function DeleteFormButton(props: Props) {
+export default function DeleteFormButton(props: DeleteFormProps) {
   let action;
   // check for selected option to delete from x table
   switch (props.action) {
     case "project":
       action = DeleteProject;
       break;
-    case "projectArea":
+    case "project-area":
       action = DeleteProjectArea;
       break;
     case "carreer":
       action = DeleteCarreer;
       break;
-    case "carreerType":
+    case "carreer-type":
       action = DeleteCarreerType;
       break;
     default:

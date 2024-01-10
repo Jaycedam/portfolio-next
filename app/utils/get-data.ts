@@ -1,7 +1,7 @@
 import prisma from "@/lib/prisma";
 import { ExtendedCarreer, ExtendedProject } from "@/utils/interfaces";
 import { notFound } from "next/navigation";
-import { Area, Type } from "@prisma/client";
+import { Area, Project, Type } from "@prisma/client";
 
 export async function getProjectListHome(): Promise<ExtendedProject[]> {
   try {
@@ -25,14 +25,16 @@ export async function getProjectListHome(): Promise<ExtendedProject[]> {
   }
 }
 
-export async function getProjectList(): Promise<ExtendedProject[]> {
+export async function getProjectList(
+  includeArea: boolean
+): Promise<ExtendedProject[] | Project[]> {
   try {
     const result = await prisma.project.findMany({
       orderBy: {
         id: "desc",
       },
       include: {
-        area: true,
+        area: includeArea,
       },
     });
 
@@ -82,14 +84,16 @@ export async function getProjectArea(id: number) {
   }
 }
 
-export async function getCarreerList(): Promise<ExtendedCarreer[]> {
+export async function getCarreerList(
+  includeType: boolean
+): Promise<ExtendedCarreer[]> {
   try {
     const result = await prisma.carreer.findMany({
       orderBy: {
         id: "desc",
       },
       include: {
-        type: true,
+        type: includeType,
       },
     });
 

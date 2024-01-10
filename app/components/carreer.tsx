@@ -3,7 +3,7 @@ import CarreerCard from "@/components/carreer-card";
 import { getCarreerList } from "@/utils/get-data";
 
 export default async function Carreer() {
-  const carreer = await getCarreerList();
+  const carreer = await getCarreerList(true);
   return (
     <section
       id="carreer"
