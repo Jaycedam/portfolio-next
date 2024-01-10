@@ -2,7 +2,7 @@ import MDX from "@/components/mdx-remote";
 import prisma from "@/lib/prisma";
 import { notFound } from "next/navigation";
 
-export default async function ProjectDetails({
+export default async function ProjectMDX({
   params,
 }: {
   params: { id: string };

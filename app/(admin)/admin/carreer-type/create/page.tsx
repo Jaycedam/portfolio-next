@@ -1,6 +1,5 @@
 import CarreerTypeForm from "@/components/form/carreer-type-form";
-import React from "react";
 
-export default function page() {
+export default function CreateCarreerType() {
   return <CarreerTypeForm />;
 }

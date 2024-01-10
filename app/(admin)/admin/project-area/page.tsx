@@ -1,10 +1,9 @@
 import ProjectAreaTable from "@/components/table/project-area-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
 import { IoMdAdd } from "react-icons/io";
 
-export default function page() {
+export default function ProjectAreaAdminPage() {
   return (
     <>
       <header className="flex items-center gap-4">

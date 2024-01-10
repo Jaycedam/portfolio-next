@@ -1,10 +1,9 @@
 import CarreerTypeTable from "@/components/table/carreer-type-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
-import React from "react";
 import { IoMdAdd } from "react-icons/io";
 
-export default function page() {
+export default function CarreerTypeAdminPage() {
   return (
     <>
       <header className="flex items-center gap-4">

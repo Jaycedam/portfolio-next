@@ -1,5 +1,5 @@
 import { BiMenuAltRight } from "react-icons/bi";
-import NavLink from "./nav-link";
+import NavLink from "@/components/nav-link";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import LogoSVG from "@/components/svg/logo-svg";
 import {
@@ -11,7 +11,7 @@ import {
 import { getServerSession } from "next-auth/next";
 import { options } from "@/api/auth/[...nextauth]/options";
 import Link from "next/link";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "@/components/ui/button";
 import { GoSignOut } from "react-icons/go";
 
 const navLinks = [

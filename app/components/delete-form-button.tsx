@@ -1,5 +1,4 @@
 import { DeleteProject } from "@/actions/project";
-import React from "react";
 import { Button } from "@/components/ui/button";
 import {
   AlertDialog,

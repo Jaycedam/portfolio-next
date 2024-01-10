@@ -1,5 +1,3 @@
-import React from "react";
-
 export default function LogoSVG() {
   return (
     <svg className="h-8 w-8" viewBox="0 0 932 716" version="1.1">

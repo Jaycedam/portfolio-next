@@ -9,7 +9,11 @@ export const metadata = {
   description: "Admin site",
 };
 
-export default function layout({ children }: { children: React.ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="es"
