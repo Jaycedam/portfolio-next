@@ -36,6 +36,11 @@ export default function AdminSidebar() {
   return (
     <nav className="z-50 md:fixed md:left-0 md:h-full md:w-48 ">
       <ul className="hidden h-full flex-col items-start justify-center gap-8 border-r bg-popover px-8 md:flex">
+        <li>
+          <header>
+            <h1 className="p-3 font-bold">Portfolio Admin</h1>
+          </header>
+        </li>
         {navLinks.map((item, index) => (
           <li>
             <NavLink href={item.href} label={item.label} key={index} />
