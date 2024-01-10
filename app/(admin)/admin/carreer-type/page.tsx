@@ -1,13 +1,13 @@
-import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
-import CarreerTypeTable from "@/components/table/carreer-type-table";
+import AdminTable from "@/components/table";
 import { buttonVariants } from "@/components/ui/button";
+import { getCarreerTypeList } from "@/utils/get-data";
 import Link from "next/link";
-import { Suspense } from "react";
 import { IoMdAdd } from "react-icons/io";
 
-export default function CarreerTypeAdminPage() {
+export default async function CarreerTypeAdminPage() {
+  const data = await getCarreerTypeList();
   return (
-    <>
+    <section>
       <header className="flex items-center gap-4">
         <h1 className="title">Carreer Type list</h1>
         <Link
@@ -18,9 +18,7 @@ export default function CarreerTypeAdminPage() {
         </Link>
       </header>
 
-      <Suspense fallback={<SkeletonAdminTable />}>
-        <CarreerTypeTable />
-      </Suspense>
-    </>
+      <AdminTable data={data} type="carreer-type" />
+    </section>
   );
 }

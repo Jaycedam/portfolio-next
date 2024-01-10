@@ -17,7 +17,6 @@ export async function CreateCarreer(formData: FormData) {
         date: formData.get("date") as string,
       },
     });
-    console.log(Number(formData.get("typeId")));
   } catch (error) {
     console.log(error);
   } finally {

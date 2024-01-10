@@ -8,5 +8,9 @@ export default async function UpdateProject({
 }) {
   const project = await getProject(parseInt(params.id));
   const areaList = await getProjectAreaList();
-  return <ProjectForm project={project} areaCbo={areaList} />;
+  return (
+    <section>
+      <ProjectForm project={project} areaCbo={areaList} />
+    </section>
+  );
 }

@@ -7,5 +7,9 @@ export default async function UpdateCarreerType({
   params: { id: string };
 }) {
   const data = await getCarreerType(Number(params.id));
-  return <CarreerTypeForm carreerType={data} />;
+  return (
+    <section>
+      <CarreerTypeForm carreerType={data} />
+    </section>
+  );
 }

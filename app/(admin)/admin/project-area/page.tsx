@@ -1,13 +1,13 @@
-import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
-import ProjectAreaTable from "@/components/table/project-area-table";
+import AdminTable from "@/components/table";
 import { buttonVariants } from "@/components/ui/button";
+import { getProjectAreaList } from "@/utils/get-data";
 import Link from "next/link";
-import { Suspense } from "react";
 import { IoMdAdd } from "react-icons/io";
 
-export default function ProjectAreaAdminPage() {
+export default async function ProjectAreaAdminPage() {
+  const data = await getProjectAreaList();
   return (
-    <>
+    <section>
       <header className="flex items-center gap-4">
         <h1 className="title">Project Area list</h1>
         <Link
@@ -18,9 +18,7 @@ export default function ProjectAreaAdminPage() {
         </Link>
       </header>
 
-      <Suspense fallback={<SkeletonAdminTable />}>
-        <ProjectAreaTable />
-      </Suspense>
-    </>
+      <AdminTable data={data} type="project-area" />
+    </section>
   );
 }

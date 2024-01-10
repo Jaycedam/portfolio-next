@@ -11,7 +11,10 @@ function SkeletonLoader(props: { count: number }) {
 // use highlight true to homepage and false to /project path
 export default function SkeletonAdminTable() {
   return (
-    <section className="container grid gap-8">
+    <section className="grid gap-8">
+      <header>
+        <Skeleton className="h-8 max-w-md" />
+      </header>
       <SkeletonLoader count={8} />
     </section>
   );

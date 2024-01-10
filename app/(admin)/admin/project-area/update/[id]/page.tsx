@@ -7,5 +7,9 @@ export default async function UpdateProjectArea({
   params: { id: string };
 }) {
   const data = await getProjectArea(Number(params.id));
-  return <ProjectAreaForm projectArea={data} />;
+  return (
+    <section>
+      <ProjectAreaForm projectArea={data} />
+    </section>
+  );
 }
