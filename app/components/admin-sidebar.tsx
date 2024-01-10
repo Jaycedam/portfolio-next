@@ -41,8 +41,8 @@ export default async function AdminSidebar() {
   // get current session of user if logged in
   const session = await getServerSession(options);
   return (
-    <nav className="z-50 md:fixed md:left-0 md:h-full md:w-48 ">
-      <ul className="hidden h-full flex-col items-start justify-start gap-8 border-r bg-popover p-8 md:flex">
+    <nav className="z-50 md:fixed md:left-0 md:h-full md:w-48 md:border-r">
+      <ul className="my-16 hidden h-full flex-col items-start justify-start gap-8 bg-popover p-8 md:flex">
         <li className="w-full">
           <header className="flex flex-col items-center gap-2 text-center">
             <Link className="p-2" href="/">
