@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import DeleteFormButton from "../delete-form-button";
+import DeleteFormButton from "@/components/delete-form-button";
 import { FaEdit } from "react-icons/fa";
 import { getProjectList } from "@/utils/get-data";
 
@@ -18,7 +18,7 @@ export default async function ProjectsTable() {
 
   return (
     <Table>
-      <TableCaption>A list of software projects.</TableCaption>
+      <TableCaption>Project list.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Id</TableHead>

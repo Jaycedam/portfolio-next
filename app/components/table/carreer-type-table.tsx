@@ -9,7 +9,7 @@ import {
 } from "@/components/ui/table";
 import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
-import DeleteFormButton from "../delete-form-button";
+import DeleteFormButton from "@/components/delete-form-button";
 import { FaEdit } from "react-icons/fa";
 import { getCarreerTypeList } from "@/utils/get-data";
 
@@ -18,7 +18,7 @@ export default async function CarreerTypeTable() {
 
   return (
     <Table>
-      <TableCaption>A list of project areas.</TableCaption>
+      <TableCaption>Carreer Type list.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead>Id</TableHead>
