@@ -12,6 +12,9 @@ export default function AdminHome() {
           delectus facere, perspiciatis libero qui fugiat.
         </p>
       </header>
+
+      {/* this is where the stats will be, when the vercel analytics API is available
+      https://github.com/vercel/analytics/issues/68 */}
     </>
   );
 }

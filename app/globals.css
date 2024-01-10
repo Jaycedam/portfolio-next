@@ -54,12 +54,12 @@
     @apply border-border;
   }
   body {
-    @apply h-full bg-background text-foreground;
+    @apply bg-background text-foreground;
   }
 
   /* offset for navbar height, can't put it in body since shadcn dropdown changes all padding when open */
   main {
-    @apply pt-14;
+    @apply min-h-screen pt-14;
   }
 
   .title {

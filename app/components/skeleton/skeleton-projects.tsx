@@ -14,7 +14,7 @@ export default function SkeletonProjects(props: { highlights: boolean }) {
     <section className="container">
       <header className="flex flex-col gap-4">
         <Skeleton className="h-8 max-w-md" />
-        <Skeleton className="h-4 max-w-sm" />
+        <Skeleton className="h-4 max-w-md" />
       </header>
 
       <div

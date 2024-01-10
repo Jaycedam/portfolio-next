@@ -1,6 +1,8 @@
+import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
 import CarreerTable from "@/components/table/carreer-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { Suspense } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 export default function CarreerAdminPage() {
@@ -15,7 +17,10 @@ export default function CarreerAdminPage() {
           <IoMdAdd className="h-4 w-auto" />
         </Link>
       </header>
-      <CarreerTable />
+
+      <Suspense fallback={<SkeletonAdminTable />}>
+        <CarreerTable />
+      </Suspense>
     </>
   );
 }

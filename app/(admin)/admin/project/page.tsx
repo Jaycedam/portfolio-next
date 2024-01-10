@@ -1,6 +1,8 @@
+import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
 import ProjectsTable from "@/components/table/projects-table";
 import { buttonVariants } from "@/components/ui/button";
 import Link from "next/link";
+import { Suspense } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 export default function ProjectAdminPage() {
@@ -15,7 +17,10 @@ export default function ProjectAdminPage() {
           <IoMdAdd className="h-4 w-auto" />
         </Link>
       </header>
-      <ProjectsTable />
+
+      <Suspense fallback={<SkeletonAdminTable />}>
+        <ProjectsTable />
+      </Suspense>
     </>
   );
 }
