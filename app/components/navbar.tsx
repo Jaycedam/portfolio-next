@@ -34,7 +34,7 @@ export default async function Navbar() {
       <nav className="container flex h-full items-center justify-between">
         {/* logo  */}
         <Link href="/">
-          <LogoSVG />
+          <LogoSVG size={8} />
         </Link>
 
         <ul className="hidden items-center gap-4 md:flex">

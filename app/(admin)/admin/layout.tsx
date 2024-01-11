@@ -21,10 +21,10 @@ export default function AdminLayout({
       className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
       suppressHydrationWarning
     >
-      <body>
+      <body className="md:grid md:grid-cols-[14rem_1fr] md:gap-4">
         <Providers>
           <AdminSidebar />
-          <main className="p-4 md:ml-48 md:p-8">{children}</main>
+          <main className="px-4 pb-16">{children}</main>
           <SpeedInsights />
         </Providers>
       </body>

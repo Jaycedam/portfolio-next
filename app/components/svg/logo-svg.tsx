@@ -1,6 +1,7 @@
-export default function LogoSVG() {
+export default function LogoSVG({ size }: { size: number }) {
+  const sizeProp = `h-${size} w-${size}`;
   return (
-    <svg className="h-8 w-8" viewBox="0 0 932 716" version="1.1">
+    <svg className={sizeProp} viewBox="0 0 932 716" version="1.1">
       <g
         className="fill-foreground"
         id="letters"
