@@ -13,6 +13,7 @@ import NavLink from "@/components/nav-link";
 import LogoSVG from "@/components/svg/logo-svg";
 import { getServerSession } from "next-auth/next";
 import { options } from "@/api/auth/[...nextauth]/options";
+import { GoSignOut } from "react-icons/go";
 
 const navLinks = [
   {
@@ -44,9 +45,18 @@ export default async function Navbar() {
           ))}
 
           {session && (
-            <li>
-              <NavLink href="/admin" label="Admin" />
-            </li>
+            <>
+              <li>
+                <NavLink href="/admin" label="Admin" />
+              </li>
+
+              <Link
+                className={buttonVariants({ variant: "ghost", size: "icon" })}
+                href="/api/auth/signout"
+              >
+                <GoSignOut className="h-5 w-auto" />
+              </Link>
+            </>
           )}
 
           <li>
@@ -81,9 +91,27 @@ export default async function Navbar() {
                     </SheetClose>
                   </li>
                 ))}
+                {session && (
+                  <SheetClose asChild>
+                    <li>
+                      <NavLink href="/admin" label="Admin" />
+                    </li>
+                  </SheetClose>
+                )}
               </ul>
 
               <ul className="flex items-center justify-center gap-4">
+                {session && (
+                  <Link
+                    className={buttonVariants({
+                      variant: "ghost",
+                      size: "icon",
+                    })}
+                    href="/api/auth/signout"
+                  >
+                    <GoSignOut className="h-5 w-auto" />
+                  </Link>
+                )}
                 <li>
                   <ThemeToggle />
                 </li>
