@@ -8,7 +8,7 @@ import SkeletonProjects from "@/components/skeleton/skeleton-projects";
 export default function Home() {
   return (
     // pt 14 offset of nav height
-    <main className="pt-14">
+    <main>
       <Hero />
       <Suspense fallback={<SkeletonProjects highlights={true} />}>
         <Projects homepage={true} />
