@@ -7,7 +7,7 @@ import { IoMdAdd } from "react-icons/io";
 export default async function CarreerTypeAdminPage() {
   const data = await getCarreerTypeList();
   return (
-    <>
+    <section>
       <header className="flex items-center gap-4">
         <h1 className="title">Carreer Type list</h1>
         <Link
@@ -19,6 +19,6 @@ export default async function CarreerTypeAdminPage() {
       </header>
 
       <AdminTable data={data} type="carreer-type" />
-    </>
+    </section>
   );
 }
