@@ -5,7 +5,7 @@ export default function About() {
   return (
     <section
       id="about"
-      className="container grid items-center gap-8 
+      className="grid items-center gap-8 
         md:grid-flow-col md:grid-cols-2"
     >
       {/* text section  */}

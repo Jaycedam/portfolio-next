@@ -15,7 +15,7 @@ export default async function ProjectMDX({
 
     return (
       <main>
-        <section className="container">
+        <section>
           <article className="prose mx-auto max-w-4xl dark:prose-invert prose-a:my-2 prose-a:rounded-md prose-a:bg-zinc-200 prose-a:px-3 prose-a:py-2 prose-a:no-underline prose-img:aspect-square prose-img:w-full prose-img:rounded-md prose-img:object-cover prose-img:shadow-lg dark:prose-a:bg-zinc-700">
             <MDX url={project.url} />
           </article>

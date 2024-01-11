@@ -45,6 +45,13 @@ export default async function MobileNavbar({
                 </SheetClose>
               </li>
             ))}
+            {session && (
+              <li>
+                <SheetClose asChild>
+                  <NavLink href="/admin" label="Admin" />
+                </SheetClose>
+              </li>
+            )}
           </ul>
 
           <ul className="flex items-center justify-center gap-4">
@@ -59,6 +66,7 @@ export default async function MobileNavbar({
                 <GoSignOut className="h-5 w-auto" />
               </Link>
             )}
+
             <li>
               <ThemeToggle />
             </li>

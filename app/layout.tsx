@@ -28,7 +28,10 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          {children}
+          {/* container and navbar offset  */}
+          <div className="mt-14 px-2 2xl:container md:px-4 lg:px-8">
+            {children}
+          </div>
           <SpeedInsights />
           <Analytics />
           <Footer />

@@ -11,7 +11,7 @@ function SkeletonLoader(props: { count: number }) {
 // use highlight true to homepage and false to /project path
 export default function SkeletonProjects(props: { highlights: boolean }) {
   return (
-    <section className="container">
+    <section>
       <header className="flex flex-col gap-4">
         <Skeleton className="h-8 max-w-md" />
         <Skeleton className="h-4 max-w-md" />

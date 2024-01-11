@@ -22,7 +22,7 @@ export default async function Projects({ homepage }: { homepage: boolean }) {
   const skeletonCount: number = homepage ? 4 : 6;
   const title: string = homepage ? "Proyectos destacados" : "Proyectos";
   return (
-    <section id="projects" className="container">
+    <section id="projects">
       {/* title */}
       <header className="flex flex-col">
         <h1 className="title">{title}</h1>

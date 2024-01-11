@@ -1,6 +1,5 @@
 import Link from "next/link";
 
-import { BiMenuAltRight } from "react-icons/bi";
 import { ThemeToggle } from "@/components/ui/theme-toggle";
 import { buttonVariants } from "@/components/ui/button";
 import { MdEmail } from "react-icons/md";
@@ -11,32 +10,24 @@ import { options } from "@/api/auth/[...nextauth]/options";
 import { GoSignOut } from "react-icons/go";
 import MobileNavbar from "@/components/mobile-navbar";
 
-const navLinks = [
-  {
-    href: "/",
-    label: "Inicio",
-  },
-  {
-    href: "/projects",
-    label: "Proyectos",
-  },
-];
-
 export default async function Navbar() {
   // get current session of user if logged in
   const session = await getServerSession(options);
 
-  // if a session is available then add Admin to the navLinks array
-  if (session) {
-    navLinks.push({
-      href: "/admin",
-      label: "Admin",
-    });
-  }
+  const navLinks = [
+    {
+      href: "/",
+      label: "Inicio",
+    },
+    {
+      href: "/projects",
+      label: "Proyectos",
+    },
+  ];
 
   return (
-    <nav className="fixed inset-0 z-50 h-14 border-b bg-background/70 backdrop-blur">
-      <div className="container flex h-full items-center justify-between">
+    <nav className="fixed inset-0 z-50 h-14 border-b bg-background/70 px-4 backdrop-blur md:px-8">
+      <div className="flex h-full items-center justify-between">
         {/* logo  */}
         <Link href="/">
           <LogoSVG size={8} />
