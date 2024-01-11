@@ -1,6 +1,6 @@
 export default function AdminHome() {
   return (
-    <section>
+    <>
       <header>
         <h1 className="title">Dashboard</h1>
         <p className="pt-8">
@@ -15,6 +15,6 @@ export default function AdminHome() {
 
       {/* this is where the stats will be, when the vercel analytics API is available
       https://github.com/vercel/analytics/issues/68 */}
-    </section>
+    </>
   );
 }

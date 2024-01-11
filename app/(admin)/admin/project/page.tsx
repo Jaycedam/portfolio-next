@@ -8,7 +8,7 @@ export default async function ProjectAdminPage() {
   const data = await getProjectList(false);
 
   return (
-    <section>
+    <>
       <header className="flex items-center gap-4">
         <h1 className="title">Project list</h1>
         <Link
@@ -20,6 +20,6 @@ export default async function ProjectAdminPage() {
       </header>
 
       <AdminTable data={data} type="project" />
-    </section>
+    </>
   );
 }

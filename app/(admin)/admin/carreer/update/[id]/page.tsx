@@ -8,9 +8,5 @@ export default async function UpdateCarreer({
 }) {
   const data = await getCarreer(Number(params.id));
   const carreerTypeList = await getCarreerTypeList();
-  return (
-    <section>
-      <CarreerForm carreer={data} typeCbo={carreerTypeList} />
-    </section>
-  );
+  return <CarreerForm carreer={data} typeCbo={carreerTypeList} />;
 }
