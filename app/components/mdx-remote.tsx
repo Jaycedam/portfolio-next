@@ -1,4 +1,5 @@
 import { MDXRemote } from "next-mdx-remote/rsc";
+import { notFound } from "next/navigation";
 
 export default async function MDX(props: { url: string }) {
   try {
@@ -15,6 +16,6 @@ export default async function MDX(props: { url: string }) {
     return <MDXRemote source={markdown} />;
   } catch (error) {
     console.error("Error fetching or rendering MDX:", error);
-    return <div>Error: {error.message}</div>;
+    return notFound();
   }
 }
