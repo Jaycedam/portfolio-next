@@ -14,9 +14,11 @@ import { FaEdit } from "react-icons/fa";
 import { Area, Carreer, Project, Type } from "@prisma/client";
 
 interface TableProps {
-  data: Project[] | Area[] | Carreer[] | Type[];
+  data: (Project | Area | Carreer | Type)[];
   type: "project" | "project-area" | "carreer" | "carreer-type";
 }
+
+type DataItem = Project | Area | Carreer | Type;
 
 export default function AdminTable({ data, type }: TableProps) {
   // extracts columns from data prop
@@ -35,11 +37,16 @@ export default function AdminTable({ data, type }: TableProps) {
         </TableRow>
       </TableHeader>
       <TableBody>
+        {/* iterates per object in the data array  */}
         {data.map((item, index) => (
           <TableRow key={index}>
+            {/* iterates each column in the current object mapped  */}
             {Object.keys(item).map((key) => (
-              <TableCell key={key}>
-                {item[key] && item[key].toString()}
+              <TableCell
+                key={key}
+                className="max-w-[10rem] overflow-hidden text-ellipsis whitespace-nowrap"
+              >
+                {item[key as keyof DataItem]?.toString()}
               </TableCell>
             ))}
 
