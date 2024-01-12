@@ -1,44 +1,38 @@
 import prisma from "@/lib/prisma";
 import { ExtendedCarreer, ExtendedProject } from "@/utils/interfaces";
 import { notFound } from "next/navigation";
-import { Area, Project, Type } from "@prisma/client";
-
-export async function getProjectListHome(): Promise<ExtendedProject[]> {
-  try {
-    const result = await prisma.project.findMany({
-      orderBy: {
-        id: "desc",
-      },
-      where: {
-        homepage: true,
-      },
-      take: 4,
-      include: {
-        area: true,
-      },
-    });
-
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
-}
+import { Area, Type } from "@prisma/client";
 
 export async function getProjectList(
-  includeArea: boolean
-): Promise<ExtendedProject[] | Project[]> {
+  homepage: boolean
+): Promise<ExtendedProject[]> {
   try {
-    const result = await prisma.project.findMany({
-      orderBy: {
-        id: "desc",
-      },
-      include: {
-        area: includeArea,
-      },
-    });
-
-    return result;
+    // boolean checks if only homepage=true is shown, else show all projects
+    if (homepage) {
+      const result = await prisma.project.findMany({
+        orderBy: {
+          id: "desc",
+        },
+        where: {
+          homepage: true,
+        },
+        take: 4,
+        include: {
+          area: true,
+        },
+      });
+      return result;
+    } else {
+      const result = await prisma.project.findMany({
+        orderBy: {
+          id: "desc",
+        },
+        include: {
+          area: true,
+        },
+      });
+      return result;
+    }
   } catch (error) {
     console.log("Error fetching data from db: ", error);
     return [];
@@ -84,16 +78,14 @@ export async function getProjectArea(id: number) {
   }
 }
 
-export async function getCarreerList(
-  includeType: boolean
-): Promise<ExtendedCarreer[]> {
+export async function getCarreerList(): Promise<ExtendedCarreer[]> {
   try {
     const result = await prisma.carreer.findMany({
       orderBy: {
         id: "desc",
       },
       include: {
-        type: includeType,
+        type: true,
       },
     });
 

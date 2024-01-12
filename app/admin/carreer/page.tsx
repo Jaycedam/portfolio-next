@@ -5,7 +5,7 @@ import Link from "next/link";
 import { IoMdAdd } from "react-icons/io";
 
 export default async function CarreerAdminPage() {
-  const data = await getCarreerList(false);
+  const data = await getCarreerList();
   return (
     <section>
       <header className="flex items-center gap-4">

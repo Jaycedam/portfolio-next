@@ -1,5 +1,5 @@
 import MDX from "@/components/mdx-remote";
-import prisma from "@/lib/prisma";
+import { getProject } from "@/utils/get-data";
 import { notFound } from "next/navigation";
 
 export default async function ProjectMDX({
@@ -11,7 +11,7 @@ export default async function ProjectMDX({
   // eg: /projects/a
   try {
     const id: number = parseInt(params.id);
-    const project = await getData(id);
+    const project = await getProject(id);
 
     return (
       <main>
@@ -25,14 +25,4 @@ export default async function ProjectMDX({
   } catch (err) {
     notFound();
   }
-}
-
-async function getData(id: number) {
-  const result = await prisma.project.findUnique({
-    where: { id: id },
-    select: {
-      url: true,
-    },
-  });
-  return result;
 }
