@@ -36,7 +36,7 @@ model Project {
   id       Int     @id @default(autoincrement())
   name     String  @db.VarChar(50)
   imageUrl String  @db.VarChar(250)
-  url      String? @db.VarChar(250)
+  url      String  @db.VarChar(250)
   homepage Boolean @default(false)
   areaId   Int
   area     Area    @relation(fields: [areaId], references: [id])
