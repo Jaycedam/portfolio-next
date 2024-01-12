@@ -41,12 +41,23 @@ export default function AdminTable({ data, type }: TableProps) {
         {data.map((item, index) => (
           <TableRow key={index}>
             {/* iterates each column in the current object mapped  */}
-            {Object.keys(item).map((key) => (
+            {Object.keys(item).map((outerKey) => (
               <TableCell
-                key={key}
+                key={outerKey}
                 className="max-w-[10rem] overflow-hidden text-ellipsis whitespace-nowrap"
               >
-                {item[key as keyof DataItem]?.toString()}
+                {/* checks if item exists in the current object */}
+                {item[outerKey as keyof DataItem] &&
+                // If the value is an object, iterate over its key-value pairs
+                // this is useful when the prisma call returns a join to another table
+                typeof item[outerKey as keyof DataItem] === "object"
+                  ? Object.entries(item[outerKey as keyof DataItem]).map(
+                      ([innerKey, value]) => (
+                        <p key={innerKey}>{`${innerKey}: ${value}`}</p>
+                      )
+                    )
+                  : // If the value is not an object, display it as a string
+                    item[outerKey as keyof DataItem]?.toString()}
               </TableCell>
             ))}
 
