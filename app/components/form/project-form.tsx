@@ -36,7 +36,7 @@ export default function ProjectForm(props: {
     props.project ? props.project.homepage.valueOf() : false
   );
 
-  const handleChecked = (e) => {
+  const handleChecked = () => {
     setChecked(!checked);
   };
 
@@ -83,7 +83,7 @@ export default function ProjectForm(props: {
               required
               type="text"
               name="url"
-              defaultValue={props.project?.url}
+              defaultValue={props.project?.url ?? ""}
             />
           </div>
           <div className="grid w-full  items-center gap-1.5">

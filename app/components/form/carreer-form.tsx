@@ -21,13 +21,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
-export default function CarreerForm(props: {
+export default function CarreerForm({
+  carreer,
+  typeCbo,
+}: {
   carreer?: Carreer;
   typeCbo: Type[];
 }) {
   // check if object is being passed down to update, else create new one on db
-  const formAction = props.carreer ? UpdateCarreer : CreateCarreer;
-  const formTitle = props.carreer ? "Update Carreer" : "Create Carreer";
+  const formAction = carreer ? UpdateCarreer : CreateCarreer;
+  const formTitle = carreer ? "Update Carreer" : "Create Carreer";
 
   return (
     <Card className="mx-auto max-w-lg">
@@ -39,12 +42,7 @@ export default function CarreerForm(props: {
       </CardHeader>
       <form action={formAction}>
         <CardContent className="grid gap-6">
-          <Input
-            type="hidden"
-            readOnly
-            name="id"
-            defaultValue={props.carreer?.id}
-          />
+          <Input type="hidden" readOnly name="id" defaultValue={carreer?.id} />
 
           <div className="grid w-full  items-center gap-1.5">
             <Label htmlFor="name">Name</Label>
@@ -52,7 +50,7 @@ export default function CarreerForm(props: {
               required
               type="text"
               name="name"
-              defaultValue={props.carreer?.name}
+              defaultValue={carreer?.name}
             />
           </div>
 
@@ -62,7 +60,7 @@ export default function CarreerForm(props: {
               required
               type="text"
               name="company"
-              defaultValue={props.carreer?.company}
+              defaultValue={carreer?.company}
             />
           </div>
 
@@ -72,27 +70,27 @@ export default function CarreerForm(props: {
               required
               type="text"
               name="about"
-              defaultValue={props.carreer?.about}
+              defaultValue={carreer?.about}
             />
           </div>
 
           <div className="grid w-full  items-center gap-1.5">
             <Label htmlFor="date">Date</Label>
-            <Input type="text" name="date" defaultValue={props.carreer?.date} />
+            <Input type="text" name="date" defaultValue={carreer?.date ?? ""} />
           </div>
 
           <div className="grid w-full  items-center gap-1.5">
             <Label htmlFor="typeId">Type</Label>
             <Select
               required
-              defaultValue={props.carreer?.typeId.toString()}
+              defaultValue={carreer?.typeId.toString()}
               name="typeId"
             >
               <SelectTrigger className="w-[180px]">
                 <SelectValue placeholder="Type" />
               </SelectTrigger>
               <SelectContent>
-                {props.typeCbo.map((item, index) => (
+                {typeCbo.map((item, index) => (
                   <SelectItem key={index} value={item.id.toString()}>
                     {item.name}
                   </SelectItem>
