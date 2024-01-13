@@ -1,3 +1,5 @@
+"use client";
+
 import { DeleteProject } from "@/actions/project";
 import { Button } from "@/components/ui/button";
 import {
@@ -15,6 +17,7 @@ import { FaTrash } from "react-icons/fa";
 import { DeleteProjectArea } from "@/actions/project-area";
 import { DeleteCarreer } from "@/actions/carreer";
 import { DeleteCarreerType } from "@/actions/carreer-type";
+import { toast } from "sonner";
 
 export interface DeleteFormProps {
   id: number;
@@ -22,7 +25,7 @@ export interface DeleteFormProps {
 }
 
 export default function DeleteFormButton(props: DeleteFormProps) {
-  let action;
+  let action: any;
   // check for selected option to delete from x table
   switch (props.action) {
     case "project":
@@ -42,6 +45,16 @@ export default function DeleteFormButton(props: DeleteFormProps) {
       break;
   }
 
+  const handleSubmit = async (formData: FormData) => {
+    const result = await action(formData);
+
+    if (result?.success) {
+      toast.success(result.success);
+    } else if (result?.error) {
+      toast.error(result.error);
+    }
+  };
+
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
@@ -60,7 +73,7 @@ export default function DeleteFormButton(props: DeleteFormProps) {
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction asChild>
-            <form action={action}>
+            <form action={handleSubmit}>
               <input type="hidden" readOnly name="id" defaultValue={props.id} />
               <button type="submit">Delete</button>
             </form>

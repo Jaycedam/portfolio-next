@@ -1,46 +1,67 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { TProject, projectSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 const url: string = "/admin/project";
 
-export async function CreateProject(formData: FormData) {
+export async function CreateProject(data: TProject) {
+  let errorMessage: string = "";
+  const parsedData = projectSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    parsedData.error.issues.map(
+      (issue) =>
+        (errorMessage =
+          errorMessage + issue.path[0] + ": " + issue.message + ". ")
+    );
+    return {
+      error: errorMessage,
+    };
+  }
+
   try {
-    const update = await prisma.project.create({
-      data: {
-        name: formData.get("name") as string,
-        imageUrl: formData.get("imageUrl") as string,
-        url: formData.get("url") as string,
-        homepage: formData.get("homepage") === "on" ? true : false,
-        areaId: Number(formData.get("areaId")),
-      },
+    await prisma.project.create({
+      data: parsedData.data,
     });
-  } catch (error) {
-    console.log(error);
+  } catch (e: any) {
+    return {
+      error: e.message,
+    };
   } finally {
     revalidatePath(url);
     redirect(url);
   }
 }
 
-export async function UpdateProject(formData: FormData) {
+export async function UpdateProject(data: TProject) {
+  let errorMessage: string = "";
+  const parsedData = projectSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    parsedData.error.issues.map(
+      (issue) =>
+        (errorMessage =
+          errorMessage + issue.path[0] + ": " + issue.message + ". ")
+    );
+    return {
+      error: "Server: " + errorMessage,
+    };
+  }
+
   try {
-    const update = await prisma.project.update({
+    await prisma.project.update({
       where: {
-        id: Number(formData.get("id")),
+        id: Number(data.id),
       },
-      data: {
-        name: formData.get("name") as string,
-        imageUrl: formData.get("imageUrl") as string,
-        url: formData.get("url") as string,
-        homepage: formData.get("homepage") === "on" ? true : false,
-        areaId: Number(formData.get("areaId")),
-      },
+      data: parsedData.data,
     });
-  } catch (error) {
-    console.log(error);
+  } catch (e: any) {
+    return {
+      error: e.message,
+    };
   } finally {
     revalidatePath(url);
     redirect(url);
@@ -54,8 +75,14 @@ export async function DeleteProject(formData: FormData) {
         id: Number(formData.get("id")),
       },
     });
-  } catch (error) {
-    console.log(error);
+
+    return {
+      success: "Project successfully deleted.",
+    };
+  } catch (e: any) {
+    return {
+      error: e.message,
+    };
   } finally {
     revalidatePath(url);
   }

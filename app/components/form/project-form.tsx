@@ -22,6 +22,8 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
+import { TProject, projectSchema } from "@/lib/zod-schema";
+import { toast } from "sonner";
 
 export default function ProjectForm(props: {
   project?: Project;
@@ -40,6 +42,38 @@ export default function ProjectForm(props: {
     setChecked(!checked);
   };
 
+  const handleSubmit = async (formData: FormData) => {
+    let errorMessage: string = "";
+
+    const data: TProject = {
+      id: Number(formData.get("id")),
+      name: formData.get("name") as string,
+      url: formData.get("url") as string,
+      imageUrl: formData.get("imageUrl") as string,
+      areaId: Number(formData.get("areaId")),
+      homepage: Boolean(formData.get("homepage")),
+    };
+
+    const parsedData = projectSchema.safeParse(data);
+
+    if (!parsedData.success) {
+      parsedData.error.issues.map(
+        (issue) =>
+          (errorMessage =
+            errorMessage + issue.path[0] + ": " + issue.message + ". ")
+      );
+
+      toast.error(errorMessage);
+      return;
+    }
+
+    const result = await formAction(parsedData.data);
+
+    if (result?.error) {
+      toast.error(String(result.error));
+    }
+  };
+
   return (
     <Card className="mx-auto max-w-lg">
       <CardHeader>
@@ -48,7 +82,7 @@ export default function ProjectForm(props: {
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, ut.
         </CardDescription>
       </CardHeader>
-      <form action={formAction}>
+      <form action={handleSubmit}>
         <CardContent className="grid gap-6">
           <Input
             type="hidden"
