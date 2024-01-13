@@ -1,6 +1,7 @@
 import { z } from "zod";
 
 export const projectSchema = z.object({
+  id: z.number().int().optional(),
   name: z.string().min(3),
   imageUrl: z.string().url(),
   url: z.string().url(),
@@ -10,11 +11,13 @@ export const projectSchema = z.object({
 export type TProject = z.infer<typeof projectSchema>;
 
 export const projectAreaSchema = z.object({
+  id: z.number().int().optional(),
   name: z.string().min(3),
 });
 export type TProjectArea = z.infer<typeof projectAreaSchema>;
 
 export const carreerSchema = z.object({
+  id: z.number().int().optional(),
   name: z.string(),
   company: z.string(),
   about: z.string(),
@@ -24,11 +27,13 @@ export const carreerSchema = z.object({
 export type TCarreer = z.infer<typeof carreerSchema>;
 
 export const carreerTypeSchema = z.object({
+  id: z.number().int().optional(),
   name: z.string(),
 });
 export type TCarreerType = z.infer<typeof carreerTypeSchema>;
 
 export const userSchema = z.object({
+  id: z.number().int().optional(),
   username: z.string().min(3),
   password: z.string().min(10),
 });
