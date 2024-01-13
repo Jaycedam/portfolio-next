@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Analytics } from "@vercel/analytics/react";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata = {
   title: "Jordan Cortés Portfolio",
@@ -29,12 +30,11 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {/* container and navbar offset  */}
-          <div className="mt-14 px-2 2xl:container md:px-4 lg:px-8">
-            {children}
-          </div>
+          <div className="container mt-14">{children}</div>
           <SpeedInsights />
           <Analytics />
           <Footer />
+          <Toaster />
         </Providers>
       </body>
     </html>
