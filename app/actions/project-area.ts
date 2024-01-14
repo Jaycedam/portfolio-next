@@ -1,53 +1,87 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { TProjectArea, projectAreaSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 const url: string = "/admin/project-area";
 
-export async function CreateProjectArea(formData: FormData) {
+export async function CreateProjectArea(data: TProjectArea) {
+  let errorMessage: string =
+    "Project Area could not be created, try again later.";
+  let successMessage: string = "Project Area created successfully.";
+
+  const parsedData = projectAreaSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    return {
+      error: errorMessage,
+    };
+  }
+
   try {
-    const update = await prisma.area.create({
-      data: {
-        name: formData.get("name") as string,
-      },
+    await prisma.area.create({
+      data: parsedData.data,
     });
-  } catch (error) {
-    console.log(error);
+    return {
+      success: successMessage,
+    };
+  } catch (e: any) {
+    return {
+      error: errorMessage + " " + e.message,
+    };
   } finally {
     revalidatePath(url);
-    redirect(url);
   }
 }
 
-export async function UpdateProjectArea(formData: FormData) {
+export async function UpdateProjectArea(data: TProjectArea) {
+  let errorMessage: string = "Project could not be updated, try again later.";
+  let successMessage: string = "Project updated successfully.";
+
+  const parsedData = projectAreaSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    return {
+      error: errorMessage,
+    };
+  }
+
   try {
-    const update = await prisma.area.update({
+    await prisma.area.update({
       where: {
-        id: Number(formData.get("id")),
+        id: data.id,
       },
-      data: {
-        name: formData.get("name") as string,
-      },
+      data: parsedData.data,
     });
-  } catch (error) {
-    console.log(error);
+
+    return {
+      success: successMessage,
+    };
+  } catch (e: any) {
+    return {
+      error: errorMessage + " " + e.message,
+    };
   } finally {
     revalidatePath(url);
-    redirect(url);
   }
 }
 
 export async function DeleteProjectArea(formData: FormData) {
   try {
-    const update = await prisma.area.delete({
+    await prisma.area.delete({
       where: {
         id: Number(formData.get("id")),
       },
     });
-  } catch (error) {
-    console.log(error);
+
+    return {
+      success: "Project successfully deleted.",
+    };
+  } catch (e: any) {
+    return {
+      error: e.message,
+    };
   } finally {
     revalidatePath(url);
   }
