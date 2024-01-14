@@ -35,8 +35,8 @@ export async function CreateProject(data: TProject) {
 }
 
 export async function UpdateProject(data: TProject) {
-  let errorMessage: string = "Project could not be created, try again later.";
-  let successMessage: string = "Project created successfully.";
+  let errorMessage: string = "Project could not be updated, try again later.";
+  let successMessage: string = "Project updated successfully.";
 
   const parsedData = projectSchema.safeParse(data);
 
