@@ -1,10 +1,10 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { CreateProject, UpdateProject } from "@/actions/project";
 import { Area, Project } from "@prisma/client";
-import { useState } from "react";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -24,136 +24,197 @@ import {
 import { Checkbox } from "@/components/ui/checkbox";
 import { TProject, projectSchema } from "@/lib/zod-schema";
 import { toast } from "sonner";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  // FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
 
-export default function ProjectForm(props: {
+export default function ProjectForm({
+  project,
+  areaCbo,
+}: {
   project?: Project;
   areaCbo: Area[];
 }) {
   // check if project is being passed down to update, else create new one on db
-  const formAction = props.project ? UpdateProject : CreateProject;
-  const formTitle = props.project ? "Update Project" : "Create Project";
+  const formAction = project ? UpdateProject : CreateProject;
+  const formTitle = project ? "Update Project" : "Create Project";
 
-  // if prop is being passed down, use the existing bool for checkmark, else use false
-  const [checked, setChecked] = useState(
-    props.project ? props.project.homepage.valueOf() : false
-  );
+  // form definition
+  const form = useForm<z.infer<typeof projectSchema>>({
+    resolver: zodResolver(projectSchema),
+    defaultValues: {
+      id: project?.id,
+      name: project?.name || "",
+      url: project?.url || "",
+      imageUrl: project?.imageUrl || "",
+      areaId: Number(project?.areaId) || undefined,
+      homepage: project?.homepage || false,
+    },
+  });
 
-  const handleChecked = () => {
-    setChecked(!checked);
-  };
-
-  const handleSubmit = async (formData: FormData) => {
+  // form on submit
+  const handleSubmit = async (values: z.infer<typeof projectSchema>) => {
     let errorMessage: string = "";
 
+    // creates object from form values
     const data: TProject = {
-      id: Number(formData.get("id")),
-      name: formData.get("name") as string,
-      url: formData.get("url") as string,
-      imageUrl: formData.get("imageUrl") as string,
-      areaId: Number(formData.get("areaId")),
-      homepage: Boolean(formData.get("homepage")),
+      id: values.id,
+      name: values.name,
+      url: values.url,
+      imageUrl: values.imageUrl,
+      areaId: values.areaId,
+      homepage: values.homepage,
     };
 
+    // zod safe parsed, if there's an error show toast and return
     const parsedData = projectSchema.safeParse(data);
-
     if (!parsedData.success) {
       parsedData.error.issues.map(
         (issue) =>
           (errorMessage =
             errorMessage + issue.path[0] + ": " + issue.message + ". ")
       );
-
       toast.error(errorMessage);
       return;
     }
 
+    // server action to create or update
     const result = await formAction(parsedData.data);
 
+    // if server action returns an error, show toast
     if (result?.error) {
       toast.error(String(result.error));
     }
   };
 
   return (
-    <Card className="mx-auto max-w-lg">
+    <Card className="mx-auto max-w-xl">
       <CardHeader>
         <CardTitle>{formTitle}</CardTitle>
         <CardDescription>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, ut.
         </CardDescription>
       </CardHeader>
-      <form action={handleSubmit}>
-        <CardContent className="grid gap-6">
-          <Input
-            type="hidden"
-            readOnly
-            name="id"
-            defaultValue={props.project?.id}
-          />
 
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              required
-              type="text"
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleSubmit)}>
+          <CardContent className="grid gap-3">
+            <FormField
+              control={form.control}
+              name="id"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input aria-hidden readOnly type="hidden" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="name"
-              defaultValue={props.project?.name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
 
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="imageUrl">Image URL</Label>
-            <Input
-              required
-              type="text"
-              name="imageUrl"
-              defaultValue={props.project?.imageUrl}
-            />
-          </div>
-
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="url">MDX URL</Label>
-            <Input
-              required
-              type="text"
+            <FormField
+              control={form.control}
               name="url"
-              defaultValue={props.project?.url ?? ""}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>URL</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="areaId">Area ID</Label>
 
-            <Select
+            <FormField
+              control={form.control}
+              name="imageUrl"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Image URL</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="areaId"
-              required
-              defaultValue={props.project?.areaId.toString()}
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                {props.areaCbo.map((item, index) => (
-                  <SelectItem key={index} value={item.id.toString()}>
-                    {item.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-          <div className="flex items-center space-x-2">
-            <Checkbox
-              onCheckedChange={handleChecked}
-              name="homepage"
-              checked={checked}
-            />
-            <Label htmlFor="homepage">See on homepage</Label>
-          </div>
-        </CardContent>
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Area</FormLabel>
+                  <Select
+                    required
+                    onValueChange={field.onChange}
+                    defaultValue={field.value?.toString()}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Type" />
+                      </SelectTrigger>
+                    </FormControl>
 
-        <CardFooter>
-          <Button type="submit">Save</Button>
-        </CardFooter>
-      </form>
+                    <SelectContent>
+                      {areaCbo.map((item, index) => (
+                        <SelectItem key={index} value={item.id.toString()}>
+                          {item.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
+              name="homepage"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Checkbox
+                      checked={field.value}
+                      onCheckedChange={field.onChange}
+                    />
+                  </FormControl>
+                  <FormLabel className="ml-2">See on homepage</FormLabel>
+
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </CardContent>
+
+          <CardFooter>
+            <Button type="submit">Save</Button>
+          </CardFooter>
+        </form>
+      </Form>
     </Card>
   );
 }
