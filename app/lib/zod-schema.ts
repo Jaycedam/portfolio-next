@@ -32,7 +32,7 @@ export type TCarreer = z.infer<typeof carreerSchema>;
 
 export const carreerTypeSchema = z.object({
   id: z.coerce.number().optional(),
-  name: z.string(),
+  name: z.string().min(3),
 });
 export type TCarreerType = z.infer<typeof carreerTypeSchema>;
 
