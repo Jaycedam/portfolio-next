@@ -22,7 +22,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Checkbox } from "@/components/ui/checkbox";
-import { TProject, projectSchema } from "@/lib/zod-schema";
+import { projectSchema } from "@/lib/zod-schema";
 import { toast } from "sonner";
 import { z } from "zod";
 import {
@@ -60,37 +60,16 @@ export default function ProjectForm({
   });
 
   // form on submit
-  const handleSubmit = async (values: z.infer<typeof projectSchema>) => {
-    let errorMessage: string = "";
-
-    // creates object from form values
-    const data: TProject = {
-      id: values.id,
-      name: values.name,
-      url: values.url,
-      imageUrl: values.imageUrl,
-      areaId: values.areaId,
-      homepage: values.homepage,
-    };
-
-    // zod safe parsed, if there's an error show toast and return
-    const parsedData = projectSchema.safeParse(data);
-    if (!parsedData.success) {
-      parsedData.error.issues.map(
-        (issue) =>
-          (errorMessage =
-            errorMessage + issue.path[0] + ": " + issue.message + ". ")
-      );
-      toast.error(errorMessage);
-      return;
-    }
-
+  const handleSubmit = async (data: z.infer<typeof projectSchema>) => {
     // server action to create or update
-    const result = await formAction(parsedData.data);
+    const result = await formAction(data);
 
-    // if server action returns an error, show toast
-    if (result?.error) {
-      toast.error(String(result.error));
+    // show toast of server returned result, reset form if successful
+    if (result?.success) {
+      toast.success(result.success);
+      form.reset();
+    } else if (result?.error) {
+      toast.error(result.error);
     }
   };
 
