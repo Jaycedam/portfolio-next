@@ -31,10 +31,10 @@ export default function RootLayout({
           <Navbar />
           {/* container and navbar offset  */}
           <div className="container mt-14">{children}</div>
+          <Toaster />
           <SpeedInsights />
           <Analytics />
           <Footer />
-          <Toaster />
         </Providers>
       </body>
     </html>
