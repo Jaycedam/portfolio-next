@@ -3,20 +3,16 @@
 import prisma from "@/lib/prisma";
 import { TProject, projectSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 const url: string = "/admin/project";
 
 export async function CreateProject(data: TProject) {
-  let errorMessage: string = "";
+  let errorMessage: string = "Project could not be created, try again later.";
+  let successMessage: string = "Project created successfully.";
+
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
-    parsedData.error.issues.map(
-      (issue) =>
-        (errorMessage =
-          errorMessage + issue.path[0] + ": " + issue.message + ". ")
-    );
     return {
       error: errorMessage,
     };
@@ -26,51 +22,53 @@ export async function CreateProject(data: TProject) {
     await prisma.project.create({
       data: parsedData.data,
     });
+    return {
+      success: successMessage,
+    };
   } catch (e: any) {
     return {
-      error: e.message,
+      error: errorMessage + " " + e.message,
     };
   } finally {
     revalidatePath(url);
-    redirect(url);
   }
 }
 
 export async function UpdateProject(data: TProject) {
-  let errorMessage: string = "";
+  let errorMessage: string = "Project could not be created, try again later.";
+  let successMessage: string = "Project created successfully.";
+
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
-    parsedData.error.issues.map(
-      (issue) =>
-        (errorMessage =
-          errorMessage + issue.path[0] + ": " + issue.message + ". ")
-    );
     return {
-      error: "Server: " + errorMessage,
+      error: errorMessage,
     };
   }
 
   try {
     await prisma.project.update({
       where: {
-        id: Number(data.id),
+        id: data.id,
       },
       data: parsedData.data,
     });
+
+    return {
+      success: successMessage,
+    };
   } catch (e: any) {
     return {
-      error: e.message,
+      error: errorMessage + " " + e.message,
     };
   } finally {
     revalidatePath(url);
-    redirect(url);
   }
 }
 
 export async function DeleteProject(formData: FormData) {
   try {
-    const update = await prisma.project.delete({
+    await prisma.project.delete({
       where: {
         id: Number(formData.get("id")),
       },
