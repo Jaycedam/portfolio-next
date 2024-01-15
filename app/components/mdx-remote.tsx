@@ -4,9 +4,8 @@ import { notFound } from "next/navigation";
 export default async function MDX(props: { url: string }) {
   try {
     const parsedUrl = new URL(props.url);
-    // disable cache, enable only on dev env
+    // disable cache
     const res = await fetch(parsedUrl.toString(), { cache: "no-store" });
-    // const res = await fetch(parsedUrl.toString(), { next: { revalidate: 604800 } });
 
     if (!res.ok) {
       throw new Error(`Failed to fetch content from ${parsedUrl}`);
