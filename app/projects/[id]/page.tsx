@@ -14,13 +14,16 @@ export default async function ProjectMDX({
     const project = await getProject(id);
 
     return (
-      <main>
-        <section>
-          <article className="prose mx-auto max-w-4xl dark:prose-invert prose-img:w-full prose-img:rounded-md prose-img:shadow-lg">
-            <MDX url={project.url} />
-          </article>
-        </section>
-      </main>
+      <section>
+        <article
+          className="prose mx-auto max-w-4xl 
+          dark:prose-invert 
+          prose-a:mr-4
+          prose-img:w-full prose-img:rounded-md prose-img:shadow-lg"
+        >
+          <MDX url={project.url} />
+        </article>
+      </section>
     );
   } catch (err) {
     notFound();
