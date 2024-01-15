@@ -30,7 +30,7 @@ export default function RootLayout({
         <Providers>
           <Navbar />
           {/* container and navbar offset  */}
-          <div className="container mt-14">{children}</div>
+          {children}
           <Toaster />
           <SpeedInsights />
           <Analytics />
