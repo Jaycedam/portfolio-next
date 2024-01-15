@@ -1,7 +1,6 @@
 import {
   Table,
   TableBody,
-  TableCaption,
   TableCell,
   TableHead,
   TableHeader,
@@ -26,7 +25,6 @@ export default function AdminTable({ data, type }: TableProps) {
 
   return (
     <Table>
-      <TableCaption>list.</TableCaption>
       <TableHeader>
         <TableRow>
           {columns.map((column, index) => (
