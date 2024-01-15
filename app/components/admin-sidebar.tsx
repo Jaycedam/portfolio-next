@@ -26,13 +26,13 @@ const navLinks = [
 export default async function AdminSidebar() {
   // get current session of user if logged in
   return (
-    // add scroll area
     <section>
-      <nav>
-        <header className="grid place-items-center">
+      <nav className="pr-8">
+        <header className="text-start">
           <h1 className="p-3 text-xl font-semibold">Admin Links</h1>
         </header>
-        <ul className="flex flex-wrap justify-center gap-8 whitespace-nowrap md:flex-col md:items-start">
+
+        <ul className="flex flex-wrap items-start gap-8 whitespace-nowrap md:flex-col">
           {navLinks.map((item, index) => (
             <li key={index}>
               <NavLink href={item.href} label={item.label} key={index} />
@@ -41,5 +41,6 @@ export default async function AdminSidebar() {
         </ul>
       </nav>
     </section>
+    // add scroll area
   );
 }
