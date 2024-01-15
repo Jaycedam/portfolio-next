@@ -76,7 +76,7 @@ export async function DeleteProjectArea(formData: FormData) {
     });
 
     return {
-      success: "Project successfully deleted.",
+      success: "Project Area successfully deleted.",
     };
   } catch (e: any) {
     return {

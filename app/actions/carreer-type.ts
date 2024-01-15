@@ -76,7 +76,7 @@ export async function DeleteCarreerType(formData: FormData) {
     });
 
     return {
-      success: "Project successfully deleted.",
+      success: "Carreer Type successfully deleted.",
     };
   } catch (e: any) {
     return {

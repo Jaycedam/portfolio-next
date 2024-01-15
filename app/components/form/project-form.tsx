@@ -68,7 +68,6 @@ export default function ProjectForm({
     if (result?.success) {
       toast.success(result.success);
       if (project === undefined) {
-        console.log("reset!");
         form.reset();
       }
       form.reset();
