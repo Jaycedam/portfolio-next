@@ -1,61 +1,82 @@
 "use server";
 
 import prisma from "@/lib/prisma";
+import { TCarreer, carreerSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
-import { redirect } from "next/navigation";
 
 const url: string = "/admin/carreer";
 
-export async function CreateCarreer(formData: FormData) {
+export async function CreateCarreer(data: TCarreer) {
+  let errorMessage: string = "Carreer could not be created, try again later.";
+  let successMessage: string = "Carreer created successfully.";
+
+  const parsedData = carreerSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    return {
+      error: errorMessage,
+    };
+  }
   try {
-    const create = await prisma.carreer.create({
-      data: {
-        name: formData.get("name") as string,
-        about: formData.get("about") as string,
-        company: formData.get("company") as string,
-        typeId: Number(formData.get("typeId")),
-        date: formData.get("date") as string,
-      },
+    await prisma.carreer.create({
+      data: parsedData.data,
     });
-  } catch (error) {
-    console.log(error);
+    return {
+      success: successMessage,
+    };
+  } catch (e: any) {
+    return {
+      error: errorMessage + " " + e.message,
+    };
   } finally {
     revalidatePath(url);
-    redirect(url);
   }
 }
 
-export async function UpdateCarreer(formData: FormData) {
+export async function UpdateCarreer(data: TCarreer) {
+  let errorMessage: string = "Carreer could not be updated, try again later.";
+  let successMessage: string = "Carreer updated successfully.";
+
+  const parsedData = carreerSchema.safeParse(data);
+
+  if (!parsedData.success) {
+    return {
+      error: errorMessage,
+    };
+  }
   try {
-    const update = await prisma.carreer.update({
+    await prisma.carreer.update({
       where: {
-        id: Number(formData.get("id")),
+        id: data.id,
       },
-      data: {
-        name: formData.get("name") as string,
-        company: formData.get("company") as string,
-        about: formData.get("about") as string,
-        typeId: Number(formData.get("typeId")),
-        date: formData.get("date") as string,
-      },
+      data: parsedData.data,
     });
-  } catch (error) {
-    console.log(error);
+    return {
+      success: successMessage,
+    };
+  } catch (e: any) {
+    return {
+      error: errorMessage + " " + e.message,
+    };
   } finally {
     revalidatePath(url);
-    redirect(url);
   }
 }
 
 export async function DeleteCarreer(formData: FormData) {
   try {
-    const update = await prisma.carreer.delete({
+    await prisma.carreer.delete({
       where: {
         id: Number(formData.get("id")),
       },
     });
-  } catch (error) {
-    console.log(error);
+    return {
+      success: "Carreer successfully deleted.",
+    };
+  } catch (e: any) {
+    return {
+      error: e.message,
+    };
   } finally {
     revalidatePath(url);
   }

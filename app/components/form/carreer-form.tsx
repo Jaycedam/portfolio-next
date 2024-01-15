@@ -1,8 +1,9 @@
 "use client";
 
+import { zodResolver } from "@hookform/resolvers/zod";
+import { useForm } from "react-hook-form";
 import { Carreer, Type } from "@prisma/client";
 import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -12,7 +13,6 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import { CreateCarreer, UpdateCarreer } from "@/actions/carreer";
 import {
   Select,
   SelectContent,
@@ -20,6 +20,20 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { Textarea } from "@/components/ui/textarea";
+import { carreerSchema } from "@/lib/zod-schema";
+import { toast } from "sonner";
+import { z } from "zod";
+import {
+  Form,
+  FormControl,
+  // FormDescription,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "../ui/form";
+import { CreateCarreer, UpdateCarreer } from "@/actions/carreer";
 
 export default function CarreerForm({
   carreer,
@@ -28,81 +42,161 @@ export default function CarreerForm({
   carreer?: Carreer;
   typeCbo: Type[];
 }) {
-  // check if object is being passed down to update, else create new one on db
+  // check if project is being passed down to update, else create new one on db
   const formAction = carreer ? UpdateCarreer : CreateCarreer;
   const formTitle = carreer ? "Update Carreer" : "Create Carreer";
 
+  // form definition
+  const form = useForm<z.infer<typeof carreerSchema>>({
+    resolver: zodResolver(carreerSchema),
+    defaultValues: {
+      id: carreer?.id,
+      name: carreer?.name || "",
+      about: carreer?.about || "",
+      company: carreer?.company || "",
+      date: carreer?.date || "",
+      typeId: Number(carreer?.typeId) || undefined,
+    },
+  });
+
+  // form on submit
+  const handleSubmit = async (data: z.infer<typeof carreerSchema>) => {
+    // server action to create or update
+    const result = await formAction(data);
+
+    // show toast of server returned result, reset form if successful
+    if (result?.success) {
+      toast.success(result.success);
+      if (carreer === undefined) {
+        form.reset();
+      }
+      form.reset();
+    } else if (result?.error) {
+      toast.error(result.error);
+    }
+  };
+
   return (
-    <Card className="mx-auto max-w-lg">
+    <Card className="mx-auto max-w-xl">
       <CardHeader>
         <CardTitle>{formTitle}</CardTitle>
         <CardDescription>
           Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, ut.
         </CardDescription>
       </CardHeader>
-      <form action={formAction}>
-        <CardContent className="grid gap-6">
-          <Input type="hidden" readOnly name="id" defaultValue={carreer?.id} />
 
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="name">Name</Label>
-            <Input
-              required
-              type="text"
+      <Form {...form}>
+        <form onSubmit={form.handleSubmit(handleSubmit)}>
+          <CardContent className="grid gap-3">
+            <FormField
+              control={form.control}
+              name="id"
+              render={({ field }) => (
+                <FormItem>
+                  <FormControl>
+                    <Input aria-hidden readOnly type="hidden" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="name"
-              defaultValue={carreer?.name}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Name</FormLabel>
+                  <FormControl>
+                    <Input placeholder="" {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
 
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="company">Company</Label>
-            <Input
-              required
-              type="text"
+            <FormField
+              control={form.control}
               name="company"
-              defaultValue={carreer?.company}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Company</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
 
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="about">About</Label>
-            <Input
-              required
-              type="text"
+            <FormField
+              control={form.control}
+              name="date"
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Date</FormLabel>
+                  <FormControl>
+                    <Input {...field} />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+
+            <FormField
+              control={form.control}
               name="about"
-              defaultValue={carreer?.about}
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>About</FormLabel>
+                  <FormControl>
+                    <Textarea
+                      placeholder="A short description."
+                      className="resize-none"
+                      {...field}
+                    />
+                  </FormControl>
+                  <FormMessage />
+                </FormItem>
+              )}
             />
-          </div>
 
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="date">Date</Label>
-            <Input type="text" name="date" defaultValue={carreer?.date ?? ""} />
-          </div>
-
-          <div className="grid w-full  items-center gap-1.5">
-            <Label htmlFor="typeId">Type</Label>
-            <Select
-              required
-              defaultValue={carreer?.typeId.toString()}
+            <FormField
+              control={form.control}
               name="typeId"
-            >
-              <SelectTrigger className="w-[180px]">
-                <SelectValue placeholder="Type" />
-              </SelectTrigger>
-              <SelectContent>
-                {typeCbo.map((item, index) => (
-                  <SelectItem key={index} value={item.id.toString()}>
-                    {item.name}
-                  </SelectItem>
-                ))}
-              </SelectContent>
-            </Select>
-          </div>
-        </CardContent>
-        <CardFooter>
-          <Button type="submit">Save</Button>
-        </CardFooter>
-      </form>
+              render={({ field }) => (
+                <FormItem>
+                  <FormLabel>Type</FormLabel>
+                  <Select
+                    required
+                    onValueChange={field.onChange}
+                    defaultValue={field.value?.toString()}
+                  >
+                    <FormControl>
+                      <SelectTrigger className="w-[180px]">
+                        <SelectValue placeholder="Type" />
+                      </SelectTrigger>
+                    </FormControl>
+
+                    <SelectContent>
+                      {typeCbo.map((item, index) => (
+                        <SelectItem key={index} value={item.id.toString()}>
+                          {item.name}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
+                  <FormMessage />
+                </FormItem>
+              )}
+            />
+          </CardContent>
+
+          <CardFooter>
+            <Button type="submit">Save</Button>
+          </CardFooter>
+        </form>
+      </Form>
     </Card>
   );
 }
