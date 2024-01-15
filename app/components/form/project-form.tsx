@@ -70,7 +70,6 @@ export default function ProjectForm({
       if (project === undefined) {
         form.reset();
       }
-      form.reset();
     } else if (result?.error) {
       toast.error(result.error);
     }

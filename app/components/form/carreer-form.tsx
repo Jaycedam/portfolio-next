@@ -70,7 +70,6 @@ export default function CarreerForm({
       if (carreer === undefined) {
         form.reset();
       }
-      form.reset();
     } else if (result?.error) {
       toast.error(result.error);
     }
