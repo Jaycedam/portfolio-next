@@ -15,6 +15,9 @@ export default function ProjectCard(props: ExtendedProject) {
           src={props.imageUrl}
           alt="project-image"
           quality={100}
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,
+          iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNMUQQAAO8Ah7R22bwAAAAASUVORK5CYII="
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
           className="h-full w-full object-cover transition-all duration-500 group-hover:scale-110 group-active:scale-100"
