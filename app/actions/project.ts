@@ -4,7 +4,11 @@ import prisma from "@/lib/prisma";
 import { TProject, projectSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
 
-const url: string = "/admin/project";
+function revalidate() {
+  revalidatePath("/");
+  revalidatePath("/projects");
+  revalidatePath("/admin/project");
+}
 
 export async function CreateProject(data: TProject) {
   let errorMessage: string = "Project could not be created, try again later.";
@@ -30,7 +34,7 @@ export async function CreateProject(data: TProject) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -62,7 +66,7 @@ export async function UpdateProject(data: TProject) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -82,6 +86,6 @@ export async function DeleteProject(formData: FormData) {
       error: e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }

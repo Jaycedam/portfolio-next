@@ -4,8 +4,10 @@ import prisma from "@/lib/prisma";
 import { TCarreerType, carreerTypeSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
 
-const url: string = "/admin/carreer-type";
-
+function revalidate() {
+  revalidatePath("/");
+  revalidatePath("/admin/carreer-type");
+}
 export async function CreateCarreerType(data: TCarreerType) {
   let errorMessage: string =
     "Carreer Type could not be created, try again later.";
@@ -31,7 +33,7 @@ export async function CreateCarreerType(data: TCarreerType) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -63,7 +65,7 @@ export async function UpdateCarreerType(data: TCarreerType) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -83,6 +85,6 @@ export async function DeleteCarreerType(formData: FormData) {
       error: e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }

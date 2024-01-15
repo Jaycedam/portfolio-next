@@ -4,7 +4,10 @@ import prisma from "@/lib/prisma";
 import { TCarreer, carreerSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
 
-const url: string = "/admin/carreer";
+function revalidate() {
+  revalidatePath("/");
+  revalidatePath("/admin/carreer");
+}
 
 export async function CreateCarreer(data: TCarreer) {
   let errorMessage: string = "Carreer could not be created, try again later.";
@@ -29,7 +32,7 @@ export async function CreateCarreer(data: TCarreer) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -59,7 +62,7 @@ export async function UpdateCarreer(data: TCarreer) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -78,6 +81,6 @@ export async function DeleteCarreer(formData: FormData) {
       error: e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }

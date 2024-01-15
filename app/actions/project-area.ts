@@ -4,7 +4,10 @@ import prisma from "@/lib/prisma";
 import { TProjectArea, projectAreaSchema } from "@/lib/zod-schema";
 import { revalidatePath } from "next/cache";
 
-const url: string = "/admin/project-area";
+function revalidate() {
+  revalidatePath("/");
+  revalidatePath("/admin/project-area");
+}
 
 export async function CreateProjectArea(data: TProjectArea) {
   let errorMessage: string =
@@ -31,7 +34,7 @@ export async function CreateProjectArea(data: TProjectArea) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -63,7 +66,7 @@ export async function UpdateProjectArea(data: TProjectArea) {
       error: errorMessage + " " + e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
 
@@ -83,6 +86,6 @@ export async function DeleteProjectArea(formData: FormData) {
       error: e.message,
     };
   } finally {
-    revalidatePath(url);
+    revalidate();
   }
 }
