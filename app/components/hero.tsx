@@ -8,7 +8,7 @@ export default function Hero() {
   return (
     <section className="flex flex-col items-center justify-center gap-4 text-center">
       {/* hero graphic  */}
-      <div className="w-full max-w-md [&>*]:h-full [&>*]:w-full [&>*]:object-contain">
+      <div className="w-full max-w-md py-4 [&>*]:h-full [&>*]:w-full [&>*]:object-contain">
         <LaptopSVG />
       </div>
 
