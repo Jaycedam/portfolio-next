@@ -17,9 +17,10 @@ export default async function ProjectMDX({
       <section>
         <article
           className="prose mx-auto max-w-4xl 
-          dark:prose-invert 
-          prose-a:mr-4
-          prose-img:w-full prose-img:rounded-md prose-img:shadow-lg"
+          dark:prose-invert
+          prose-a:mr-4 
+          prose-em:text-sm prose-em:text-muted-foreground
+          prose-img:w-full prose-img:rounded-md prose-img:border-2 prose-img:shadow-lg"
         >
           <MDX url={project.url} />
         </article>
