@@ -13,7 +13,7 @@ export default function AdminLayout({
   return (
     <div className="md:grid md:grid-cols-[auto_1fr] md:gap-8">
       <AdminSidebar />
-      <main>{children}</main>
+      {children}
     </div>
   );
 }
