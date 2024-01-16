@@ -41,14 +41,14 @@ export default async function MobileNavbar({
               <li key={index}>
                 {/* SheetClose is used as child to close the nav when the child is clicked */}
                 <SheetClose asChild>
-                  <NavLink href={item.href} label={item.label} />
+                  <NavLink href={item.href}>{item.label}</NavLink>
                 </SheetClose>
               </li>
             ))}
             {session && (
               <li>
                 <SheetClose asChild>
-                  <NavLink href="/admin" label="Admin" />
+                  <NavLink href="/admin">Admin</NavLink>
                 </SheetClose>
               </li>
             )}

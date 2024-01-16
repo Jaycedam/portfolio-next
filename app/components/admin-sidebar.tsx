@@ -29,13 +29,17 @@ export default async function AdminSidebar() {
     <section>
       <nav className="pr-8">
         <header className="text-start">
-          <h1 className="p-3 text-xl font-semibold">Admin Links</h1>
+          <h1 className="whitespace-nowrap text-xl font-semibold">
+            Admin Links
+          </h1>
         </header>
 
         <ul className="flex flex-wrap items-start gap-8 whitespace-nowrap md:flex-col">
           {navLinks.map((item, index) => (
             <li key={index}>
-              <NavLink href={item.href} label={item.label} key={index} />
+              <NavLink href={item.href} key={index}>
+                {item.label}
+              </NavLink>
             </li>
           ))}
         </ul>
