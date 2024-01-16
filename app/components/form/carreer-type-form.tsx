@@ -5,14 +5,6 @@ import { useForm } from "react-hook-form";
 import { Area } from "@prisma/client";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { carreerTypeSchema } from "@/lib/zod-schema";
 import { toast } from "sonner";
 import { z } from "zod";
@@ -27,7 +19,11 @@ import {
 } from "../ui/form";
 import { CreateCarreerType, UpdateCarreerType } from "@/actions/carreer-type";
 
-export default function CarreerType({ carreerType }: { carreerType?: Area }) {
+export default function CarreerTypeForm({
+  carreerType,
+}: {
+  carreerType?: Area;
+}) {
   // check if project is being passed down to update, else create new one on db
   const formAction = carreerType ? UpdateCarreerType : CreateCarreerType;
   const formTitle = carreerType ? "Update Carreer Type" : "Create Carreer Type";
@@ -58,50 +54,40 @@ export default function CarreerType({ carreerType }: { carreerType?: Area }) {
   };
 
   return (
-    <Card className="mx-auto max-w-xl">
-      <CardHeader>
-        <CardTitle>{formTitle}</CardTitle>
-        <CardDescription>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Libero, ut.
-        </CardDescription>
-      </CardHeader>
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
+        <header>
+          <h1 className="text-lg font-bold">{formTitle}</h1>
+        </header>
+        <FormField
+          control={form.control}
+          name="id"
+          render={({ field }) => (
+            <FormItem>
+              <FormControl>
+                <Input aria-hidden readOnly type="hidden" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-      <Form {...form}>
-        <form onSubmit={form.handleSubmit(handleSubmit)}>
-          <CardContent className="grid gap-3">
-            <FormField
-              control={form.control}
-              name="id"
-              render={({ field }) => (
-                <FormItem>
-                  <FormControl>
-                    <Input aria-hidden readOnly type="hidden" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input placeholder="" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
 
-            <FormField
-              control={form.control}
-              name="name"
-              render={({ field }) => (
-                <FormItem>
-                  <FormLabel>Name</FormLabel>
-                  <FormControl>
-                    <Input placeholder="" {...field} />
-                  </FormControl>
-                  <FormMessage />
-                </FormItem>
-              )}
-            />
-          </CardContent>
-
-          <CardFooter>
-            <Button type="submit">Save</Button>
-          </CardFooter>
-        </form>
-      </Form>
-    </Card>
+        <Button type="submit">Save</Button>
+      </form>
+    </Form>
   );
 }
