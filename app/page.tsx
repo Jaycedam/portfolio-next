@@ -1,10 +1,10 @@
-import Hero from "@/components/hero";
-import Projects from "@/components/projects";
-import About from "@/components/about";
-import Carreer from "@/components/carreer";
+import Hero from "@components/hero";
+import Projects from "@components/projects";
+import About from "@components/about";
+import Carreer from "@components/carreer";
 import { Suspense } from "react";
-import SkeletonProjects from "@/components/skeleton/skeleton-projects";
-import SkeletonCarreer from "@/components/skeleton/skeleton-carreer";
+import SkeletonProjects from "@components/skeleton/skeleton-projects";
+import SkeletonCarreer from "@components/skeleton/skeleton-carreer";
 
 export default function Home() {
   return (

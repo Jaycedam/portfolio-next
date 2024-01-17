@@ -1,9 +1,9 @@
-import AdminTable from "@/components/table";
-import { Button } from "@/components/ui/button";
-import { getCarreerList, getCarreerTypeList } from "@/utils/get-data";
+import AdminTable from "@components/table";
+import { Button } from "@components/ui/button";
+import { getCarreerList, getCarreerTypeList } from "@utils/get-data";
 import { IoMdAdd } from "react-icons/io";
-import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
-import CarreerForm from "@/components/form/carreer-form";
+import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
+import CarreerForm from "@components/form/carreer-form";
 
 export default async function CarreerAdminPage() {
   const data = await getCarreerList();

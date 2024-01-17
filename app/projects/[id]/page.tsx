@@ -1,5 +1,5 @@
-import MDX from "@/components/mdx-remote";
-import { getProject } from "@/utils/get-data";
+import MDX from "@components/mdx-remote";
+import { getProject } from "@utils/get-data";
 import { notFound } from "next/navigation";
 
 export default async function ProjectMDX({

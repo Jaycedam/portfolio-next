@@ -1,5 +1,5 @@
-import ProjectAreaForm from "@/components/form/project-area-form";
-import { getProjectArea } from "@/utils/get-data";
+import ProjectAreaForm from "@components/form/project-area-form";
+import { getProjectArea } from "@utils/get-data";
 
 export default async function UpdateProjectArea({
   params,

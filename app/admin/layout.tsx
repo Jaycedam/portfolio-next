@@ -1,4 +1,4 @@
-import AdminSidebar from "@/components/admin-sidebar";
+import AdminSidebar from "@components/admin-sidebar";
 
 export const metadata = {
   title: "Portfolio Dashboard",

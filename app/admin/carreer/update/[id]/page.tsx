@@ -1,5 +1,5 @@
-import CarreerForm from "@/components/form/carreer-form";
-import { getCarreer, getCarreerTypeList } from "@/utils/get-data";
+import CarreerForm from "@components/form/carreer-form";
+import { getCarreer, getCarreerTypeList } from "@utils/get-data";
 
 export default async function UpdateCarreer({
   params,
