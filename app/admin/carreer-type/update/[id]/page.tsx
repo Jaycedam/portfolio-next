@@ -8,7 +8,7 @@ export default async function UpdateCarreerType({
 }) {
   const data = await getCarreerType(Number(params.id));
   return (
-    <section>
+    <section className="px-4">
       <CarreerTypeForm carreerType={data} />
     </section>
   );

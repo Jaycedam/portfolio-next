@@ -8,7 +8,7 @@ export default async function UpdateProjectArea({
 }) {
   const data = await getProjectArea(Number(params.id));
   return (
-    <section>
+    <section className="px-4">
       <ProjectAreaForm projectArea={data} />
     </section>
   );

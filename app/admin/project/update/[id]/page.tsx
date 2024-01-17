@@ -9,7 +9,7 @@ export default async function UpdateProject({
   const project = await getProject(parseInt(params.id));
   const areaList = await getProjectAreaList();
   return (
-    <section>
+    <section className="px-4">
       <ProjectForm project={project} areaCbo={areaList} />
     </section>
   );
