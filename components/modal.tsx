@@ -1,20 +1,9 @@
 "use client";
 
-import { Dialog, DialogContent } from "@/components/ui/dialog";
 import { useRouter } from "next/navigation";
-import {
-  Drawer,
-  DrawerClose,
-  DrawerContent,
-  DrawerDescription,
-  DrawerFooter,
-  DrawerHeader,
-  DrawerTitle,
-  DrawerTrigger,
-} from "@/components/ui/drawer";
+import { Drawer, DrawerClose, DrawerContent } from "@/components/ui/drawer";
 import { Button } from "./ui/button";
 import { IoClose } from "react-icons/io5";
-import { IoMdArrowRoundBack } from "react-icons/io";
 
 export default function Modal({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -25,7 +14,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       <DrawerContent
         onPointerDownOutside={handleClose}
         onEscapeKeyDown={handleClose}
-        className="h-[93vh]"
+        className="h-[95svh] focus:outline-none"
       >
         <DrawerClose
           className="absolute right-4 top-4 z-50 hidden md:block"
@@ -36,7 +25,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
             <IoClose className="mx-auto h-6 w-auto" />
           </Button>
         </DrawerClose>
-        <div className="h-full w-full overflow-auto">{children}</div>
+        <div className="h-full w-full overflow-auto p-8">{children}</div>
       </DrawerContent>
     </Drawer>
   );
