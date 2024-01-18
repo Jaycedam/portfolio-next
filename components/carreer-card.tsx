@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { fadeIn } from "@utils/animations";
+import { fade } from "@utils/animations";
 import { ExtendedCarreer } from "@utils/interfaces";
 
 export default function CarreerCard(props: ExtendedCarreer) {
   return (
     <motion.div
-      variants={fadeIn}
+      variants={fade}
       initial="initial"
       whileInView="animate"
       viewport={{ amount: 0.5 }}

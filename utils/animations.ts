@@ -1,7 +1,7 @@
 // framer motion animations variants
 
 // fade in to right
-export const fadeInRight = {
+export const fadeRight = {
   initial: {
     opacity: 0,
     x: -10,
@@ -18,7 +18,7 @@ export const fadeInRight = {
 };
 
 // fade in
-export const fadeIn = {
+export const fade = {
   initial: {
     opacity: 0,
   },
@@ -41,23 +41,6 @@ export const laptop = {
     pathLength: 1,
     transition: {
       duration: 0.8,
-      ease: "easeOut",
-    },
-  },
-};
-
-export const screen = {
-  hidden: {
-    opacity: 0,
-    scale: 0,
-    y: 30,
-  },
-  visible: {
-    opacity: 1,
-    scale: 1,
-    y: 0,
-    transition: {
-      duration: 0.5,
       ease: "easeOut",
     },
   },
