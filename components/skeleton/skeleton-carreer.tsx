@@ -11,7 +11,7 @@ function SkeletonLoader(props: { count: number }) {
 // use highlight true to homepage and false to /project path
 export default function SkeletonCarreer() {
   return (
-    <section className="grid gap-4">
+    <section className="space-y-4">
       <SkeletonLoader count={5} />
     </section>
   );

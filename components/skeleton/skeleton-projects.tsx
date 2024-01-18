@@ -12,7 +12,7 @@ function SkeletonLoader(props: { count: number }) {
 export default function SkeletonProjects(props: { highlights: boolean }) {
   return (
     <section>
-      <header className="flex flex-col gap-4">
+      <header className="space-y-4">
         <Skeleton className="h-8 max-w-md" />
         <Skeleton className="h-4 max-w-md" />
       </header>
