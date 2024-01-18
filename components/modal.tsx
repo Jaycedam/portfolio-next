@@ -14,7 +14,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       <DrawerContent
         onPointerDownOutside={handleClose}
         onEscapeKeyDown={handleClose}
-        className="h-[95svh] focus:outline-none"
+        className="h-[90%] focus:outline-none md:h-[95%]"
       >
         <DrawerClose
           className="absolute right-4 top-4 z-50 hidden md:block"
@@ -25,7 +25,8 @@ export default function Modal({ children }: { children: React.ReactNode }) {
             <IoClose className="mx-auto h-6 w-auto" />
           </Button>
         </DrawerClose>
-        <div className="h-full w-full overflow-auto p-8">{children}</div>
+
+        <div className="w-full overflow-auto px-4 py-8">{children}</div>
       </DrawerContent>
     </Drawer>
   );
