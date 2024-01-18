@@ -10,7 +10,7 @@ export default async function ProjectAdminPage() {
   const areaCbo = await getProjectAreaList();
 
   return (
-    <section>
+    <>
       <header className="flex items-center gap-4">
         <h1 className="title">Project list</h1>
         <Dialog>
@@ -26,6 +26,6 @@ export default async function ProjectAdminPage() {
       </header>
 
       <AdminTable data={data} type="project" />
-    </section>
+    </>
   );
 }

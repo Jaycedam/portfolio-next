@@ -8,7 +8,7 @@ import ProjectAreaForm from "@components/form/project-area-form";
 export default async function ProjectAreaAdminPage() {
   const data = await getProjectAreaList();
   return (
-    <section>
+    <>
       <header className="flex items-center gap-4">
         <h1 className="title">Project Area list</h1>
         <Dialog>
@@ -24,6 +24,6 @@ export default async function ProjectAreaAdminPage() {
       </header>
 
       <AdminTable data={data} type="project-area" />
-    </section>
+    </>
   );
 }
