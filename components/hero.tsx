@@ -1,6 +1,6 @@
 import { FaCode } from "react-icons/fa";
 import LaptopSVG from "@components/svg/laptop-svg";
-import { Button, buttonVariants } from "@components/ui/button";
+import { buttonVariants } from "@components/ui/button";
 import { MdEmail } from "react-icons/md";
 import ScrolIntoViewButton from "./scroll-into-view-button";
 
