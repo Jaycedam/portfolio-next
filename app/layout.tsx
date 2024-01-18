@@ -18,7 +18,7 @@ export default function RootLayout({
   modal,
 }: {
   children: React.ReactNode;
-  modal: React.ReactNode;
+  modal?: React.ReactNode;
 }) {
   return (
     // suppressHydrationWarning only applies one level deep, so it won't block hydration warnings on other elements,
