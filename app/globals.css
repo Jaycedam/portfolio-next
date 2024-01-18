@@ -67,6 +67,6 @@
 
   /* margin for anchor scrolling and adds whitespace  */
   section {
-    @apply scroll-mt-16 overflow-x-hidden;
+    @apply scroll-mt-16;
   }
 }
