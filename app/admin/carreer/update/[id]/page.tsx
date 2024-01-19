@@ -1,16 +1,9 @@
-import CarreerForm from "@components/form/carreer-form";
-import { getCarreer, getCarreerTypeList } from "@utils/get-data";
+import FormLoader from "@/components/form-loader";
 
-export default async function UpdateCarreer({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const data = await getCarreer(Number(params.id));
-  const carreerTypeList = await getCarreerTypeList();
+export default function UpdateCarreer({ params }: { params: { id: string } }) {
   return (
     <section className="px-4">
-      <CarreerForm carreer={data} typeCbo={carreerTypeList} />
+      <FormLoader id={Number(params.id)} type="carreer" />
     </section>
   );
 }

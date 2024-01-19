@@ -1,16 +1,9 @@
-import ProjectForm from "@components/form/project-form";
-import { getProject, getProjectAreaList } from "@utils/get-data";
+import FormLoader from "@/components/form-loader";
 
-export default async function UpdateProject({
-  params,
-}: {
-  params: { id: string };
-}) {
-  const project = await getProject(parseInt(params.id));
-  const areaList = await getProjectAreaList();
+export default function UpdateProject({ params }: { params: { id: string } }) {
   return (
     <section className="px-4">
-      <ProjectForm project={project} areaCbo={areaList} />
+      <FormLoader id={Number(params.id)} type="project" />
     </section>
   );
 }
