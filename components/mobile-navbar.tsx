@@ -34,7 +34,7 @@ export default async function MobileNavbar({
         </SheetTrigger>
         <SheetContent
           side="top"
-          className="grid items-center justify-center text-center"
+          className="grid items-center justify-center rounded-2xl text-center"
         >
           <ul className="flex flex-col flex-wrap items-center gap-4 px-8 py-16">
             {navLinks.map((item, index) => (
