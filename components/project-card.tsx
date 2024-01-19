@@ -20,7 +20,7 @@ export default function ProjectCard(props: ExtendedProject) {
           iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNMUQQAAO8Ah7R22bwAAAAASUVORK5CYII="
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
-          className="h-[95%] w-[95%] transition-all duration-500 group-hover:scale-110 group-active:scale-100"
+          className="h-[95%] w-[95%] object-cover transition-all duration-500 group-hover:scale-110 group-active:scale-100"
         />
       </div>
     </Link>
