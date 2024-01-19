@@ -61,7 +61,7 @@ export default function AdminTable({ data, type }: TableProps) {
 
             <TableCell className="flex gap-4">
               <Link
-                href={`/admin/${type}/update/${item.id}`}
+                href={`/admin/${type}/${item.id}`}
                 className={buttonVariants({
                   variant: "secondary",
                   size: "icon",
