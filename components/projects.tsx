@@ -10,8 +10,6 @@ export default async function Projects({ homepage }: { homepage: boolean }) {
   // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
   let projects = await getProjectList(homepage);
 
-  // changes the skeleton loading items, use double the number of the md:grid-cols of the skeleton parent
-  const skeletonCount: number = homepage ? 4 : 6;
   const title: string = homepage ? "Proyectos destacados" : "Proyectos";
   return (
     <section id="projects">
@@ -24,7 +22,7 @@ export default async function Projects({ homepage }: { homepage: boolean }) {
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}
       <div
-        className={`grid gap-2 ${
+        className={`grid gap-4 ${
           homepage ? "md:grid-cols-2" : "md:grid-cols-3"
         }`}
       >

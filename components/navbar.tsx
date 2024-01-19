@@ -25,7 +25,7 @@ export default async function Navbar() {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b bg-background/70 px-4 shadow-sm backdrop-blur md:px-8">
+    <nav className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b bg-background/70 px-4 backdrop-blur md:px-8">
       {/* logo  */}
       <NavLink href="/">
         <LogoSVG size={8} />

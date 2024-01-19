@@ -5,7 +5,7 @@ import { ExtendedProject } from "@utils/interfaces";
 export default function ProjectCard(props: ExtendedProject) {
   return (
     <Link href={`/projects/${props.id}`}>
-      <div className="group relative isolate aspect-square overflow-hidden rounded-md transition-all duration-500">
+      <div className="group relative isolate aspect-square overflow-hidden rounded-3xl border transition-all duration-500">
         {/* overlay  */}
         <div className="pointer-events-none absolute bottom-0 left-0 z-20 grid w-full items-center justify-center bg-gradient-to-t from-zinc-950/90 px-2 pb-8 pt-12 text-center text-zinc-50">
           <p className="text-xl font-bold">{props.name}</p>
