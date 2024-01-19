@@ -11,27 +11,27 @@ function revalidate() {
 }
 
 export async function CreateProject(data: TProject) {
-  let errorMessage: string = "Project could not be created, try again later.";
-  let successMessage: string = "Project created successfully.";
-
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Project could not be created. Try again.",
     };
   }
 
   try {
-    await prisma.project.create({
+    const result = await prisma.project.create({
       data: parsedData.data,
     });
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} created successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();
@@ -39,19 +39,17 @@ export async function CreateProject(data: TProject) {
 }
 
 export async function UpdateProject(data: TProject) {
-  let errorMessage: string = "Project could not be updated, try again later.";
-  let successMessage: string = "Project updated successfully.";
-
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Project could not be updated. Please try again.",
     };
   }
 
   try {
-    await prisma.project.update({
+    const result = await prisma.project.update({
       where: {
         id: data.id,
       },
@@ -59,11 +57,13 @@ export async function UpdateProject(data: TProject) {
     });
 
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} updated successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      error: "Error: " + e.message,
     };
   } finally {
     revalidate();
@@ -72,18 +72,20 @@ export async function UpdateProject(data: TProject) {
 
 export async function DeleteProject(formData: FormData) {
   try {
-    await prisma.project.delete({
+    const result = await prisma.project.delete({
       where: {
         id: Number(formData.get("id")),
       },
     });
 
     return {
-      success: "Project successfully deleted.",
+      success: true,
+      message: `${result.name} successfully deleted.`,
     };
   } catch (e: any) {
     return {
-      error: e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();

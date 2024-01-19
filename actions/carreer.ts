@@ -10,26 +10,26 @@ function revalidate() {
 }
 
 export async function CreateCarreer(data: TCarreer) {
-  let errorMessage: string = "Carreer could not be created, try again later.";
-  let successMessage: string = "Carreer created successfully.";
-
   const parsedData = carreerSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Carreer could not be created. Try again.",
     };
   }
   try {
-    await prisma.carreer.create({
+    const result = await prisma.carreer.create({
       data: parsedData.data,
     });
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} created successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      message: "Error: " + " " + e.message,
     };
   } finally {
     revalidate();
@@ -37,29 +37,29 @@ export async function CreateCarreer(data: TCarreer) {
 }
 
 export async function UpdateCarreer(data: TCarreer) {
-  let errorMessage: string = "Carreer could not be updated, try again later.";
-  let successMessage: string = "Carreer updated successfully.";
-
   const parsedData = carreerSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Carreer could not be updated. Please try again.",
     };
   }
   try {
-    await prisma.carreer.update({
+    const result = await prisma.carreer.update({
       where: {
         id: data.id,
       },
       data: parsedData.data,
     });
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} updated successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      error: "Error: " + " " + e.message,
     };
   } finally {
     revalidate();
@@ -68,17 +68,19 @@ export async function UpdateCarreer(data: TCarreer) {
 
 export async function DeleteCarreer(formData: FormData) {
   try {
-    await prisma.carreer.delete({
+    const result = await prisma.carreer.delete({
       where: {
         id: Number(formData.get("id")),
       },
     });
     return {
-      success: "Carreer successfully deleted.",
+      success: true,
+      message: `${result.name} successfully deleted.`,
     };
   } catch (e: any) {
     return {
-      error: e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();

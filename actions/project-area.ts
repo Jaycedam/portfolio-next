@@ -10,28 +10,27 @@ function revalidate() {
 }
 
 export async function CreateProjectArea(data: TProjectArea) {
-  let errorMessage: string =
-    "Project Area could not be created, try again later.";
-  let successMessage: string = "Project Area created successfully.";
-
   const parsedData = projectAreaSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Project Area could not be created. Try again.",
     };
   }
 
   try {
-    await prisma.area.create({
+    const result = await prisma.area.create({
       data: parsedData.data,
     });
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} created successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();
@@ -39,19 +38,17 @@ export async function CreateProjectArea(data: TProjectArea) {
 }
 
 export async function UpdateProjectArea(data: TProjectArea) {
-  let errorMessage: string = "Project could not be updated, try again later.";
-  let successMessage: string = "Project updated successfully.";
-
   const parsedData = projectAreaSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Project Area could not be updated. Try again.",
     };
   }
 
   try {
-    await prisma.area.update({
+    const result = await prisma.area.update({
       where: {
         id: data.id,
       },
@@ -59,11 +56,13 @@ export async function UpdateProjectArea(data: TProjectArea) {
     });
 
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} updated successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      error: "Error: " + e.message,
     };
   } finally {
     revalidate();
@@ -72,18 +71,20 @@ export async function UpdateProjectArea(data: TProjectArea) {
 
 export async function DeleteProjectArea(formData: FormData) {
   try {
-    await prisma.area.delete({
+    const result = await prisma.area.delete({
       where: {
         id: Number(formData.get("id")),
       },
     });
 
     return {
-      success: "Project Area successfully deleted.",
+      success: true,
+      message: `${result.name} successfully deleted.`,
     };
   } catch (e: any) {
     return {
-      error: e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();

@@ -46,13 +46,14 @@ export default function CarreerTypeForm({
 
     // show toast of server returned result, reset form if successful
     if (result?.success) {
-      toast.success(result.success);
+      toast.success(result.message);
       if (carreerType === undefined) {
         form.reset();
+        return;
       }
-      router.back();
-    } else if (result?.error) {
-      toast.error(result.error);
+      router.push("/admin/carreer-type");
+    } else if (!result?.success) {
+      toast.error(result.message);
     }
   };
 

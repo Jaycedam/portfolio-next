@@ -60,13 +60,14 @@ export default function CarreerForm({
 
     // show toast of server returned result, reset form if successful
     if (result?.success) {
-      toast.success(result.success);
+      toast.success(result.message);
       if (carreer === undefined) {
         form.reset();
+        return;
       }
-      router.back();
-    } else if (result?.error) {
-      toast.error(result.error);
+      router.push("/admin/carreer");
+    } else if (!result?.success) {
+      toast.error(result.message);
     }
   };
 
