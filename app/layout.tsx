@@ -33,12 +33,12 @@ export default function RootLayout({
           <Navbar />
           {/* container and navbar offset  */}
           <main className="container mt-14 space-y-16 p-4 md:p-8">
-            {children}
             {modal}
+            {children}
           </main>
           <Toaster />
-          {/* <SpeedInsights />
-          <Analytics /> */}
+          <SpeedInsights />
+          <Analytics />
           <Footer />
         </Providers>
       </body>
