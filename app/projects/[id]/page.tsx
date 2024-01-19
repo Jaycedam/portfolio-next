@@ -1,20 +1,13 @@
+import SkeletonArticle from "@/components/skeleton/skeleton-article";
 import MDX from "@components/mdx-remote";
-import { getProject } from "@utils/get-data";
-import { notFound } from "next/navigation";
+import { Suspense } from "react";
 
-export default async function ProjectMDX({
-  params,
-}: {
-  params: { id: string };
-}) {
-  // try catch is used here to catch non numbers on the url (params), then throws 404
-  // eg: /projects/a
-  try {
-    const id: number = parseInt(params.id);
-    const project = await getProject(id);
+export default function ProjectMDX({ params }: { params: { id: string } }) {
+  const id: number = parseInt(params.id);
 
-    return (
-      <section>
+  return (
+    <section>
+      <Suspense fallback={<SkeletonArticle />}>
         <article
           className="prose mx-auto max-w-4xl dark:prose-invert
           prose-a:mr-4
@@ -22,11 +15,9 @@ export default async function ProjectMDX({
           prose-img:aspect-[4/3] prose-img:w-full prose-img:rounded-md prose-img:border prose-img:object-fill
           prose-video:aspect-[16/10] prose-video:w-full prose-video:rounded-md prose-video:border"
         >
-          <MDX url={project.url} />
+          <MDX id={id} />
         </article>
-      </section>
-    );
-  } catch (err) {
-    notFound();
-  }
+      </Suspense>
+    </section>
+  );
 }

@@ -40,18 +40,15 @@ export default function DeleteFormButton(props: DeleteFormProps) {
     case "carreer-type":
       action = DeleteCarreerType;
       break;
-    default:
-      console.log("Unknown action");
-      break;
   }
 
   const handleSubmit = async (formData: FormData) => {
     const result = await action(formData);
 
     if (result?.success) {
-      toast.success(result.success);
-    } else if (result?.error) {
-      toast.error(result.error);
+      toast.success(result.message);
+    } else if (!result?.success) {
+      toast.error(result.message);
     }
   };
 
@@ -64,10 +61,10 @@ export default function DeleteFormButton(props: DeleteFormProps) {
       </AlertDialogTrigger>
       <AlertDialogContent>
         <AlertDialogHeader>
-          <AlertDialogTitle>Are you absolutely sure?</AlertDialogTitle>
+          <AlertDialogTitle>Delete item?</AlertDialogTitle>
           <AlertDialogDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            This action cannot be undone. This will permanently delete it from
+            the database.
           </AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>

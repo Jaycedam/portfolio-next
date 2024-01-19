@@ -25,6 +25,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@components/ui/form";
+import { useRouter } from "next/navigation";
 
 export default function ProjectForm({
   project,
@@ -33,6 +34,8 @@ export default function ProjectForm({
   project?: Project;
   areaCbo: Area[];
 }) {
+  const router = useRouter();
+
   // check if project is being passed down to update, else create new one on db
   const formAction = project ? UpdateProject : CreateProject;
   const formTitle = project ? "Update Project" : "Create Project";
@@ -57,12 +60,14 @@ export default function ProjectForm({
 
     // show toast of server returned result, reset form if successful
     if (result?.success) {
-      toast.success(result.success);
+      toast.success(result.message);
       if (project === undefined) {
         form.reset();
+        return;
       }
-    } else if (result?.error) {
-      toast.error(result.error);
+      router.push("/admin/project");
+    } else if (!result?.success) {
+      toast.error(result.message);
     }
   };
 

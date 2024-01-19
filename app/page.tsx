@@ -8,7 +8,6 @@ import SkeletonCarreer from "@components/skeleton/skeleton-carreer";
 
 export default function Home() {
   return (
-    // pt 14 offset of nav height
     <>
       <Hero />
       <Suspense fallback={<SkeletonProjects highlights={true} />}>

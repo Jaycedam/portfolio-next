@@ -17,12 +17,15 @@ import {
   FormMessage,
 } from "@components/ui/form";
 import { CreateCarreerType, UpdateCarreerType } from "@actions/carreer-type";
+import { useRouter } from "next/navigation";
 
 export default function CarreerTypeForm({
   carreerType,
 }: {
   carreerType?: Area;
 }) {
+  const router = useRouter();
+
   // check if project is being passed down to update, else create new one on db
   const formAction = carreerType ? UpdateCarreerType : CreateCarreerType;
   const formTitle = carreerType ? "Update Carreer Type" : "Create Carreer Type";
@@ -43,12 +46,14 @@ export default function CarreerTypeForm({
 
     // show toast of server returned result, reset form if successful
     if (result?.success) {
-      toast.success(result.success);
+      toast.success(result.message);
       if (carreerType === undefined) {
         form.reset();
+        return;
       }
-    } else if (result?.error) {
-      toast.error(result.error);
+      router.push("/admin/carreer-type");
+    } else if (!result?.success) {
+      toast.error(result.message);
     }
   };
 

@@ -3,6 +3,9 @@ import { ExtendedCarreer, ExtendedProject } from "@utils/interfaces";
 import { notFound } from "next/navigation";
 import { Area, Type } from "@prisma/client";
 
+// currently results are not cached, when unstable cache is stable, migrate to it
+// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
+
 export async function getProjectList(
   homepage: boolean
 ): Promise<ExtendedProject[]> {
@@ -22,17 +25,17 @@ export async function getProjectList(
         },
       });
       return result;
-    } else {
-      const result = await prisma.project.findMany({
-        orderBy: {
-          id: "desc",
-        },
-        include: {
-          area: true,
-        },
-      });
-      return result;
     }
+
+    const result = await prisma.project.findMany({
+      orderBy: {
+        id: "desc",
+      },
+      include: {
+        area: true,
+      },
+    });
+    return result;
   } catch (error) {
     console.log("Error fetching data from db: ", error);
     return [];

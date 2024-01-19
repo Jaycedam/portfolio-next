@@ -8,29 +8,29 @@ function revalidate() {
   revalidatePath("/");
   revalidatePath("/admin/carreer-type");
 }
-export async function CreateCarreerType(data: TCarreerType) {
-  let errorMessage: string =
-    "Carreer Type could not be created, try again later.";
-  let successMessage: string = "Carreer Type created successfully.";
 
+export async function CreateCarreerType(data: TCarreerType) {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Carreer Type could not be created. Try again.",
     };
   }
 
   try {
-    await prisma.type.create({
+    const result = await prisma.type.create({
       data: parsedData.data,
     });
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} created successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();
@@ -38,31 +38,30 @@ export async function CreateCarreerType(data: TCarreerType) {
 }
 
 export async function UpdateCarreerType(data: TCarreerType) {
-  let errorMessage: string =
-    "Carreer Type could not be updated, try again later.";
-  let successMessage: string = "Carreer Type updated successfully.";
-
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
     return {
-      error: errorMessage,
+      success: false,
+      message: "Carreer Type could not be updated. Please try again.",
     };
   }
 
   try {
-    await prisma.type.update({
+    const result = await prisma.type.update({
       where: {
         id: data.id,
       },
       data: parsedData.data,
     });
     return {
-      success: successMessage,
+      success: true,
+      message: `${result.name} updated successfully.`,
     };
   } catch (e: any) {
     return {
-      error: errorMessage + " " + e.message,
+      success: false,
+      error: "Error: " + e.message,
     };
   } finally {
     revalidate();
@@ -71,18 +70,20 @@ export async function UpdateCarreerType(data: TCarreerType) {
 
 export async function DeleteCarreerType(formData: FormData) {
   try {
-    await prisma.type.delete({
+    const result = await prisma.type.delete({
       where: {
         id: Number(formData.get("id")),
       },
     });
 
     return {
-      success: "Carreer Type successfully deleted.",
+      success: true,
+      message: `${result.name} successfully deleted.`,
     };
   } catch (e: any) {
     return {
-      error: e.message,
+      success: false,
+      message: "Error: " + e.message,
     };
   } finally {
     revalidate();

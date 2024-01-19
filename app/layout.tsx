@@ -15,22 +15,24 @@ export const metadata = {
 
 export default function RootLayout({
   children,
+  modal,
 }: {
   children: React.ReactNode;
+  modal: React.ReactNode;
 }) {
   return (
     // suppressHydrationWarning only applies one level deep, so it won't block hydration warnings on other elements,
     // it's necessary for the next-themes pckg since it updates that element
     <html
       lang="es"
-      className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
+      className={`${GeistSans.variable} ${GeistMono.variable}`}
       suppressHydrationWarning
     >
       <body>
         <Providers>
           <Navbar />
-          {/* container and navbar offset  */}
-          <main className="container mt-14 space-y-16 p-4 md:p-8">
+          <main className="container space-y-16 p-4 md:p-8">
+            {modal}
             {children}
           </main>
           <Toaster />
