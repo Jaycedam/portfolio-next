@@ -17,12 +17,15 @@ import {
   FormMessage,
 } from "@components/ui/form";
 import { CreateProjectArea, UpdateProjectArea } from "@actions/project-area";
+import { useRouter } from "next/navigation";
 
 export default function ProjectAreaForm({
   projectArea,
 }: {
   projectArea?: Area;
 }) {
+  const router = useRouter();
+
   // check if project is being passed down to update, else create new one on db
   const formAction = projectArea ? UpdateProjectArea : CreateProjectArea;
   const formTitle = projectArea ? "Update Project Area" : "Create Project Area";
@@ -47,6 +50,7 @@ export default function ProjectAreaForm({
       if (projectArea === undefined) {
         form.reset();
       }
+      router.back();
     } else if (result?.error) {
       toast.error(result.error);
     }

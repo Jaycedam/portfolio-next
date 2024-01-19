@@ -25,6 +25,7 @@ import {
   FormMessage,
 } from "../ui/form";
 import { CreateCarreer, UpdateCarreer } from "@actions/carreer";
+import { useRouter } from "next/navigation";
 
 export default function CarreerForm({
   carreer,
@@ -33,6 +34,8 @@ export default function CarreerForm({
   carreer?: Carreer;
   typeCbo: Type[];
 }) {
+  const router = useRouter();
+
   // check if project is being passed down to update, else create new one on db
   const formAction = carreer ? UpdateCarreer : CreateCarreer;
   const formTitle = carreer ? "Update Carreer" : "Create Carreer";
@@ -61,6 +64,7 @@ export default function CarreerForm({
       if (carreer === undefined) {
         form.reset();
       }
+      router.back();
     } else if (result?.error) {
       toast.error(result.error);
     }
