@@ -17,7 +17,7 @@ export default async function Projects({ homepage }: { homepage: boolean }) {
       <header className="flex flex-col">
         <h1 className="title">{title}</h1>
         <p className="text-sm font-light text-muted-foreground">
-          click en imagen para más detalles.
+          Click en imagen para más detalles.
         </p>
       </header>
       {/* GRID LAYOUR FOR PROJECTS */}

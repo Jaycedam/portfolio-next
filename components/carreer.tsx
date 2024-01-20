@@ -8,8 +8,13 @@ export default async function Carreer() {
   const data = await getCarreers();
   return (
     <section id="carreer">
-      <header>
-        <h1 className="title text-center">Carrera Profesional</h1>
+      <header className="text-center">
+        <h1 className="title">Carrera Profesional</h1>
+        <p className="text-muted-foreground">
+          Sólo es incluída mi carrera como Programador de Software,
+          <br />
+          previamente mantuve una carrera en Motion Graphics por más de 4 años.
+        </p>
       </header>
 
       <ol className="prose relative mx-auto border-s border-border">
