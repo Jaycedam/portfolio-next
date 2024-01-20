@@ -8,7 +8,7 @@ import { getProjectAreas } from "@/actions/project-area";
 
 export default async function ProjectAdminPage() {
   const data = await getProjects(false);
-  const areaCbo = await getProjectAreas();
+  const cbo = await getProjectAreas();
 
   return (
     <>
@@ -21,7 +21,7 @@ export default async function ProjectAdminPage() {
             </Button>
           </DialogTrigger>
           <DialogContent>
-            <ProjectForm areaCbo={areaCbo} />
+            <ProjectForm areaCbo={cbo} />
           </DialogContent>
         </Dialog>
       </header>

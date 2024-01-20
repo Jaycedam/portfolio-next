@@ -8,7 +8,7 @@ import { getCarreerTypes } from "@/actions/carreer-type";
 
 export default async function CarreerAdminPage() {
   const data = await getCarreers();
-  const typeCbo = await getCarreerTypes();
+  const cbo = await getCarreerTypes();
 
   return (
     <>
@@ -21,7 +21,7 @@ export default async function CarreerAdminPage() {
             </Button>
           </DialogTrigger>
           <DialogContent>
-            <CarreerForm typeCbo={typeCbo} />
+            <CarreerForm typeCbo={cbo} />
           </DialogContent>
         </Dialog>
       </header>

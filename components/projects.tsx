@@ -8,7 +8,7 @@ import { getProjects } from "@/actions/project";
 // it also changes the grid layout
 export default async function Projects({ homepage }: { homepage: boolean }) {
   // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
-  let projects = await getProjects(homepage);
+  const data = await getProjects(homepage);
 
   const title: string = homepage ? "Proyectos destacados" : "Proyectos";
   return (
@@ -26,7 +26,7 @@ export default async function Projects({ homepage }: { homepage: boolean }) {
           homepage ? "md:grid-cols-2" : "md:grid-cols-3"
         }`}
       >
-        {projects.map((item) => (
+        {data.map((item) => (
           <ProjectCard key={item.id} {...item}></ProjectCard>
         ))}
       </div>

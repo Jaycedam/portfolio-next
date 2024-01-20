@@ -1,9 +1,8 @@
-import { Carreer } from "@prisma/client";
 import CarreerCard from "@components/carreer-card";
 import { getCarreers } from "@/actions/carreer";
 
 export default async function Carreer() {
-  const carreer = await getCarreers();
+  const data = await getCarreers();
   return (
     <section
       id="carreer"
@@ -13,7 +12,7 @@ export default async function Carreer() {
         <h1 className="title text-center">Carrera Profesional</h1>
       </header>
 
-      {carreer.map((item) => (
+      {data.map((item) => (
         <CarreerCard key={item.id} {...item} />
       ))}
     </section>
