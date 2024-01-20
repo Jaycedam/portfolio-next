@@ -2,13 +2,13 @@ import ProjectCard from "@components/project-card";
 import Link from "next/link";
 import { buttonVariants } from "@components/ui/button";
 import { FaAngleRight } from "react-icons/fa6";
-import { getProjectList } from "@utils/get-data";
+import { getProjects } from "@/actions/project";
 
 // prop highlights defines if we return all items or only the ones that have homepage: true on the db
 // it also changes the grid layout
 export default async function Projects({ homepage }: { homepage: boolean }) {
   // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
-  let projects = await getProjectList(homepage);
+  let projects = await getProjects(homepage);
 
   const title: string = homepage ? "Proyectos destacados" : "Proyectos";
   return (

@@ -16,7 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@components/ui/form";
-import { CreateProjectArea, UpdateProjectArea } from "@actions/project-area";
+import { createProjectArea, updateProjectArea } from "@actions/project-area";
 import { useRouter } from "next/navigation";
 
 export default function ProjectAreaForm({
@@ -27,7 +27,7 @@ export default function ProjectAreaForm({
   const router = useRouter();
 
   // check if project is being passed down to update, else create new one on db
-  const formAction = projectArea ? UpdateProjectArea : CreateProjectArea;
+  const formAction = projectArea ? updateProjectArea : createProjectArea;
   const formTitle = projectArea ? "Update Project Area" : "Create Project Area";
 
   // form definition

@@ -2,14 +2,16 @@
 
 import prisma from "@lib/prisma";
 import { TProjectArea, projectAreaSchema } from "@lib/zod-schema";
+import { Area } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { notFound } from "next/navigation";
 
 function revalidate() {
   revalidatePath("/");
   revalidatePath("/admin/project-area");
 }
 
-export async function CreateProjectArea(data: TProjectArea) {
+export async function createProjectArea(data: TProjectArea) {
   const parsedData = projectAreaSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -37,7 +39,34 @@ export async function CreateProjectArea(data: TProjectArea) {
   }
 }
 
-export async function UpdateProjectArea(data: TProjectArea) {
+export async function getProjectAreas(): Promise<Area[]> {
+  try {
+    const result = await prisma.area.findMany({
+      orderBy: {
+        id: "desc",
+      },
+    });
+
+    return result;
+  } catch (error) {
+    console.log("Error fetching data from db: ", error);
+    return [];
+  }
+}
+
+export async function getProjectAreaById(id: number) {
+  try {
+    const result = await prisma.area.findUniqueOrThrow({
+      where: { id: id },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching project area: ", error);
+    return notFound();
+  }
+}
+
+export async function updateProjectArea(data: TProjectArea) {
   const parsedData = projectAreaSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -68,7 +97,7 @@ export async function UpdateProjectArea(data: TProjectArea) {
   }
 }
 
-export async function DeleteProjectArea(formData: FormData) {
+export async function deleteProjectArea(formData: FormData) {
   try {
     const result = await prisma.area.delete({
       where: {

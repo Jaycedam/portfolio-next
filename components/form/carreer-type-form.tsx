@@ -16,7 +16,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@components/ui/form";
-import { CreateCarreerType, UpdateCarreerType } from "@actions/carreer-type";
+import { createCarreerType, updateCarreerType } from "@actions/carreer-type";
 import { useRouter } from "next/navigation";
 
 export default function CarreerTypeForm({
@@ -27,7 +27,7 @@ export default function CarreerTypeForm({
   const router = useRouter();
 
   // check if project is being passed down to update, else create new one on db
-  const formAction = carreerType ? UpdateCarreerType : CreateCarreerType;
+  const formAction = carreerType ? updateCarreerType : createCarreerType;
   const formTitle = carreerType ? "Update Carreer Type" : "Create Carreer Type";
 
   // form definition

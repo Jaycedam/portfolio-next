@@ -1,12 +1,12 @@
 import AdminTable from "@components/table";
 import { Button } from "@components/ui/button";
-import { getCarreerTypeList } from "@utils/get-data";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import CarreerTypeForm from "@components/form/carreer-type-form";
+import { getCarreerTypes } from "@/actions/carreer-type";
 
 export default async function CarreerTypeAdminPage() {
-  const data = await getCarreerTypeList();
+  const data = await getCarreerTypes();
   return (
     <>
       <header className="flex items-center gap-4">

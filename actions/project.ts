@@ -1,8 +1,11 @@
 "use server";
 
+import { ExtendedProject } from "@/utils/interfaces";
 import prisma from "@lib/prisma";
 import { TProject, projectSchema } from "@lib/zod-schema";
+import { Project } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { notFound } from "next/navigation";
 
 function revalidate() {
   revalidatePath("/");
@@ -10,7 +13,7 @@ function revalidate() {
   revalidatePath("/admin/project");
 }
 
-export async function CreateProject(data: TProject) {
+export async function createProject(data: TProject) {
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -38,7 +41,55 @@ export async function CreateProject(data: TProject) {
   }
 }
 
-export async function UpdateProject(data: TProject) {
+export async function getProjects(
+  homepage: boolean
+): Promise<ExtendedProject[]> {
+  try {
+    // boolean checks if only homepage=true is shown, else show all projects
+    if (homepage) {
+      const result = await prisma.project.findMany({
+        orderBy: {
+          id: "desc",
+        },
+        where: {
+          homepage: true,
+        },
+        take: 4,
+        include: {
+          area: true,
+        },
+      });
+      return result;
+    }
+
+    const result = await prisma.project.findMany({
+      orderBy: {
+        id: "desc",
+      },
+      include: {
+        area: true,
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching data from db: ", error);
+    return [];
+  }
+}
+
+export async function getProjectById(id: number): Promise<Project> {
+  try {
+    const result = await prisma.project.findUniqueOrThrow({
+      where: { id: id },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching project: ", error);
+    return notFound();
+  }
+}
+
+export async function updateProject(data: TProject) {
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -69,7 +120,7 @@ export async function UpdateProject(data: TProject) {
   }
 }
 
-export async function DeleteProject(formData: FormData) {
+export async function deleteProject(formData: FormData) {
   try {
     const result = await prisma.project.delete({
       where: {

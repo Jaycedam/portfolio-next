@@ -1,13 +1,14 @@
 import AdminTable from "@components/table";
 import { Button } from "@components/ui/button";
-import { getProjectAreaList, getProjectList } from "@utils/get-data";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import ProjectForm from "@components/form/project-form";
+import { getProjects } from "@/actions/project";
+import { getProjectAreas } from "@/actions/project-area";
 
 export default async function ProjectAdminPage() {
-  const data = await getProjectList(false);
-  const areaCbo = await getProjectAreaList();
+  const data = await getProjects(false);
+  const areaCbo = await getProjectAreas();
 
   return (
     <>

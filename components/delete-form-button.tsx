@@ -1,6 +1,6 @@
 "use client";
 
-import { DeleteProject } from "@actions/project";
+import { deleteProject } from "@actions/project";
 import { Button } from "@components/ui/button";
 import {
   AlertDialog,
@@ -14,9 +14,9 @@ import {
   AlertDialogTrigger,
 } from "@components/ui/alert-dialog";
 import { FaTrash } from "react-icons/fa";
-import { DeleteProjectArea } from "@actions/project-area";
-import { DeleteCarreer } from "@actions/carreer";
-import { DeleteCarreerType } from "@actions/carreer-type";
+import { deleteProjectArea } from "@actions/project-area";
+import { deleteCarreer } from "@actions/carreer";
+import { deleteCarreerType } from "@actions/carreer-type";
 import { toast } from "sonner";
 
 export interface DeleteFormProps {
@@ -29,16 +29,16 @@ export default function DeleteFormButton(props: DeleteFormProps) {
   // check for selected option to delete from x table
   switch (props.action) {
     case "project":
-      action = DeleteProject;
+      action = deleteProject;
       break;
     case "project-area":
-      action = DeleteProjectArea;
+      action = deleteProjectArea;
       break;
     case "carreer":
-      action = DeleteCarreer;
+      action = deleteCarreer;
       break;
     case "carreer-type":
-      action = DeleteCarreerType;
+      action = deleteCarreerType;
       break;
   }
 

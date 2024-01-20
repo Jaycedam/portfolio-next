@@ -1,9 +1,9 @@
 import { Carreer } from "@prisma/client";
 import CarreerCard from "@components/carreer-card";
-import { getCarreerList } from "@utils/get-data";
+import { getCarreers } from "@/actions/carreer";
 
 export default async function Carreer() {
-  const carreer = await getCarreerList();
+  const carreer = await getCarreers();
   return (
     <section
       id="carreer"

@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { CreateProject, UpdateProject } from "@actions/project";
+import { createProject, updateProject } from "@actions/project";
 import { Area, Project } from "@prisma/client";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
@@ -37,7 +37,7 @@ export default function ProjectForm({
   const router = useRouter();
 
   // check if project is being passed down to update, else create new one on db
-  const formAction = project ? UpdateProject : CreateProject;
+  const formAction = project ? updateProject : createProject;
   const formTitle = project ? "Update Project" : "Create Project";
 
   // form definition

@@ -2,14 +2,16 @@
 
 import prisma from "@lib/prisma";
 import { TCarreerType, carreerTypeSchema } from "@lib/zod-schema";
+import { Type } from "@prisma/client";
 import { revalidatePath } from "next/cache";
+import { notFound } from "next/navigation";
 
 function revalidate() {
   revalidatePath("/");
   revalidatePath("/admin/carreer-type");
 }
 
-export async function CreateCarreerType(data: TCarreerType) {
+export async function createCarreerType(data: TCarreerType) {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -37,7 +39,33 @@ export async function CreateCarreerType(data: TCarreerType) {
   }
 }
 
-export async function UpdateCarreerType(data: TCarreerType) {
+export async function getCarreerTypes(): Promise<Type[]> {
+  try {
+    const result = await prisma.type.findMany({
+      orderBy: {
+        id: "desc",
+      },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching data from db: ", error);
+    return [];
+  }
+}
+
+export async function getCarreerTypeById(id: number) {
+  try {
+    const result = await prisma.type.findUniqueOrThrow({
+      where: { id: id },
+    });
+    return result;
+  } catch (error) {
+    console.log("Error fetching carreer type: ", error);
+    return notFound();
+  }
+}
+
+export async function updateCarreerType(data: TCarreerType) {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -68,7 +96,7 @@ export async function UpdateCarreerType(data: TCarreerType) {
   }
 }
 
-export async function DeleteCarreerType(formData: FormData) {
+export async function deleteCarreerType(formData: FormData) {
   try {
     const result = await prisma.type.delete({
       where: {

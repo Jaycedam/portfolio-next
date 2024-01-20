@@ -1,13 +1,14 @@
 import AdminTable from "@components/table";
 import { Button } from "@components/ui/button";
-import { getCarreerList, getCarreerTypeList } from "@utils/get-data";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import CarreerForm from "@components/form/carreer-form";
+import { getCarreers } from "@/actions/carreer";
+import { getCarreerTypes } from "@/actions/carreer-type";
 
 export default async function CarreerAdminPage() {
-  const data = await getCarreerList();
-  const typeCbo = await getCarreerTypeList();
+  const data = await getCarreers();
+  const typeCbo = await getCarreerTypes();
 
   return (
     <>

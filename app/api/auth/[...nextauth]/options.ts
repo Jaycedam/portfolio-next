@@ -1,8 +1,8 @@
 import { comparePasswords } from "@lib/bcrypt";
-import { getUser } from "@utils/get-data";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { userSchema } from "@lib/zod-schema";
+import { getUserByUsername } from "@/actions/user";
 
 export const options: NextAuthOptions = {
   providers: [
@@ -25,7 +25,7 @@ export const options: NextAuthOptions = {
 
         if (parsedCredentials.success) {
           const { username, password } = parsedCredentials.data;
-          const user = await getUser(username);
+          const user = await getUserByUsername(username);
 
           const passwordsMatch: boolean = await comparePasswords(
             password,

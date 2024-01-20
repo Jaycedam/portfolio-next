@@ -1,10 +1,10 @@
+import { getProjectById } from "@/actions/project";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
-import { getProject } from "@utils/get-data";
 
 export default async function MDX({ id }: { id: number }) {
   try {
-    const project = await getProject(id);
+    const project = await getProjectById(id);
 
     const parsedUrl = new URL(project.url);
     // disable cache

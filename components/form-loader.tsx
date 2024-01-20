@@ -1,15 +1,11 @@
-import {
-  getCarreer,
-  getCarreerType,
-  getCarreerTypeList,
-  getProject,
-  getProjectArea,
-  getProjectAreaList,
-} from "@/utils/get-data";
 import ProjectForm from "@components/form/project-form";
 import ProjectAreaForm from "./form/project-area-form";
 import CarreerForm from "./form/carreer-form";
 import CarreerTypeForm from "./form/carreer-type-form";
+import { getProjectById } from "@/actions/project";
+import { getProjectAreaById, getProjectAreas } from "@/actions/project-area";
+import { getCarreerById } from "@/actions/carreer";
+import { getCarreerTypeById, getCarreerTypes } from "@/actions/carreer-type";
 
 /** This component allows fetching the data directly
  * so it can be used in a modal with intersecting routes,
@@ -24,21 +20,21 @@ export default async function FormLoader({
 }) {
   switch (type) {
     case "project":
-      const project = await getProject(id);
-      const areaList = await getProjectAreaList();
+      const project = await getProjectById(id);
+      const areaList = await getProjectAreas();
       return <ProjectForm areaCbo={areaList} project={project} />;
 
     case "project-area":
-      const area = await getProjectArea(id);
+      const area = await getProjectAreaById(id);
       return <ProjectAreaForm projectArea={area} />;
 
     case "carreer":
-      const carreer = await getCarreer(id);
-      const typeList = await getCarreerTypeList();
+      const carreer = await getCarreerById(id);
+      const typeList = await getCarreerTypes();
       return <CarreerForm carreer={carreer} typeCbo={typeList} />;
 
     case "carreer-type":
-      const type = await getCarreerType(id);
+      const type = await getCarreerTypeById(id);
       return <CarreerTypeForm carreerType={type} />;
   }
 }
