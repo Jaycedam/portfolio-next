@@ -23,6 +23,8 @@ export async function CreateProjectArea(data: TProjectArea) {
     const result = await prisma.area.create({
       data: parsedData.data,
     });
+
+    revalidate();
     return {
       success: true,
       message: `${result.name} created successfully.`,
@@ -32,8 +34,6 @@ export async function CreateProjectArea(data: TProjectArea) {
       success: false,
       message: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
 
@@ -55,6 +55,7 @@ export async function UpdateProjectArea(data: TProjectArea) {
       data: parsedData.data,
     });
 
+    revalidate();
     return {
       success: true,
       message: `${result.name} updated successfully.`,
@@ -64,8 +65,6 @@ export async function UpdateProjectArea(data: TProjectArea) {
       success: false,
       error: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
 
@@ -77,6 +76,7 @@ export async function DeleteProjectArea(formData: FormData) {
       },
     });
 
+    revalidate();
     return {
       success: true,
       message: `${result.name} successfully deleted.`,
@@ -86,7 +86,5 @@ export async function DeleteProjectArea(formData: FormData) {
       success: false,
       message: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }

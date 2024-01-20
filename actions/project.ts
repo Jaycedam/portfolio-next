@@ -24,6 +24,8 @@ export async function CreateProject(data: TProject) {
     const result = await prisma.project.create({
       data: parsedData.data,
     });
+
+    revalidate();
     return {
       success: true,
       message: `${result.name} created successfully.`,
@@ -33,8 +35,6 @@ export async function CreateProject(data: TProject) {
       success: false,
       message: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
 
@@ -56,6 +56,7 @@ export async function UpdateProject(data: TProject) {
       data: parsedData.data,
     });
 
+    revalidate();
     return {
       success: true,
       message: `${result.name} updated successfully.`,
@@ -65,8 +66,6 @@ export async function UpdateProject(data: TProject) {
       success: false,
       error: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
 
@@ -78,6 +77,7 @@ export async function DeleteProject(formData: FormData) {
       },
     });
 
+    revalidate();
     return {
       success: true,
       message: `${result.name} successfully deleted.`,
@@ -87,7 +87,5 @@ export async function DeleteProject(formData: FormData) {
       success: false,
       message: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }

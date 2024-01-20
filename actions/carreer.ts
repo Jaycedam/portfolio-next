@@ -22,6 +22,8 @@ export async function CreateCarreer(data: TCarreer) {
     const result = await prisma.carreer.create({
       data: parsedData.data,
     });
+
+    revalidate();
     return {
       success: true,
       message: `${result.name} created successfully.`,
@@ -31,8 +33,6 @@ export async function CreateCarreer(data: TCarreer) {
       success: false,
       message: "Error: " + " " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
 
@@ -52,6 +52,8 @@ export async function UpdateCarreer(data: TCarreer) {
       },
       data: parsedData.data,
     });
+
+    revalidate();
     return {
       success: true,
       message: `${result.name} updated successfully.`,
@@ -61,8 +63,6 @@ export async function UpdateCarreer(data: TCarreer) {
       success: false,
       error: "Error: " + " " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
 
@@ -73,6 +73,8 @@ export async function DeleteCarreer(formData: FormData) {
         id: Number(formData.get("id")),
       },
     });
+
+    revalidate();
     return {
       success: true,
       message: `${result.name} successfully deleted.`,
@@ -82,7 +84,5 @@ export async function DeleteCarreer(formData: FormData) {
       success: false,
       message: "Error: " + e.message,
     };
-  } finally {
-    revalidate();
   }
 }
