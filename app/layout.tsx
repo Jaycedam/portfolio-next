@@ -36,8 +36,8 @@ export default function RootLayout({
             {children}
           </main>
           <Toaster />
-          {/* <SpeedInsights /> */}
-          {/* <Analytics /> */}
+          <SpeedInsights />
+          <Analytics />
           <Footer />
         </Providers>
       </body>
