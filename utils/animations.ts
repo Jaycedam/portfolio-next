@@ -2,11 +2,11 @@
 
 // fade in to right
 export const fadeRight = {
-  initial: {
+  hidden: {
     opacity: 0,
     x: -10,
   },
-  animate: {
+  visible: {
     opacity: 1,
     x: 0,
     transition: {
@@ -19,10 +19,10 @@ export const fadeRight = {
 
 // fade in
 export const fade = {
-  initial: {
+  hidden: {
     opacity: 0,
   },
-  animate: {
+  visible: {
     opacity: 1,
     transition: {
       duration: 0.5,

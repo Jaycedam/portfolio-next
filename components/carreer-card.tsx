@@ -1,17 +1,14 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { fade } from "@utils/animations";
 import { ExtendedCarreer } from "@utils/interfaces";
+import { MotionDiv } from "./MotionElements";
 
 export default function CarreerCard(props: ExtendedCarreer) {
   return (
-    <motion.div
+    <MotionDiv
       variants={fade}
-      initial="initial"
-      whileInView="animate"
+      initial="hidden"
+      whileInView="visible"
       viewport={{ amount: 0.5 }}
-      key={props.id}
       className="grid w-full p-6 md:w-2/4 md:odd:place-self-start md:odd:text-end md:even:place-self-end"
     >
       <p className="text-sm font-light">
@@ -26,6 +23,6 @@ export default function CarreerCard(props: ExtendedCarreer) {
       </p>
 
       <p className="mt-1 text-muted-foreground">{props.about}</p>
-    </motion.div>
+    </MotionDiv>
   );
 }
