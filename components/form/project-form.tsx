@@ -106,10 +106,10 @@ export default function ProjectForm({
 
         <FormField
           control={form.control}
-          name="url"
+          name="imageUrl"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>URL</FormLabel>
+              <FormLabel>Image URL</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
@@ -120,10 +120,10 @@ export default function ProjectForm({
 
         <FormField
           control={form.control}
-          name="imageUrl"
+          name="url"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Image URL</FormLabel>
+              <FormLabel>MDX URL</FormLabel>
               <FormControl>
                 <Input {...field} />
               </FormControl>
