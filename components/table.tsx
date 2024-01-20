@@ -42,7 +42,7 @@ export default function AdminTable({ data, type }: TableProps) {
             {Object.keys(item).map((outerKey) => (
               <TableCell
                 key={outerKey}
-                className="max-w-[10rem] overflow-hidden text-ellipsis whitespace-nowrap"
+                className="max-w-xs overflow-hidden break-words"
               >
                 {/* checks if item exists in the current object */}
                 {item[outerKey as keyof DataItem] &&
