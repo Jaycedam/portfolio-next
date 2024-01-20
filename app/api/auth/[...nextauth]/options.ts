@@ -10,11 +10,11 @@ export const options: NextAuthOptions = {
       name: "Credentials",
       credentials: {
         username: {
-          label: "username",
+          label: "Username",
           type: "text",
         },
         password: {
-          label: "password",
+          label: "Password",
           type: "password",
         },
       },
@@ -36,7 +36,6 @@ export const options: NextAuthOptions = {
             return user;
           }
 
-          console.log("Invalid credentials");
           return null;
         }
       },
