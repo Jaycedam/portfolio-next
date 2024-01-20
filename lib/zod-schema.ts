@@ -42,3 +42,10 @@ export const userSchema = z.object({
   password: z.string().min(10),
 });
 export type TUser = z.infer<typeof userSchema>;
+
+export const emailSchema = z.object({
+  from: z.string().email(),
+  subject: z.string().min(3),
+  message: z.string().min(3),
+});
+export type TEmail = z.infer<typeof emailSchema>;
