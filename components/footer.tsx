@@ -3,8 +3,8 @@ import { FaGithub, FaDribbble } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="mt-auto flex flex-col items-center justify-between gap-8 px-4 py-16 text-muted-foreground md:flex-row md:px-8">
-      <a href={process.env.EMAIL}>
-        <p>contact@jordancortes.dev</p>
+      <a href={`mailto:${process.env.EMAIL}`}>
+        <p>{process.env.EMAIL}</p>
       </a>
       <div className="flex gap-8">
         <a
