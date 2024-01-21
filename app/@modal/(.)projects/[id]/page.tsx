@@ -9,7 +9,7 @@ export default function Page({ params }: { params: { id: string } }) {
   return (
     <Modal>
       <article
-        className="prose mx-auto max-w-4xl dark:prose-invert
+        className="prose mx-auto max-w-4xl py-16 dark:prose-invert
             prose-a:mr-4
             prose-em:text-sm prose-em:text-muted-foreground 
             prose-img:aspect-[4/3] prose-img:w-full prose-img:rounded-md prose-img:border prose-img:object-fill
