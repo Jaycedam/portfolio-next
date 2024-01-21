@@ -5,6 +5,7 @@ import Carreer from "@components/carreer";
 import { Suspense } from "react";
 import SkeletonProjects from "@components/skeleton/skeleton-projects";
 import SkeletonCarreer from "@components/skeleton/skeleton-carreer";
+import ContactForm from "@/components/form/contact-form";
 
 export default function Home() {
   return (
@@ -13,10 +14,13 @@ export default function Home() {
       <Suspense fallback={<SkeletonProjects highlights={true} />}>
         <Projects homepage={true} />
       </Suspense>
+
       <Suspense fallback={<SkeletonCarreer />}>
         <Carreer />
       </Suspense>
       <About />
+
+      <ContactForm />
     </>
   );
 }

@@ -29,19 +29,13 @@ export default function Hero() {
       </header>
 
       <div className="flex gap-4">
-        <ScrolIntoViewButton id="projects">
+        <ScrolIntoViewButton variant="outline" id="projects">
           <FaCode /> &nbsp; Projectos
         </ScrolIntoViewButton>
 
-        <a
-          href={process.env.EMAIL}
-          className={buttonVariants({
-            variant: "outline",
-          })}
-        >
-          <MdEmail />
-          &nbsp; Contactar
-        </a>
+        <ScrolIntoViewButton id="contact">
+          <MdEmail /> &nbsp; Contactar
+        </ScrolIntoViewButton>
       </div>
     </section>
   );
