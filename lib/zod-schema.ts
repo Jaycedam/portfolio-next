@@ -44,7 +44,7 @@ export const userSchema = z.object({
 export type TUser = z.infer<typeof userSchema>;
 
 export const emailSchema = z.object({
-  from: z.string().email(),
+  email: z.string().email(),
   subject: z.string().min(3),
   message: z.string().min(3),
 });
