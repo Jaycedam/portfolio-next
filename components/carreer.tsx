@@ -13,7 +13,7 @@ export default async function Carreer() {
         <p className="text-muted-foreground">
           Sólo es incluída mi carrera como Programador de Software,
           <br />
-          previamente mantuve una carrera en Motion Graphics por más de 4 años.
+          previamente trabaje en Motion Graphics por más de 4 años.
         </p>
       </header>
 
