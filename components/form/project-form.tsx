@@ -26,6 +26,7 @@ import {
   FormMessage,
 } from "@components/ui/form";
 import { useRouter } from "next/navigation";
+import SpinnerSVG from "@components/svg/spinner-svg";
 
 export default function ProjectForm({
   project,
@@ -89,7 +90,6 @@ export default function ProjectForm({
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="name"
@@ -103,7 +103,6 @@ export default function ProjectForm({
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="imageUrl"
@@ -117,7 +116,6 @@ export default function ProjectForm({
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="url"
@@ -131,7 +129,6 @@ export default function ProjectForm({
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="areaId"
@@ -161,7 +158,6 @@ export default function ProjectForm({
             </FormItem>
           )}
         />
-
         <FormField
           control={form.control}
           name="homepage"
@@ -179,8 +175,13 @@ export default function ProjectForm({
             </FormItem>
           )}
         />
-
-        <Button type="submit">Save</Button>
+        <Button
+          className="w-20"
+          disabled={form.formState.isSubmitting}
+          type="submit"
+        >
+          {form.formState.isSubmitting ? <SpinnerSVG size="6" /> : "Save"}
+        </Button>
       </form>
     </Form>
   );

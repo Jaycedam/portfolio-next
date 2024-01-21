@@ -18,6 +18,7 @@ import {
 } from "@components/ui/form";
 import { createProjectArea, updateProjectArea } from "@actions/project-area";
 import { useRouter } from "next/navigation";
+import SpinnerSVG from "@components/svg/spinner-svg";
 
 export default function ProjectAreaForm({
   projectArea,
@@ -89,7 +90,13 @@ export default function ProjectAreaForm({
             </FormItem>
           )}
         />
-        <Button type="submit">Save</Button>
+        <Button
+          className="w-20"
+          disabled={form.formState.isSubmitting}
+          type="submit"
+        >
+          {form.formState.isSubmitting ? <SpinnerSVG size="6" /> : "Save"}
+        </Button>
       </form>
     </Form>
   );

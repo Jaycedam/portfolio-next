@@ -18,6 +18,7 @@ import {
 } from "@components/ui/form";
 import { createCarreerType, updateCarreerType } from "@actions/carreer-type";
 import { useRouter } from "next/navigation";
+import SpinnerSVG from "@components/svg/spinner-svg";
 
 export default function CarreerTypeForm({
   carreerType,
@@ -90,7 +91,13 @@ export default function CarreerTypeForm({
           )}
         />
 
-        <Button type="submit">Save</Button>
+        <Button
+          className="w-20"
+          disabled={form.formState.isSubmitting}
+          type="submit"
+        >
+          {form.formState.isSubmitting ? <SpinnerSVG size="6" /> : "Save"}
+        </Button>
       </form>
     </Form>
   );

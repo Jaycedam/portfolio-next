@@ -25,6 +25,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import SpinnerSVG from "@components/svg/spinner-svg";
 
 export default function ContactForm() {
   // form definition
@@ -113,7 +114,17 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
-              <Button type="submit">Enviar</Button>
+              <Button
+                className="w-20"
+                disabled={form.formState.isSubmitting}
+                type="submit"
+              >
+                {form.formState.isSubmitting ? (
+                  <SpinnerSVG size="6" />
+                ) : (
+                  "Enviar"
+                )}
+              </Button>
             </form>
           </Form>
         </CardContent>
