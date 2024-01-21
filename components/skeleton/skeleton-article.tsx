@@ -2,7 +2,7 @@ import { Skeleton } from "@components/ui/skeleton";
 
 export default function SkeletonArticle() {
   return (
-    <div className="mx-auto min-h-screen max-w-4xl space-y-8">
+    <div className="min-h-screen space-y-8">
       <Skeleton className="h-12 w-2/4" />
       <Skeleton className="h-4 w-3/4" />
 
