@@ -24,7 +24,7 @@ export default function Hero() {
         <p className="text-lg text-muted-foreground">
           Desarrollador de Software.
           <br />
-          Ocacionalmente trabajo en Motion Graphics.
+          Actualmente enfocado en full stack Next.js (React) con Typescript.
         </p>
       </header>
 

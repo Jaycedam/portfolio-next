@@ -17,6 +17,23 @@ export const fadeRight = {
   },
 };
 
+// fade in to left
+export const fadeLeft = {
+  hidden: {
+    opacity: 0,
+    x: 10,
+  },
+  visible: {
+    opacity: 1,
+    x: 0,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut",
+      staggerChildren: 0.5,
+    },
+  },
+};
+
 // fade in
 export const fade = {
   hidden: {
