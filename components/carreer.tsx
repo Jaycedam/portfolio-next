@@ -3,31 +3,37 @@ import { MdOutlineWorkOutline } from "react-icons/md";
 import { GiGraduateCap } from "react-icons/gi";
 import { MotionLi } from "./motion-elements";
 import { fade } from "@/utils/animations";
+import { buttonVariants } from "@components/ui/button";
 
 export default async function Carreer() {
   const data = await getCarreers();
   return (
     <section id="carreer">
-      <header className="text-center">
+      <header className="space-y-4 text-center">
         <h1 className="title">Carrera Profesional</h1>
-        <p className="text-muted-foreground">
-          Sólo es incluída mi carrera como Programador de Software,
-          <br />
-          previamente trabaje en Motion Graphics por más de 4 años.
+        <p className="mx-auto max-w-xl text-muted-foreground">
+          Sólo es incluída mi carrera como Programador de Software, previamente
+          trabaje en Motion Graphics por más de 4 años.
         </p>
+        <a
+          href={process.env.CV_URL}
+          className={buttonVariants({ variant: "outline" })}
+        >
+          Descargar CV
+        </a>
       </header>
 
-      <ol className="prose relative mx-auto border-s border-border">
+      <ol className="prose relative ml-4 border-l border-border md:mx-auto">
         {data.map((item, idx) => (
           <MotionLi
             variants={fade}
             initial="hidden"
             whileInView="visible"
-            viewport={{ amount: 0.5 }}
+            viewport={{ amount: 1 }}
             key={idx}
-            className="mb-10 ms-6"
+            className="mb-8 ms-8"
           >
-            <span className="absolute -start-3 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background ">
+            <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background ">
               {item.type.id === 1 ? (
                 <MdOutlineWorkOutline className="h-6 w-6" />
               ) : (
@@ -36,6 +42,7 @@ export default async function Carreer() {
             </span>
             <h3 className="mb-1 flex items-center text-lg font-semibold text-foreground">
               {item.name} - {item.company}
+              {/* card end of title  */}
               <span className="me-2 ms-3 rounded bg-muted px-2.5 py-0.5 text-sm font-medium">
                 {item.type.name}
               </span>
