@@ -17,15 +17,9 @@ import {
 import { emailSchema } from "@/lib/zod-schema";
 import { sendEmail } from "@/actions/email";
 import { Textarea } from "../ui/textarea";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SpinnerSVG from "@components/svg/spinner-svg";
+import { MdEmail } from "react-icons/md";
 
 export default function ContactForm() {
   // form definition
@@ -56,7 +50,7 @@ export default function ContactForm() {
     <section id="contact">
       <Card className="mx-auto max-w-4xl">
         <CardHeader>
-          <h1>Contactar</h1>
+          <CardTitle>Contactar</CardTitle>
         </CardHeader>
 
         <CardContent>
@@ -73,10 +67,7 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel>Email</FormLabel>
                       <FormControl>
-                        <Input
-                          placeholder="Tu email para poder contactarte"
-                          {...field}
-                        />
+                        <Input placeholder="Ingresa tu email" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
@@ -114,15 +105,18 @@ export default function ContactForm() {
                   </FormItem>
                 )}
               />
+
               <Button
-                className="w-20"
+                className="w-24"
                 disabled={form.formState.isSubmitting}
                 type="submit"
               >
                 {form.formState.isSubmitting ? (
                   <SpinnerSVG size="6" />
                 ) : (
-                  "Enviar"
+                  <span className="flex items-center gap-2">
+                    <MdEmail /> Enviar
+                  </span>
                 )}
               </Button>
             </form>

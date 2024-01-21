@@ -58,7 +58,10 @@ export default async function Navbar() {
             <ThemeToggle />
           </li>
           <li>
-            <Link href="/#contact">
+            <Link
+              className={buttonVariants({ variant: "ghost", size: "icon" })}
+              href="/#contact"
+            >
               <MdEmail className="h-[1.25rem] w-[1.25rem]" />
             </Link>
           </li>
