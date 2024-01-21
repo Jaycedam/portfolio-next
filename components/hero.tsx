@@ -2,7 +2,7 @@ import { FaCode } from "react-icons/fa";
 import LaptopSVG from "@components/svg/laptop-svg";
 import { buttonVariants } from "@components/ui/button";
 import { MdEmail } from "react-icons/md";
-import ScrolIntoViewButton from "./scroll-into-view-button";
+import Link from "next/link";
 
 export default function Hero() {
   return (
@@ -29,13 +29,19 @@ export default function Hero() {
       </header>
 
       <div className="flex gap-4">
-        <ScrolIntoViewButton variant="outline" id="projects">
+        <Link
+          className={buttonVariants({ variant: "outline" })}
+          href="/#projects"
+        >
           <FaCode /> &nbsp; Projectos
-        </ScrolIntoViewButton>
+        </Link>
 
-        <ScrolIntoViewButton id="contact">
+        <Link
+          className={buttonVariants({ variant: "default" })}
+          href="/#contact"
+        >
           <MdEmail /> &nbsp; Contactar
-        </ScrolIntoViewButton>
+        </Link>
       </div>
     </section>
   );

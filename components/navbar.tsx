@@ -58,12 +58,9 @@ export default async function Navbar() {
             <ThemeToggle />
           </li>
           <li>
-            <a
-              href={process.env.EMAIL}
-              className={buttonVariants({ variant: "ghost", size: "icon" })}
-            >
+            <Link href="/#contact">
               <MdEmail className="h-[1.25rem] w-[1.25rem]" />
-            </a>
+            </Link>
           </li>
         </ul>
       </ul>

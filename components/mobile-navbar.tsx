@@ -63,7 +63,7 @@ export default async function MobileNavbar({
                 })}
                 href="/api/auth/signout"
               >
-                <GoSignOut className="h-5 w-auto" />
+                <GoSignOut className="h-6 w-6" />
               </Link>
             )}
 
@@ -71,15 +71,17 @@ export default async function MobileNavbar({
               <ThemeToggle />
             </li>
             <li>
-              <a
-                href={process.env.EMAIL}
-                className={buttonVariants({
-                  variant: "ghost",
-                  size: "icon",
-                })}
-              >
-                <MdEmail className="h-6 w-6" />
-              </a>
+              <SheetClose asChild>
+                <Link
+                  className={buttonVariants({
+                    variant: "ghost",
+                    size: "icon",
+                  })}
+                  href={"/#contact"}
+                >
+                  <MdEmail className="h-6 w-6" />
+                </Link>
+              </SheetClose>
             </li>
           </ul>
         </SheetContent>
