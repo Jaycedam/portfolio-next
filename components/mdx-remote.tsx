@@ -7,8 +7,10 @@ export default async function MDX({ id }: { id: number }) {
     const project = await getProjectById(id);
 
     const parsedUrl = new URL(project.url);
-    // disable cache
-    const res = await fetch(parsedUrl.toString(), { cache: "no-store" });
+    // revalidate cache in 1 hour
+    const res = await fetch(parsedUrl.toString(), {
+      next: { revalidate: 3600 },
+    });
 
     if (!res.ok) {
       throw new Error(`Failed to fetch content from ${parsedUrl}`);

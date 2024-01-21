@@ -6,14 +6,22 @@ import { TProject, projectSchema } from "@lib/zod-schema";
 import { Project } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
+// the results are cached, updated with the revalidate function.
+// Wait for stable release of unstable cache for transfer
+// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
+
+// todo: universal local messages with str params
+
+// todo: replace with cache tags
 function revalidate() {
   revalidatePath("/");
   revalidatePath("/projects");
   revalidatePath("/admin/project");
 }
 
-export async function createProject(data: TProject) {
+export const createProject = async (data: TProject) => {
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -39,45 +47,45 @@ export async function createProject(data: TProject) {
       message: "Error: " + e.message,
     };
   }
-}
+};
 
-export async function getProjects(
-  homepage: boolean
-): Promise<ExtendedProject[]> {
-  try {
-    // boolean checks if only homepage=true is shown, else show all projects
-    if (homepage) {
+export const getProjects = cache(
+  async (homepage: boolean): Promise<ExtendedProject[]> => {
+    try {
+      // boolean checks if only homepage=true is shown, else show all projects
+      if (homepage) {
+        const result = await prisma.project.findMany({
+          orderBy: {
+            id: "desc",
+          },
+          where: {
+            homepage: true,
+          },
+          take: 4,
+          include: {
+            area: true,
+          },
+        });
+        return result;
+      }
+
       const result = await prisma.project.findMany({
         orderBy: {
           id: "desc",
         },
-        where: {
-          homepage: true,
-        },
-        take: 4,
         include: {
           area: true,
         },
       });
       return result;
+    } catch (error) {
+      console.log("Error fetching data from db: ", error);
+      return [];
     }
-
-    const result = await prisma.project.findMany({
-      orderBy: {
-        id: "desc",
-      },
-      include: {
-        area: true,
-      },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
   }
-}
+);
 
-export async function getProjectById(id: number): Promise<Project> {
+export const getProjectById = cache(async (id: number): Promise<Project> => {
   try {
     const result = await prisma.project.findUniqueOrThrow({
       where: { id: id },
@@ -87,9 +95,9 @@ export async function getProjectById(id: number): Promise<Project> {
     console.log("Error fetching project: ", error);
     return notFound();
   }
-}
+});
 
-export async function updateProject(data: TProject) {
+export const updateProject = async (data: TProject) => {
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -118,9 +126,9 @@ export async function updateProject(data: TProject) {
       error: "Error: " + e.message,
     };
   }
-}
+};
 
-export async function deleteProject(formData: FormData) {
+export const deleteProject = async (formData: FormData) => {
   try {
     const result = await prisma.project.delete({
       where: {
@@ -139,4 +147,4 @@ export async function deleteProject(formData: FormData) {
       message: "Error: " + e.message,
     };
   }
-}
+};

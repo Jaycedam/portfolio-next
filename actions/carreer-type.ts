@@ -5,13 +5,21 @@ import { TCarreerType, carreerTypeSchema } from "@lib/zod-schema";
 import { Type } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
+import { cache } from "react";
 
+// the results are cached, updated with the revalidate function.
+// Wait for stable release of unstable cache for transfer
+// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
+
+// todo: universal local messages with str params
+
+// todo: replace with cache tags
 function revalidate() {
   revalidatePath("/");
   revalidatePath("/admin/carreer-type");
 }
 
-export async function createCarreerType(data: TCarreerType) {
+export const createCarreerType = async (data: TCarreerType) => {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -37,9 +45,9 @@ export async function createCarreerType(data: TCarreerType) {
       message: "Error: " + e.message,
     };
   }
-}
+};
 
-export async function getCarreerTypes(): Promise<Type[]> {
+export const getCarreerTypes = cache(async (): Promise<Type[]> => {
   try {
     const result = await prisma.type.findMany({
       orderBy: {
@@ -51,9 +59,9 @@ export async function getCarreerTypes(): Promise<Type[]> {
     console.log("Error fetching data from db: ", error);
     return [];
   }
-}
+});
 
-export async function getCarreerTypeById(id: number) {
+export const getCarreerTypeById = cache(async (id: number) => {
   try {
     const result = await prisma.type.findUniqueOrThrow({
       where: { id: id },
@@ -63,9 +71,9 @@ export async function getCarreerTypeById(id: number) {
     console.log("Error fetching carreer type: ", error);
     return notFound();
   }
-}
+});
 
-export async function updateCarreerType(data: TCarreerType) {
+export const updateCarreerType = async (data: TCarreerType) => {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -94,9 +102,9 @@ export async function updateCarreerType(data: TCarreerType) {
       error: "Error: " + e.message,
     };
   }
-}
+};
 
-export async function deleteCarreerType(formData: FormData) {
+export const deleteCarreerType = async (formData: FormData) => {
   try {
     const result = await prisma.type.delete({
       where: {
@@ -115,4 +123,4 @@ export async function deleteCarreerType(formData: FormData) {
       message: "Error: " + e.message,
     };
   }
-}
+};
