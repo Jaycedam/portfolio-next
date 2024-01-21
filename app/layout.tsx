@@ -25,7 +25,7 @@ export default function RootLayout({
     // it's necessary for the next-themes pckg since it updates that element
     <html
       lang="es"
-      className={`${GeistSans.variable} ${GeistMono.variable}`}
+      className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body>
