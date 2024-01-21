@@ -31,7 +31,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          <main className="container space-y-28 p-4 md:p-8">
+          <main className="container my-16 space-y-16">
             {modal}
             {children}
           </main>

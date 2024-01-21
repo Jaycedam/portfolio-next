@@ -58,7 +58,7 @@
   }
 
   .title {
-    @apply text-4xl font-bold capitalize;
+    @apply text-3xl font-bold capitalize md:text-4xl;
   }
 
   header {
