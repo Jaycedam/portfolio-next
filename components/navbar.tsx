@@ -27,11 +27,11 @@ export default async function Navbar() {
   return (
     <nav className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b bg-background/70 px-4 backdrop-blur md:px-8">
       {/* logo  */}
-      <NavLink href="/">
+      <Link href="/">
         <LogoSVG size={8} />
-      </NavLink>
+      </Link>
 
-      <ul className="hidden items-center gap-8 md:flex">
+      <ul className="hidden items-center gap-4 md:flex">
         {navLinks.map((item, index) => (
           <li key={index}>
             <NavLink href={item.href}>{item.label}</NavLink>
@@ -45,27 +45,25 @@ export default async function Navbar() {
         )}
 
         {/* icons  */}
-        <ul className="flex items-center gap-2">
-          {session && (
-            <Link
-              className={buttonVariants({ variant: "ghost", size: "icon" })}
-              href="/api/auth/signout"
-            >
-              <GoSignOut className="h-5 w-auto" />
-            </Link>
-          )}
-          <li>
-            <ThemeToggle />
-          </li>
-          <li>
-            <Link
-              className={buttonVariants({ variant: "ghost", size: "icon" })}
-              href="/#contact"
-            >
-              <MdEmail className="h-[1.25rem] w-[1.25rem]" />
-            </Link>
-          </li>
-        </ul>
+        {session && (
+          <Link
+            className={buttonVariants({ variant: "ghost", size: "icon" })}
+            href="/api/auth/signout"
+          >
+            <GoSignOut className="h-5 w-auto" />
+          </Link>
+        )}
+        <li>
+          <ThemeToggle />
+        </li>
+        <li>
+          <Link
+            className={buttonVariants({ variant: "ghost", size: "icon" })}
+            href="/#contact"
+          >
+            <MdEmail className="h-[1.25rem] w-[1.25rem]" />
+          </Link>
+        </li>
       </ul>
 
       {/* mobile  */}

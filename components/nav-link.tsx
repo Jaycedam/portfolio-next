@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { buttonVariants } from "./ui/button";
 
 export default function NavLink({
   href,
@@ -16,9 +17,12 @@ export default function NavLink({
   return (
     <Link
       {...rest}
-      className={`transition-color text-sm font-medium duration-300 hover:text-foreground ${
-        pathname === href ? "text-foreground" : "text-muted-foreground"
-      }`}
+      className={
+        buttonVariants({ variant: "ghost" }) +
+        `transition-color text-sm font-medium duration-300 hover:text-foreground ${
+          pathname === href ? "text-foreground" : "text-muted-foreground"
+        }`
+      }
       href={href}
     >
       {children}
