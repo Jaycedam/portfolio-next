@@ -62,7 +62,7 @@
   }
 
   header {
-    @apply mb-8;
+    @apply mb-4;
   }
 
   /* margin for anchor scrolling and adds whitespace  */

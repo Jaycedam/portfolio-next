@@ -109,6 +109,7 @@ const config: Config = {
         "fade-right": "fade-right linear both",
         "fade-left": "fade-left linear both",
         "fade-up": "fade-up linear both",
+        "fade-down": "fade-down linear both",
         "scale-up": "scale-up linear both",
       },
       fontFamily: {
