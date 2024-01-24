@@ -7,7 +7,6 @@ import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import { carreerTypeSchema } from "@lib/zod-schema";
 import { toast } from "sonner";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -19,6 +18,7 @@ import {
 import { createCarreerType, updateCarreerType } from "@actions/carreer-type";
 import { useRouter } from "next/navigation";
 import SpinnerSVG from "@components/svg/spinner-svg";
+import { CarreerTypeForm } from "@/utils/types";
 
 export default function CarreerTypeForm({
   carreerType,
@@ -32,7 +32,7 @@ export default function CarreerTypeForm({
   const formTitle = carreerType ? "Update Carreer Type" : "Create Carreer Type";
 
   // form definition
-  const form = useForm<z.infer<typeof carreerTypeSchema>>({
+  const form = useForm<CarreerTypeForm>({
     resolver: zodResolver(carreerTypeSchema),
     defaultValues: {
       id: carreerType?.id,
@@ -41,7 +41,7 @@ export default function CarreerTypeForm({
   });
 
   // form on submit
-  const handleSubmit = async (data: z.infer<typeof carreerTypeSchema>) => {
+  const handleSubmit = async (data: CarreerTypeForm) => {
     // server action to create or update
     const result = await formAction(data);
 

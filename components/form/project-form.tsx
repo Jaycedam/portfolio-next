@@ -16,7 +16,6 @@ import {
 import { Checkbox } from "@components/ui/checkbox";
 import { projectSchema } from "@lib/zod-schema";
 import { toast } from "sonner";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -27,6 +26,7 @@ import {
 } from "@components/ui/form";
 import { useRouter } from "next/navigation";
 import SpinnerSVG from "@components/svg/spinner-svg";
+import { ProjectForm } from "@/utils/types";
 
 export default function ProjectForm({
   project,
@@ -42,7 +42,7 @@ export default function ProjectForm({
   const formTitle = project ? "Update Project" : "Create Project";
 
   // form definition
-  const form = useForm<z.infer<typeof projectSchema>>({
+  const form = useForm<ProjectForm>({
     resolver: zodResolver(projectSchema),
     defaultValues: {
       id: project?.id,
@@ -55,7 +55,7 @@ export default function ProjectForm({
   });
 
   // form on submit
-  const handleSubmit = async (data: z.infer<typeof projectSchema>) => {
+  const handleSubmit = async (data: ProjectForm) => {
     // server action to create or update
     const result = await formAction(data);
 

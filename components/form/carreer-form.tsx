@@ -15,7 +15,6 @@ import {
 import { Textarea } from "@components/ui/textarea";
 import { carreerSchema } from "@lib/zod-schema";
 import { toast } from "sonner";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -27,6 +26,7 @@ import {
 import { createCarreer, updateCarreer } from "@actions/carreer";
 import { useRouter } from "next/navigation";
 import SpinnerSVG from "@components/svg/spinner-svg";
+import { CarreerForm } from "@/utils/types";
 
 export default function CarreerForm({
   carreer,
@@ -42,7 +42,7 @@ export default function CarreerForm({
   const formTitle = carreer ? "Update Carreer" : "Create Carreer";
 
   // form definition
-  const form = useForm<z.infer<typeof carreerSchema>>({
+  const form = useForm<CarreerForm>({
     resolver: zodResolver(carreerSchema),
     defaultValues: {
       id: carreer?.id,
@@ -55,7 +55,7 @@ export default function CarreerForm({
   });
 
   // form on submit
-  const handleSubmit = async (data: z.infer<typeof carreerSchema>) => {
+  const handleSubmit = async (data: CarreerForm) => {
     // server action to create or update
     const result = await formAction(data);
 

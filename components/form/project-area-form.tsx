@@ -7,7 +7,6 @@ import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import { projectAreaSchema } from "@lib/zod-schema";
 import { toast } from "sonner";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -19,6 +18,7 @@ import {
 import { createProjectArea, updateProjectArea } from "@actions/project-area";
 import { useRouter } from "next/navigation";
 import SpinnerSVG from "@components/svg/spinner-svg";
+import { ProjectAreaForm } from "@/utils/types";
 
 export default function ProjectAreaForm({
   projectArea,
@@ -32,7 +32,7 @@ export default function ProjectAreaForm({
   const formTitle = projectArea ? "Update Project Area" : "Create Project Area";
 
   // form definition
-  const form = useForm<z.infer<typeof projectAreaSchema>>({
+  const form = useForm<ProjectAreaForm>({
     resolver: zodResolver(projectAreaSchema),
     defaultValues: {
       id: projectArea?.id,
@@ -41,7 +41,7 @@ export default function ProjectAreaForm({
   });
 
   // form on submit
-  const handleSubmit = async (data: z.infer<typeof projectAreaSchema>) => {
+  const handleSubmit = async (data: ProjectAreaForm) => {
     // server action to create or update
     const result = await formAction(data);
 

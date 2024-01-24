@@ -5,7 +5,6 @@ import { useForm } from "react-hook-form";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import { toast } from "sonner";
-import { z } from "zod";
 import {
   Form,
   FormControl,
@@ -20,10 +19,11 @@ import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SpinnerSVG from "@components/svg/spinner-svg";
 import { MdEmail } from "react-icons/md";
+import { EmailForm } from "@/utils/types";
 
 export default function ContactForm() {
   // form definition
-  const form = useForm<z.infer<typeof emailSchema>>({
+  const form = useForm<EmailForm>({
     resolver: zodResolver(emailSchema),
     defaultValues: {
       email: "",
@@ -33,7 +33,7 @@ export default function ContactForm() {
   });
 
   // form on submit
-  const handleSubmit = async (data: z.infer<typeof emailSchema>) => {
+  const handleSubmit = async (data: EmailForm) => {
     // server action to create or update
     const result = await sendEmail(data);
 
