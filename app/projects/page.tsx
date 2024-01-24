@@ -4,10 +4,8 @@ import { Suspense } from "react";
 
 export default async function ProjectsPage() {
   return (
-    <main>
-      <Suspense fallback={<SkeletonProjects highlights={false} />}>
-        <Projects homepage={false} />
-      </Suspense>
-    </main>
+    <Suspense fallback={<SkeletonProjects highlights={false} />}>
+      <Projects homepage={false} />
+    </Suspense>
   );
 }
