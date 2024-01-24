@@ -1,8 +1,9 @@
 "use server";
 
 import { ExtendedProject } from "@/utils/interfaces";
+import { ProjectForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { TProject, projectSchema } from "@lib/zod-schema";
+import { projectSchema } from "@lib/zod-schema";
 import { Project } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
@@ -21,7 +22,7 @@ function revalidate() {
   revalidatePath("/admin/project");
 }
 
-export const createProject = async (data: TProject) => {
+export const createProject = async (data: ProjectForm) => {
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -111,7 +112,7 @@ export const getProjectByName = cache(
   }
 );
 
-export const updateProject = async (data: TProject) => {
+export const updateProject = async (data: ProjectForm) => {
   const parsedData = projectSchema.safeParse(data);
 
   if (!parsedData.success) {

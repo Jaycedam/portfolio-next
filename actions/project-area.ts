@@ -1,7 +1,8 @@
 "use server";
 
+import { ProjectAreaForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { TProjectArea, projectAreaSchema } from "@lib/zod-schema";
+import { projectAreaSchema } from "@lib/zod-schema";
 import { Area } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
@@ -19,7 +20,7 @@ function revalidate() {
   revalidatePath("/admin/project-area");
 }
 
-export const createProjectArea = async (data: TProjectArea) => {
+export const createProjectArea = async (data: ProjectAreaForm) => {
   const parsedData = projectAreaSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -74,7 +75,7 @@ export const getProjectAreaById = cache(async (id: number) => {
   }
 });
 
-export const updateProjectArea = async (data: TProjectArea) => {
+export const updateProjectArea = async (data: ProjectAreaForm) => {
   const parsedData = projectAreaSchema.safeParse(data);
 
   if (!parsedData.success) {

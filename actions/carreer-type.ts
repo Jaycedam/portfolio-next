@@ -1,7 +1,8 @@
 "use server";
 
+import { CarreerTypeForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { TCarreerType, carreerTypeSchema } from "@lib/zod-schema";
+import { carreerTypeSchema } from "@lib/zod-schema";
 import { Type } from "@prisma/client";
 import { revalidatePath } from "next/cache";
 import { notFound } from "next/navigation";
@@ -19,7 +20,7 @@ function revalidate() {
   revalidatePath("/admin/carreer-type");
 }
 
-export const createCarreerType = async (data: TCarreerType) => {
+export const createCarreerType = async (data: CarreerTypeForm) => {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {
@@ -73,7 +74,7 @@ export const getCarreerTypeById = cache(async (id: number) => {
   }
 });
 
-export const updateCarreerType = async (data: TCarreerType) => {
+export const updateCarreerType = async (data: CarreerTypeForm) => {
   const parsedData = carreerTypeSchema.safeParse(data);
 
   if (!parsedData.success) {

@@ -1,10 +1,11 @@
 "use server";
 
 import { EmailTemplate } from "@/components/email-template";
-import { TEmail, emailSchema } from "@/lib/zod-schema";
+import { emailSchema } from "@/lib/zod-schema";
+import { EmailForm } from "@/utils/types";
 import { Resend } from "resend";
 
-export async function sendEmail(data: TEmail) {
+export async function sendEmail(data: EmailForm) {
   const result = emailSchema.safeParse(data);
 
   const resend = new Resend(process.env.RESEND_API_KEY);
@@ -22,6 +23,7 @@ export async function sendEmail(data: TEmail) {
         react: EmailTemplate({
           email: result.data.email,
           message: result.data.message,
+          subject: result.data.subject,
         }) as React.ReactElement,
       });
 
