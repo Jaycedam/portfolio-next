@@ -80,12 +80,36 @@ const config: Config = {
           from: { opacity: "0" },
           to: { opacity: "1" },
         },
+        "fade-down": {
+          from: { opacity: "0", transform: "translateY(-5px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-up": {
+          from: { opacity: "0", transform: "translateY(5px)" },
+          to: { opacity: "1", transform: "translateY(0)" },
+        },
+        "fade-right": {
+          from: { transform: "translateX(-5px)", opacity: "0" },
+          to: { transform: "translateX(0)", opacity: "1" },
+        },
+        "fade-left": {
+          from: { transform: "translateX(5px)", opacity: "0" },
+          to: { transform: "translateX(0)", opacity: "1" },
+        },
+        "scale-up": {
+          from: { opacity: "0", scale: "0.5" },
+          to: { opacity: "1", scale: "1" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         gradient: "gradient 5s infinite",
         "fade-in": "fade-in linear both",
+        "fade-right": "fade-right linear both",
+        "fade-left": "fade-left linear both",
+        "fade-up": "fade-up linear both",
+        "scale-up": "scale-up linear both",
       },
       fontFamily: {
         sans: ["var(--font-geist-sans)"],

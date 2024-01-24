@@ -23,28 +23,25 @@ export default async function Carreer() {
 
       <ol className="prose relative ml-4 border-l border-border md:mx-auto">
         {data.map((item, idx) => (
-          <li
-            key={idx}
-            className="mb-8 ms-8 animate-fade-in [animation-range:cover_5%_cover_30%] [animation-timeline:view()]"
-          >
-            <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background ">
+          <li key={idx} className="mb-8 ms-8 motion-reduce:fade-in">
+            <span className="motion-safe:scale-up absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background  ">
               {item.type.id === 1 ? (
                 <MdOutlineWorkOutline className="h-6 w-6" />
               ) : (
                 <GiGraduateCap className="h-6 w-6" />
               )}
             </span>
-            <h3 className="mb-1 flex items-center text-lg font-semibold text-foreground">
+            <h3 className="motion-safe:fade-left mb-1 flex items-center text-lg font-semibold text-foreground">
               {item.name} - {item.company}
               {/* card end of title  */}
-              <span className="me-2 ms-3 rounded bg-muted px-2.5 py-0.5 text-sm font-medium">
+              <span className="motion-safe:fade-left me-2 ms-3 rounded bg-muted px-2.5 py-0.5 text-sm font-medium  ">
                 {item.type.name}
               </span>
             </h3>
-            <time className="mb-2 block text-sm font-normal leading-none text-muted-foreground">
+            <time className="motion-safe:fade-left mb-2 block text-sm font-normal leading-none text-muted-foreground">
               {item.date}
             </time>
-            <p className="mb-4 text-base font-normal text-muted-foreground">
+            <p className="motion-safe:fade-left mb-4 text-base font-normal text-muted-foreground">
               {item.about}
             </p>
           </li>
