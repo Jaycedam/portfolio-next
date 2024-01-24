@@ -1,8 +1,8 @@
 import { Skeleton } from "@components/ui/skeleton";
 
 // skeleton for image in the project list
-function SkeletonLoader(props: { count: number }) {
-  return Array.from({ length: props.count }, (_, index) => (
+function SkeletonLoader({ count }: { count: number }) {
+  return Array.from({ length: count }, (_, index) => (
     <Skeleton key={index} className="h-8 w-full" />
   ));
 }

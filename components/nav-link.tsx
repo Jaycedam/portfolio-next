@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { buttonVariants } from "./ui/button";
+import { buttonVariants } from "@components/ui/button";
 
 export default function NavLink({
   href,
