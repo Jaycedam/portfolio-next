@@ -34,7 +34,7 @@ model Carreer {
 
 model Project {
   id       Int     @id @default(autoincrement())
-  name     String  @db.VarChar(50)
+  name     String  @unique
   imageUrl String  @db.VarChar(250)
   url      String  @db.VarChar(250)
   homepage Boolean @default(false)

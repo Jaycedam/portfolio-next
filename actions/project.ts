@@ -97,6 +97,20 @@ export const getProjectById = cache(async (id: number): Promise<Project> => {
   }
 });
 
+export const getProjectByName = cache(
+  async (name: string): Promise<Project> => {
+    try {
+      const result = await prisma.project.findUniqueOrThrow({
+        where: { name: name },
+      });
+      return result;
+    } catch (error) {
+      console.log("Error fetching project: ", error);
+      return notFound();
+    }
+  }
+);
+
 export const updateProject = async (data: TProject) => {
   const parsedData = projectSchema.safeParse(data);
 

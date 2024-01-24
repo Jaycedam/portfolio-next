@@ -1,10 +1,14 @@
 import Image from "next/image";
 import Link from "next/link";
 import { ExtendedProject } from "@utils/interfaces";
+import { createSlug } from "@/utils/slug";
 
 export default function ProjectCard(props: ExtendedProject) {
+  // creates url based on the project name, separated by dashes
+  const slug = createSlug(props.name);
+
   return (
-    <Link href={`/projects/${props.id}`}>
+    <Link href={`/projects/${slug}`}>
       <div className="group relative isolate aspect-square overflow-hidden rounded-2xl border transition-all duration-500">
         {/* overlay  */}
         <div className="pointer-events-none absolute bottom-0 z-10 flex h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 px-2 text-center text-zinc-50 transition-all">
