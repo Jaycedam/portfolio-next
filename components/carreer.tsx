@@ -1,8 +1,6 @@
 import { getCarreers } from "@/actions/carreer";
 import { MdOutlineWorkOutline } from "react-icons/md";
 import { GiGraduateCap } from "react-icons/gi";
-import { MotionLi } from "./motion-elements";
-import { fade } from "@/utils/animations";
 import { buttonVariants } from "@components/ui/button";
 
 export default async function Carreer() {
@@ -25,13 +23,9 @@ export default async function Carreer() {
 
       <ol className="prose relative ml-4 border-l border-border md:mx-auto">
         {data.map((item, idx) => (
-          <MotionLi
-            variants={fade}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ amount: 1 }}
+          <li
             key={idx}
-            className="mb-8 ms-8"
+            className="mb-8 ms-8 animate-fade-in [animation-range:cover_5%_cover_30%] [animation-timeline:view()]"
           >
             <span className="absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background ">
               {item.type.id === 1 ? (
@@ -53,7 +47,7 @@ export default async function Carreer() {
             <p className="mb-4 text-base font-normal text-muted-foreground">
               {item.about}
             </p>
-          </MotionLi>
+          </li>
         ))}
       </ol>
     </section>
