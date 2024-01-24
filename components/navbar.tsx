@@ -8,12 +8,13 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import { GoSignOut } from "react-icons/go";
 import MobileNavbar from "@components/mobile-navbar";
 import Link from "next/link";
+import { NavLinks } from "@/utils/types";
 
 export default async function Navbar() {
   // get current session of user if logged in
   const session = await getServerSession(options);
 
-  const navLinks = [
+  const navLinks: NavLinks = [
     {
       href: "/",
       label: "Inicio",

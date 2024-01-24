@@ -18,32 +18,34 @@ import { deleteProjectArea } from "@actions/project-area";
 import { deleteCarreer } from "@actions/carreer";
 import { deleteCarreerType } from "@actions/carreer-type";
 import { toast } from "sonner";
+import { TableSelection } from "@/utils/types";
 
-export interface DeleteFormProps {
+export default function DeleteFormButton({
+  id,
+  action,
+}: {
   id: number;
-  action: "project" | "project-area" | "carreer" | "carreer-type";
-}
-
-export default function DeleteFormButton(props: DeleteFormProps) {
-  let action: any;
+  action: TableSelection;
+}) {
+  let deleteAction: any;
   // check for selected option to delete from x table
-  switch (props.action) {
+  switch (action) {
     case "project":
-      action = deleteProject;
+      deleteAction = deleteProject;
       break;
     case "project-area":
-      action = deleteProjectArea;
+      deleteAction = deleteProjectArea;
       break;
     case "carreer":
-      action = deleteCarreer;
+      deleteAction = deleteCarreer;
       break;
     case "carreer-type":
-      action = deleteCarreerType;
+      deleteAction = deleteCarreerType;
       break;
   }
 
   const handleSubmit = async (formData: FormData) => {
-    const result = await action(formData);
+    const result = await deleteAction(formData);
 
     if (result?.success) {
       toast.success(result.message);
@@ -71,7 +73,7 @@ export default function DeleteFormButton(props: DeleteFormProps) {
           <AlertDialogCancel>Cancel</AlertDialogCancel>
           <AlertDialogAction asChild>
             <form action={handleSubmit}>
-              <input type="hidden" readOnly name="id" defaultValue={props.id} />
+              <input type="hidden" readOnly name="id" defaultValue={id} />
               <button type="submit">Delete</button>
             </form>
           </AlertDialogAction>

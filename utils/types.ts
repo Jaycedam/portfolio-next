@@ -19,3 +19,11 @@ export type CarreerTypeForm = z.infer<typeof carreerTypeSchema>;
 export type UserForm = z.infer<typeof userSchema>;
 
 export type EmailForm = z.infer<typeof emailSchema>;
+
+export type TableSelection =
+  | "project"
+  | "project-area"
+  | "carreer"
+  | "carreer-type";
+
+export type NavLinks = { label: string; href: string }[];

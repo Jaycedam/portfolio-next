@@ -1,3 +1,4 @@
+import { EmailForm } from "@/utils/types";
 import {
   Body,
   Container,
@@ -13,22 +14,12 @@ import {
 } from "@react-email/components";
 import * as React from "react";
 
-interface EmailTemplateProps {
-  email: string;
-  subject?: string;
-  message: string;
-}
-
 const image: string = process.env.EMAIL_LOGO_URL as string;
 
-export const EmailTemplate = ({
-  email,
-  message,
-  subject,
-}: EmailTemplateProps) => (
+export const EmailTemplate = ({ email, subject, message }: EmailForm) => (
   <Html>
     <Head />
-    <Preview>Nuevo email desde jordancortes.dev</Preview>
+    <Preview>{subject}</Preview>
     <Body style={main}>
       <Container style={container}>
         <Img style={logo} src={image} width={48} height={48} alt="logo" />

@@ -13,16 +13,12 @@ import { buttonVariants } from "@components/ui/button";
 import { GoSignOut } from "react-icons/go";
 import { ThemeToggle } from "@components/ui/theme-toggle";
 import { MdEmail } from "react-icons/md";
-
-interface NavLinks {
-  label: string;
-  href: string;
-}
+import { NavLinks } from "@/utils/types";
 
 export default async function MobileNavbar({
   navLinks,
 }: {
-  navLinks: NavLinks[];
+  navLinks: NavLinks;
 }) {
   // get current session of user if logged in
   const session = await getServerSession(options);

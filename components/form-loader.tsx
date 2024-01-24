@@ -6,6 +6,7 @@ import { getProjectById } from "@/actions/project";
 import { getProjectAreaById, getProjectAreas } from "@/actions/project-area";
 import { getCarreerById } from "@/actions/carreer";
 import { getCarreerTypeById, getCarreerTypes } from "@/actions/carreer-type";
+import { TableSelection } from "@/utils/types";
 
 /** This component allows fetching the data directly
  * so it can be used in a modal with intersecting routes,
@@ -16,7 +17,7 @@ export default async function FormLoader({
   type,
 }: {
   id: number;
-  type: "project" | "project-area" | "carreer" | "carreer-type";
+  type: TableSelection;
 }) {
   switch (type) {
     case "project":

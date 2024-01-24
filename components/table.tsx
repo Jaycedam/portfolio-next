@@ -11,10 +11,11 @@ import { buttonVariants } from "@components/ui/button";
 import DeleteFormButton from "@components/delete-form-button";
 import { FaEdit } from "react-icons/fa";
 import { Area, Carreer, Project, Type } from "@prisma/client";
+import { TableSelection } from "@/utils/types";
 
 interface TableProps {
   data: (Project | Area | Carreer | Type)[];
-  type: "project" | "project-area" | "carreer" | "carreer-type";
+  type: TableSelection;
 }
 
 type DataItem = Project | Area | Carreer | Type;
