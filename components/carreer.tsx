@@ -1,7 +1,5 @@
 import { getCarreers } from "@/actions/carreer";
-import { MdOutlineWorkOutline } from "react-icons/md";
-import { GiGraduateCap } from "react-icons/gi";
-import { buttonVariants } from "@components/ui/button";
+import { Badge } from "@/components/ui/badge";
 
 export default async function Carreer() {
   const data = await getCarreers();
@@ -10,7 +8,7 @@ export default async function Carreer() {
       id="carreer"
       className="border-y bg-muted/70 py-16 dark:bg-muted/20"
     >
-      <div className="container">
+      <div className="container space-y-8">
         <div className="space-y-2 text-center">
           <h1 className="heading">Carrera Profesional</h1>
           <p className="subheading mx-auto max-w-lg">
@@ -19,26 +17,26 @@ export default async function Carreer() {
           </p>
         </div>
 
-        <ol className="prose relative ml-4 border-l border-border md:mx-auto">
+        <ol className="relative max-w-xl space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">
+          {/* circle of timeline  */}
+          <span className="motion-safe:scale-up sticky -left-8 top-1/4 hidden h-8 w-8 items-center justify-center rounded-full bg-primary md:flex"></span>
           {data.map((item, idx) => (
-            <li key={idx} className="mb-8 ms-8 motion-reduce:fade-in">
-              <span className="motion-safe:scale-up absolute -start-4 flex h-8 w-8 items-center justify-center rounded-full bg-primary text-background  ">
-                {item.type.id === 1 ? (
-                  <MdOutlineWorkOutline className="h-6 w-6" />
-                ) : (
-                  <GiGraduateCap className="h-6 w-6" />
-                )}
-              </span>
-              <h3 className="motion-safe:fade-left mb-1 flex items-center text-lg font-semibold text-foreground">
-                {item.name} - {item.company}
-                {/* card end of title  */}
-                <span className="motion-safe:fade-left me-2 ms-3 rounded bg-muted px-2.5 py-0.5 text-sm font-medium  ">
-                  {item.type.name}
-                </span>
-              </h3>
-              <time className="motion-safe:fade-left mb-2 block text-sm font-normal leading-none text-muted-foreground">
+            <li
+              key={idx}
+              className="motion-safe:fade-left space-y-1 rounded-2xl border bg-gradient-to-tl from-background/60 from-50% p-6 md:ms-16"
+            >
+              <time className="motion-safe:fade-left block text-sm leading-none text-muted-foreground">
                 {item.date}
               </time>
+
+              <div className="inline-flex items-center gap-2">
+                <h2 className="motion-safe:fade-left flex items-center text-lg font-semibold text-foreground">
+                  {item.name} | {item.company}
+                </h2>
+
+                <Badge className="motion-safe:scale-up">{item.type.name}</Badge>
+              </div>
+
               <p className="motion-safe:fade-left mb-4 text-base font-normal text-muted-foreground">
                 {item.about}
               </p>

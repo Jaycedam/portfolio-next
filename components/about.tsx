@@ -17,7 +17,7 @@ export default function About() {
           <h2 className="heading">Acerca de mí</h2>
           <a
             href={process.env.CV_URL}
-            className={buttonVariants({ variant: "default" })}
+            className={buttonVariants({ variant: "outline" })}
           >
             Descargar CV
           </a>

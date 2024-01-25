@@ -71,21 +71,21 @@
   }
 
   .fade-in {
-    @apply animate-fade-in [animation-range:cover_5%_cover_25%] [animation-timeline:view()];
+    @apply animate-fade-in [animation-range:cover_5%_cover_30%] [animation-timeline:view()];
   }
   .fade-right {
-    @apply animate-fade-right [animation-range:cover_5%_cover_25%] [animation-timeline:view()];
+    @apply animate-fade-right [animation-range:cover_5%_cover_30%] [animation-timeline:view()];
   }
   .fade-left {
-    @apply animate-fade-left [animation-range:cover_5%_cover_25%] [animation-timeline:view()];
+    @apply animate-fade-left [animation-range:cover_5%_cover_30%] [animation-timeline:view()];
   }
   .fade-up {
-    @apply animate-fade-up [animation-range:cover_5%_cover_25%] [animation-timeline:view()];
+    @apply animate-fade-up [animation-range:cover_5%_cover_30%] [animation-timeline:view()];
   }
   .fade-down {
-    @apply animate-fade-down [animation-range:cover_5%_cover_25%] [animation-timeline:view()];
+    @apply animate-fade-down [animation-range:cover_5%_cover_30%] [animation-timeline:view()];
   }
   .scale-up {
-    @apply animate-scale-up [animation-range:cover_5%_cover_25%] [animation-timeline:view()];
+    @apply animate-scale-up [animation-range:cover_5%_cover_30%] [animation-timeline:view()];
   }
 }
