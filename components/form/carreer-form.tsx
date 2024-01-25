@@ -22,7 +22,7 @@ import {
   FormItem,
   FormLabel,
   FormMessage,
-} from "../ui/form";
+} from "@components/ui/form";
 import { createCarreer, updateCarreer } from "@actions/carreer";
 import { useRouter } from "next/navigation";
 import SpinnerSVG from "@components/svg/spinner-svg";
@@ -75,9 +75,8 @@ export default function CarreerForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-        <header>
-          <h1 className="text-lg font-bold">{formTitle}</h1>
-        </header>
+        <h1 className="text-lg font-bold">{formTitle}</h1>
+
         <FormField
           control={form.control}
           name="id"

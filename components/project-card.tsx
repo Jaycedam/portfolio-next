@@ -13,7 +13,7 @@ export default function ProjectCard({ name, area, imageUrl }: ExtendedProject) {
       <div className="group relative isolate aspect-square overflow-hidden rounded-2xl border transition-all duration-500">
         {/* overlay  */}
         <div className="pointer-events-none absolute bottom-0 z-10 flex h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 px-2 text-center text-zinc-50 transition-all">
-          <p className="text-2xl font-bold">{name}</p>
+          <h2 className="text-2xl font-bold">{name}</h2>
           <p className="text-sm text-zinc-400">{area.name}</p>
         </div>
         <Image

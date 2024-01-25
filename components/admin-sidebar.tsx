@@ -26,14 +26,9 @@ const navLinks = [
 export default async function AdminSidebar() {
   // get current session of user if logged in
   return (
-    <section>
-      <nav className="pr-8">
-        <header className="text-start">
-          <h1 className="whitespace-nowrap text-xl font-semibold">
-            Admin Links
-          </h1>
-        </header>
-        <ul className="flex flex-wrap items-start gap-8 overflow-auto whitespace-nowrap md:flex-col">
+    <nav>
+      <div className="container">
+        <ul className="flex flex-wrap items-start gap-4 whitespace-nowrap md:flex-col md:overflow-auto">
           {navLinks.map((item, index) => (
             <li key={index}>
               <NavLink href={item.href} key={index}>
@@ -42,7 +37,7 @@ export default async function AdminSidebar() {
             </li>
           ))}
         </ul>
-      </nav>
-    </section>
+      </div>
+    </nav>
   );
 }

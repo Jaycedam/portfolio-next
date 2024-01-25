@@ -11,11 +11,13 @@ function SkeletonLoader({ count }: { count: number }) {
 // use highlight true to homepage and false to /project path
 export default function SkeletonAdminTable() {
   return (
-    <section className="space-y-8">
-      <header>
-        <Skeleton className="h-8 max-w-md" />
-      </header>
-      <SkeletonLoader count={8} />
+    <section>
+      <div className="container space-y-8">
+        <div>
+          <Skeleton className="h-8 max-w-md" />
+        </div>
+        <SkeletonLoader count={8} />
+      </div>
     </section>
   );
 }

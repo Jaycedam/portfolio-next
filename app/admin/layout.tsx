@@ -13,7 +13,7 @@ export default function AdminLayout({
   return (
     <div className="space-y-16 md:grid md:grid-cols-[auto_1fr] md:gap-8 md:space-y-0">
       <AdminSidebar />
-      <section className="overflow-x-hidden">{children}</section>
+      {children}
     </div>
   );
 }

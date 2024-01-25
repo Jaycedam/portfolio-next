@@ -6,8 +6,10 @@ export default function UpdateProjectArea({
   params: { id: string };
 }) {
   return (
-    <section className="px-4">
-      <FormLoader id={Number(params.id)} type="project-area" />
+    <section>
+      <div className="container">
+        <FormLoader id={Number(params.id)} type="project-area" />
+      </div>
     </section>
   );
 }

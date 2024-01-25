@@ -14,12 +14,10 @@ export default function Home() {
       <Suspense fallback={<SkeletonProjects highlights={true} />}>
         <Projects homepage={true} />
       </Suspense>
-
       <Suspense fallback={<SkeletonCarreer />}>
         <Carreer />
       </Suspense>
       <About />
-
       <ContactForm />
     </>
   );

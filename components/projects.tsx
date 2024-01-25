@@ -13,35 +13,35 @@ export default async function Projects({ homepage }: { homepage: boolean }) {
   const title: string = homepage ? "Proyectos destacados" : "Proyectos";
   return (
     <section id="projects">
-      {/* title */}
-      <header className="flex flex-col">
-        <h1 className="title">{title}</h1>
-        <p className="text-sm font-light text-muted-foreground">
-          Click en imagen para más detalles.
-        </p>
-      </header>
-      {/* GRID LAYOUR FOR PROJECTS */}
-      <div
-        className={`grid gap-4 ${
-          homepage ? "md:grid-cols-2" : "md:grid-cols-3"
-        }`}
-      >
-        {data.map((item) => (
-          <ProjectCard key={item.id} {...item}></ProjectCard>
-        ))}
-      </div>
-
-      {homepage && (
-        <div className="mt-8 grid justify-end">
-          <Link
-            href="/projects"
-            className={buttonVariants({ variant: "outline" })}
-          >
-            Ver más &nbsp;
-            <FaAngleRight />
-          </Link>
+      <div className="container space-y-4">
+        {/* title */}
+        <div className="space-y-1">
+          <h1 className="heading">{title}</h1>
+          <p className="subheading">Click en imagen para más detalles.</p>
         </div>
-      )}
+        {/* GRID LAYOUR FOR PROJECTS */}
+        <div
+          className={`grid gap-4 ${
+            homepage ? "md:grid-cols-2" : "md:grid-cols-3"
+          }`}
+        >
+          {data.map((item) => (
+            <ProjectCard key={item.id} {...item}></ProjectCard>
+          ))}
+        </div>
+
+        {homepage && (
+          <div className="mt-8 grid justify-end">
+            <Link
+              href="/projects"
+              className={buttonVariants({ variant: "outline" })}
+            >
+              Ver todos los proyectos &nbsp;
+              <FaAngleRight />
+            </Link>
+          </div>
+        )}
+      </div>
     </section>
   );
 }

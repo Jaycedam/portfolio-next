@@ -16,17 +16,20 @@ export default function SkeletonProjects({
 }) {
   return (
     <section>
-      <header className="space-y-4">
-        <Skeleton className="h-8 max-w-md" />
-        <Skeleton className="h-4 max-w-md" />
-      </header>
+      <div className="container space-y-4">
+        {/* title */}
+        <div className="space-y-1">
+          <Skeleton className="h-8 max-w-md" />
+          <Skeleton className="h-4 max-w-md" />
+        </div>
 
-      <div
-        className={`grid gap-2 ${
-          highlights ? "md:grid-cols-2" : "md:grid-cols-3"
-        }`}
-      >
-        <SkeletonLoader count={highlights ? 4 : 6} />
+        <div
+          className={`grid gap-2 ${
+            highlights ? "md:grid-cols-2" : "md:grid-cols-3"
+          }`}
+        >
+          <SkeletonLoader count={highlights ? 4 : 6} />
+        </div>
       </div>
     </section>
   );

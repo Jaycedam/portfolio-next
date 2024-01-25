@@ -1,15 +1,29 @@
 // import Image from "next/image";
 // import profile from "/public/profile.webp";
 
+import { buttonVariants } from "@components/ui/button";
+
 export default function About() {
+  const Item = ({ children }: { children: React.ReactNode }) => {
+    return (
+      <p className={buttonVariants({ variant: "secondary" })}>{children}</p>
+    );
+  };
   return (
     <section id="about">
-      <article className="mx-auto max-w-4xl">
+      <div className="container space-y-4 text-center">
         {/* text section  */}
-        <header>
-          <h2 className="title">Acerca de mí</h2>
-        </header>
-        <p className="text-justify text-muted-foreground">
+        <div className="flex justify-center gap-4">
+          <h2 className="heading">Acerca de mí</h2>
+          <a
+            href={process.env.CV_URL}
+            className={buttonVariants({ variant: "default" })}
+          >
+            Descargar CV
+          </a>
+        </div>
+
+        <p className="prose mx-auto text-muted-foreground">
           Hola, soy Jordan Cortés, Desarrollador de Software que disfruta
           aprendiendo nuevas tecnologías. Titulado Analista Programador en Duoc
           UC - 2022.
@@ -26,7 +40,7 @@ export default function About() {
             Dribbble.
           </a>
         </p>
-      </article>
+      </div>
     </section>
   );
 }

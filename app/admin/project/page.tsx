@@ -11,22 +11,24 @@ export default async function ProjectAdminPage() {
   const cbo = await getProjectAreas();
 
   return (
-    <>
-      <header className="flex items-center gap-4">
-        <h1 className="title">Project list</h1>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button size="icon">
-              <IoMdAdd className="h-4 w-auto" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <ProjectForm areaCbo={cbo} />
-          </DialogContent>
-        </Dialog>
-      </header>
+    <section>
+      <div className="container space-y-4">
+        <div className="flex items-center gap-4">
+          <h1 className="heading">Project list</h1>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="icon">
+                <IoMdAdd className="h-4 w-auto" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <ProjectForm areaCbo={cbo} />
+            </DialogContent>
+          </Dialog>
+        </div>
 
-      <AdminTable data={data} type="project" />
-    </>
+        <AdminTable data={data} type="project" />
+      </div>
+    </section>
   );
 }

@@ -11,8 +11,10 @@ function SkeletonLoader({ count }: { count: number }) {
 // use highlight true to homepage and false to /project path
 export default function SkeletonCarreer() {
   return (
-    <section className="space-y-4">
-      <SkeletonLoader count={5} />
+    <section>
+      <div className="container space-y-4">
+        <SkeletonLoader count={5} />
+      </div>
     </section>
   );
 }

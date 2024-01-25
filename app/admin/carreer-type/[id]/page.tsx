@@ -6,8 +6,10 @@ export default function UpdateCarreerType({
   params: { id: string };
 }) {
   return (
-    <section className="px-4">
-      <FormLoader id={Number(params.id)} type="carreer-type" />
+    <section>
+      <div className="container">
+        <FormLoader id={Number(params.id)} type="carreer-type" />
+      </div>
     </section>
   );
 }

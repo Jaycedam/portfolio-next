@@ -31,7 +31,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          <main className="container my-8 space-y-16">
+          <main className="space-y-16 py-8">
             {modal}
             {children}
           </main>

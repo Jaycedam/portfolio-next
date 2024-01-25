@@ -11,22 +11,24 @@ export default async function CarreerAdminPage() {
   const cbo = await getCarreerTypes();
 
   return (
-    <>
-      <header className="flex items-center gap-4">
-        <h1 className="title">Carreer list</h1>
-        <Dialog>
-          <DialogTrigger asChild>
-            <Button size="icon">
-              <IoMdAdd className="h-4 w-auto" />
-            </Button>
-          </DialogTrigger>
-          <DialogContent>
-            <CarreerForm typeCbo={cbo} />
-          </DialogContent>
-        </Dialog>
-      </header>
+    <section>
+      <div className="container space-y-4">
+        <div className="flex items-center gap-4">
+          <h1 className="heading">Carreer list</h1>
+          <Dialog>
+            <DialogTrigger asChild>
+              <Button size="icon">
+                <IoMdAdd className="h-4 w-auto" />
+              </Button>
+            </DialogTrigger>
+            <DialogContent>
+              <CarreerForm typeCbo={cbo} />
+            </DialogContent>
+          </Dialog>
+        </div>
 
-      <AdminTable data={data} type="carreer" />
-    </>
+        <AdminTable data={data} type="carreer" />
+      </div>
+    </section>
   );
 }

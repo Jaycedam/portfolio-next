@@ -75,9 +75,7 @@ export default function ProjectForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-        <header>
-          <h1 className="text-lg font-bold">{formTitle}</h1>
-        </header>
+        <h1 className="text-lg font-bold">{formTitle}</h1>
         <FormField
           control={form.control}
           name="id"
