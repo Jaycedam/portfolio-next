@@ -6,7 +6,10 @@ import { buttonVariants } from "@components/ui/button";
 export default async function Carreer() {
   const data = await getCarreers();
   return (
-    <section id="carreer" className="border bg-muted/70 py-16 dark:bg-muted/20">
+    <section
+      id="carreer"
+      className="border-y bg-muted/70 py-16 dark:bg-muted/20"
+    >
       <div className="container">
         <div className="space-y-2 text-center">
           <h1 className="heading">Carrera Profesional</h1>

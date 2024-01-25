@@ -81,19 +81,19 @@ const config: Config = {
           to: { opacity: "1" },
         },
         "fade-down": {
-          from: { opacity: "0", transform: "translateY(-5px)" },
+          from: { opacity: "0", transform: "translateY(-10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "fade-up": {
-          from: { opacity: "0", transform: "translateY(5px)" },
+          from: { opacity: "0", transform: "translateY(10px)" },
           to: { opacity: "1", transform: "translateY(0)" },
         },
         "fade-right": {
-          from: { transform: "translateX(-5px)", opacity: "0" },
+          from: { transform: "translateX(-10px)", opacity: "0" },
           to: { transform: "translateX(0)", opacity: "1" },
         },
         "fade-left": {
-          from: { transform: "translateX(5px)", opacity: "0" },
+          from: { transform: "translateX(10px)", opacity: "0" },
           to: { transform: "translateX(0)", opacity: "1" },
         },
         "scale-up": {
