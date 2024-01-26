@@ -57,8 +57,8 @@ export default function DeleteFormButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size="icon" variant="destructive">
-          <FaTrash className="h-4 w-auto" />
+        <Button size="icon" variant="outline">
+          <FaTrash />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
@@ -71,12 +71,15 @@ export default function DeleteFormButton({
         </AlertDialogHeader>
         <AlertDialogFooter>
           <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction asChild>
-            <form action={handleSubmit}>
-              <input type="hidden" readOnly name="id" defaultValue={id} />
-              <button type="submit">Delete</button>
-            </form>
-          </AlertDialogAction>
+
+          <form action={handleSubmit}>
+            <input type="hidden" readOnly name="id" defaultValue={id} />
+            <AlertDialogAction asChild>
+              <button className="h-full w-full" type="submit">
+                Delete
+              </button>
+            </AlertDialogAction>
+          </form>
         </AlertDialogFooter>
       </AlertDialogContent>
     </AlertDialog>

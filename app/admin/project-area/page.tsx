@@ -1,9 +1,10 @@
-import AdminTable from "@components/table";
 import { Button } from "@components/ui/button";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import ProjectAreaForm from "@components/form/project-area-form";
 import { getProjectAreas } from "@/actions/project-area";
+import { DataTable } from "@/components/react-table";
+import { areaColumns } from "@/components/table-column-definitions";
 
 export default async function ProjectAreaAdminPage() {
   const data = await getProjectAreas();
@@ -24,7 +25,7 @@ export default async function ProjectAreaAdminPage() {
           </Dialog>
         </div>
 
-        <AdminTable data={data} type="project-area" />
+        <DataTable type="project-area" data={data} columns={areaColumns} />
       </div>
     </section>
   );

@@ -1,9 +1,10 @@
-import AdminTable from "@components/table";
 import { Button } from "@components/ui/button";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import CarreerTypeForm from "@components/form/carreer-type-form";
 import { getCarreerTypes } from "@/actions/carreer-type";
+import { DataTable } from "@/components/react-table";
+import { typeColumns } from "@/components/table-column-definitions";
 
 export default async function CarreerTypeAdminPage() {
   const data = await getCarreerTypes();
@@ -24,7 +25,7 @@ export default async function CarreerTypeAdminPage() {
           </Dialog>
         </div>
 
-        <AdminTable data={data} type="carreer-type" />
+        <DataTable type="carreer-type" data={data} columns={typeColumns} />
       </div>
     </section>
   );
