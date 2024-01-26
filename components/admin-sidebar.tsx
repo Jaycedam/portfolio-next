@@ -26,7 +26,7 @@ const navLinks = [
 export default async function AdminSidebar() {
   // get current session of user if logged in
   return (
-    <nav>
+    <aside>
       <div className="container">
         <ul className="flex flex-wrap items-start gap-4 whitespace-nowrap md:flex-col md:overflow-auto">
           {navLinks.map((item, index) => (
@@ -38,6 +38,6 @@ export default async function AdminSidebar() {
           ))}
         </ul>
       </div>
-    </nav>
+    </aside>
   );
 }
