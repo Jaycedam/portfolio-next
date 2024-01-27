@@ -9,8 +9,8 @@ import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@components/ui/sonner";
 
 export const metadata = {
-  title: "Jordan Cortés Portfolio",
-  description: "Portfolio",
+  title: "Jordan Cortés",
+  description: "Software Developer Portfolio",
 };
 
 export default function RootLayout({
