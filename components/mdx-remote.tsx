@@ -36,7 +36,8 @@ const CompiledMDX = async ({
 }) => {
   try {
     // it has to return with await since it returns a promise
-    return await MDXRemote({ source: source, components: components });
+    const result = await MDXRemote({ source: source, components: components });
+    return result;
   } catch (error) {
     // handle the error here
     notFound();
