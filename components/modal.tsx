@@ -13,7 +13,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
     <Sheet open={true} onOpenChange={handleClose}>
       <SheetContent
         side="bottom"
-        className="h-full overflow-auto rounded-t-2xl py-8 md:h-[95%]"
+        className="h-full overflow-auto rounded-t-xl py-8 md:h-[95%]"
       >
         {children}
       </SheetContent>

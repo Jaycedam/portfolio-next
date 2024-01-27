@@ -10,7 +10,7 @@ export default function ProjectCard({ name, area, imageUrl }: ExtendedProject) {
   return (
     // scroll false to avoid scrolling to the top on modal
     <Link href={`/projects/${slug}`} scroll={false}>
-      <div className="group relative isolate aspect-square overflow-hidden rounded-2xl border transition-all duration-500">
+      <div className="group relative isolate aspect-square overflow-hidden rounded-xl border transition-all duration-500">
         {/* overlay  */}
         <div className="pointer-events-none absolute bottom-0 z-10 flex h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 px-2 text-center text-zinc-50 transition-all">
           <h2 className="text-2xl font-bold">{name}</h2>
