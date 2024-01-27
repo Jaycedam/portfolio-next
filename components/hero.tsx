@@ -27,14 +27,14 @@ export default function Hero() {
 
         <div className="flex gap-4">
           <Link
-            className={buttonVariants({ variant: "outline", size: "lg" })}
+            className={buttonVariants({ variant: "default", size: "lg" })}
             href="/#projects"
           >
             <FaCode /> &nbsp; Projectos
           </Link>
 
           <Link
-            className={buttonVariants({ variant: "default", size: "lg" })}
+            className={buttonVariants({ variant: "outline", size: "lg" })}
             href="/#contact"
           >
             <MdEmail /> &nbsp; Contactar
