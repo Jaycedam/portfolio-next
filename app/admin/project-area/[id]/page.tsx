@@ -1,4 +1,5 @@
 import FormLoader from "@/components/form-loader";
+import { Card, CardContent, CardHeader } from "@/components/ui/card";
 
 export default function UpdateProjectArea({
   params,
@@ -8,7 +9,11 @@ export default function UpdateProjectArea({
   return (
     <section>
       <div className="container">
-        <FormLoader id={Number(params.id)} type="project-area" />
+        <Card>
+          <CardContent className="py-8">
+            <FormLoader id={Number(params.id)} type="project-area" />
+          </CardContent>
+        </Card>
       </div>
     </section>
   );

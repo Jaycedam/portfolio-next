@@ -1,4 +1,5 @@
 import FormLoader from "@/components/form-loader";
+import { Card, CardContent } from "@/components/ui/card";
 
 export default function UpdateCarreerType({
   params,
@@ -8,7 +9,11 @@ export default function UpdateCarreerType({
   return (
     <section>
       <div className="container">
-        <FormLoader id={Number(params.id)} type="carreer-type" />
+        <Card>
+          <CardContent className="py-8">
+            <FormLoader id={Number(params.id)} type="carreer-type" />
+          </CardContent>
+        </Card>
       </div>
     </section>
   );
