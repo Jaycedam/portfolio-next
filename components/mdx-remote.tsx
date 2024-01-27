@@ -8,9 +8,11 @@ export default async function MDX({ name }: { name: string }) {
     const project = await getProjectByName(name);
 
     const parsedUrl = new URL(project.url);
-    // revalidate cache in 1 hour
     const res = await fetch(parsedUrl.toString(), {
+      // revalidate cache in 1 hour
       next: { revalidate: 3600 },
+      // enable no cache on dev mode
+      // next: { revalidate: 0 },
     });
 
     if (!res.ok) {
@@ -23,7 +25,7 @@ export default async function MDX({ name }: { name: string }) {
     const components = { HeaderImage, LinkButton };
 
     return (
-      <article className="prose mx-auto max-w-4xl text-foreground prose-headings:text-foreground prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border">
+      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
         <MDXRemote source={markdown} components={components} />
       </article>
     );
