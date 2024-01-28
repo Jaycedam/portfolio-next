@@ -31,7 +31,7 @@ export default async function Carreer() {
 
               <div className="inline-flex items-center gap-2">
                 <h2 className="motion-safe:fade-left flex items-center text-lg font-semibold text-foreground">
-                  {item.name} | {item.company}
+                  {item.name} - {item.company}
                 </h2>
 
                 <Badge className="motion-safe:scale-up">{item.type.name}</Badge>
