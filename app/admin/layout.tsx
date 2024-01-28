@@ -1,7 +1,7 @@
 import AdminSidebar from "@components/admin-sidebar";
 
 export const metadata = {
-  title: "Portfolio Dashboard",
+  title: "Jordan Cortés | Admin",
   description: "Admin site",
 };
 
