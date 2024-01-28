@@ -1,9 +1,9 @@
 import ProjectCard from "@components/project-card";
-import { getProjects } from "@utils/get-data";
+import { getProjectsHomepage } from "@utils/get-data";
 
 export default async function Projects() {
   // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
-  const data = await getProjects();
+  const data = await getProjectsHomepage();
 
   return (
     <section id="projects">
