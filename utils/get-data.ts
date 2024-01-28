@@ -18,7 +18,6 @@ export const getProjects = cache(async (): Promise<ExtendedProject[]> => {
       where: {
         homepage: true,
       },
-      take: 4,
       include: {
         area: true,
       },
