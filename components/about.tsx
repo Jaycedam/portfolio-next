@@ -44,7 +44,8 @@ export default function About() {
           <div className="flex flex-wrap gap-4">
             <h2 className="heading">Acerca de mí</h2>
             <a
-              href={process.env.CV_URL}
+              href="/jordan-cortes-cv.pdf"
+              target="_blank"
               className={buttonVariants({ variant: "default" })}
             >
               Descargar CV
