@@ -7,7 +7,7 @@ import { DataTable } from "@/components/react-table";
 import { projectColumns } from "@/components/table-column-definitions";
 
 export default async function ProjectAdminPage() {
-  const data = await getProjects(false);
+  const data = await getProjects();
   const cbo = await getProjectAreas();
 
   return (
