@@ -16,7 +16,7 @@ export default async function Navbar() {
 
   const navLinks: NavLinks = [
     {
-      href: "/#home",
+      href: "/#top",
       label: "Inicio",
     },
     {
