@@ -5,7 +5,7 @@ import { useForm } from "react-hook-form";
 import { Area } from "@prisma/client";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
-import { projectAreaSchema } from "@lib/zod-schema";
+import { projectAreaSchema } from "@/utils/zod-schema";
 import { toast } from "sonner";
 import {
   Form,

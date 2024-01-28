@@ -5,7 +5,7 @@ import {
   projectAreaSchema,
   projectSchema,
   userSchema,
-} from "@/lib/zod-schema";
+} from "@/utils/zod-schema";
 import { z } from "zod";
 
 export type ProjectForm = z.infer<typeof projectSchema>;

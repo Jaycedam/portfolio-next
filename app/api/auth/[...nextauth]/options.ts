@@ -1,8 +1,8 @@
 import { comparePasswords } from "@lib/bcrypt";
 import type { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
-import { userSchema } from "@lib/zod-schema";
-import { getUserByUsername } from "@/actions/user";
+import { userSchema } from "@/utils/zod-schema";
+import { getUserByUsername } from "@utils/get-data";
 
 export const options: NextAuthOptions = {
   providers: [

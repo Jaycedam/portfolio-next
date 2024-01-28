@@ -13,7 +13,7 @@ import {
   FormLabel,
   FormMessage,
 } from "@components/ui/form";
-import { emailSchema } from "@/lib/zod-schema";
+import { emailSchema } from "@/utils/zod-schema";
 import { sendEmail } from "@/actions/email";
 import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";

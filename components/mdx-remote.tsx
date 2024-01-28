@@ -1,4 +1,4 @@
-import { getProjectByName } from "@/actions/project";
+import { getProjectByName } from "@utils/get-data";
 import { MDXRemote } from "next-mdx-remote/rsc";
 import { notFound } from "next/navigation";
 import { HeaderImage, LinkButton } from "@components/mdx-components";

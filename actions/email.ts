@@ -1,7 +1,7 @@
 "use server";
 
 import { EmailTemplate } from "@/components/email-template";
-import { emailSchema } from "@/lib/zod-schema";
+import { emailSchema } from "@/utils/zod-schema";
 import { EmailForm } from "@/utils/types";
 import { Resend } from "resend";
 

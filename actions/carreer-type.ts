@@ -2,15 +2,8 @@
 
 import { CarreerTypeForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { carreerTypeSchema } from "@lib/zod-schema";
-import { Type } from "@prisma/client";
+import { carreerTypeSchema } from "@/utils/zod-schema";
 import { revalidatePath } from "next/cache";
-import { notFound } from "next/navigation";
-import { cache } from "react";
-
-// the results are cached, updated with the revalidate function.
-// Wait for stable release of unstable cache for transfer
-// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
 
 // todo: universal local messages with str params
 
@@ -47,32 +40,6 @@ export const createCarreerType = async (data: CarreerTypeForm) => {
     };
   }
 };
-
-export const getCarreerTypes = cache(async (): Promise<Type[]> => {
-  try {
-    const result = await prisma.type.findMany({
-      orderBy: {
-        id: "desc",
-      },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
-});
-
-export const getCarreerTypeById = cache(async (id: number) => {
-  try {
-    const result = await prisma.type.findUniqueOrThrow({
-      where: { id: id },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching carreer type: ", error);
-    return notFound();
-  }
-});
 
 export const updateCarreerType = async (data: CarreerTypeForm) => {
   const parsedData = carreerTypeSchema.safeParse(data);

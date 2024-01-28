@@ -1,4 +1,4 @@
-import { getCarreers } from "@/actions/carreer";
+import { getCarreers } from "@utils/get-data";
 import { Badge } from "@/components/ui/badge";
 
 export default async function Carreer() {
@@ -37,7 +37,7 @@ export default async function Carreer() {
                 <Badge className="motion-safe:scale-up">{item.type.name}</Badge>
               </div>
 
-              <p className="motion-safe:fade-left mb-4 text-base font-normal text-muted-foreground">
+              <p className="motion-safe:fade-left mb-4 text-muted-foreground">
                 {item.about}
               </p>
             </li>

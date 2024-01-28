@@ -2,15 +2,8 @@
 
 import { ProjectAreaForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { projectAreaSchema } from "@lib/zod-schema";
-import { Area } from "@prisma/client";
+import { projectAreaSchema } from "@/utils/zod-schema";
 import { revalidatePath } from "next/cache";
-import { notFound } from "next/navigation";
-import { cache } from "react";
-
-// the results are cached, updated with the revalidate function.
-// Wait for stable release of unstable cache for transfer
-// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
 
 // todo: universal local messages with str params
 
@@ -47,33 +40,6 @@ export const createProjectArea = async (data: ProjectAreaForm) => {
     };
   }
 };
-
-export const getProjectAreas = cache(async (): Promise<Area[]> => {
-  try {
-    const result = await prisma.area.findMany({
-      orderBy: {
-        id: "desc",
-      },
-    });
-
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
-});
-
-export const getProjectAreaById = cache(async (id: number) => {
-  try {
-    const result = await prisma.area.findUniqueOrThrow({
-      where: { id: id },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching project area: ", error);
-    return notFound();
-  }
-});
 
 export const updateProjectArea = async (data: ProjectAreaForm) => {
   const parsedData = projectAreaSchema.safeParse(data);

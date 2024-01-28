@@ -13,7 +13,7 @@ import {
   SelectValue,
 } from "@components/ui/select";
 import { Textarea } from "@components/ui/textarea";
-import { carreerSchema } from "@lib/zod-schema";
+import { carreerSchema } from "@/utils/zod-schema";
 import { toast } from "sonner";
 import {
   Form,

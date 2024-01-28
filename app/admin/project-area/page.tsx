@@ -2,7 +2,7 @@ import { Button } from "@components/ui/button";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import ProjectAreaForm from "@components/form/project-area-form";
-import { getProjectAreas } from "@/actions/project-area";
+import { getProjectAreas } from "@utils/get-data";
 import { DataTable } from "@/components/react-table";
 import { areaColumns } from "@/components/table-column-definitions";
 

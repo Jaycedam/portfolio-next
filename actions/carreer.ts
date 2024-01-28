@@ -1,16 +1,9 @@
 "use server";
 
-import { ExtendedCarreer } from "@/utils/interfaces";
 import { CarreerForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { carreerSchema } from "@lib/zod-schema";
+import { carreerSchema } from "@/utils/zod-schema";
 import { revalidatePath } from "next/cache";
-import { notFound } from "next/navigation";
-import { cache } from "react";
-
-// the results are cached, updated with the revalidate function.
-// Wait for stable release of unstable cache for transfer
-// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
 
 // todo: universal local messages with str params
 
@@ -46,36 +39,6 @@ export const createCarreer = async (data: CarreerForm) => {
     };
   }
 };
-
-export const getCarreers = cache(async (): Promise<ExtendedCarreer[]> => {
-  try {
-    const result = await prisma.carreer.findMany({
-      orderBy: {
-        id: "desc",
-      },
-      include: {
-        type: true,
-      },
-    });
-
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
-});
-
-export const getCarreerById = cache(async (id: number) => {
-  try {
-    const result = await prisma.carreer.findUniqueOrThrow({
-      where: { id: id },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching carreer: ", error);
-    return notFound();
-  }
-});
 
 export const updateCarreer = async (data: CarreerForm) => {
   const parsedData = carreerSchema.safeParse(data);

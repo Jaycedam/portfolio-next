@@ -1,17 +1,9 @@
 "use server";
 
-import { ExtendedProject } from "@/utils/interfaces";
 import { ProjectForm } from "@/utils/types";
 import prisma from "@lib/prisma";
-import { projectSchema } from "@lib/zod-schema";
-import { Project } from "@prisma/client";
+import { projectSchema } from "@/utils/zod-schema";
 import { revalidatePath } from "next/cache";
-import { notFound } from "next/navigation";
-import { cache } from "react";
-
-// the results are cached, updated with the revalidate function.
-// Wait for stable release of unstable cache for transfer
-// https://nextjs.org/docs/app/api-reference/functions/unstable_cache
 
 // todo: universal local messages with str params
 
@@ -49,68 +41,6 @@ export const createProject = async (data: ProjectForm) => {
     };
   }
 };
-
-export const getProjects = cache(
-  async (homepage: boolean): Promise<ExtendedProject[]> => {
-    try {
-      // boolean checks if only homepage=true is shown, else show all projects
-      if (homepage) {
-        const result = await prisma.project.findMany({
-          orderBy: {
-            id: "desc",
-          },
-          where: {
-            homepage: true,
-          },
-          take: 4,
-          include: {
-            area: true,
-          },
-        });
-        return result;
-      }
-
-      const result = await prisma.project.findMany({
-        orderBy: {
-          id: "desc",
-        },
-        include: {
-          area: true,
-        },
-      });
-      return result;
-    } catch (error) {
-      console.log("Error fetching data from db: ", error);
-      return [];
-    }
-  }
-);
-
-export const getProjectById = cache(async (id: number): Promise<Project> => {
-  try {
-    const result = await prisma.project.findUniqueOrThrow({
-      where: { id: id },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching project: ", error);
-    return notFound();
-  }
-});
-
-export const getProjectByName = cache(
-  async (name: string): Promise<Project> => {
-    try {
-      const result = await prisma.project.findUniqueOrThrow({
-        where: { name: name },
-      });
-      return result;
-    } catch (error) {
-      console.log("Error fetching project: ", error);
-      return notFound();
-    }
-  }
-);
 
 export const updateProject = async (data: ProjectForm) => {
   const parsedData = projectSchema.safeParse(data);

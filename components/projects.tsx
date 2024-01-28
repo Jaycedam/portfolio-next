@@ -2,7 +2,7 @@ import ProjectCard from "@components/project-card";
 import Link from "next/link";
 import { buttonVariants } from "@components/ui/button";
 import { FaAngleRight } from "react-icons/fa6";
-import { getProjects } from "@/actions/project";
+import { getProjects } from "@utils/get-data";
 
 // prop highlights defines if we return all items or only the ones that have homepage: true on the db
 // it also changes the grid layout

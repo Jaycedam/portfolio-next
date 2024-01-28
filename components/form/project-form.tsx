@@ -14,7 +14,7 @@ import {
   SelectValue,
 } from "@components/ui/select";
 import { Checkbox } from "@components/ui/checkbox";
-import { projectSchema } from "@lib/zod-schema";
+import { projectSchema } from "@/utils/zod-schema";
 import { toast } from "sonner";
 import {
   Form,

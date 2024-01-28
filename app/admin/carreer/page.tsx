@@ -2,8 +2,7 @@ import { Button } from "@components/ui/button";
 import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import CarreerForm from "@components/form/carreer-form";
-import { getCarreers } from "@/actions/carreer";
-import { getCarreerTypes } from "@/actions/carreer-type";
+import { getCarreers, getCarreerTypes } from "@utils/get-data";
 import { DataTable } from "@/components/react-table";
 import { carreerColumns } from "@/components/table-column-definitions";
 
