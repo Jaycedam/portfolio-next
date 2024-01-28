@@ -5,7 +5,6 @@ import NavLink from "@components/nav-link";
 import LogoSVG from "@components/svg/logo-svg";
 import { getServerSession } from "next-auth/next";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import { GoSignOut } from "react-icons/go";
 import Link from "next/link";
 import { NavLinks } from "@/utils/types";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
@@ -17,12 +16,20 @@ export default async function Navbar() {
 
   const navLinks: NavLinks = [
     {
-      href: "/",
+      href: "/#home",
       label: "Inicio",
     },
     {
-      href: "/projects",
+      href: "/#projects",
       label: "Proyectos",
+    },
+    {
+      href: "/#carreer",
+      label: "Carrera",
+    },
+    {
+      href: "/#about",
+      label: "Acerca",
     },
   ];
 
@@ -49,14 +56,6 @@ export default async function Navbar() {
             )}
 
             {/* icons  */}
-            {session && (
-              <Link
-                className={buttonVariants({ variant: "ghost", size: "icon" })}
-                href="/api/auth/signout"
-              >
-                <GoSignOut className="h-5 w-auto" />
-              </Link>
-            )}
             <li>
               <ThemeToggle />
             </li>
@@ -100,18 +99,6 @@ export default async function Navbar() {
               </ul>
 
               <ul className="flex items-center justify-center gap-4">
-                {session && (
-                  <Link
-                    className={buttonVariants({
-                      variant: "ghost",
-                      size: "icon",
-                    })}
-                    href="/api/auth/signout"
-                  >
-                    <GoSignOut className="h-6 w-6" />
-                  </Link>
-                )}
-
                 <li>
                   <ThemeToggle />
                 </li>
