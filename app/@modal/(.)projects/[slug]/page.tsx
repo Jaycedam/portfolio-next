@@ -10,7 +10,9 @@ export default function Page({ params }: { params: { slug: string } }) {
   return (
     <Modal>
       <Suspense fallback={<SkeletonArticle />}>
-        <MDX name={name} />
+        <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
+          <MDX name={name} />
+        </article>
       </Suspense>
     </Modal>
   );
