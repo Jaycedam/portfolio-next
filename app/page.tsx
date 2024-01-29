@@ -11,8 +11,8 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <Suspense fallback={<SkeletonProjects highlights={true} />}>
-        <Projects />
+      <Suspense fallback={<SkeletonProjects homepage={true} />}>
+        <Projects homepage={true} />
       </Suspense>
       <Suspense fallback={<SkeletonCarreer />}>
         <Carreer />

@@ -9,15 +9,27 @@ import prisma from "@lib/prisma";
 // https://nextjs.org/docs/app/api-reference/functions/unstable_cache
 
 // project
-export const getProjectsHomepage = cache(
-  async (): Promise<ExtendedProject[]> => {
+export const getProjects = cache(
+  async (homepage: boolean = false): Promise<ExtendedProject[]> => {
     try {
+      if (homepage) {
+        const result = await prisma.project.findMany({
+          orderBy: {
+            id: "desc",
+          },
+          where: {
+            homepage: true,
+          },
+          include: {
+            area: true,
+          },
+        });
+        return result;
+      }
+
       const result = await prisma.project.findMany({
         orderBy: {
           id: "desc",
-        },
-        where: {
-          homepage: true,
         },
         include: {
           area: true,
@@ -30,23 +42,6 @@ export const getProjectsHomepage = cache(
     }
   }
 );
-
-export const getProjects = cache(async (): Promise<ExtendedProject[]> => {
-  try {
-    const result = await prisma.project.findMany({
-      orderBy: {
-        id: "desc",
-      },
-      include: {
-        area: true,
-      },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
-});
 
 export const getProjectById = cache(async (id: number): Promise<Project> => {
   try {
