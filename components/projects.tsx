@@ -2,6 +2,7 @@ import ProjectCard from "@components/project-card";
 import { getProjects } from "@utils/get-data";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
+import { ChevronRight } from "lucide-react";
 
 export default async function Projects({
   homepage = false,
@@ -41,6 +42,7 @@ export default async function Projects({
               href="/projects"
             >
               Ver más
+              <ChevronRight className="h-4" />
             </Link>
           </div>
         )}

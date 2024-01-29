@@ -2,10 +2,9 @@
 
 import { ExtendedProject } from "@/utils/interfaces";
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown } from "lucide-react";
+import { ArrowUpDown, Edit } from "lucide-react";
 import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
-import { FaRegEdit } from "react-icons/fa";
 import DeleteFormButton from "./delete-form-button";
 import { Area, Carreer, Type } from "@prisma/client";
 
@@ -49,17 +48,18 @@ export const projectColumns: ColumnDef<ExtendedProject>[] = [
   },
   {
     id: "actions",
+    header: "Actions",
     cell: ({ row }) => {
       return (
-        <div className="flex gap-2">
+        <div className="flex gap-1">
           <Link
             className={buttonVariants({
-              variant: "outline",
+              variant: "ghost",
               size: "icon",
             })}
             href={`/admin/project/${row.getValue("id")}`}
           >
-            <FaRegEdit />
+            <Edit className="h-4" />
           </Link>
           <DeleteFormButton action="project" id={row.getValue("id")} />
         </div>
@@ -89,17 +89,18 @@ export const areaColumns: ColumnDef<Area>[] = [
   },
   {
     id: "actions",
+    header: "Actions",
     cell: ({ row }) => {
       return (
-        <div className="flex gap-2">
+        <div className="flex gap-1">
           <Link
             className={buttonVariants({
-              variant: "outline",
+              variant: "ghost",
               size: "icon",
             })}
             href={`/admin/project-area/${row.getValue("id")}`}
           >
-            <FaRegEdit />
+            <Edit className="h-4" />
           </Link>
           <DeleteFormButton action="project-area" id={row.getValue("id")} />
         </div>
@@ -129,17 +130,18 @@ export const typeColumns: ColumnDef<Type>[] = [
   },
   {
     id: "actions",
+    header: "Actions",
     cell: ({ row }) => {
       return (
-        <div className="flex gap-2">
+        <div className="flex gap-1">
           <Link
             className={buttonVariants({
-              variant: "outline",
+              variant: "ghost",
               size: "icon",
             })}
             href={`/admin/carreer-type/${row.getValue("id")}`}
           >
-            <FaRegEdit />
+            <Edit className="h-4" />
           </Link>
           <DeleteFormButton action="carreer-type" id={row.getValue("id")} />
         </div>
@@ -185,17 +187,18 @@ export const carreerColumns: ColumnDef<Carreer>[] = [
   },
   {
     id: "actions",
+    header: "Actions",
     cell: ({ row }) => {
       return (
-        <div className="flex gap-2">
+        <div className="flex gap-1">
           <Link
             className={buttonVariants({
-              variant: "outline",
+              variant: "ghost",
               size: "icon",
             })}
             href={`/admin/carreer/${row.getValue("id")}`}
           >
-            <FaRegEdit />
+            <Edit className="h-4" />
           </Link>
           <DeleteFormButton action="carreer" id={row.getValue("id")} />
         </div>

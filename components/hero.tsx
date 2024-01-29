@@ -1,7 +1,6 @@
-import { FaCode } from "react-icons/fa";
 import LaptopSVG from "@components/svg/laptop-svg";
 import { buttonVariants } from "@components/ui/button";
-import { MdEmail } from "react-icons/md";
+import { Code, MailPlus } from "lucide-react";
 import Link from "next/link";
 
 export default function Hero() {
@@ -30,14 +29,14 @@ export default function Hero() {
             className={buttonVariants({ variant: "default", size: "lg" })}
             href="/#projects"
           >
-            <FaCode /> &nbsp; Projectos
+            <Code className="h-5" /> &nbsp; Projectos
           </Link>
 
           <Link
             className={buttonVariants({ variant: "outline", size: "lg" })}
             href="/#contact"
           >
-            <MdEmail /> &nbsp; Contactar
+            <MailPlus className="h-5" /> &nbsp; Contactar
           </Link>
         </div>
       </div>

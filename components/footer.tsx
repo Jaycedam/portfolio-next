@@ -1,4 +1,4 @@
-import { FaGithub, FaDribbble } from "react-icons/fa";
+import { Dribbble, Github } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -13,7 +13,7 @@ export default function Footer() {
             className="flex items-center gap-2"
             target="_blank"
           >
-            <FaGithub />
+            <Github />
             <p>GitHub</p>
           </a>
           <a
@@ -21,7 +21,7 @@ export default function Footer() {
             className="flex items-center gap-2"
             target="_blank"
           >
-            <FaDribbble />
+            <Dribbble />
             <p>Dribble</p>
           </a>
         </div>

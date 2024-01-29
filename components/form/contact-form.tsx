@@ -18,8 +18,8 @@ import { sendEmail } from "@/actions/email";
 import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SpinnerSVG from "@components/svg/spinner-svg";
-import { MdEmail } from "react-icons/md";
 import { EmailForm } from "@/utils/types";
+import { MailPlus } from "lucide-react";
 
 export default function ContactForm() {
   // form definition
@@ -115,9 +115,10 @@ export default function ContactForm() {
                   {form.formState.isSubmitting ? (
                     <SpinnerSVG size="6" />
                   ) : (
-                    <span className="flex items-center gap-2">
-                      <MdEmail /> Enviar
-                    </span>
+                    <>
+                      Enviar
+                      <MailPlus className="h-4" />
+                    </>
                   )}
                 </Button>
               </form>

@@ -1,6 +1,5 @@
 import { ThemeToggle } from "@components/ui/theme-toggle";
 import { buttonVariants } from "@components/ui/button";
-import { MdEmail } from "react-icons/md";
 import NavLink from "@components/nav-link";
 import LogoSVG from "@components/svg/logo-svg";
 import { getServerSession } from "next-auth/next";
@@ -8,7 +7,7 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import Link from "next/link";
 import { NavLinks } from "@/utils/types";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-import { BiMenuAltRight } from "react-icons/bi";
+import { LogOut, MailPlus, Menu } from "lucide-react";
 
 export default async function Navbar() {
   // get current session of user if logged in
@@ -16,46 +15,58 @@ export default async function Navbar() {
 
   const navLinks: NavLinks = [
     {
-      href: "/#top",
+      href: "/",
       label: "Inicio",
     },
     {
-      href: "/#projects",
+      href: "/projects",
       label: "Proyectos",
     },
-    {
-      href: "/#carreer",
-      label: "Carrera",
-    },
-    {
-      href: "/#about",
-      label: "Acerca",
-    },
+    // {
+    //   href: "/blog",
+    //   label: "Blog",
+    // },
   ];
 
   return (
     <header className="sticky top-0 z-50 border-b border-border/40 bg-background/60 backdrop-blur">
       <div className="container flex h-14 w-full items-center justify-between">
-        {/* logo  */}
-        <Link href="/">
-          <LogoSVG size={8} />
-        </Link>
+        <div className="flex gap-4">
+          {/* logo  */}
+          <Link aria-label="homepage" href="/">
+            <LogoSVG size={10} />
+          </Link>
+          <nav className="hidden md:block">
+            <ul className="flex items-center gap-4">
+              {navLinks.map((item, index) => (
+                <li key={index}>
+                  <NavLink href={item.href}>{item.label}</NavLink>
+                </li>
+              ))}
 
-        <nav>
-          <ul className="hidden items-center gap-4 md:flex">
-            {navLinks.map((item, index) => (
-              <li key={index}>
-                <NavLink href={item.href}>{item.label}</NavLink>
-              </li>
-            ))}
+              {session && (
+                <li>
+                  <NavLink href="/admin">Admin</NavLink>
+                </li>
+              )}
+            </ul>
+          </nav>
+        </div>
 
+        {/* icons nav  */}
+        <nav className="hidden md:block">
+          <ul className="flex gap-2">
             {session && (
               <li>
-                <NavLink href="/admin">Admin</NavLink>
+                <Link
+                  className={buttonVariants({ variant: "ghost", size: "icon" })}
+                  href="/api/auth/signout"
+                >
+                  <LogOut className="h-5" />
+                </Link>
               </li>
             )}
 
-            {/* icons  */}
             <li>
               <ThemeToggle />
             </li>
@@ -64,7 +75,7 @@ export default async function Navbar() {
                 className={buttonVariants({ variant: "ghost", size: "icon" })}
                 href="/#contact"
               >
-                <MdEmail className="h-[1.25rem] w-[1.25rem]" />
+                <MailPlus className="h-5" />
               </Link>
             </li>
           </ul>
@@ -74,7 +85,7 @@ export default async function Navbar() {
         <div className="md:hidden">
           <Sheet>
             <SheetTrigger>
-              <BiMenuAltRight className="h-8 w-8" />
+              <Menu />
             </SheetTrigger>
             <SheetContent
               side="top"
@@ -99,6 +110,22 @@ export default async function Navbar() {
               </ul>
 
               <ul className="flex items-center justify-center gap-4">
+                {session && (
+                  <li>
+                    <SheetClose asChild>
+                      <Link
+                        className={buttonVariants({
+                          variant: "ghost",
+                          size: "icon",
+                        })}
+                        href="/api/auth/signout"
+                      >
+                        <LogOut className="h-5" />
+                      </Link>
+                    </SheetClose>
+                  </li>
+                )}
+
                 <li>
                   <ThemeToggle />
                 </li>
@@ -111,7 +138,7 @@ export default async function Navbar() {
                       })}
                       href={"/#contact"}
                     >
-                      <MdEmail className="h-6 w-6" />
+                      <MailPlus className="h-5" />
                     </Link>
                   </SheetClose>
                 </li>

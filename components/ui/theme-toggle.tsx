@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { BsMoonStars, BsSun } from "react-icons/bs";
 import { useTheme } from "next-themes";
 
 import { Button } from "@components/ui/button";
@@ -11,6 +10,7 @@ import {
   DropdownMenuItem,
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
+import { MoonStar, Sun } from "lucide-react";
 
 export function ThemeToggle() {
   const { setTheme } = useTheme();
@@ -19,8 +19,15 @@ export function ThemeToggle() {
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
         <Button variant="ghost" size="icon">
-          <BsSun className="h-6 w-6 rotate-0 scale-100 transition-all dark:-rotate-90 dark:scale-0 md:h-4 md:w-4" />
-          <BsMoonStars className="absolute h-6 w-6 rotate-90 scale-0 transition-all dark:rotate-0 dark:scale-100 md:h-4 md:w-4" />
+          <Sun
+            className="h-5 rotate-0 scale-100 transition-all duration-300 ease-out
+          dark:-rotate-90 dark:scale-0 dark:opacity-0"
+          />
+          <MoonStar
+            className="absolute h-5 rotate-90 scale-0 opacity-100 transition-all duration-300  ease-out
+          dark:rotate-0 dark:scale-100 dark:opacity-100"
+          />
+
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>

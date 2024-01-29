@@ -34,13 +34,11 @@ import {
 interface DataTableProps<TData, TValue> {
   columns: ColumnDef<TData, TValue>[];
   data: TData[];
-  type: TableSelection;
 }
 
 export function DataTable<TData, TValue>({
   columns,
   data,
-  type,
 }: DataTableProps<TData, TValue>) {
   const [sorting, setSorting] = React.useState<SortingState>([]);
   const [columnVisibility, setColumnVisibility] =

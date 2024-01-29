@@ -1,10 +1,10 @@
 import { Button } from "@components/ui/button";
-import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import CarreerForm from "@components/form/carreer-form";
 import { getCarreers, getCarreerTypes } from "@utils/get-data";
 import { DataTable } from "@/components/react-table";
 import { carreerColumns } from "@/components/table-column-definitions";
+import { Plus } from "lucide-react";
 
 export default async function CarreerAdminPage() {
   const data = await getCarreers();
@@ -18,7 +18,7 @@ export default async function CarreerAdminPage() {
           <Dialog>
             <DialogTrigger asChild>
               <Button size="icon">
-                <IoMdAdd className="h-4 w-auto" />
+                <Plus />
               </Button>
             </DialogTrigger>
             <DialogContent>
@@ -27,7 +27,7 @@ export default async function CarreerAdminPage() {
           </Dialog>
         </div>
 
-        <DataTable type="carreer" data={data} columns={carreerColumns} />
+        <DataTable data={data} columns={carreerColumns} />
       </div>
     </section>
   );

@@ -1,10 +1,10 @@
 import { Button } from "@components/ui/button";
-import { IoMdAdd } from "react-icons/io";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import ProjectForm from "@components/form/project-form";
 import { getProjectAreas, getProjects } from "@utils/get-data";
 import { DataTable } from "@/components/react-table";
 import { projectColumns } from "@/components/table-column-definitions";
+import { Plus } from "lucide-react";
 
 export default async function ProjectAdminPage() {
   const data = await getProjects();
@@ -18,7 +18,7 @@ export default async function ProjectAdminPage() {
           <Dialog>
             <DialogTrigger asChild>
               <Button size="icon">
-                <IoMdAdd className="h-4 w-auto" />
+                <Plus />
               </Button>
             </DialogTrigger>
             <DialogContent>
@@ -27,7 +27,7 @@ export default async function ProjectAdminPage() {
           </Dialog>
         </div>
 
-        <DataTable type="project" data={data} columns={projectColumns} />
+        <DataTable data={data} columns={projectColumns} />
       </div>
     </section>
   );

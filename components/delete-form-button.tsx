@@ -13,12 +13,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@components/ui/alert-dialog";
-import { FaTrash } from "react-icons/fa";
 import { deleteProjectArea } from "@actions/project-area";
 import { deleteCarreer } from "@actions/carreer";
 import { deleteCarreerType } from "@actions/carreer-type";
 import { toast } from "sonner";
 import { TableSelection } from "@/utils/types";
+import { Delete } from "lucide-react";
 
 export default function DeleteFormButton({
   id,
@@ -57,8 +57,8 @@ export default function DeleteFormButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size="icon" variant="destructive">
-          <FaTrash />
+        <Button size="icon" variant="ghost">
+          <Delete className="h-6" />
         </Button>
       </AlertDialogTrigger>
       <AlertDialogContent>
