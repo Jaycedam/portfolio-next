@@ -15,9 +15,9 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   const handleAnimationEnd = () => {
     // when the modal animation ends:
-    // if it's closed, then navigate to previous url history
+    // if it's closed, navigate to home
     if (!open) {
-      router.back();
+      router.push("/", { scroll: false });
     }
   };
 
