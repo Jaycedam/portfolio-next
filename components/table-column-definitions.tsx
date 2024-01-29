@@ -41,7 +41,7 @@ export const projectColumns: ColumnDef<ExtendedProject>[] = [
   },
   {
     accessorKey: "homepage",
-    header: "homepage",
+    header: "Homepage",
   },
   {
     accessorKey: "areaId",
@@ -51,7 +51,7 @@ export const projectColumns: ColumnDef<ExtendedProject>[] = [
     id: "actions",
     cell: ({ row }) => {
       return (
-        <div className="space-y-2">
+        <div className="flex gap-2">
           <Link
             className={buttonVariants({
               variant: "outline",
@@ -91,7 +91,7 @@ export const areaColumns: ColumnDef<Area>[] = [
     id: "actions",
     cell: ({ row }) => {
       return (
-        <div className="space-y-2">
+        <div className="flex gap-2">
           <Link
             className={buttonVariants({
               variant: "outline",
@@ -131,7 +131,7 @@ export const typeColumns: ColumnDef<Type>[] = [
     id: "actions",
     cell: ({ row }) => {
       return (
-        <div className="space-y-2">
+        <div className="flex gap-2">
           <Link
             className={buttonVariants({
               variant: "outline",
@@ -187,7 +187,7 @@ export const carreerColumns: ColumnDef<Carreer>[] = [
     id: "actions",
     cell: ({ row }) => {
       return (
-        <div className="space-y-2">
+        <div className="flex gap-2">
           <Link
             className={buttonVariants({
               variant: "outline",

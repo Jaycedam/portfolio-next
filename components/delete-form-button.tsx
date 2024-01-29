@@ -57,7 +57,7 @@ export default function DeleteFormButton({
   return (
     <AlertDialog>
       <AlertDialogTrigger asChild>
-        <Button size="icon" variant="outline">
+        <Button size="icon" variant="destructive">
           <FaTrash />
         </Button>
       </AlertDialogTrigger>

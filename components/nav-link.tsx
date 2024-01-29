@@ -17,12 +17,9 @@ export default function NavLink({
   return (
     <Link
       {...rest}
-      className={
-        buttonVariants({ variant: "ghost" }) +
-        `transition-color text-sm font-medium duration-300 hover:text-foreground ${
-          pathname === href ? "text-foreground" : "text-muted-foreground"
-        }`
-      }
+      className={`${buttonVariants({ variant: "ghost" })} ${
+        pathname === href ? "text-foreground" : "text-muted-foreground"
+      }`}
       href={href}
     >
       {children}
