@@ -26,7 +26,7 @@ export default function Modal({ children }: { children: React.ReactNode }) {
       <SheetContent
         onAnimationEndCapture={handleAnimationEnd}
         side="bottom"
-        className="h-full overflow-auto rounded-t-xl py-8 md:h-[95%]"
+        className="h-full overflow-auto rounded-t-xl px-0 py-8 md:h-[95%]"
       >
         {children}
       </SheetContent>
