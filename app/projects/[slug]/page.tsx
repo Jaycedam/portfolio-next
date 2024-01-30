@@ -13,7 +13,7 @@ export default async function ProjectMDX({
   return (
     <section>
       <Suspense fallback={<SkeletonArticle />}>
-        <MDXContent name={url} />
+        <MDXContent type="projects" name={url} />
       </Suspense>
     </section>
   );

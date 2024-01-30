@@ -4,12 +4,19 @@ import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { getMDXByName } from "@/utils/fetch-mdx";
 import { notFound } from "next/navigation";
+import { RepoFolder } from "@/utils/types";
 
-const MDXContent = async ({ name }: { name: string }) => {
-  const project = await getMDXByName(name);
-  if (!project) return notFound();
+const MDXContent = async ({
+  name,
+  type,
+}: {
+  name: string;
+  type: RepoFolder;
+}) => {
+  const mdx = await getMDXByName(name);
+  if (!mdx) return notFound();
 
-  const { meta, content } = project;
+  const { meta, content } = mdx;
 
   return (
     <div className="container space-y-8">
@@ -25,7 +32,7 @@ const MDXContent = async ({ name }: { name: string }) => {
                 size: "sm",
               })}`}
               key={idx}
-              href={`/projects?tags=${tag}`}
+              href={`/${type}?tags=${tag}`}
             >
               {tag}
             </Link>

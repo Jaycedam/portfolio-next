@@ -10,7 +10,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
   return (
     <Modal>
       <Suspense fallback={<SkeletonArticle />}>
-        <MDXContent name={url} />
+        <MDXContent type="projects" name={url} />
       </Suspense>
     </Modal>
   );
