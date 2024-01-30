@@ -1,7 +1,9 @@
+import DeleteCacheForm from "@/components/form/delete-cache-form";
+
 export default function AdminHome() {
   return (
     <section>
-      <div className="container">
+      <div className="container space-y-4">
         <div className="space-y-4">
           <h1 className="heading">Dashboard</h1>
           <p className="text-muted-foreground">
@@ -13,6 +15,8 @@ export default function AdminHome() {
             delectus facere, perspiciatis libero qui fugiat.
           </p>
         </div>
+
+        <DeleteCacheForm />
       </div>
 
       {/* this is where the stats will be, when the vercel analytics API is available
