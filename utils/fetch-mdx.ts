@@ -12,14 +12,14 @@ export async function getMDXMeta(
 ): Promise<MDXMeta[] | undefined> {
   try {
     const res = await fetch(
-      "https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/main?recursive=1",
+      `https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/${process.env.GITHUB_MDX_BRANCH}?recursive=1`,
       {
         headers: {
-          Accept: 'application/vnd.github+json',
+          Accept: "application/vnd.github+json",
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-          'X-GitHub-Api-Version': '2022-11-28'
+          "X-GitHub-Api-Version": "2022-11-28",
         },
-      },
+      }
     );
 
     if (!res.ok) return undefined;
@@ -42,9 +42,10 @@ export async function getMDXMeta(
     }
 
     // return list sorted by date mm-yyyy, removing dash to compare
-    return mdxList.sort((a, b) => a.date.replace("-","") < b.date.replace("-","") ? 1 : -1)
-    }
-   catch (error) {
+    return mdxList.sort((a, b) =>
+      a.date.replace("-", "") < b.date.replace("-", "") ? 1 : -1
+    );
+  } catch (error) {
     console.error("Error occurred during fetch: ", error);
     return undefined;
   }
@@ -60,7 +61,7 @@ export async function getMDXMeta(
 export async function getMDXByName(file: string): Promise<MDX | undefined> {
   try {
     const res = await fetch(
-      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/main/${file}`,
+      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${file}`,
       {
         headers: {
           Accept: "application/vnd.github+json",
