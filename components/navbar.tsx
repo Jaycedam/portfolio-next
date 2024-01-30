@@ -22,10 +22,10 @@ export default async function Navbar() {
       href: "/projects",
       label: "Proyectos",
     },
-    // {
-    //   href: "/blog",
-    //   label: "Blog",
-    // },
+    {
+      href: "/blog",
+      label: "Blog",
+    },
   ];
 
   return (
