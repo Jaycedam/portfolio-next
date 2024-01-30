@@ -2,6 +2,7 @@ import { getMDXByName } from "@/utils/fetch-mdx";
 import { slugToURL } from "@/utils/slug";
 import Modal from "@components/modal";
 import { notFound } from "next/navigation";
+import MDXContent from "@/components/mdx-content";
 
 export default async function Page({ params }: { params: { slug: string } }) {
   const url = slugToURL(params.slug, "projects");
@@ -13,9 +14,7 @@ export default async function Page({ params }: { params: { slug: string } }) {
 
   return (
     <Modal>
-      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
-        {content}
-      </article>
+      <MDXContent content={content} meta={meta} />
     </Modal>
   );
 }

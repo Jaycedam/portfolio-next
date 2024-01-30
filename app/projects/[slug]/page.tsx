@@ -1,6 +1,7 @@
 import { getMDXByName } from "@/utils/fetch-mdx";
 import { slugToURL } from "@/utils/slug";
 import { notFound } from "next/navigation";
+import MDXContent from "@/components/mdx-content";
 
 export default async function ProjectMDX({
   params,
@@ -16,11 +17,7 @@ export default async function ProjectMDX({
 
   return (
     <section>
-      <div className="container">
-        <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
-          {content}
-        </article>
-      </div>
+      <MDXContent content={content} meta={meta} />
     </section>
   );
 }
