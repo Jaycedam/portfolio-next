@@ -5,6 +5,7 @@ import { RepoFolder } from "@utils/types";
 
 // on day cache
 export const revalidate = 86400;
+// export const revalidate = 0;
 
 export async function getMDXMeta(
   repoFolder: RepoFolder
@@ -39,9 +40,22 @@ export async function getMDXMeta(
     }
   }
 
-  console.log();
+  // sort list by date
+  const sortedList = mdxList.slice().sort((a, b) => {
+    // Parsing dates in the format "MM-YYYY"
+    const [aMonth, aYear] = a.date.split("-").map(Number);
+    const [bMonth, bYear] = b.date.split("-").map(Number);
 
-  return mdxList;
+    // Create Date objects
+    const aDate = new Date(aYear, aMonth - 1); // Month is zero-based
+    const bDate = new Date(bYear, bMonth - 1); // Month is zero-based
+
+    // Compare dates
+    // Compare dates based on month and year
+    return bDate.getTime() - aDate.getTime();
+  });
+
+  return sortedList;
 }
 
 /**
@@ -52,10 +66,6 @@ export async function getMDXMeta(
  * @returns
  */
 export async function getMDXByName(file: string): Promise<MDX | undefined> {
-  setTimeout(() => {
-    console.log("Delayed for 1 second.");
-  }, 1000);
-
   const res = await fetch(
     `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/testing/${file}`,
     {
@@ -71,12 +81,7 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
 
   const rawMDX = await res.text();
 
-  const { frontmatter, content } = await compileMDX<{
-    title: string;
-    featured: string;
-    image: string;
-    tags: string[];
-  }>({
+  const { frontmatter, content } = await compileMDX<MDXMeta>({
     source: rawMDX,
     components: { HeaderImage, LinkButton },
     options: {
@@ -90,6 +95,9 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
     meta: {
       id,
       title: frontmatter.title,
+      area: frontmatter.area,
+      description: frontmatter.description,
+      date: frontmatter.date,
       featured: frontmatter.featured,
       tags: frontmatter.tags,
       image: frontmatter.image,

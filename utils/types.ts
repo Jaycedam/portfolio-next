@@ -32,6 +32,9 @@ export type NavLinks = { label: string; href: string }[];
 export type MDXMeta = {
   id: string;
   title: string;
+  area: string;
+  description: string;
+  date: string;
   featured: string;
   tags: string[];
   image: string;
