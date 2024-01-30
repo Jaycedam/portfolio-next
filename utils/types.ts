@@ -2,16 +2,10 @@ import {
   carreerSchema,
   carreerTypeSchema,
   emailSchema,
-  projectAreaSchema,
-  projectSchema,
   userSchema,
 } from "@/utils/zod-schema";
 import { JSXElementConstructor, ReactElement } from "react";
 import { z } from "zod";
-
-export type ProjectForm = z.infer<typeof projectSchema>;
-
-export type ProjectAreaForm = z.infer<typeof projectAreaSchema>;
 
 export type CarreerForm = z.infer<typeof carreerSchema>;
 

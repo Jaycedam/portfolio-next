@@ -6,14 +6,6 @@ const navLinks = [
     label: "Dashboard",
   },
   {
-    href: "/admin/project",
-    label: "Project",
-  },
-  {
-    href: "/admin/project-area",
-    label: "Project Area",
-  },
-  {
     href: "/admin/carreer",
     label: "Carreer",
   },
