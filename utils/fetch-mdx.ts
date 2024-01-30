@@ -41,21 +41,23 @@ export async function getMDXMeta(
   }
 
   // sort list by date
-  const sortedList = mdxList.slice().sort((a, b) => {
-    // Parsing dates in the format "MM-YYYY"
-    const [aMonth, aYear] = a.date.split("-").map(Number);
-    const [bMonth, bYear] = b.date.split("-").map(Number);
+  if (mdxList.length > 0) {
+    const sortedList = mdxList.slice().sort((a, b) => {
+      // Parsing dates in the format "MM-YYYY"
+      const [aMonth, aYear] = a.date.split("-").map(Number);
+      const [bMonth, bYear] = b.date.split("-").map(Number);
 
-    // Create Date objects
-    const aDate = new Date(aYear, aMonth - 1); // Month is zero-based
-    const bDate = new Date(bYear, bMonth - 1); // Month is zero-based
+      // Create Date objects
+      const aDate = new Date(aYear, aMonth - 1); // Month is zero-based
+      const bDate = new Date(bYear, bMonth - 1); // Month is zero-based
 
-    // Compare dates
-    // Compare dates based on month and year
-    return bDate.getTime() - aDate.getTime();
-  });
+      // Compare dates
+      // Compare dates based on month and year
+      return bDate.getTime() - aDate.getTime();
+    });
 
-  return sortedList;
+    return sortedList;
+  }
 }
 
 /**
