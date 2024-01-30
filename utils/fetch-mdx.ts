@@ -11,7 +11,6 @@ export async function getMDXMeta(
   repoFolder: RepoFolder
 ): Promise<MDXMeta[] | undefined> {
   try {
-    console.log("Fetching repository file tree...");
     const res = await fetch(
       "https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/main?recursive=1",
       {
@@ -20,7 +19,7 @@ export async function getMDXMeta(
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
           'X-GitHub-Api-Version': '2022-11-28'
         },
-      }
+      },
     );
 
     if (!res.ok) return undefined;
@@ -60,7 +59,6 @@ export async function getMDXMeta(
  */
 export async function getMDXByName(file: string): Promise<MDX | undefined> {
   try {
-    console.log("Fetching mdx...");
     const res = await fetch(
       `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/main/${file}`,
       {
@@ -75,8 +73,6 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
     if (!res.ok) return undefined;
 
     const rawMDX = await res.text();
-
-    if (rawMDX === '404: Not Found') return undefined
 
     const { frontmatter, content } = await compileMDX<MDXMeta>({
       source: rawMDX,
