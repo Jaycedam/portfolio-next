@@ -13,12 +13,12 @@ export async function getMDXMeta(
   try {
     console.log("Fetching repository file tree...");
     const res = await fetch(
-      "https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/testing?recursive=1",
+      "https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/main?recursive=1",
       {
         headers: {
-          Accept: "application/vnd.github+json",
+          Accept: 'application/vnd.github+json',
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-          "X-GitHub-Api-Version": "2022-11-28",
+          'X-GitHub-Api-Version': '2022-11-28'
         },
       }
     );
@@ -42,23 +42,10 @@ export async function getMDXMeta(
       }
     }
 
-    // sort list by date
-    const sortedList = mdxList.slice().sort((a, b) => {
-      // Parsing dates in the format "MM-YYYY"
-      const [aMonth, aYear] = a.date.split("-").map(Number);
-      const [bMonth, bYear] = b.date.split("-").map(Number);
-
-      // Create Date objects
-      const aDate = new Date(aYear, aMonth - 1); // Month is zero-based
-      const bDate = new Date(bYear, bMonth - 1); // Month is zero-based
-
-      // Compare dates
-      // Compare dates based on month and year
-      return bDate.getTime() - aDate.getTime();
-    });
-
-    return mdxList;
-  } catch (error) {
+    // return list sorted by date mm-yyyy, removing dash to compare
+    return mdxList.sort((a, b) => a.date.replace("-","") < b.date.replace("-","") ? 1 : -1)
+    }
+   catch (error) {
     console.error("Error occurred during fetch: ", error);
     return undefined;
   }
@@ -75,7 +62,7 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
   try {
     console.log("Fetching mdx...");
     const res = await fetch(
-      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/testing/${file}`,
+      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/main/${file}`,
       {
         headers: {
           Accept: "application/vnd.github+json",
@@ -88,6 +75,8 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
     if (!res.ok) return undefined;
 
     const rawMDX = await res.text();
+
+    if (rawMDX === '404: Not Found') return undefined
 
     const { frontmatter, content } = await compileMDX<MDXMeta>({
       source: rawMDX,
