@@ -1,23 +1,25 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ExtendedProject } from "@utils/interfaces";
-import { createSlug } from "@/utils/slug";
+import { MDXMeta } from "@/utils/types";
 
-export default function ProjectCard({ name, area, imageUrl }: ExtendedProject) {
-  // creates url based on the project name, separated by dashes
-  const slug = createSlug(name);
-
+export default function ProjectCard({
+  featured,
+  id,
+  image,
+  tags,
+  title,
+}: MDXMeta) {
   return (
     // scroll false to avoid scrolling to the top on modal
-    <Link href={`/projects/${slug}`} scroll={false}>
+    <Link href={id} scroll={false}>
       <div className="group relative isolate aspect-square overflow-hidden rounded-xl border transition-all duration-500">
         {/* overlay  */}
         <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 p-4 text-center text-zinc-50 transition-all">
-          <h2 className="text-2xl font-bold">{name}</h2>
-          <p className="text-sm text-zinc-400">{area.name}</p>
+          <h2 className="text-2xl font-bold">{title}</h2>
+          {/* <p className="text-sm text-zinc-400">{tags}</p> */}
         </div>
         <Image
-          src={imageUrl}
+          src={image}
           alt="project-image"
           quality={100}
           placeholder="blur"

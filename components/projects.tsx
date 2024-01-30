@@ -1,8 +1,8 @@
 import ProjectCard from "@components/project-card";
-import { getProjects } from "@utils/get-data";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
 import { ChevronRight } from "lucide-react";
+import { getMDXMeta } from "@/utils/fetch-mdx";
 
 export default async function Projects({
   homepage = false,
@@ -10,7 +10,14 @@ export default async function Projects({
   homepage?: boolean;
 }) {
   // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
-  const data = await getProjects(homepage);
+  let data = await getMDXMeta("projects");
+
+  if (!data) {
+    return <p>No projects available</p>;
+  }
+  if (homepage) {
+    data = data.filter((data) => data.featured === "true");
+  }
 
   return (
     <section id="projects">
@@ -22,6 +29,7 @@ export default async function Projects({
           </h1>
           <p className="subheading">Click en imagen para más detalles.</p>
         </div>
+
         {/* GRID LAYOUR FOR PROJECTS */}
         <div
           className={`grid gap-2 ${

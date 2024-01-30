@@ -1,19 +1,21 @@
+import { getMDXByName } from "@/utils/fetch-mdx";
+import { slugToURL } from "@/utils/slug";
 import Modal from "@components/modal";
-import MDX from "@components/mdx-remote";
-import { Suspense } from "react";
-import SkeletonArticle from "@/components/skeleton/skeleton-article";
-import { readSlug } from "@/utils/slug";
+import { notFound } from "next/navigation";
 
-export default function Page({ params }: { params: { slug: string } }) {
-  const name: string = readSlug(params.slug);
+export default async function Page({ params }: { params: { slug: string } }) {
+  const url = slugToURL(params.slug, "projects");
+  const project = await getMDXByName(url);
+
+  if (!project) return notFound();
+
+  const { meta, content } = project;
 
   return (
     <Modal>
-      <Suspense fallback={<SkeletonArticle />}>
-        <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
-          <MDX name={name} />
-        </article>
-      </Suspense>
+      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
+        {content}
+      </article>
     </Modal>
   );
 }

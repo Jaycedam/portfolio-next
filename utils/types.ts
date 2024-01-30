@@ -6,6 +6,7 @@ import {
   projectSchema,
   userSchema,
 } from "@/utils/zod-schema";
+import { JSXElementConstructor, ReactElement } from "react";
 import { z } from "zod";
 
 export type ProjectForm = z.infer<typeof projectSchema>;
@@ -27,3 +28,26 @@ export type TableSelection =
   | "carreer-type";
 
 export type NavLinks = { label: string; href: string }[];
+
+export type MDXMeta = {
+  id: string;
+  title: string;
+  featured: string;
+  tags: string[];
+  image: string;
+};
+
+export type MDX = {
+  meta: MDXMeta;
+  content: ReactElement<any, string | JSXElementConstructor<any>>;
+};
+
+export type RepoFolder = "projects" | "blog";
+
+export type GithubTree = {
+  tree: [
+    {
+      path: string;
+    }
+  ];
+};
