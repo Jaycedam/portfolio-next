@@ -18,7 +18,7 @@ const DeleteCacheForm = () => {
   return (
     <form action={handleSubtmit}>
       <button className={buttonVariants({})} type="submit">
-        Borrar Cache
+        Delete All Cache
       </button>
     </form>
   );
