@@ -2,9 +2,6 @@ import CarreerForm from "./form/carreer-form";
 import CarreerTypeForm from "./form/carreer-type-form";
 import { TableSelection } from "@/utils/types";
 import {
-  getProjectById,
-  getProjectAreas,
-  getProjectAreaById,
   getCarreerById,
   getCarreerTypes,
   getCarreerTypeById,
