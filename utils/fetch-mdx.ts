@@ -10,38 +10,39 @@ export const revalidate = 86400;
 export async function getMDXMeta(
   repoFolder: RepoFolder
 ): Promise<MDXMeta[] | undefined> {
-  const res = await fetch(
-    "https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/testing?recursive=1",
-    {
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        "X-GitHub-Api-Version": "2022-11-28",
-      },
+  try {
+    console.log("Fetching repository file tree...");
+    const res = await fetch(
+      "https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/testing?recursive=1",
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    if (!res.ok) return undefined;
+
+    const repoFileTree: GithubTree = await res.json();
+
+    const filesArray = repoFileTree.tree
+      .map((obj) => obj.path)
+      .filter((path) => path.endsWith(".mdx") && path.includes(repoFolder));
+
+    const mdxList: MDXMeta[] = [];
+
+    for (const file of filesArray) {
+      const mdx = await getMDXByName(file);
+
+      if (mdx) {
+        const { meta } = mdx;
+        mdxList.push(meta);
+      }
     }
-  );
 
-  if (!res.ok) return undefined;
-
-  const repoFileTree: GithubTree = await res.json();
-
-  const filesArray = repoFileTree.tree
-    .map((obj) => obj.path)
-    .filter((path) => path.endsWith(".mdx") && path.includes(repoFolder));
-
-  const mdxList: MDXMeta[] = [];
-
-  for (const file of filesArray) {
-    const mdx = await getMDXByName(file);
-
-    if (mdx) {
-      const { meta } = mdx;
-      mdxList.push(meta);
-    }
-  }
-
-  // sort list by date
-  if (mdxList.length > 0) {
+    // sort list by date
     const sortedList = mdxList.slice().sort((a, b) => {
       // Parsing dates in the format "MM-YYYY"
       const [aMonth, aYear] = a.date.split("-").map(Number);
@@ -57,6 +58,9 @@ export async function getMDXMeta(
     });
 
     return sortedList;
+  } catch (error) {
+    console.error("Error occurred during fetch: ", error);
+    return undefined;
   }
 }
 
@@ -68,44 +72,50 @@ export async function getMDXMeta(
  * @returns
  */
 export async function getMDXByName(file: string): Promise<MDX | undefined> {
-  const res = await fetch(
-    `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/testing/${file}`,
-    {
-      headers: {
-        Accept: "application/vnd.github+json",
-        Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
-        "X-GitHub-Api-Version": "2022-11-28",
+  try {
+    console.log("Fetching mdx...");
+    const res = await fetch(
+      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/testing/${file}`,
+      {
+        headers: {
+          Accept: "application/vnd.github+json",
+          Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
+          "X-GitHub-Api-Version": "2022-11-28",
+        },
+      }
+    );
+
+    if (!res.ok) return undefined;
+
+    const rawMDX = await res.text();
+
+    const { frontmatter, content } = await compileMDX<MDXMeta>({
+      source: rawMDX,
+      components: { HeaderImage, LinkButton },
+      options: {
+        parseFrontmatter: true,
       },
-    }
-  );
+    });
 
-  if (!res.ok) return undefined;
+    const id = file.replace(/\.mdx$/, "");
 
-  const rawMDX = await res.text();
+    const projectObj: MDX = {
+      meta: {
+        id,
+        title: frontmatter.title,
+        area: frontmatter.area,
+        description: frontmatter.description,
+        date: frontmatter.date,
+        featured: frontmatter.featured,
+        tags: frontmatter.tags,
+        image: frontmatter.image,
+      },
+      content,
+    };
 
-  const { frontmatter, content } = await compileMDX<MDXMeta>({
-    source: rawMDX,
-    components: { HeaderImage, LinkButton },
-    options: {
-      parseFrontmatter: true,
-    },
-  });
-
-  const id = file.replace(/\.mdx$/, "");
-
-  const projectObj: MDX = {
-    meta: {
-      id,
-      title: frontmatter.title,
-      area: frontmatter.area,
-      description: frontmatter.description,
-      date: frontmatter.date,
-      featured: frontmatter.featured,
-      tags: frontmatter.tags,
-      image: frontmatter.image,
-    },
-    content,
-  };
-
-  return projectObj;
+    return projectObj;
+  } catch (error) {
+    console.error("Error occurred during fetch of mdx: ", error);
+    return undefined;
+  }
 }
