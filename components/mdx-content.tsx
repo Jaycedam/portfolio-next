@@ -1,10 +1,16 @@
 import Image from "next/image";
 import { Badge } from "./ui/badge";
-import { MDX } from "@/utils/types";
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
+import { getMDXByName } from "@/utils/fetch-mdx";
+import { notFound } from "next/navigation";
 
-const MDXContent = ({ content, meta }: MDX) => {
+const MDXContent = async ({ name }: { name: string }) => {
+  const project = await getMDXByName(name);
+  if (!project) return notFound();
+
+  const { meta, content } = project;
+
   return (
     <div className="container space-y-8">
       <div className="mx-auto max-w-prose space-y-4">
