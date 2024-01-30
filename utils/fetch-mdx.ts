@@ -4,8 +4,8 @@ import { HeaderImage, LinkButton } from "@/components/mdx-components";
 import { RepoFolder } from "@utils/types";
 
 // on day cache
-// export const revalidate = 86400;
-export const revalidate = 0;
+export const revalidate = 86400;
+// export const revalidate = 0;
 
 export async function getMDXMeta(
   repoFolder: RepoFolder
