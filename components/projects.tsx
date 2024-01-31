@@ -4,6 +4,7 @@ import { ChevronRight, X } from "lucide-react";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
+import FilterByParam from "./filter-by-param";
 
 export default async function Projects({
   homepage = false,
@@ -12,20 +13,31 @@ export default async function Projects({
   homepage?: boolean;
   tags?: string | string[];
 }) {
-  // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
-  let data = await getMDXMeta("projects");
-  let title = "Proyectos";
+  /**
+   * This variable is for storing the filtered data,
+   * since we need the original data array for the full tag list for filtering.
+   */
+  let projects: MDXMeta[] = [];
 
-  if (!data) {
-    return <p className="p-4 text-center">Blog: No posts available...</p>;
-  }
+  // fetch data from the github api
+  const data = await getMDXMeta("projects");
+  if (!data) return;
+
+  // sets an array from all the tags from the original data variable
+  const metaTags = Array.from(new Set(data.flatMap((item) => item.tags))).map(
+    (tag) => ({ tag })
+  );
+
+  // if this component is rendered on the homepage, then filter by featured=true
   if (homepage) {
-    data = data.filter((item) => item.featured === "true");
+    projects = data.filter((item) => item.featured === "true");
+  } else if (!homepage) {
+    projects = data;
   }
 
-  if (!homepage && tags && tags.length > 0) {
-    title = title + " " + tags;
-    data = data.filter(
+  // filter by tags on the url params
+  if (tags && tags.length > 0) {
+    projects = data.filter(
       (item) => item.tags && item.tags.some((tag) => tags.includes(tag))
     );
   }
@@ -33,32 +45,38 @@ export default async function Projects({
   return (
     <section id="projects">
       <div className="container space-y-4">
-        {/* title */}
-
-        <div className="flex flex-wrap justify-between">
+        <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
           <div className="space-y-1">
-            <h1 className="heading">{title}</h1>
+            <h1 className="heading">
+              Proyectos{" "}
+              {tags && (
+                <span className="text-xl font-normal text-muted-foreground">
+                  {tags}
+                </span>
+              )}
+            </h1>
             <p className="subheading">Click en imagen para más detalles.</p>
           </div>
 
-          {tags && (
-            <Link
-              className={buttonVariants({ variant: "outline" })}
-              href="/projects"
-            >
-              <X className="h-4" />
-              Limpiar filtros
-            </Link>
-          )}
+          <div className="flex gap-2">
+            {tags && (
+              <Link
+                className={buttonVariants({ variant: "outline", size: "icon" })}
+                href="/projects"
+              >
+                <X className="h-4" />
+              </Link>
+            )}
+            {!homepage && <FilterByParam repo="projects" tags={metaTags} />}
+          </div>
         </div>
 
-        {/* GRID LAYOUR FOR PROJECTS */}
         <div
           className={`grid gap-2 ${
             homepage ? "md:grid-cols-2" : "md:grid-cols-3"
           }`}
         >
-          {data.map((item) => (
+          {projects.map((item) => (
             <ProjectCard key={item.id} {...item}></ProjectCard>
           ))}
         </div>
