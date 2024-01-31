@@ -7,7 +7,8 @@ import { options } from "@/app/api/auth/[...nextauth]/options";
 import Link from "next/link";
 import { NavLinks } from "@/utils/types";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
-import { LogOut, MailPlus, Menu } from "lucide-react";
+import { MailPlus, Menu } from "lucide-react";
+import SignOutBtn from "@components/sign-out-btn";
 
 export default async function Navbar() {
   // get current session of user if logged in
@@ -58,12 +59,7 @@ export default async function Navbar() {
           <ul className="flex gap-2">
             {session && (
               <li>
-                <Link
-                  className={buttonVariants({ variant: "ghost", size: "icon" })}
-                  href="/api/auth/signout"
-                >
-                  <LogOut className="h-5" />
-                </Link>
+                <SignOutBtn />
               </li>
             )}
 
@@ -113,15 +109,7 @@ export default async function Navbar() {
                 {session && (
                   <li>
                     <SheetClose asChild>
-                      <Link
-                        className={buttonVariants({
-                          variant: "ghost",
-                          size: "icon",
-                        })}
-                        href="/api/auth/signout"
-                      >
-                        <LogOut className="h-5" />
-                      </Link>
+                      <SignOutBtn />
                     </SheetClose>
                   </li>
                 )}
