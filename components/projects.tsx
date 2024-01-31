@@ -17,10 +17,9 @@ export default async function Projects({
   let title = "Proyectos";
 
   if (!data) {
-    return <p>No projects available</p>;
+    return <p className="p-4 text-center">Blog: No posts available...</p>;
   }
   if (homepage) {
-    title = title + " destacados";
     data = data.filter((item) => item.featured === "true");
   }
 

@@ -22,7 +22,6 @@ export default async function BlogPosts({
   }
 
   if (homepage) {
-    title = title + " destacados";
     data = data.filter((item) => item.featured === "true");
   }
 
