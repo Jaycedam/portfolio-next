@@ -31,22 +31,22 @@ const MDXContent = async ({
         </div>
 
         <p className="prose text-muted-foreground">{meta.description}</p>
-
-        <div className="w-fulll relative aspect-video">
-          <Image
-            priority
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,
-            iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNMUQQAAO8Ah7R22bwAAAAASUVORK5CYII="
-            src={meta.image}
-            alt="preview"
-            fill
-            className="rounded-xl object-cover"
-          />
-        </div>
       </div>
 
-      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
+      <div className="w-fulll relative aspect-video">
+        <Image
+          priority
+          placeholder="blur"
+          blurDataURL="data:image/png;base64,
+            iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNMUQQAAO8Ah7R22bwAAAAASUVORK5CYII="
+          src={meta.image}
+          alt="preview"
+          fill
+          className="rounded-xl object-cover"
+        />
+      </div>
+
+      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary dark:prose-pre:bg-muted">
         {content}
       </article>
     </div>
