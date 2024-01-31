@@ -4,8 +4,9 @@ import { ChevronRight, X } from "lucide-react";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
+import { badgeVariants } from "./ui/badge";
 
-export default async function Projects({
+export default async function BlogPosts({
   homepage = false,
   tags,
 }: {
@@ -13,12 +14,13 @@ export default async function Projects({
   tags?: string | string[];
 }) {
   // if the prop homepage = true, fetch only 4 values with the homepage property set to true, else return all items
-  let data = await getMDXMeta("projects");
-  let title = "Proyectos";
+  let data = await getMDXMeta("blog");
+  let title = "Blog Posts";
 
-  if (!data) {
+  if (!data || data.length === 0) {
     return <p className="p-4 text-center">Blog: No posts available...</p>;
   }
+
   if (homepage) {
     data = data.filter((item) => item.featured === "true");
   }
@@ -31,20 +33,17 @@ export default async function Projects({
   }
 
   return (
-    <section id="projects">
+    <section id="blog-posts">
       <div className="container space-y-4">
         {/* title */}
 
         <div className="flex flex-wrap justify-between">
-          <div className="space-y-1">
-            <h1 className="heading">{title}</h1>
-            <p className="subheading">Click en imagen para más detalles.</p>
-          </div>
+          <h1 className="heading">{title}</h1>
 
           {tags && (
             <Link
               className={buttonVariants({ variant: "outline" })}
-              href="/projects"
+              href="/blog"
             >
               <X className="h-4" />
               Limpiar filtros
@@ -55,11 +54,11 @@ export default async function Projects({
         {/* GRID LAYOUR FOR PROJECTS */}
         <div
           className={`grid gap-2 ${
-            homepage ? "md:grid-cols-2" : "md:grid-cols-3"
+            homepage ? "md:grid-cols-2" : "md:grid-cols-2"
           }`}
         >
           {data.map((item) => (
-            <ProjectCard key={item.id} {...item}></ProjectCard>
+            <BlogPostCard key={item.id} {...item}></BlogPostCard>
           ))}
         </div>
 
@@ -69,7 +68,7 @@ export default async function Projects({
               className={buttonVariants({
                 variant: "outline",
               })}
-              href="/projects"
+              href="/blog"
             >
               Ver más
               <ChevronRight className="h-4" />
@@ -81,27 +80,46 @@ export default async function Projects({
   );
 }
 
-function ProjectCard({ id, image, title, area }: MDXMeta) {
+function BlogPostCard({
+  id,
+  image,
+  title,
+  area,
+  date,
+  description,
+  tags,
+}: MDXMeta) {
   return (
     // scroll false to avoid scrolling to the top on modal
     <Link href={id} scroll={false}>
-      <div className="group relative isolate aspect-square overflow-hidden rounded-xl border transition-all duration-500">
-        {/* overlay  */}
-        <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 p-4 text-center text-zinc-50 transition-all">
-          <h2 className="text-xl font-bold">{title}</h2>
-          <p className="text-sm">{area}</p>
+      <div className="grid grid-cols-[auto_40%]">
+        <div className="space-y-4 py-8 pr-4">
+          <h2 className="text-2xl font-bold">{title}</h2>
+          <p>{description}</p>
+          <div className="flex gap-2">
+            <p>{date}</p>
+            {tags.map((tag, idx) => (
+              <p key={idx} className={badgeVariants({ variant: "secondary" })}>
+                {tag}
+              </p>
+            ))}
+          </div>
         </div>
-        <Image
-          src={image}
-          alt="project-image"
-          quality={100}
-          placeholder="blur"
-          blurDataURL="data:image/png;base64,
+
+        {/* image */}
+        <div className="relative overflow-hidden rounded-xl">
+          <Image
+            src={image}
+            alt="project-image"
+            quality={100}
+            placeholder="blur"
+            blurDataURL="data:image/png;base64,
           iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNMUQQAAO8Ah7R22bwAAAAASUVORK5CYII="
-          fill
-          sizes="(max-width: 768px) 100vw, 50vw"
-          className="object-cover transition-all duration-500 group-hover:scale-110 group-active:scale-100"
-        />
+            fill
+            sizes="(max-width: 768px) 100vw, 50vw"
+            className="object-cover"
+          />
+        </div>
       </div>
     </Link>
   );

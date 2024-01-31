@@ -58,7 +58,7 @@
   }
 
   .heading {
-    @apply text-3xl font-bold capitalize md:text-4xl;
+    @apply text-3xl font-black capitalize md:text-4xl;
   }
 
   .subheading {

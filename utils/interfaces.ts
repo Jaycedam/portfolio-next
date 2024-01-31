@@ -1,8 +1,4 @@
-import { Area, Carreer, Project, Type } from "@prisma/client";
-
-export interface ExtendedProject extends Project {
-  area: Area;
-}
+import { Carreer, Type } from "@prisma/client";
 
 export interface ExtendedCarreer extends Carreer {
   type: Type;

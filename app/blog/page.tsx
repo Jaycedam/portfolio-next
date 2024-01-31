@@ -1,8 +1,8 @@
-import Projects from "@/components/projects";
+import BlogPosts from "@/components/blog-posts";
 import SkeletonProjects from "@/components/skeleton/skeleton-projects";
 import { Suspense } from "react";
 
-const ProjectsPage = ({
+const BlogPostsPage = ({
   searchParams,
 }: {
   searchParams?: {
@@ -11,9 +11,9 @@ const ProjectsPage = ({
 }) => {
   return (
     <Suspense fallback={<SkeletonProjects />}>
-      <Projects tags={searchParams?.tags} />
+      <BlogPosts tags={searchParams?.tags} />
     </Suspense>
   );
 };
 
-export default ProjectsPage;
+export default BlogPostsPage;

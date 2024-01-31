@@ -1,20 +1,20 @@
-import SkeletonArticle from "@/components/skeleton/skeleton-article";
-import { readSlug } from "@/utils/slug";
-import MDX from "@components/mdx-remote";
+import { slugToURL } from "@/utils/slug";
+import MDXContent from "@/components/mdx-content";
 import { Suspense } from "react";
+import SkeletonArticle from "@/components/skeleton/skeleton-article";
 
-export default function ProjectMDX({ params }: { params: { slug: string } }) {
-  const name: string = readSlug(params.slug);
+export default async function ProjectMDX({
+  params,
+}: {
+  params: { slug: string };
+}) {
+  const url = slugToURL(params.slug, "projects");
 
   return (
     <section>
-      <div className="container">
-        <Suspense fallback={<SkeletonArticle />}>
-          <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-em:text-sm prose-em:text-muted-foreground prose-hr:border-border dark:prose-pre:bg-muted">
-            <MDX name={name} />
-          </article>
-        </Suspense>
-      </div>
+      <Suspense fallback={<SkeletonArticle />}>
+        <MDXContent type="projects" name={url} />
+      </Suspense>
     </section>
   );
 }

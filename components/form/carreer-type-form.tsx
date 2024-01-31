@@ -2,7 +2,7 @@
 
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
-import { Area } from "@prisma/client";
+import { Type } from "@prisma/client";
 import { Input } from "@components/ui/input";
 import { Button } from "@components/ui/button";
 import { carreerTypeSchema } from "@/utils/zod-schema";
@@ -23,7 +23,7 @@ import { CarreerTypeForm } from "@/utils/types";
 export default function CarreerTypeForm({
   carreerType,
 }: {
-  carreerType?: Area;
+  carreerType?: Type;
 }) {
   const router = useRouter();
 

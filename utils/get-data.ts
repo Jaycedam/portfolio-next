@@ -1,101 +1,12 @@
 import { notFound } from "next/navigation";
 import { cache } from "react";
-import { ExtendedCarreer, ExtendedProject } from "@/utils/interfaces";
-import { Area, Project, Type } from "@prisma/client";
+import { ExtendedCarreer } from "@/utils/interfaces";
+import { Type } from "@prisma/client";
 import prisma from "@lib/prisma";
 
 // the results are cached
 // Wait for stable release of unstable cache for transfer
 // https://nextjs.org/docs/app/api-reference/functions/unstable_cache
-
-// project
-export const getProjects = cache(
-  async (homepage: boolean = false): Promise<ExtendedProject[]> => {
-    try {
-      if (homepage) {
-        const result = await prisma.project.findMany({
-          orderBy: {
-            id: "desc",
-          },
-          where: {
-            homepage: true,
-          },
-          include: {
-            area: true,
-          },
-        });
-        return result;
-      }
-
-      const result = await prisma.project.findMany({
-        orderBy: {
-          id: "desc",
-        },
-        include: {
-          area: true,
-        },
-      });
-      return result;
-    } catch (error) {
-      console.log("Error fetching data from db: ", error);
-      return [];
-    }
-  }
-);
-
-export const getProjectById = cache(async (id: number): Promise<Project> => {
-  try {
-    const result = await prisma.project.findUniqueOrThrow({
-      where: { id: id },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching project: ", error);
-    return notFound();
-  }
-});
-
-export const getProjectByName = cache(
-  async (name: string): Promise<Project> => {
-    try {
-      const result = await prisma.project.findUniqueOrThrow({
-        where: { name: name },
-      });
-      return result;
-    } catch (error) {
-      console.log("Error fetching project: ", error);
-      return notFound();
-    }
-  }
-);
-
-// project area
-export const getProjectAreas = cache(async (): Promise<Area[]> => {
-  try {
-    const result = await prisma.area.findMany({
-      orderBy: {
-        id: "desc",
-      },
-    });
-
-    return result;
-  } catch (error) {
-    console.log("Error fetching data from db: ", error);
-    return [];
-  }
-});
-
-export const getProjectAreaById = cache(async (id: number) => {
-  try {
-    const result = await prisma.area.findUniqueOrThrow({
-      where: { id: id },
-    });
-    return result;
-  } catch (error) {
-    console.log("Error fetching project area: ", error);
-    return notFound();
-  }
-});
 
 // carreer
 export const getCarreers = cache(async (): Promise<ExtendedCarreer[]> => {

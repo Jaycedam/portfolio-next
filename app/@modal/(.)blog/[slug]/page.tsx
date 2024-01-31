@@ -5,12 +5,13 @@ import { Suspense } from "react";
 import SkeletonArticle from "@/components/skeleton/skeleton-article";
 
 export default async function Page({ params }: { params: { slug: string } }) {
-  const url = slugToURL(params.slug, "projects");
+  const url = slugToURL(params.slug, "blog");
 
   return (
     <Modal>
+      {/* change skeleton  */}
       <Suspense fallback={<SkeletonArticle />}>
-        <MDXContent type="projects" name={url} />
+        <MDXContent type="blog" name={url} />
       </Suspense>
     </Modal>
   );

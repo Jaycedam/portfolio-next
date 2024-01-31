@@ -1,6 +1,5 @@
 "use client";
 
-import { deleteProject } from "@actions/project";
 import { Button } from "@components/ui/button";
 import {
   AlertDialog,
@@ -13,7 +12,6 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@components/ui/alert-dialog";
-import { deleteProjectArea } from "@actions/project-area";
 import { deleteCarreer } from "@actions/carreer";
 import { deleteCarreerType } from "@actions/carreer-type";
 import { toast } from "sonner";
@@ -30,12 +28,6 @@ export default function DeleteFormButton({
   let deleteAction: any;
   // check for selected option to delete from x table
   switch (action) {
-    case "project":
-      deleteAction = deleteProject;
-      break;
-    case "project-area":
-      deleteAction = deleteProjectArea;
-      break;
     case "carreer":
       deleteAction = deleteCarreer;
       break;
