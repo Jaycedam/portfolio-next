@@ -19,7 +19,7 @@ export default function ProjectMDX({ params }: { params: { slug: string } }) {
 
 // Return a list of `params` to populate the [slug] dynamic segment
 export async function generateStaticParams() {
-  const data = await getMDXMeta("blog");
+  const data = await getMDXMeta("projects");
 
   return data.map((item) => ({
     slug: item.id,
