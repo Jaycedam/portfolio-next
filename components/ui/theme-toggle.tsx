@@ -8,6 +8,8 @@ import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 import { MoonStar, Sun } from "lucide-react";
@@ -31,15 +33,27 @@ export function ThemeToggle() {
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center">
-        <DropdownMenuItem onClick={() => setTheme("light")}>
-          Light
+      <DropdownMenuContent>
+        <DropdownMenuLabel>Tema</DropdownMenuLabel>
+        <DropdownMenuSeparator />
+
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onClick={() => setTheme("light")}
+        >
+          Claro
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("dark")}>
-          Dark
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onClick={() => setTheme("dark")}
+        >
+          Oscuro
         </DropdownMenuItem>
-        <DropdownMenuItem onClick={() => setTheme("system")}>
-          System
+        <DropdownMenuItem
+          className="cursor-pointer"
+          onClick={() => setTheme("system")}
+        >
+          Sistema
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>
