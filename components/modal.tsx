@@ -9,17 +9,17 @@ export default function Modal({ children }: { children: React.ReactNode }) {
 
   const router = useRouter();
 
-  const handleClose = () => {
+  function handleClose() {
     setOpen(false);
-  };
+  }
 
-  const handleAnimationEnd = () => {
+  function handleAnimationEnd() {
     // when the modal animation ends:
     // if it's closed, navigate back
     if (!open) {
       router.back();
     }
-  };
+  }
 
   return (
     <Sheet open={open} onOpenChange={handleClose}>
