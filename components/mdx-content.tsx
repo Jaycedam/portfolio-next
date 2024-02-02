@@ -2,15 +2,8 @@ import Image from "next/image";
 import { Badge } from "./ui/badge";
 import { getMDXByName } from "@/utils/fetch-mdx";
 import { notFound } from "next/navigation";
-import { RepoFolder } from "@/utils/types";
 
-const MDXContent = async ({
-  name,
-  type,
-}: {
-  name: string;
-  type: RepoFolder;
-}) => {
+export default async function MDXContent({ name }: { name: string }) {
   const mdx = await getMDXByName(name);
   if (!mdx) return notFound();
 
@@ -51,6 +44,4 @@ const MDXContent = async ({
       </article>
     </div>
   );
-};
-
-export default MDXContent;
+}

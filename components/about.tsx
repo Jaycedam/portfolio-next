@@ -23,7 +23,7 @@ const items2: string[] = [
   "SASS",
 ];
 
-const ItemBtn = ({ item }: { item: string }) => {
+function ItemBtn({ item }: { item: string }) {
   return (
     <p
       className={`motion-safe:fade-up ${buttonVariants({
@@ -34,7 +34,7 @@ const ItemBtn = ({ item }: { item: string }) => {
       {item}
     </p>
   );
-};
+}
 
 export default function About() {
   return (

@@ -10,13 +10,13 @@ import { RepoFolder } from "@/utils/types";
 import { Button } from "@components/ui/button";
 import Link from "next/link";
 
-const FilterByParam = ({
+export default function FilterByParam({
   tags,
-  repo,
+  repoFolder,
 }: {
-  repo: RepoFolder;
+  repoFolder: RepoFolder;
   tags: { tag: string }[];
-}) => {
+}) {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
@@ -27,12 +27,10 @@ const FilterByParam = ({
         <DropdownMenuSeparator />
         {tags.map((tag, idx) => (
           <DropdownMenuItem key={idx} className="cursor-pointer" asChild>
-            <Link href={`/${repo}?tags=${tag.tag}`}>{tag.tag}</Link>
+            <Link href={`/${repoFolder}?tags=${tag.tag}`}>{tag.tag}</Link>
           </DropdownMenuItem>
         ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );
-};
-
-export default FilterByParam;
+}

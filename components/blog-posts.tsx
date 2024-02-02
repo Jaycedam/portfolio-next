@@ -63,7 +63,7 @@ export default async function BlogPosts({
                 <X className="h-4" />
               </Link>
             )}
-            {!homepage && <FilterByParam repo="blog" tags={metaTags} />}
+            {!homepage && <FilterByParam repoFolder="blog" tags={metaTags} />}
           </div>
         </div>
 

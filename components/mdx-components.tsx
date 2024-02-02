@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { buttonVariants } from "@components/ui/button";
 
-export const HeaderImage = ({ src, alt }: { src: string; alt: string }) => {
+export function HeaderImage({ src, alt }: { src: string; alt: string }) {
   return (
     <div className="relative mb-16 aspect-video w-full">
       <Image
@@ -14,15 +14,9 @@ export const HeaderImage = ({ src, alt }: { src: string; alt: string }) => {
       />
     </div>
   );
-};
+}
 
-export const LinkButton = ({
-  title,
-  href,
-}: {
-  title: string;
-  href: string;
-}) => {
+export function LinkButton({ title, href }: { title: string; href: string }) {
   return (
     <a
       className={`no-underline ${buttonVariants({ variant: "outline" })}`}
@@ -32,4 +26,4 @@ export const LinkButton = ({
       {title}
     </a>
   );
-};
+}

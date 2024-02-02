@@ -67,7 +67,9 @@ export default async function Projects({
                 <X className="h-4" />
               </Link>
             )}
-            {!homepage && <FilterByParam repo="projects" tags={metaTags} />}
+            {!homepage && (
+              <FilterByParam repoFolder="projects" tags={metaTags} />
+            )}
           </div>
         </div>
 

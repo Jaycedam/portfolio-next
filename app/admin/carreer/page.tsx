@@ -2,7 +2,7 @@ import { Button } from "@components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
 import CarreerForm from "@components/form/carreer-form";
 import { getCarreers, getCarreerTypes } from "@utils/get-data";
-import { DataTable } from "@/components/react-table";
+import DataTable from "@/components/react-table";
 import { carreerColumns } from "@/components/table-column-definitions";
 import { Plus } from "lucide-react";
 

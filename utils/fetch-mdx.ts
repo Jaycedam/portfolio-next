@@ -53,7 +53,7 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
  *
  * @param file
  * When using to fetch mdx file with url params,
- * you need to transform the value with slugToURL from @utils/slug
+ * you need to transform the value with slugToPath from @utils/slug
  * @returns
  */
 export async function getMDXByName(file: string): Promise<MDX | undefined> {

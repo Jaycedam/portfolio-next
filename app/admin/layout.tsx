@@ -1,7 +1,7 @@
 import AdminSidebar from "@components/admin-sidebar";
 
 export const metadata = {
-  title: "Jordan Cortés | Admin",
+  title: "Admin - Jordan Cortés",
   description: "Admin site",
 };
 
