@@ -2,13 +2,11 @@ import { slugToURL } from "@/utils/slug";
 import MDXContent from "@/components/mdx-content";
 import { Suspense } from "react";
 import SkeletonArticle from "@/components/skeleton/skeleton-article";
+import { getMDXMeta } from "@/utils/fetch-mdx";
 
-export default async function BlogMDX({
-  params,
-}: {
-  params: { slug: string };
-}) {
-  const url = slugToURL(params.slug, "blog");
+export default function BlogMDX({ params }: { params: { slug: string } }) {
+  const { slug } = params;
+  const url = slugToURL(slug, "blog");
 
   return (
     <section>
@@ -17,4 +15,13 @@ export default async function BlogMDX({
       </Suspense>
     </section>
   );
+}
+
+// Return a list of `params` to populate the [slug] dynamic segment
+export async function generateStaticParams() {
+  const data = await getMDXMeta("blog");
+
+  return data.map((item) => ({
+    slug: item.id,
+  }));
 }
