@@ -3,13 +3,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { HeaderImage, LinkButton } from "@/components/mdx-components";
 import { RepoFolder } from "@utils/types";
 
-// on day cache
-export const revalidate = 86400;
-// export const revalidate = 0;
-
-export async function getMDXMeta(
-  repoFolder: RepoFolder
-): Promise<MDXMeta[] | undefined> {
+export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
   try {
     const res = await fetch(
       `https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/${process.env.GITHUB_MDX_BRANCH}?recursive=1`,
@@ -19,10 +13,14 @@ export async function getMDXMeta(
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
           "X-GitHub-Api-Version": "2022-11-28",
         },
+        next: {
+          revalidate: 86400,
+          tags: ["mdx"],
+        },
       }
     );
 
-    if (!res.ok) return undefined;
+    if (!res.ok) return [];
 
     const repoFileTree: GithubTree = await res.json();
 
@@ -47,7 +45,7 @@ export async function getMDXMeta(
     );
   } catch (error) {
     console.error("Error occurred during fetch: ", error);
-    return undefined;
+    return [];
   }
 }
 
@@ -67,6 +65,10 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
           Accept: "application/vnd.github+json",
           Authorization: `Bearer ${process.env.GITHUB_TOKEN}`,
           "X-GitHub-Api-Version": "2022-11-28",
+        },
+        next: {
+          revalidate: 86400,
+          tags: ["mdx"],
         },
       }
     );

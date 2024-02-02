@@ -15,7 +15,7 @@ const navLinks = [
   },
 ];
 
-export default async function AdminSidebar() {
+export default function AdminSidebar() {
   // get current session of user if logged in
   return (
     <aside>
