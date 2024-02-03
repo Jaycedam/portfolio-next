@@ -6,6 +6,7 @@ import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
 import { badgeVariants } from "@components/ui/badge";
 import FilterByParam from "@components/filter-by-param";
+import { getScopedI18n } from "@/locales/server";
 
 export default async function BlogPosts({
   homepage = false,
@@ -14,6 +15,7 @@ export default async function BlogPosts({
   homepage?: boolean;
   tags?: string | string[];
 }) {
+  const t = await getScopedI18n("blog");
   /**
    * This variable is for storing the filtered data,
    * since we need the original data array for the full tag list for filtering.
@@ -47,7 +49,7 @@ export default async function BlogPosts({
       <div className="container space-y-4">
         <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
           <h1 className="heading">
-            Blog{" "}
+            {t("heading")}{" "}
             {tags && (
               <span className="text-xl font-normal text-muted-foreground">
                 {tags}
@@ -63,7 +65,13 @@ export default async function BlogPosts({
                 <X className="h-4" />
               </Link>
             )}
-            {!homepage && <FilterByParam repoFolder="blog" tags={metaTags} />}
+            {!homepage && (
+              <FilterByParam
+                label={t("btn.filter")}
+                repoFolder="blog"
+                tags={metaTags}
+              />
+            )}
           </div>
         </div>
 
@@ -85,7 +93,7 @@ export default async function BlogPosts({
               })}
               href="/blog"
             >
-              Ver más
+              {t("btn.more")}
               <ChevronRight className="h-4" />
             </Link>
           </div>
@@ -106,7 +114,7 @@ function BlogPostCard({
 }: MDXMeta) {
   return (
     // scroll false to avoid scrolling to the top on modal
-    <Link href={id} scroll={false}>
+    <Link href={`/blog/${id}`} scroll={false}>
       <div className="grid grid-cols-[auto_40%]">
         <div className="space-y-4 py-8 pr-4">
           <h2 className="text-2xl font-bold">{title}</h2>

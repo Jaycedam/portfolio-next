@@ -5,6 +5,7 @@ import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
 import FilterByParam from "./filter-by-param";
+import { getScopedI18n } from "@/locales/server";
 
 export default async function Projects({
   homepage = false,
@@ -13,6 +14,8 @@ export default async function Projects({
   homepage?: boolean;
   tags?: string | string[];
 }) {
+  const t = await getScopedI18n("projects");
+
   /**
    * This variable is for storing the filtered data,
    * since we need the original data array for the full tag list for filtering.
@@ -48,14 +51,14 @@ export default async function Projects({
         <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
           <div className="space-y-1">
             <h1 className="heading">
-              Proyectos{" "}
+              {t("heading")}{" "}
               {tags && (
                 <span className="text-xl font-normal text-muted-foreground">
                   {tags}
                 </span>
               )}
             </h1>
-            <p className="subheading">Click en imagen para más detalles.</p>
+            <p className="subheading">{t("subheading")}</p>
           </div>
 
           <div className="flex gap-2">
@@ -68,7 +71,11 @@ export default async function Projects({
               </Link>
             )}
             {!homepage && (
-              <FilterByParam repoFolder="projects" tags={metaTags} />
+              <FilterByParam
+                label={t("btn.filter")}
+                repoFolder="projects"
+                tags={metaTags}
+              />
             )}
           </div>
         </div>
@@ -91,7 +98,7 @@ export default async function Projects({
               })}
               href="/projects"
             >
-              Ver más
+              {t("btn.more")}
               <ChevronRight className="h-4" />
             </Link>
           </div>
@@ -104,7 +111,7 @@ export default async function Projects({
 function ProjectCard({ id, image, title, area }: MDXMeta) {
   return (
     // scroll false to avoid scrolling to the top on modal
-    <Link href={id} scroll={false}>
+    <Link href={`/projects/${id}`} scroll={false}>
       <div className="group relative isolate aspect-square overflow-hidden rounded-xl border transition-all duration-500">
         {/* overlay  */}
         <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 p-4 text-center text-zinc-50 transition-all">

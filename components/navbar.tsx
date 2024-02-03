@@ -3,12 +3,13 @@ import { buttonVariants } from "@components/ui/button";
 import NavLink from "@components/nav-link";
 import LogoSVG from "@components/svg/logo-svg";
 import { getServerSession } from "next-auth/next";
-import { options } from "@/app/api/auth/[...nextauth]/options";
 import Link from "next/link";
 import { NavLinks } from "@/utils/types";
 import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { MailPlus, Menu } from "lucide-react";
 import SignOutBtn from "@components/sign-out-btn";
+import { options } from "@/app/api/auth/[...nextauth]/options";
+import ChangeLocale from "@components/change-locale";
 
 export default async function Navbar() {
   // get current session of user if logged in
@@ -56,6 +57,9 @@ export default async function Navbar() {
       {/* icons nav  */}
       <nav className="hidden md:block">
         <ul className="flex gap-2">
+          <li>
+            <ChangeLocale />
+          </li>
           {session && (
             <li>
               <SignOutBtn />

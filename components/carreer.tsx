@@ -1,8 +1,11 @@
 import { getCarreers } from "@utils/get-data";
 import { Badge } from "@/components/ui/badge";
+import { getScopedI18n } from "@/locales/server";
 
 export default async function Carreer() {
+  const t = await getScopedI18n("carreer");
   const data = await getCarreers();
+
   return (
     <section
       id="carreer"
@@ -10,11 +13,8 @@ export default async function Carreer() {
     >
       <div className="container space-y-8">
         <div className="space-y-2 text-center">
-          <h1 className="heading">Carrera Profesional</h1>
-          <p className="subheading mx-auto max-w-prose">
-            Sólo es incluída mi carrera como Programador de Software,
-            previamente trabaje en Motion Graphics por más de 4 años.
-          </p>
+          <h1 className="heading">{t("heading")}</h1>
+          <p className="subheading mx-auto max-w-prose">{t("subheading")}</p>
         </div>
 
         <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">

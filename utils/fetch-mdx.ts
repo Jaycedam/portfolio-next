@@ -2,9 +2,12 @@ import { GithubTree, MDX, MDXMeta } from "@utils/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { HeaderImage, LinkButton } from "@/components/mdx-components";
 import { RepoFolder } from "@utils/types";
+import { getCurrentLocale } from "@/locales/server";
 
 export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
   try {
+    const locale = getCurrentLocale();
+
     const res = await fetch(
       `https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/${process.env.GITHUB_MDX_BRANCH}?recursive=1`,
       {
@@ -26,8 +29,10 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
 
     const filesArray = repoFileTree.tree
       .map((obj) => obj.path)
-      .filter((path) => path.endsWith(".mdx") && path.includes(repoFolder));
-
+      .filter(
+        (path) =>
+          path.includes(`${repoFolder}/${locale}`) && path.endsWith(".mdx")
+      );
     const mdxList: MDXMeta[] = [];
 
     for (const file of filesArray) {
@@ -38,6 +43,8 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
         mdxList.push(meta);
       }
     }
+
+    console.log(mdxList);
 
     // return list sorted by date mm-yyyy, removing dash to compare
     return mdxList.sort((a, b) =>
@@ -58,6 +65,7 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
  */
 export async function getMDXByName(file: string): Promise<MDX | undefined> {
   try {
+    console.log(file);
     const res = await fetch(
       `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${file}`,
       {
@@ -85,7 +93,8 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
       },
     });
 
-    const id = file.replace(/\.mdx$/, "");
+    // removes everything from the path except name of the file
+    const id = file.substring(file.lastIndexOf("/") + 1).replace(/\.mdx$/, "");
 
     const projectObj: MDX = {
       meta: {
