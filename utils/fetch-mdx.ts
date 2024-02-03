@@ -33,7 +33,7 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
       // removes mdx from name
       const name = file.name.replace(/\.mdx$/, "");
 
-      const mdx = await getMDXByName(name, repoFolder, locale);
+      const mdx = await getMDXByName(name, repoFolder);
 
       if (mdx) {
         const { meta } = mdx;
@@ -53,10 +53,11 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
 
 export async function getMDXByName(
   name: string,
-  repoFolder: RepoFolder,
-  locale: "en" | "es"
+  repoFolder: RepoFolder
 ): Promise<MDX | undefined> {
   try {
+    const locale = getCurrentLocale();
+
     const res = await fetch(
       `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${repoFolder}/${locale}/${name}.mdx`,
 

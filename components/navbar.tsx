@@ -10,23 +10,26 @@ import { MailPlus, Menu } from "lucide-react";
 import SignOutBtn from "@components/sign-out-btn";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import ChangeLocale from "@components/change-locale";
+import { getScopedI18n } from "@/locales/server";
 
 export default async function Navbar() {
+  const t = await getScopedI18n("nav");
+
   // get current session of user if logged in
   const session = await getServerSession(options);
 
   const navLinks: NavLinks = [
     {
       href: "/",
-      label: "Inicio",
+      label: t("links.home"),
     },
     {
       href: "/projects",
-      label: "Proyectos",
+      label: t("links.projects"),
     },
     {
       href: "/blog",
-      label: "Blog",
+      label: t("links.blog"),
     },
   ];
 

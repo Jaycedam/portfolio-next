@@ -3,7 +3,6 @@ import { Badge } from "./ui/badge";
 import { getMDXByName } from "@/utils/fetch-mdx";
 import { notFound } from "next/navigation";
 import { RepoFolder } from "@/utils/types";
-import { getCurrentLocale } from "@/locales/server";
 
 export default async function MDXContent({
   name,
@@ -12,9 +11,7 @@ export default async function MDXContent({
   name: string;
   repoFolder: RepoFolder;
 }) {
-  const locale = getCurrentLocale();
-
-  const mdx = await getMDXByName(name, repoFolder, locale);
+  const mdx = await getMDXByName(name, repoFolder);
   if (!mdx) return notFound();
 
   const { meta, content } = mdx;

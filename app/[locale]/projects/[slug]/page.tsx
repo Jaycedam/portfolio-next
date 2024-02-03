@@ -25,7 +25,7 @@ export async function generateMetadata({
   params: { slug: string };
 }): Promise<Metadata> {
   const locale = getCurrentLocale();
-  const mdx = await getMDXByName(slug, "projects", locale);
+  const mdx = await getMDXByName(slug, "projects");
 
   return {
     title: mdx?.meta.title + " - Jordan Cortés",

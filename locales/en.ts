@@ -31,9 +31,8 @@ export default {
   about: {
     heading: "About me",
     paragraph:
-      "Hi! I'm Jordan Cortés, Software Dev. Currently I'm focused on learning the new Next.js features such as RSC, Server Actions, Intercepting Routes with Parallel Routes, etc. I'm also using this portfolio as a showcase for those features.",
-    paragraph2:
-      "Esta página está enfocada en mi carrera como programador, pero previamente, mantuve una carrera trabajando en Motion Graphics por más de 4 años. Para ver mis proyectos destacados en Motion Grapgics visitar",
+      "Hi! I'm Jordan Cortés, Software Dev. I'm currently focused on learning the new Next.js features such as RSC, Server Actions, Intercepting Routes with Parallel Routes, etc. I'm also using this portfolio as a showcase for those features.",
+    paragraph2: "lorem ipsum",
     tech: "Languages, libreries or frameworks that I've used the most",
     tech2: "Used with less frequently",
     btn: {
@@ -48,5 +47,18 @@ export default {
     btn: {
       send: "Send",
     },
+  },
+  nav: {
+    links: {
+      home: "Home",
+      projects: "Projects",
+      blog: "Blog",
+    },
+  },
+  themetoggle: {
+    label: "Theme",
+    dark: "Dark",
+    light: "Light",
+    system: "System",
   },
 } as const;

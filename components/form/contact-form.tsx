@@ -20,8 +20,11 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SpinnerSVG from "@components/svg/spinner-svg";
 import { EmailForm } from "@/utils/types";
 import { MailPlus } from "lucide-react";
+import { useScopedI18n } from "@/locales/client";
 
 export default function ContactForm() {
+  const t = useScopedI18n("contact");
+
   // form definition
   const form = useForm<EmailForm>({
     resolver: zodResolver(emailSchema),
@@ -51,7 +54,7 @@ export default function ContactForm() {
       <div className="container">
         <Card className="mx-auto max-w-4xl">
           <CardHeader>
-            <CardTitle>Contactar</CardTitle>
+            <CardTitle>{t("heading")}</CardTitle>
           </CardHeader>
 
           <CardContent>
@@ -66,7 +69,7 @@ export default function ContactForm() {
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Tu email</FormLabel>
+                        <FormLabel>{t("email")}</FormLabel>
                         <FormControl>
                           <Input placeholder="" {...field} />
                         </FormControl>
@@ -79,7 +82,7 @@ export default function ContactForm() {
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>Asunto</FormLabel>
+                        <FormLabel>{t("subject")}</FormLabel>
                         <FormControl>
                           <Input placeholder="" {...field} />
                         </FormControl>
@@ -94,7 +97,7 @@ export default function ContactForm() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>Mensaje</FormLabel>
+                      <FormLabel>{t("message")}</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder=""
@@ -116,7 +119,7 @@ export default function ContactForm() {
                     <SpinnerSVG size="6" />
                   ) : (
                     <>
-                      Enviar
+                      {t("btn.send")}
                       <MailPlus className="h-4" />
                     </>
                   )}

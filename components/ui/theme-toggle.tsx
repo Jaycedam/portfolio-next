@@ -1,8 +1,6 @@
 "use client";
 
-import * as React from "react";
 import { useTheme } from "next-themes";
-
 import { Button } from "@components/ui/button";
 import {
   DropdownMenu,
@@ -13,8 +11,10 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 import { MoonStar, Sun } from "lucide-react";
+import { useScopedI18n } from "@/locales/client";
 
 export function ThemeToggle() {
+  const t = useScopedI18n("themetoggle");
   const { setTheme } = useTheme();
 
   return (
@@ -34,26 +34,26 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>Tema</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("label")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("light")}
         >
-          Claro
+          {t("light")}
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("dark")}
         >
-          Oscuro
+          {t("dark")}
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("system")}
         >
-          Sistema
+          {t("system")}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

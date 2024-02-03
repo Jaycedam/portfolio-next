@@ -50,4 +50,17 @@ export default {
       send: "Enviar",
     },
   },
+  nav: {
+    links: {
+      home: "Inicio",
+      projects: "Proyectos",
+      blog: "Blog",
+    },
+  },
+  themetoggle: {
+    label: "Tema",
+    dark: "Oscuro",
+    light: "Claro",
+    system: "Sistema",
+  },
 } as const;
