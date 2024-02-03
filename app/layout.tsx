@@ -31,7 +31,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          <main className="space-y-16 py-8">
+          <main className="flex-grow space-y-16 py-8">
             {modal}
             {children}
           </main>
