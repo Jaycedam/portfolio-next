@@ -1,9 +1,8 @@
 import MDXContent from "@/components/mdx-content";
 import { Suspense } from "react";
 import SkeletonArticle from "@/components/skeleton/skeleton-article";
-import { getMDXByName, getMDXMeta } from "@/utils/fetch-mdx";
+import { getMDXByName } from "@/utils/fetch-mdx";
 import { Metadata } from "next/types";
-import { getCurrentLocale } from "@/locales/server";
 
 export default function ProjectMDX({
   params: { slug },
@@ -24,7 +23,6 @@ export async function generateMetadata({
 }: {
   params: { slug: string };
 }): Promise<Metadata> {
-  const locale = getCurrentLocale();
   const mdx = await getMDXByName(slug, "projects");
 
   return {
