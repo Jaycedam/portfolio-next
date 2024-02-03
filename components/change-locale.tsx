@@ -18,7 +18,9 @@ export default function ChangeLocale() {
   return (
     <DropdownMenu>
       <DropdownMenuTrigger asChild>
-        <Button variant="ghost">{locale}</Button>
+        <Button size="icon" variant="ghost">
+          {locale.toUpperCase()}
+        </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="max-h-[60vh] overflow-y-auto">
         <DropdownMenuLabel>Locale</DropdownMenuLabel>
