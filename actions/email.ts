@@ -28,20 +28,19 @@ export async function sendEmail(data: EmailForm) {
       });
 
       if (error) {
+        console.log("Error sending email : " + error.message);
         return {
           success: false,
-          message: "Error enviando email : " + error.message,
         };
       }
 
       return {
         success: true,
-        message: "Email enviado!",
       };
     } catch (e: any) {
+      console.log("Error sending email : " + e.message);
       return {
         success: false,
-        message: "Error enviando email. Intenta nuevamente... " + e.message,
       };
     }
   }

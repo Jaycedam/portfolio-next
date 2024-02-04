@@ -2,8 +2,11 @@ import LaptopSVG from "@components/svg/laptop-svg";
 import { buttonVariants } from "@components/ui/button";
 import { Code, MailPlus } from "lucide-react";
 import Link from "next/link";
+import { getScopedI18n } from "@/locales/server";
 
-export default function Hero() {
+export default async function Hero() {
+  const t = await getScopedI18n("hero");
+
   return (
     <section>
       <div className="container flex flex-col items-center justify-center gap-4 space-y-4 text-center">
@@ -18,9 +21,9 @@ export default function Hero() {
           </h1>
 
           <p className="text-lg text-muted-foreground">
-            Desarrollador de Software.
+            {t("subheading")}
             <br />
-            Actualmente enfocado en full stack Next.js (React) con Typescript.
+            {t("subheading2")}
           </p>
         </div>
 
@@ -29,14 +32,14 @@ export default function Hero() {
             className={buttonVariants({ variant: "default", size: "lg" })}
             href="/#projects"
           >
-            <Code className="h-5" /> &nbsp; Projectos
+            <Code className="h-5" /> &nbsp; {t("btn.projects")}
           </Link>
 
           <Link
             className={buttonVariants({ variant: "outline", size: "lg" })}
             href="/#contact"
           >
-            <MailPlus className="h-5" /> &nbsp; Contactar
+            <MailPlus className="h-5" /> &nbsp; {t("btn.contact")}
           </Link>
         </div>
       </div>

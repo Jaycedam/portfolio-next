@@ -1,12 +1,15 @@
-import { GithubTree, MDX, MDXMeta } from "@utils/types";
+import { MDX, MDXMeta } from "@utils/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { HeaderImage, LinkButton } from "@/components/mdx-components";
 import { RepoFolder } from "@utils/types";
+import { getCurrentLocale } from "@/locales/server";
 
 export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
   try {
+    const locale = getCurrentLocale();
+
     const res = await fetch(
-      `https://api.github.com/repos/Jaycedam/portfolio-mdx/git/trees/${process.env.GITHUB_MDX_BRANCH}?recursive=1`,
+      `https://api.github.com/repos/Jaycedam/portfolio-mdx/contents/${repoFolder}/${locale}?ref=${process.env.GITHUB_MDX_BRANCH}`,
       {
         headers: {
           Accept: "application/vnd.github+json",
@@ -22,16 +25,15 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
 
     if (!res.ok) return [];
 
-    const repoFileTree: GithubTree = await res.json();
-
-    const filesArray = repoFileTree.tree
-      .map((obj) => obj.path)
-      .filter((path) => path.endsWith(".mdx") && path.includes(repoFolder));
+    const files = await res.json();
 
     const mdxList: MDXMeta[] = [];
 
-    for (const file of filesArray) {
-      const mdx = await getMDXByName(file);
+    for (const file of files) {
+      // removes mdx from name
+      const name = file.name.replace(/\.mdx$/, "");
+
+      const mdx = await getMDXByName(name, repoFolder);
 
       if (mdx) {
         const { meta } = mdx;
@@ -49,17 +51,16 @@ export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
   }
 }
 
-/**
- *
- * @param file
- * When using to fetch mdx file with url params,
- * you need to transform the value with slugToPath from @utils/slug
- * @returns
- */
-export async function getMDXByName(file: string): Promise<MDX | undefined> {
+export async function getMDXByName(
+  name: string,
+  repoFolder: RepoFolder
+): Promise<MDX | undefined> {
   try {
+    const locale = getCurrentLocale();
+
     const res = await fetch(
-      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${file}`,
+      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${repoFolder}/${locale}/${name}.mdx`,
+
       {
         headers: {
           Accept: "application/vnd.github+json",
@@ -85,7 +86,8 @@ export async function getMDXByName(file: string): Promise<MDX | undefined> {
       },
     });
 
-    const id = file.replace(/\.mdx$/, "");
+    // removes everything from the path except name of the file
+    const id = name;
 
     const projectObj: MDX = {
       meta: {

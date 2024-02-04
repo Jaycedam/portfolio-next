@@ -1,6 +1,6 @@
 import DeleteCacheForm from "@/components/form/delete-cache-form";
 
-export default function AdminHome() {
+export default async function AdminHome() {
   return (
     <section>
       <div className="container space-y-4">
@@ -20,7 +20,7 @@ export default function AdminHome() {
       </div>
 
       {/* this is where the stats will be, when the vercel analytics API is available
-      https://github.com/vercel/analytics/issues/68 */}
+        https://github.com/vercel/analytics/issues/68 */}
     </section>
   );
 }

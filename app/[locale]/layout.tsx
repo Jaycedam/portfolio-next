@@ -16,26 +16,28 @@ export const metadata = {
 export default function RootLayout({
   children,
   modal,
+  params: { locale },
 }: {
   children: React.ReactNode;
   modal: React.ReactNode;
+  params: { locale: string };
 }) {
   return (
     // suppressHydrationWarning only applies one level deep, so it won't block hydration warnings on other elements,
     // it's necessary for the next-themes pckg since it updates that element
     <html
-      lang="es"
+      lang={locale}
       className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
       suppressHydrationWarning
     >
       <body>
-        <Providers>
+        <Providers locale={locale}>
           <Navbar />
-          <main className="space-y-16 py-8">
+          <main className="flex-grow space-y-16 py-8">
             {modal}
             {children}
           </main>
-          <Toaster richColors />
+          <Toaster position="top-center" richColors />
           <SpeedInsights />
           <Analytics />
           <Footer />

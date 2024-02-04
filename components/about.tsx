@@ -1,3 +1,4 @@
+import { getScopedI18n } from "@/locales/server";
 import { buttonVariants } from "@components/ui/button";
 
 const items1: string[] = [
@@ -36,36 +37,31 @@ function ItemBtn({ item }: { item: string }) {
   );
 }
 
-export default function About() {
+export default async function About() {
+  const t = await getScopedI18n("about");
+
   return (
     <section id="about">
       <div className="container mx-auto max-w-prose space-y-8">
         <div className="space-y-4">
           <div className="flex flex-wrap gap-4">
-            <h2 className="heading">Acerca de mí</h2>
+            <h2 className="heading">{t("heading")}</h2>
             <a
               href="/jordan-cortes-cv.pdf"
               target="_blank"
               className={buttonVariants({ variant: "default" })}
             >
-              Descargar CV
+              {t("btn.cv")}
             </a>
           </div>
         </div>
 
-        <p className="prose text-muted-foreground">
-          Hola! soy Jordan Cortés, Desarrollador de Software. Actualmente estoy
-          enfocado en aprender las nuevas tecnologías de Next.js y React como
-          server components, server actions, parallel routes, intercepting
-          routes, etc. Todo lo voy aplicando a esta página como demostración.
-        </p>
+        <p className="prose text-muted-foreground">{t("paragraph")}</p>
 
         {/* knoledge section  */}
         <div className="space-y-8">
           <div className="space-y-2">
-            <p className="font-bold">
-              Lenguajes, librerias o frameworks que más he utilizado
-            </p>
+            <p className="font-bold">{t("tech")}</p>
             <div className="flex flex-wrap gap-4">
               {items1.map((item, idx) => (
                 <ItemBtn key={idx} item={item} />
@@ -74,7 +70,7 @@ export default function About() {
           </div>
 
           <div className="space-y-2">
-            <p className="font-bold">Utilizado con menor frecuencia</p>
+            <p className="font-bold">{t("tech2")}</p>
             <div className="flex flex-wrap gap-4">
               {items2.map((item, idx) => (
                 <ItemBtn key={idx} item={item} />
@@ -86,10 +82,7 @@ export default function About() {
         <hr />
 
         <p className="prose font-light italic text-muted-foreground">
-          Esta página está enfocada en mi carrera como programador, pero
-          previamente, mantuve una carrera trabajando en Motion Graphics por más
-          de 4 años. Para ver mis proyectos destacados en Motion Grapgics
-          visitar &nbsp;
+          {t("paragraph2")} &nbsp;
           <a
             href="https://dribbble.com/Jaycedam"
             target="_blank"
