@@ -27,14 +27,13 @@ export default {
   carreer: {
     heading: "Carrera Profesional",
     subheading:
-      "Sólo es incluída mi carrera como Programador de Software, previamente trabaje en Motion Graphics por más de 4 años.",
+      "Sólo es incluída mi carrera como Programador de Software, previamente trabaje en motion graphics por más de 4 años.",
   },
   about: {
     heading: "Acerca De Mí",
     paragraph:
-      "Hola! soy Jordan Cortés, Desarrollador de Software. Actualmente estoy enfocado en aprender las nuevas tecnologías de Next.js y React como server components, server actions, parallel routes, intercepting routes, etc. Todo lo voy aplicando a esta página como demostración.",
-    paragraph2:
-      "Esta página está enfocada en mi carrera como programador, pero previamente, mantuve una carrera trabajando en Motion Graphics por más de 4 años. Para ver mis proyectos destacados en Motion Grapgics visitar",
+      "Hola! soy Jordan Cortés. Actualmente estoy enfocado en Next.js y sus nuevas tecnologías como server components, server actions, parallel routes, intercepting routes, etc. Esta página sirve como demostración de la implementación de esas tecnologías.",
+    paragraph2: "Para ver mis proyectos motion graphics, visitar:",
     tech: "Lenguajes, librerias o frameworks que más he utilizado",
     tech2: "Utilizado con menor frecuencia",
     btn: {
@@ -48,6 +47,10 @@ export default {
     message: "Mensaje",
     btn: {
       send: "Enviar",
+    },
+    toast: {
+      success: "Email enviado.",
+      error: "Algo ha salido mal, por favor intenta nuevamente.",
     },
   },
   nav: {
