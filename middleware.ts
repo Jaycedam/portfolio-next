@@ -1,7 +1,3 @@
-// export { default } from "next-auth/middleware";
-// export const config = { matcher: ["/admin/:path*"] };
-
-// middleware.ts
 import { createI18nMiddleware } from "next-international/middleware";
 import { NextRequest } from "next/server";
 

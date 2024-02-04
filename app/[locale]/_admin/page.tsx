@@ -1,6 +1,6 @@
 import DeleteCacheForm from "@/components/form/delete-cache-form";
 
-export default function AdminHome() {
+export default async function AdminHome() {
   return (
     <section>
       <div className="container space-y-4">
