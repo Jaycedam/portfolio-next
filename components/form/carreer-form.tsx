@@ -46,8 +46,10 @@ export default function CarreerForm({
     resolver: zodResolver(carreerSchema),
     defaultValues: {
       id: carreer?.id,
-      name: carreer?.name || "",
-      about: carreer?.about || "",
+      name_es: carreer?.name_es || "",
+      name_en: carreer?.name_en || "",
+      about_es: carreer?.about_es || "",
+      about_en: carreer?.about_en || "",
       company: carreer?.company || "",
       date: carreer?.date || "",
       typeId: Number(carreer?.typeId) || undefined,
@@ -74,7 +76,7 @@ export default function CarreerForm({
 
   return (
     <Form {...form}>
-      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
+      <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-8">
         <h1 className="text-lg font-bold">{formTitle}</h1>
 
         <FormField
@@ -92,10 +94,23 @@ export default function CarreerForm({
 
         <FormField
           control={form.control}
-          name="name"
+          name="name_es"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name</FormLabel>
+              <FormLabel>Name (ES)</FormLabel>
+              <FormControl>
+                <Input placeholder="" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="name_en"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name (EN)</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} />
               </FormControl>
@@ -134,10 +149,27 @@ export default function CarreerForm({
 
         <FormField
           control={form.control}
-          name="about"
+          name="about_es"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>About</FormLabel>
+              <FormLabel>About (ES)</FormLabel>
+              <FormControl>
+                <Textarea
+                  placeholder="A short description."
+                  className="resize-none"
+                  {...field}
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <FormField
+          control={form.control}
+          name="about_en"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>About (EN)</FormLabel>
               <FormControl>
                 <Textarea
                   placeholder="A short description."
@@ -170,7 +202,7 @@ export default function CarreerForm({
                 <SelectContent>
                   {typeCbo.map((item, index) => (
                     <SelectItem key={index} value={item.id.toString()}>
-                      {item.name}
+                      {item.name_en}
                     </SelectItem>
                   ))}
                 </SelectContent>

@@ -6,16 +6,19 @@ import { z } from "zod";
 
 export const carreerSchema = z.object({
   id: z.coerce.number().int().optional(),
-  name: z.string(),
+  name_es: z.string(),
+  name_en: z.string(),
   company: z.string(),
-  about: z.string(),
+  about_es: z.string(),
+  about_en: z.string(),
   date: z.string(),
   typeId: z.coerce.number().int(),
 });
 
 export const carreerTypeSchema = z.object({
   id: z.coerce.number().int().optional(),
-  name: z.string().min(3),
+  name_es: z.string().min(3),
+  name_en: z.string().min(3),
 });
 
 export const userSchema = z.object({

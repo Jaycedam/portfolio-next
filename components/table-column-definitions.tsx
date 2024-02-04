@@ -16,14 +16,28 @@ export const typeColumns: ColumnDef<Type>[] = [
     header: "ID",
   },
   {
-    accessorKey: "name",
+    accessorKey: "name_es",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Name
+          Name (ES)
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "name_en",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Name (EN)
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -57,14 +71,28 @@ export const carreerColumns: ColumnDef<Carreer>[] = [
     header: "ID",
   },
   {
-    accessorKey: "name",
+    accessorKey: "name_es",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Name
+          Name (ES)
+          <ArrowUpDown className="ml-2 h-4 w-4" />
+        </Button>
+      );
+    },
+  },
+  {
+    accessorKey: "name_en",
+    header: ({ column }) => {
+      return (
+        <Button
+          variant="ghost"
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+        >
+          Name (EN)
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
@@ -75,8 +103,12 @@ export const carreerColumns: ColumnDef<Carreer>[] = [
     header: "Company",
   },
   {
-    accessorKey: "about",
-    header: "About",
+    accessorKey: "about_es",
+    header: "About (ES)",
+  },
+  {
+    accessorKey: "about_en",
+    header: "About (EN)",
   },
   {
     accessorKey: "date",

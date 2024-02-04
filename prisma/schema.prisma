@@ -10,18 +10,21 @@ datasource db {
 
 model Type {
   id      Int       @id @default(autoincrement())
-  name    String    @db.VarChar(50)
+  name_es String    @db.VarChar(50)
+  name_en String?    @db.VarChar(50)
   carreer Carreer[]
 }
 
 model Carreer {
-  id      Int       @id @default(autoincrement())
-  name    String    @db.VarChar(50)
-  company String    @db.VarChar(50)
-  about   String    @db.VarChar(250)
-  date    String?   @db.VarChar(50)
-  typeId  Int
-  type    Type      @relation(fields: [typeId], references: [id])
+  id       Int     @id @default(autoincrement())
+  name_es  String  @db.VarChar(50)
+  name_en  String?  @db.VarChar(50)
+  company  String  @db.VarChar(50)
+  about_es String  @db.VarChar(250)
+  about_en String?  @db.VarChar(250)
+  typeId   Int
+  date     String? @db.VarChar(50)
+  type     Type    @relation(fields: [typeId], references: [id])
 
   @@index([typeId])
 }

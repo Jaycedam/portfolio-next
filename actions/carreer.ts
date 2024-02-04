@@ -30,7 +30,7 @@ export const createCarreer = async (data: CarreerForm) => {
     revalidate();
     return {
       success: true,
-      message: `${result.name} created successfully.`,
+      message: `${result.name_en} created successfully.`,
     };
   } catch (e: any) {
     return {
@@ -60,7 +60,7 @@ export const updateCarreer = async (data: CarreerForm) => {
     revalidate();
     return {
       success: true,
-      message: `${result.name} updated successfully.`,
+      message: `${result.name_en} updated successfully.`,
     };
   } catch (e: any) {
     return {
@@ -81,7 +81,7 @@ export const deleteCarreer = async (formData: FormData) => {
     revalidate();
     return {
       success: true,
-      message: `${result.name} successfully deleted.`,
+      message: `${result.name_en} successfully deleted.`,
     };
   } catch (e: any) {
     return {
