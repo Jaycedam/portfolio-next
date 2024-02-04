@@ -67,7 +67,7 @@ export const updateCarreerType = async (data: CarreerTypeForm) => {
   } catch (e: any) {
     return {
       success: false,
-      error: "Error: " + e.message,
+      message: "Error: " + e.message,
     };
   }
 };

@@ -17,6 +17,7 @@ export const createCarreer = async (data: CarreerForm) => {
   const parsedData = carreerSchema.safeParse(data);
 
   if (!parsedData.success) {
+    console.log("Error parsing.");
     return {
       success: false,
       message: "Carreer could not be created. Try again.",
@@ -33,6 +34,7 @@ export const createCarreer = async (data: CarreerForm) => {
       message: `${result.name_en} created successfully.`,
     };
   } catch (e: any) {
+    console.log("Error: " + e.message);
     return {
       success: false,
       message: "Error: " + " " + e.message,
@@ -44,6 +46,7 @@ export const updateCarreer = async (data: CarreerForm) => {
   const parsedData = carreerSchema.safeParse(data);
 
   if (!parsedData.success) {
+    console.log("Error parsing");
     return {
       success: false,
       message: "Carreer could not be updated. Please try again.",
@@ -63,9 +66,10 @@ export const updateCarreer = async (data: CarreerForm) => {
       message: `${result.name_en} updated successfully.`,
     };
   } catch (e: any) {
+    console.log("Error: " + e.message);
     return {
       success: false,
-      error: "Error: " + " " + e.message,
+      message: "Error: " + " " + e.message,
     };
   }
 };
@@ -84,6 +88,7 @@ export const deleteCarreer = async (formData: FormData) => {
       message: `${result.name_en} successfully deleted.`,
     };
   } catch (e: any) {
+    console.log("Error: " + e.message);
     return {
       success: false,
       message: "Error: " + e.message,
