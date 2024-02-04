@@ -88,13 +88,13 @@ export default async function BlogPosts({
         {homepage && (
           <div className="flex justify-end">
             <Link
-              className={buttonVariants({
+              className={`group ${buttonVariants({
                 variant: "outline",
-              })}
+              })}`}
               href="/blog"
             >
               {t("btn.more")}
-              <ChevronRight className="h-4" />
+              <ChevronRight className="h-4 w-0 transition-all group-hover:w-4" />
             </Link>
           </div>
         )}

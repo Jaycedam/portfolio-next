@@ -19,7 +19,6 @@ import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SpinnerSVG from "@components/svg/spinner-svg";
 import { EmailForm } from "@/utils/types";
-import { MailPlus } from "lucide-react";
 import { useScopedI18n } from "@/locales/client";
 
 export default function ContactForm() {
@@ -118,10 +117,7 @@ export default function ContactForm() {
                   {form.formState.isSubmitting ? (
                     <SpinnerSVG size="6" />
                   ) : (
-                    <>
-                      {t("btn.send")}
-                      <MailPlus className="h-4" />
-                    </>
+                    <>{t("btn.send")}</>
                   )}
                 </Button>
               </form>
