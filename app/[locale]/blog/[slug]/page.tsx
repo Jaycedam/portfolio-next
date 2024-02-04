@@ -1,7 +1,7 @@
 import MDXContent from "@/components/mdx-content";
 import { Suspense } from "react";
 import SkeletonArticle from "@/components/skeleton/skeleton-article";
-import { getMDXByName, getMDXMeta } from "@/utils/fetch-mdx";
+import { getMDXByName } from "@/utils/fetch-mdx";
 import { Metadata } from "next/types";
 
 export default function BlogMDX({
