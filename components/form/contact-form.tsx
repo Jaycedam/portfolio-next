@@ -42,10 +42,10 @@ export default function ContactForm() {
 
     // show toast of server returned result, reset form if successful
     if (result?.success) {
-      toast.success(result.message);
+      toast.success(t("toast.success"));
       form.reset();
     } else if (!result?.success) {
-      toast.error(result?.message);
+      toast.error(t("toast.error"));
     }
   };
 
