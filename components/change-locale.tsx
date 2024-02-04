@@ -1,6 +1,10 @@
 "use client";
 
-import { useChangeLocale, useCurrentLocale } from "@/locales/client";
+import {
+  useChangeLocale,
+  useCurrentLocale,
+  useScopedI18n,
+} from "@/locales/client";
 import {
   DropdownMenu,
   DropdownMenuTrigger,
@@ -12,6 +16,7 @@ import {
 import { Button } from "@components/ui/button";
 
 export default function ChangeLocale() {
+  const t = useScopedI18n("localetoggle");
   const changeLocale = useChangeLocale();
   const locale = useCurrentLocale();
 
@@ -23,7 +28,7 @@ export default function ChangeLocale() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent className="max-h-[60vh] overflow-y-auto">
-        <DropdownMenuLabel>Locale</DropdownMenuLabel>
+        <DropdownMenuLabel>{t("label")}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuItem

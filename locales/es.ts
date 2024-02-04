@@ -63,4 +63,7 @@ export default {
     light: "Claro",
     system: "Sistema",
   },
+  localetoggle: {
+    label: "Cambiar idioma",
+  },
 } as const;

@@ -61,4 +61,7 @@ export default {
     light: "Light",
     system: "System",
   },
+  localetoggle: {
+    label: "Change language",
+  },
 } as const;
