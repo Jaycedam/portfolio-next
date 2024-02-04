@@ -37,7 +37,7 @@ export default function RootLayout({
             {modal}
             {children}
           </main>
-          <Toaster richColors />
+          <Toaster position="top-center" richColors />
           <SpeedInsights />
           <Analytics />
           <Footer />
