@@ -20,7 +20,7 @@ export default async function AdminHome() {
       </div>
 
       {/* this is where the stats will be, when the vercel analytics API is available
-      https://github.com/vercel/analytics/issues/68 */}
+        https://github.com/vercel/analytics/issues/68 */}
     </section>
   );
 }
