@@ -31,7 +31,7 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Providers locale={locale}>
+        <Providers>
           <Navbar />
           <main className="flex-grow space-y-16 py-8">
             {modal}

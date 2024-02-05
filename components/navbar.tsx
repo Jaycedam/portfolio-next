@@ -61,7 +61,7 @@ export default async function Navbar() {
       <nav className="hidden md:block">
         <ul className="flex gap-2">
           <li>
-            <ChangeLocale />
+            <ChangeLocale label={t("localetoggle.label")} />
           </li>
           {session && (
             <li>
@@ -70,7 +70,12 @@ export default async function Navbar() {
           )}
 
           <li>
-            <ThemeToggle />
+            <ThemeToggle
+              label={t("themetoggle.label")}
+              dark={t("themetoggle.dark")}
+              light={t("themetoggle.light")}
+              system={t("themetoggle.system")}
+            />
           </li>
           <li>
             <Link
@@ -121,7 +126,12 @@ export default async function Navbar() {
               )}
 
               <li>
-                <ThemeToggle />
+                <ThemeToggle
+                  label={t("themetoggle.label")}
+                  dark={t("themetoggle.dark")}
+                  light={t("themetoggle.light")}
+                  system={t("themetoggle.system")}
+                />
               </li>
               <li>
                 <SheetClose asChild>

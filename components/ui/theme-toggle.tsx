@@ -11,10 +11,18 @@ import {
   DropdownMenuTrigger,
 } from "@components/ui/dropdown-menu";
 import { MoonStar, Sun } from "lucide-react";
-import { useScopedI18n } from "@/locales/client";
 
-export function ThemeToggle() {
-  const t = useScopedI18n("themetoggle");
+export function ThemeToggle({
+  label,
+  dark,
+  light,
+  system,
+}: {
+  label: string;
+  dark: string;
+  light: string;
+  system: string;
+}) {
   const { setTheme } = useTheme();
 
   return (
@@ -34,26 +42,26 @@ export function ThemeToggle() {
         </Button>
       </DropdownMenuTrigger>
       <DropdownMenuContent>
-        <DropdownMenuLabel>{t("label")}</DropdownMenuLabel>
+        <DropdownMenuLabel>{label}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("light")}
         >
-          {t("light")}
+          {light}
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("dark")}
         >
-          {t("dark")}
+          {dark}
         </DropdownMenuItem>
         <DropdownMenuItem
           className="cursor-pointer"
           onClick={() => setTheme("system")}
         >
-          {t("system")}
+          {system}
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

@@ -58,14 +58,14 @@ export default {
       projects: "Projects",
       blog: "Blog",
     },
-  },
-  themetoggle: {
-    label: "Theme",
-    dark: "Dark",
-    light: "Light",
-    system: "System",
-  },
-  localetoggle: {
-    label: "Change language",
+    themetoggle: {
+      label: "Theme",
+      dark: "Dark",
+      light: "Light",
+      system: "System",
+    },
+    localetoggle: {
+      label: "Change language",
+    },
   },
 } as const;
