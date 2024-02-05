@@ -6,6 +6,7 @@ import { Button, buttonVariants } from "./ui/button";
 import Link from "next/link";
 import DeleteFormButton from "./delete-form-button";
 import { Carreer, Type } from "@prisma/client";
+import { DataTableColumnHeader } from "@components/ui/datatable-column-header";
 
 // todo: refactor actions from each column def
 // todo: refactor sorting function
@@ -13,35 +14,21 @@ import { Carreer, Type } from "@prisma/client";
 export const typeColumns: ColumnDef<Type>[] = [
   {
     accessorKey: "id",
-    header: "ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="ID" />
+    ),
   },
   {
     accessorKey: "name_es",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name (ES)
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name (ES)" />
+    ),
   },
   {
     accessorKey: "name_en",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name (EN)
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name (EN)" />
+    ),
   },
   {
     id: "actions",
@@ -68,55 +55,51 @@ export const typeColumns: ColumnDef<Type>[] = [
 export const carreerColumns: ColumnDef<Carreer>[] = [
   {
     accessorKey: "id",
-    header: "ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="ID" />
+    ),
   },
   {
     accessorKey: "name_es",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name (ES)
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name (ES)" />
+    ),
   },
   {
     accessorKey: "name_en",
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-        >
-          Name (EN)
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Name (EN)" />
+    ),
   },
   {
     accessorKey: "company",
-    header: "Company",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Company" />
+    ),
   },
   {
     accessorKey: "about_es",
-    header: "About (ES)",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="About (ES)" />
+    ),
   },
   {
     accessorKey: "about_en",
-    header: "About (EN)",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="About (EN)" />
+    ),
   },
   {
     accessorKey: "date",
-    header: "Date",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Date" />
+    ),
   },
   {
     accessorKey: "typeId",
-    header: "Type ID",
+    header: ({ column }) => (
+      <DataTableColumnHeader column={column} title="Type ID" />
+    ),
   },
   {
     id: "actions",

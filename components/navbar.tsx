@@ -1,4 +1,4 @@
-import { ThemeToggle } from "@components/ui/theme-toggle";
+import { ThemeToggle } from "@/components/theme-toggle";
 import { buttonVariants } from "@components/ui/button";
 import NavLink from "@components/nav-link";
 import LogoSVG from "@components/svg/logo-svg";
