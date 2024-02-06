@@ -85,7 +85,7 @@ export async function getMDXByName(
       options: {
         parseFrontmatter: true,
         mdxOptions: {
-          // @ts-expect-error
+          // @ts-ignore
           rehypePlugins: [rehypeHighlight],
         },
       },
