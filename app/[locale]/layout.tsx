@@ -5,7 +5,6 @@ import { Providers } from "@components/providers";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { Analytics } from "@vercel/analytics/react";
 import { Toaster } from "@components/ui/sonner";
 
 export const metadata = {
@@ -39,7 +38,6 @@ export default function RootLayout({
           </main>
           <Toaster position="top-center" richColors />
           <SpeedInsights />
-          <Analytics />
           <Footer />
         </Providers>
       </body>
