@@ -3,6 +3,7 @@ import { compileMDX } from "next-mdx-remote/rsc";
 import { HeaderImage, LinkButton } from "@/components/mdx-components";
 import { RepoFolder } from "@utils/types";
 import { getCurrentLocale } from "@/locales/server";
+import rehypeHighlight from "rehype-highlight";
 
 export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
   try {
@@ -83,6 +84,10 @@ export async function getMDXByName(
       components: { HeaderImage, LinkButton },
       options: {
         parseFrontmatter: true,
+        mdxOptions: {
+          // @ts-expect-error
+          rehypePlugins: [rehypeHighlight],
+        },
       },
     });
 

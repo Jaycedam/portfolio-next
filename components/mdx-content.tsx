@@ -3,6 +3,7 @@ import { Badge } from "./ui/badge";
 import { getMDXByName } from "@/utils/fetch-mdx";
 import { notFound } from "next/navigation";
 import { RepoFolder } from "@/utils/types";
+import "@app/code-highlight.css";
 
 export default async function MDXContent({
   name,
@@ -46,7 +47,7 @@ export default async function MDXContent({
         />
       </div>
 
-      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary prose-code:font-mono dark:prose-pre:bg-muted">
+      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary">
         {content}
       </article>
     </div>

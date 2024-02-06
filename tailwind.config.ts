@@ -14,6 +14,18 @@ const config: Config = {
       padding: "1rem",
     },
     extend: {
+      // disables default styling for code blocks
+      typography: {
+        DEFAULT: {
+          css: {
+            pre: false,
+            code: false,
+            "pre code": false,
+            "code::before": false,
+            "code::after": false,
+          },
+        },
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
