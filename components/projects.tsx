@@ -5,7 +5,7 @@ import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
 import FilterByParam from "./filter-by-param";
-import { getScopedI18n } from "@/locales/server";
+import es from "@/locales/es";
 
 export default async function Projects({
   homepage = false,
@@ -14,7 +14,7 @@ export default async function Projects({
   homepage?: boolean;
   tags?: string | string[];
 }) {
-  const t = await getScopedI18n("projects");
+  const t = es.projects;
 
   /**
    * This variable is for storing the filtered data,
@@ -24,7 +24,13 @@ export default async function Projects({
 
   // fetch data from the github api
   const data = await getMDXMeta("projects");
-  if (!data) return;
+
+  if (!data || data.length < 1)
+    return (
+      <p className="py-4 text-center font-light italic">
+        No projects available...
+      </p>
+    );
 
   // sets an array from all the tags from the original data variable
   const metaTags = Array.from(new Set(data.flatMap((item) => item.tags))).map(
@@ -51,14 +57,14 @@ export default async function Projects({
         <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
           <div className="space-y-1">
             <h1 className="heading">
-              {t("heading")}{" "}
+              {t.heading}{" "}
               {tags && (
                 <span className="text-xl font-normal text-muted-foreground">
                   {tags}
                 </span>
               )}
             </h1>
-            <p className="subheading">{t("subheading")}</p>
+            <p className="subheading">{t.subheading}</p>
           </div>
 
           <div className="flex gap-2">
@@ -72,7 +78,7 @@ export default async function Projects({
             )}
             {!homepage && (
               <FilterByParam
-                label={t("btn.filter")}
+                label={t.btn.filter}
                 repoFolder="projects"
                 tags={metaTags}
               />
@@ -98,7 +104,7 @@ export default async function Projects({
               })}`}
               href="/projects"
             >
-              {t("btn.more")}
+              {t.btn.more}
               <ChevronRight className="h-4 w-0 transition-all group-hover:w-4" />
             </Link>
           </div>

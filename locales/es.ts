@@ -54,19 +54,17 @@ export default {
     },
   },
   nav: {
-    links: {
-      home: "Inicio",
-      projects: "Proyectos",
-      blog: "Blog",
-    },
-    themetoggle: {
-      label: "Tema",
-      dark: "Oscuro",
-      light: "Claro",
-      system: "Sistema",
-    },
-    localetoggle: {
-      label: "Cambiar idioma",
-    },
+    home: "Inicio",
+    projects: "Proyectos",
+    blog: "Blog",
+  },
+  themetoggle: {
+    label: "Tema",
+    dark: "Oscuro",
+    light: "Claro",
+    system: "Sistema",
+  },
+  localetoggle: {
+    label: "Cambiar idioma",
   },
 } as const;

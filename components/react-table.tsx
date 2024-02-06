@@ -68,10 +68,10 @@ export default function DataTable<TData, TValue>({
       <div className="flex items-center py-4">
         {/* search by name  */}
         <Input
-          placeholder="Search by name (EN)"
-          value={(table.getColumn("name_en")?.getFilterValue() as string) ?? ""}
+          placeholder="Search by name"
+          value={(table.getColumn("name")?.getFilterValue() as string) ?? ""}
           onChange={(event) =>
-            table.getColumn("name_en")?.setFilterValue(event.target.value)
+            table.getColumn("name")?.setFilterValue(event.target.value)
           }
           className="max-w-sm"
         />

@@ -2,15 +2,12 @@ import { MDX, MDXMeta } from "@utils/types";
 import { compileMDX } from "next-mdx-remote/rsc";
 import { HeaderImage, LinkButton } from "@/components/mdx-components";
 import { RepoFolder } from "@utils/types";
-import { getCurrentLocale } from "@/locales/server";
 import rehypeHighlight from "rehype-highlight";
 
 export async function getMDXMeta(repoFolder: RepoFolder): Promise<MDXMeta[]> {
   try {
-    const locale = getCurrentLocale();
-
     const res = await fetch(
-      `https://api.github.com/repos/Jaycedam/portfolio-mdx/contents/${repoFolder}/${locale}?ref=${process.env.GITHUB_MDX_BRANCH}`,
+      `https://api.github.com/repos/Jaycedam/portfolio-mdx/contents/${repoFolder}/?ref=${process.env.GITHUB_MDX_BRANCH}`,
       {
         headers: {
           Accept: "application/vnd.github+json",
@@ -57,11 +54,8 @@ export async function getMDXByName(
   repoFolder: RepoFolder
 ): Promise<MDX | undefined> {
   try {
-    const locale = getCurrentLocale();
-
     const res = await fetch(
-      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${repoFolder}/${locale}/${name}.mdx`,
-
+      `https://raw.githubusercontent.com/Jaycedam/portfolio-mdx/${process.env.GITHUB_MDX_BRANCH}/${repoFolder}/${name}.mdx`,
       {
         headers: {
           Accept: "application/vnd.github+json",

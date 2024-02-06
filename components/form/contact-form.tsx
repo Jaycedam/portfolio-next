@@ -19,24 +19,11 @@ import { Textarea } from "../ui/textarea";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import SpinnerSVG from "@components/svg/spinner-svg";
 import { EmailForm } from "@/utils/types";
+import es from "@/locales/es";
 
-export default function ContactForm({
-  title,
-  email,
-  subject,
-  message,
-  send,
-  error,
-  success,
-}: {
-  title: string;
-  email: string;
-  subject: string;
-  message: string;
-  send: string;
-  error: string;
-  success: string;
-}) {
+export default function ContactForm() {
+  const t = es.contact;
+
   // form definition
   const form = useForm<EmailForm>({
     resolver: zodResolver(emailSchema),
@@ -54,10 +41,10 @@ export default function ContactForm({
 
     // show toast of server returned result, reset form if successful
     if (result?.success) {
-      toast.success(success);
+      toast.success(result?.message);
       form.reset();
     } else if (!result?.success) {
-      toast.error(error);
+      toast.error(result?.message);
     }
   };
 
@@ -66,7 +53,7 @@ export default function ContactForm({
       <div className="container">
         <Card className="mx-auto max-w-4xl">
           <CardHeader>
-            <CardTitle>{title}</CardTitle>
+            <CardTitle>{t.heading}</CardTitle>
           </CardHeader>
 
           <CardContent>
@@ -81,7 +68,7 @@ export default function ContactForm({
                     name="email"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{email}</FormLabel>
+                        <FormLabel>{t.email}</FormLabel>
                         <FormControl>
                           <Input placeholder="" {...field} />
                         </FormControl>
@@ -94,7 +81,7 @@ export default function ContactForm({
                     name="subject"
                     render={({ field }) => (
                       <FormItem>
-                        <FormLabel>{subject}</FormLabel>
+                        <FormLabel>{t.subject}</FormLabel>
                         <FormControl>
                           <Input placeholder="" {...field} />
                         </FormControl>
@@ -109,7 +96,7 @@ export default function ContactForm({
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel>{message}</FormLabel>
+                      <FormLabel>{t.message}</FormLabel>
                       <FormControl>
                         <Textarea
                           placeholder=""
@@ -130,7 +117,7 @@ export default function ContactForm({
                   {form.formState.isSubmitting ? (
                     <SpinnerSVG size="6" />
                   ) : (
-                    <>{send}</>
+                    <>{t.btn.send}</>
                   )}
                 </Button>
               </form>

@@ -36,8 +36,7 @@ export default function CarreerTypeForm({
     resolver: zodResolver(carreerTypeSchema),
     defaultValues: {
       id: carreerType?.id,
-      name_es: carreerType?.name_es || "",
-      name_en: carreerType?.name_en || "",
+      name: carreerType?.name || "",
     },
   });
 
@@ -78,23 +77,10 @@ export default function CarreerTypeForm({
 
         <FormField
           control={form.control}
-          name="name_en"
+          name="name"
           render={({ field }) => (
             <FormItem>
               <FormLabel>Name (EN)</FormLabel>
-              <FormControl>
-                <Input placeholder="" {...field} />
-              </FormControl>
-              <FormMessage />
-            </FormItem>
-          )}
-        />
-        <FormField
-          control={form.control}
-          name="name_es"
-          render={({ field }) => (
-            <FormItem>
-              <FormLabel>Name (ES)</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} />
               </FormControl>

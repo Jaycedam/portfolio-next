@@ -1,8 +1,8 @@
 "use client";
 
 import { ColumnDef } from "@tanstack/react-table";
-import { ArrowUpDown, Edit } from "lucide-react";
-import { Button, buttonVariants } from "./ui/button";
+import { Edit } from "lucide-react";
+import { buttonVariants } from "./ui/button";
 import Link from "next/link";
 import DeleteFormButton from "./delete-form-button";
 import { Carreer, Type } from "@prisma/client";
@@ -19,15 +19,9 @@ export const typeColumns: ColumnDef<Type>[] = [
     ),
   },
   {
-    accessorKey: "name_es",
+    accessorKey: "name",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Name (ES)" />
-    ),
-  },
-  {
-    accessorKey: "name_en",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Name (EN)" />
+      <DataTableColumnHeader column={column} title="Name" />
     ),
   },
   {
@@ -60,15 +54,9 @@ export const carreerColumns: ColumnDef<Carreer>[] = [
     ),
   },
   {
-    accessorKey: "name_es",
+    accessorKey: "name",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Name (ES)" />
-    ),
-  },
-  {
-    accessorKey: "name_en",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="Name (EN)" />
+      <DataTableColumnHeader column={column} title="Name" />
     ),
   },
   {
@@ -78,15 +66,9 @@ export const carreerColumns: ColumnDef<Carreer>[] = [
     ),
   },
   {
-    accessorKey: "about_es",
+    accessorKey: "about",
     header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="About (ES)" />
-    ),
-  },
-  {
-    accessorKey: "about_en",
-    header: ({ column }) => (
-      <DataTableColumnHeader column={column} title="About (EN)" />
+      <DataTableColumnHeader column={column} title="About" />
     ),
   },
   {

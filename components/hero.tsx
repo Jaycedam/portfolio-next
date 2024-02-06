@@ -2,10 +2,10 @@ import LaptopSVG from "@components/svg/laptop-svg";
 import { buttonVariants } from "@components/ui/button";
 import { Code, MailPlus } from "lucide-react";
 import Link from "next/link";
-import { getScopedI18n } from "@/locales/server";
+import es from "@/locales/es";
 
 export default async function Hero() {
-  const t = await getScopedI18n("hero");
+  const t = es.hero;
 
   return (
     <section>
@@ -21,9 +21,9 @@ export default async function Hero() {
           </h1>
 
           <p className="text-lg text-muted-foreground">
-            {t("subheading")}
+            {t.subheading}
             <br />
-            {t("subheading2")}
+            {t.subheading2}
           </p>
         </div>
 
@@ -32,14 +32,14 @@ export default async function Hero() {
             className={buttonVariants({ variant: "default", size: "lg" })}
             href="/#projects"
           >
-            <Code className="h-5" /> &nbsp; {t("btn.projects")}
+            <Code className="h-5" /> &nbsp; {t.btn.projects}
           </Link>
 
           <Link
             className={buttonVariants({ variant: "outline", size: "lg" })}
             href="/#contact"
           >
-            <MailPlus className="h-5" /> &nbsp; {t("btn.contact")}
+            <MailPlus className="h-5" /> &nbsp; {t.btn.contact}
           </Link>
         </div>
       </div>

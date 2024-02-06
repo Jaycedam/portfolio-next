@@ -6,7 +6,7 @@ import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
 import { badgeVariants } from "@components/ui/badge";
 import FilterByParam from "@components/filter-by-param";
-import { getScopedI18n } from "@/locales/server";
+import es from "@/locales/es";
 
 export default async function BlogPosts({
   homepage = false,
@@ -15,7 +15,7 @@ export default async function BlogPosts({
   homepage?: boolean;
   tags?: string | string[];
 }) {
-  const t = await getScopedI18n("blog");
+  const t = es.blog;
   /**
    * This variable is for storing the filtered data,
    * since we need the original data array for the full tag list for filtering.
@@ -24,7 +24,14 @@ export default async function BlogPosts({
 
   // fetch data from the github api
   const data = await getMDXMeta("blog");
-  if (!data) return;
+  if (!data || data.length < 1)
+    return (
+      <p className="py-4 text-center font-light italic">
+        No blog posts available...
+      </p>
+    );
+
+  console.log(data);
   // sets an array from all the tags from the original data variable
   const metaTags = Array.from(new Set(data.flatMap((item) => item.tags))).map(
     (tag) => ({ tag })
@@ -49,7 +56,7 @@ export default async function BlogPosts({
       <div className="container space-y-4">
         <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
           <h1 className="heading">
-            {t("heading")}{" "}
+            {t.heading}{" "}
             {tags && (
               <span className="text-xl font-normal text-muted-foreground">
                 {tags}
@@ -67,7 +74,7 @@ export default async function BlogPosts({
             )}
             {!homepage && (
               <FilterByParam
-                label={t("btn.filter")}
+                label={t.btn.filter}
                 repoFolder="blog"
                 tags={metaTags}
               />
@@ -93,7 +100,7 @@ export default async function BlogPosts({
               })}`}
               href="/blog"
             >
-              {t("btn.more")}
+              {t.btn.more}
               <ChevronRight className="h-4 w-0 transition-all group-hover:w-4" />
             </Link>
           </div>

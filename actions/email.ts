@@ -31,16 +31,19 @@ export async function sendEmail(data: EmailForm) {
         console.log("Error sending email : " + error.message);
         return {
           success: false,
+          message: "Error enviando email, por favor intenta nuevamente.",
         };
       }
 
       return {
         success: true,
+        message: "Email enviado exitosamente!",
       };
     } catch (e: any) {
       console.log("Error sending email : " + e.message);
       return {
         success: false,
+        message: "Error enviando email, por favor intenta nuevamente.",
       };
     }
   }

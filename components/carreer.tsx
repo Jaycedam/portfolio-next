@@ -1,11 +1,10 @@
 import { getCarreers } from "@utils/get-data";
 import { Badge } from "@/components/ui/badge";
-import { getCurrentLocale, getScopedI18n } from "@/locales/server";
 import { Carreer } from "@prisma/client";
+import es from "@/locales/es";
 
 export default async function Carreer() {
-  const t = await getScopedI18n("carreer");
-  const locale = getCurrentLocale();
+  const t = es.carreer;
   let data = await getCarreers();
 
   return (
@@ -15,8 +14,8 @@ export default async function Carreer() {
     >
       <div className="container space-y-8">
         <div className="space-y-2 text-center">
-          <h1 className="heading">{t("heading")}</h1>
-          <p className="subheading mx-auto max-w-prose">{t("subheading")}</p>
+          <h1 className="heading">{t.heading}</h1>
+          <p className="subheading mx-auto max-w-prose">{t.subheading}</p>
         </div>
 
         <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">
@@ -33,17 +32,14 @@ export default async function Carreer() {
 
               <div className="inline-flex items-center gap-2">
                 <h2 className="motion-safe:fade-left flex items-center text-lg font-semibold text-foreground">
-                  {locale === "es" ? item.name_es : item.name_en} -{" "}
-                  {item.company}
+                  {item.name} - {item.company}
                 </h2>
 
-                <Badge className="motion-safe:scale-up">
-                  {locale === "es" ? item.type.name_es : item.type.name_en}
-                </Badge>
+                <Badge className="motion-safe:scale-up">{item.type.name}</Badge>
               </div>
 
               <p className="motion-safe:fade-left mb-4 text-muted-foreground">
-                {locale === "es" ? item.about_es : item.about_en}
+                {item.about}
               </p>
             </li>
           ))}

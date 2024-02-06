@@ -9,11 +9,10 @@ import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
 import { MailPlus, Menu } from "lucide-react";
 import SignOutBtn from "@components/sign-out-btn";
 import { options } from "@/app/api/auth/[...nextauth]/options";
-import ChangeLocale from "@components/change-locale";
-import { getScopedI18n } from "@/locales/server";
+import es from "@/locales/es";
 
 export default async function Navbar() {
-  const t = await getScopedI18n("nav");
+  const t = es.nav;
 
   // get current session of user if logged in
   const session = await getServerSession(options);
@@ -21,15 +20,15 @@ export default async function Navbar() {
   const navLinks: NavLinks = [
     {
       href: "/",
-      label: t("links.home"),
+      label: t.home,
     },
     {
       href: "/projects",
-      label: t("links.projects"),
+      label: t.projects,
     },
     {
       href: "/blog",
-      label: t("links.blog"),
+      label: t.blog,
     },
   ];
 
@@ -60,9 +59,6 @@ export default async function Navbar() {
       {/* icons nav  */}
       <nav className="hidden md:block">
         <ul className="flex gap-2">
-          <li>
-            <ChangeLocale label={t("localetoggle.label")} />
-          </li>
           {session && (
             <li>
               <SignOutBtn />
@@ -70,12 +66,7 @@ export default async function Navbar() {
           )}
 
           <li>
-            <ThemeToggle
-              label={t("themetoggle.label")}
-              dark={t("themetoggle.dark")}
-              light={t("themetoggle.light")}
-              system={t("themetoggle.system")}
-            />
+            <ThemeToggle />
           </li>
           <li>
             <Link
@@ -126,12 +117,7 @@ export default async function Navbar() {
               )}
 
               <li>
-                <ThemeToggle
-                  label={t("themetoggle.label")}
-                  dark={t("themetoggle.dark")}
-                  light={t("themetoggle.light")}
-                  system={t("themetoggle.system")}
-                />
+                <ThemeToggle />
               </li>
               <li>
                 <SheetClose asChild>
