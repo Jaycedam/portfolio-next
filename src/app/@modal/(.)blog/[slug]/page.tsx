@@ -11,7 +11,7 @@ export default function Page({
 }) {
   return (
     <Modal>
-      {/* change skeleton  */}
+      {/* TODO: change skeleton */}
       <Suspense fallback={<SkeletonArticle />}>
         <MDXContent repoFolder="blog" name={slug} />
       </Suspense>
@@ -19,8 +19,7 @@ export default function Page({
   );
 }
 
-// SSG, currently not supported on intercepting routes
-// issue on nextjs https://github.com/vercel/next.js/issues/52842
+// SSG, currently not supported on intercepting routes https://github.com/vercel/next.js/issues/52842
 export async function generateStaticParams() {
   const data = await getMDXMeta("blog");
 
