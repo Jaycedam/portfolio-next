@@ -26,8 +26,7 @@ export default {
   },
   carreer: {
     heading: "Carrera Profesional",
-    subheading:
-      "Sólo es incluída mi carrera como Programador de Software, previamente trabaje en motion graphics por más de 4 años.",
+    subheading: "como Desarrollador de Software.",
   },
   about: {
     heading: "Acerca De Mí",

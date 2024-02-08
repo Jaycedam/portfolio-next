@@ -25,8 +25,7 @@ export default {
   },
   carreer: {
     heading: "Carreer",
-    subheading:
-      "Only my software development career is highlighted; prior to this, I worked in motion graphics for over four years.",
+    subheading: "as a Software Developer.",
   },
   about: {
     heading: "About me",
