@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "@components/ui/button";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
@@ -54,33 +54,15 @@ export default async function BlogPosts({
   return (
     <section id="blog-posts">
       <div className="container space-y-4">
-        <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
-          <h1 className="heading">
-            {t.heading}{" "}
-            {tags && (
-              <span className="text-xl font-normal text-muted-foreground">
-                {tags}
-              </span>
-            )}
-          </h1>
-          <div className="flex gap-2">
-            {tags && (
-              <Link
-                className={buttonVariants({ variant: "outline", size: "icon" })}
-                href="/blog"
-              >
-                <X className="h-4" />
-              </Link>
-            )}
-            {!homepage && (
-              <FilterByParam
-                label={t.btn.filter}
-                repoFolder="blog"
-                tags={metaTags}
-              />
-            )}
-          </div>
-        </div>
+        <h1 className="heading">
+          {t.heading}{" "}
+          {tags && (
+            <span className="text-xl font-normal text-muted-foreground">
+              {tags}
+            </span>
+          )}
+        </h1>
+        {!homepage && <FilterByParam repoFolder="blog" tags={metaTags} />}
 
         <div
           className={`grid gap-2 ${

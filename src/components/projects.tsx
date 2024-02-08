@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "./ui/button";
-import { ChevronRight, X } from "lucide-react";
+import { ChevronRight } from "lucide-react";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
@@ -54,37 +54,19 @@ export default async function Projects({
   return (
     <section id="projects">
       <div className="container space-y-4">
-        <div className="flex flex-col flex-wrap gap-4 md:flex-row md:justify-between">
-          <div className="space-y-1">
-            <h1 className="heading">
-              {t.heading}{" "}
-              {tags && (
-                <span className="text-xl font-normal text-muted-foreground">
-                  {tags}
-                </span>
-              )}
-            </h1>
-            <p className="subheading">{t.subheading}</p>
-          </div>
-
-          <div className="flex gap-2">
+        <div className="space-y-1">
+          <h1 className="heading">
+            {t.heading}{" "}
             {tags && (
-              <Link
-                className={buttonVariants({ variant: "outline", size: "icon" })}
-                href="/projects"
-              >
-                <X className="h-4" />
-              </Link>
+              <span className="space-x-8 text-xl font-normal text-muted-foreground">
+                {tags}
+              </span>
             )}
-            {!homepage && (
-              <FilterByParam
-                label={t.btn.filter}
-                repoFolder="projects"
-                tags={metaTags}
-              />
-            )}
-          </div>
+          </h1>
+          <p className="subheading">{t.subheading}</p>
         </div>
+
+        {!homepage && <FilterByParam repoFolder="projects" tags={metaTags} />}
 
         <div
           className={`grid gap-2 ${
@@ -120,7 +102,7 @@ function ProjectCard({ id, image, title, area }: MDXMeta) {
     <Link href={`/projects/${id}`} scroll={false}>
       <div className="group relative isolate aspect-square overflow-hidden rounded-xl border transition-all duration-500">
         {/* overlay  */}
-        <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 p-4 text-center text-zinc-50 transition-all">
+        <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 p-4 text-center text-zinc-50 ">
           <h2 className="text-xl font-bold">{title}</h2>
           <p className="text-sm">{area}</p>
         </div>
