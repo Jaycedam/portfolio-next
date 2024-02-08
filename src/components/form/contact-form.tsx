@@ -49,7 +49,7 @@ export default function ContactForm() {
   };
 
   return (
-    <section className="py-16" id="contact">
+    <section id="contact">
       <div className="container">
         <Card className="mx-auto max-w-4xl">
           <CardHeader>

@@ -57,8 +57,12 @@
     @apply flex min-h-screen flex-col bg-background text-foreground;
   }
 
+  .title {
+    @apply text-5xl font-black capitalize;
+  }
+
   .heading {
-    @apply text-3xl font-black capitalize md:text-4xl;
+    @apply text-3xl font-black capitalize;
   }
 
   .subheading {

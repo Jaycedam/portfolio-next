@@ -21,7 +21,7 @@ export default async function MDXContent({
     <div className="container space-y-8">
       <div className="mx-auto max-w-prose space-y-4">
         <Badge variant="secondary">{meta.area}</Badge>
-        <h1 className="heading">{meta.title}</h1>
+        <h1 className="title">{meta.title}</h1>
 
         <div className="mx-auto flex max-w-prose flex-wrap gap-2">
           {meta.tags.map((tag, idx) => (
@@ -47,7 +47,7 @@ export default async function MDXContent({
         />
       </div>
 
-      <article className="prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary">
+      <article className="prose-h2:heading prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary">
         {content}
       </article>
     </div>
