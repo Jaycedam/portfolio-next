@@ -15,22 +15,22 @@ export default function SkeletonProjects({
   homepage?: boolean;
 }) {
   return (
-    <section>
-      <div className="container space-y-4">
-        {/* title */}
-        <div className="space-y-1">
-          <Skeleton className="h-8 max-w-md" />
-          <Skeleton className="h-4 max-w-md" />
-        </div>
-
-        <div
-          className={`grid gap-2 ${
-            homepage ? "md:grid-cols-2" : "md:grid-cols-3"
-          }`}
-        >
-          <SkeletonLoader count={homepage ? 4 : 6} />
-        </div>
+    <div className="container space-y-6">
+      {/* title */}
+      <div className="space-y-2">
+        <Skeleton className="h-12 max-w-md" />
+        <Skeleton className="h-4 max-w-md" />
       </div>
-    </section>
+
+      <Skeleton className="h-10 w-full" />
+
+      <div
+        className={`grid gap-2 ${
+          homepage ? "md:grid-cols-2" : "md:grid-cols-3"
+        }`}
+      >
+        <SkeletonLoader count={homepage ? 4 : 6} />
+      </div>
+    </div>
   );
 }
