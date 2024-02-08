@@ -45,7 +45,7 @@ export default async function About() {
       className="container grid gap-8 lg:grid-cols-[1fr_65ch_1fr]"
       id="about"
     >
-      <h2 className="heading justify-self-end">{t.heading}</h2>
+      <h2 className="heading lg:justify-self-end">{t.heading}</h2>
 
       <div className="mx-auto space-y-8">
         <p className="prose text-muted-foreground">{t.paragraph}</p>

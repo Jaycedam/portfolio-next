@@ -10,7 +10,7 @@ import BlogPosts from "@/components/blog-posts";
 
 export default async function Home() {
   return (
-    <>
+    <div className="space-y-24">
       <Hero />
       <Suspense fallback={<SkeletonProjects homepage={true} />}>
         <Projects homepage={true} />
@@ -25,6 +25,6 @@ export default async function Home() {
       </Suspense>
       <About />
       <ContactForm />
-    </>
+    </div>
   );
 }
