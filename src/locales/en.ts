@@ -26,6 +26,9 @@ export default {
   carreer: {
     heading: "Carreer",
     subheading: "as a Software Developer.",
+    btn: {
+      cv: "Download Resume",
+    },
   },
   about: {
     heading: "About me",
@@ -34,9 +37,6 @@ export default {
     paragraph2: "For my work on motion graphics, visit:",
     tech: "Languages, libreries or frameworks I've used the most",
     tech2: "Used less frequently",
-    btn: {
-      cv: "Download Resume",
-    },
   },
   contact: {
     heading: "Contact",

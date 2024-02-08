@@ -2,6 +2,7 @@ import { getCarreers } from "@utils/get-data";
 import { Badge } from "@/components/ui/badge";
 import { Carreer } from "@prisma/client";
 import es from "@/locales/es";
+import { buttonVariants } from "@components/ui/button";
 
 export default async function Carreer() {
   const t = es.carreer;
@@ -16,6 +17,13 @@ export default async function Carreer() {
         <div className="space-y-2 text-center">
           <h1 className="heading">{t.heading}</h1>
           <p className="subheading mx-auto max-w-prose">{t.subheading}</p>
+          <a
+            href="/jordan-cortes-cv.pdf"
+            target="_blank"
+            className={buttonVariants({ variant: "default" })}
+          >
+            {t.btn.cv}
+          </a>
         </div>
 
         <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">

@@ -27,6 +27,9 @@ export default {
   carreer: {
     heading: "Carrera Profesional",
     subheading: "como Desarrollador de Software.",
+    btn: {
+      cv: "Descargar CV",
+    },
   },
   about: {
     heading: "Acerca De Mí",
@@ -35,9 +38,6 @@ export default {
     paragraph2: "Para ver mis proyectos motion graphics, visitar:",
     tech: "Lenguajes, librerias o frameworks que más he utilizado",
     tech2: "Utilizado con menor frecuencia",
-    btn: {
-      cv: "Descargar CV",
-    },
   },
   contact: {
     heading: "Contactar",

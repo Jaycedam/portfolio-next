@@ -41,21 +41,13 @@ export default async function About() {
   const t = es.about;
 
   return (
-    <section id="about">
-      <div className="container mx-auto max-w-prose space-y-8">
-        <div className="space-y-4">
-          <div className="flex flex-wrap gap-4">
-            <h2 className="heading">{t.heading}</h2>
-            <a
-              href="/jordan-cortes-cv.pdf"
-              target="_blank"
-              className={buttonVariants({ variant: "default" })}
-            >
-              {t.btn.cv}
-            </a>
-          </div>
-        </div>
+    <section
+      className="container grid gap-8 lg:grid-cols-[1fr_65ch_1fr]"
+      id="about"
+    >
+      <h2 className="heading justify-self-end">{t.heading}</h2>
 
+      <div className="mx-auto space-y-8">
         <p className="prose text-muted-foreground">{t.paragraph}</p>
 
         {/* knoledge section  */}
