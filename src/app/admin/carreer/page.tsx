@@ -14,7 +14,7 @@ export default async function CarreerAdminPage() {
     <section>
       <div className="container space-y-4">
         <div className="flex items-center gap-4">
-          <h1 className="heading">Carreer list</h1>
+          <h1 className="title">Carreer list</h1>
           <Dialog>
             <DialogTrigger asChild>
               <Button size="icon">

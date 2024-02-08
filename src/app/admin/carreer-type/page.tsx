@@ -12,7 +12,7 @@ export default async function CarreerTypeAdminPage() {
     <section>
       <div className="container space-y-4">
         <div className="flex items-center gap-4">
-          <h1 className="heading">Carreer Type list</h1>
+          <h1 className="title">Carreer Type list</h1>
           <Dialog>
             <DialogTrigger asChild>
               <Button size="icon">

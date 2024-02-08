@@ -55,7 +55,7 @@ export default async function Projects({
     <section id="projects">
       <div className="container space-y-4">
         <div className="space-y-1">
-          <h1 className="heading">
+          <h1 className={homepage ? "heading" : "title"}>
             {t.heading}{" "}
             {tags && (
               <span className="space-x-8 text-xl font-normal text-muted-foreground">

@@ -54,7 +54,7 @@ export default async function BlogPosts({
   return (
     <section id="blog-posts">
       <div className="container space-y-4">
-        <h1 className="heading">
+        <h1 className={homepage ? "heading" : "title"}>
           {t.heading}{" "}
           {tags && (
             <span className="text-xl font-normal text-muted-foreground">
