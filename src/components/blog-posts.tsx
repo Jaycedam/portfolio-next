@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { buttonVariants } from "@components/ui/button";
-import { ChevronRight } from "lucide-react";
+import { ChevronRight, X } from "lucide-react";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
@@ -54,14 +54,30 @@ export default async function BlogPosts({
   return (
     <section id="blog-posts">
       <div className="container space-y-4">
-        <h1 className={homepage ? "heading" : "title"}>
-          {t.heading}{" "}
-          {tags && (
-            <span className="text-xl font-normal text-muted-foreground">
-              {tags}
-            </span>
-          )}
-        </h1>
+        <div className="space-y-2">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <h1 className={homepage ? "heading" : "title"}>
+              {t.heading}{" "}
+              {tags && (
+                <span className="space-x-8 text-xl font-normal text-muted-foreground">
+                  {tags}
+                </span>
+              )}
+            </h1>
+
+            {tags && (
+              <Link
+                className={buttonVariants({ variant: "secondary", size: "sm" })}
+                href="/projects"
+              >
+                <X className="h-4 w-auto" />
+                Borrar filtros
+              </Link>
+            )}
+          </div>
+
+          <p className="subheading">{t.subheading}</p>
+        </div>
         {!homepage && <FilterByParam repoFolder="blog" tags={metaTags} />}
 
         <div

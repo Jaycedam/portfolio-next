@@ -1,7 +1,6 @@
 "use client";
 
 import { RepoFolder } from "@/utils/types";
-import { buttonVariants } from "@components/ui/button";
 import Link from "next/link";
 import { useSearchParams } from "next/navigation";
 import {
@@ -10,7 +9,7 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@components/ui/accordion";
-import { X } from "lucide-react";
+import { buttonVariants } from "@components/ui/button";
 
 export default function FilterByParam({
   tags,
@@ -31,28 +30,16 @@ export default function FilterByParam({
             {tags.map((tag, idx) => (
               <Link
                 key={idx}
-                className={`${
-                  tagParams === tag.tag
-                    ? "bg-accent text-accent-foreground"
-                    : ""
-                }  ${buttonVariants({
+                className={`${buttonVariants({
                   variant: "outline",
                   size: "sm",
-                })}`}
+                })}
+                ${tagParams === tag.tag ? "bg-accent" : ""}`}
                 href={`/${repoFolder}?tags=${tag.tag}`}
               >
                 {tag.tag}
               </Link>
             ))}
-            {tagParams && (
-              <Link
-                className={buttonVariants({ variant: "ghost", size: "sm" })}
-                href={`/${repoFolder}`}
-              >
-                <X className="h-4 w-auto" />
-                Borrar filtros
-              </Link>
-            )}
           </div>
         </AccordionContent>
       </AccordionItem>

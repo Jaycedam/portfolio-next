@@ -1,9 +1,10 @@
 import Image from "next/image";
-import { Badge } from "./ui/badge";
+import { Badge, badgeVariants } from "./ui/badge";
 import { getMDXByName } from "@/utils/fetch-mdx";
 import { notFound } from "next/navigation";
 import { RepoFolder } from "@/utils/types";
 import "@app/code-highlight.css";
+import Link from "next/link";
 
 export default async function MDXContent({
   name,
@@ -25,9 +26,15 @@ export default async function MDXContent({
 
         <div className="mx-auto flex max-w-prose flex-wrap gap-2">
           {meta.tags.map((tag, idx) => (
-            <Badge key={idx} variant="outline">
+            <Link
+              href={`/${repoFolder}?tags=${tag}`}
+              key={idx}
+              className={`${badgeVariants({
+                variant: "outline",
+              })} hover:bg-accent hover:text-accent-foreground focus:ring-0 focus:ring-offset-0`}
+            >
               {tag}
-            </Badge>
+            </Link>
           ))}
         </div>
 
