@@ -16,12 +16,6 @@ export default async function Projects({
 }) {
   const t = es.projects;
 
-  /**
-   * This variable is for storing the filtered data,
-   * since we need the original data array for the full tag list for filtering.
-   */
-  let projects: MDXMeta[] = [];
-
   // fetch data from the github api
   const data = await getMDXMeta("projects");
 
@@ -37,11 +31,15 @@ export default async function Projects({
     (tag) => ({ tag })
   );
 
+  /**
+   * This variable is for storing the filtered data,
+   * since we need the original data array for the full tag list for filtering.
+   */
+  let projects: MDXMeta[] = data;
+
   // if this component is rendered on the homepage, then filter by featured=true
   if (homepage) {
     projects = data.filter((item) => item.featured === "true");
-  } else if (!homepage) {
-    projects = data;
   }
 
   // filter by tags on the url params

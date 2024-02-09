@@ -16,11 +16,6 @@ export default async function BlogPosts({
   tags?: string | string[];
 }) {
   const t = es.blog;
-  /**
-   * This variable is for storing the filtered data,
-   * since we need the original data array for the full tag list for filtering.
-   */
-  let posts: MDXMeta[] = [];
 
   // fetch data from the github api
   const data = await getMDXMeta("blog");
@@ -37,11 +32,15 @@ export default async function BlogPosts({
     (tag) => ({ tag })
   );
 
+  /**
+   * This variable is for storing the filtered data,
+   * since we need the original data array for the full tag list for filtering.
+   */
+  let posts: MDXMeta[] = data;
+
   // if this component is rendered on the homepage, then filter by featured=true
   if (homepage) {
     posts = data.filter((item) => item.featured === "true");
-  } else if (!homepage) {
-    posts = data;
   }
 
   // filter by tags on the url params
