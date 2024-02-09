@@ -34,7 +34,12 @@ export default function FilterByParam({
                   variant: "outline",
                   size: "sm",
                 })}
-                ${tagParams === tag.tag ? "bg-accent" : ""}`}
+
+                ${
+                  tagParams === tag.tag
+                    ? "!bg-accent !text-accent-foreground"
+                    : ""
+                }`}
                 href={`/${repoFolder}?tags=${tag.tag}`}
               >
                 {tag.tag}
