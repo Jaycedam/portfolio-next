@@ -38,7 +38,7 @@ export default async function MDXContent({
           ))}
         </div>
 
-        <p className="prose text-muted-foreground">{meta.description}</p>
+        <p className="prose prose-zinc dark:prose-invert">{meta.description}</p>
       </div>
 
       <div className="w-fulll relative aspect-video">

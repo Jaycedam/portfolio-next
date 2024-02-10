@@ -30,7 +30,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          <main className="flex-grow pb-16 pt-8">
+          <main className="flex-grow py-16">
             {modal}
             {children}
           </main>

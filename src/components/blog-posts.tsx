@@ -70,7 +70,7 @@ export default async function BlogPosts({
                 href="/projects"
               >
                 <X className="h-4 w-auto" />
-                Borrar filtros
+                &nbsp; Borrar filtros
               </Link>
             )}
           </div>

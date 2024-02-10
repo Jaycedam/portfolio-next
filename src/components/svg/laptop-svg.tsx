@@ -7,7 +7,7 @@ export default function LaptopSVG() {
       height="467.7"
       viewBox="0 0 814 467.7"
     >
-      <g id="screen" className="fill-zinc-400 dark:fill-zinc-700">
+      <g id="screen" className="fill-muted-foreground/30">
         <path d="M685.3,63.3A10.3,10.3,0,1,1,675.1,53,10.2,10.2,0,0,1,685.3,63.3Z" />
 
         <path d="M209,156.7H143.1a6.3,6.3,0,0,1-6.3-6.3v-8a6.3,6.3,0,0,1,6.3-6.3H209a6.3,6.3,0,0,1,6.3,6.3v8A6.3,6.3,0,0,1,209,156.7Z" />
@@ -32,13 +32,13 @@ export default function LaptopSVG() {
 
         <path d="M449.8,357.4H275.7a6.3,6.3,0,0,1-6.3-6.3v-7.9a6.3,6.3,0,0,1,6.3-6.3H449.8a6.3,6.3,0,0,1,6.3,6.3v7.9A6.3,6.3,0,0,1,449.8,357.4Z" />
       </g>
-      <g id="device" className="stroke-zinc-900 dark:stroke-zinc-100">
+      <g id="device" className="stroke-muted-foreground">
         <path
           d="M94.4,1h626a19.3,19.3,0,0,1,19.3,19.3v428a0,0,0,0,1,0,0H75.1a0,0,0,0,1,0,0V20.3A19.3,19.3,0,0,1,94.4,1Z"
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="4"
         />
 
         <path
@@ -46,7 +46,7 @@ export default function LaptopSVG() {
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="4"
         />
 
         <path
@@ -54,7 +54,7 @@ export default function LaptopSVG() {
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="4"
         />
 
         <path
@@ -62,7 +62,7 @@ export default function LaptopSVG() {
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="4"
         />
 
         <path
@@ -70,7 +70,7 @@ export default function LaptopSVG() {
           fill="none"
           strokeLinecap="round"
           strokeLinejoin="round"
-          strokeWidth="2"
+          strokeWidth="4"
         />
       </g>
     </svg>

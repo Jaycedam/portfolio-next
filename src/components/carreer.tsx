@@ -32,7 +32,7 @@ export default async function Carreer() {
           {data?.map((item, idx) => (
             <li
               key={idx}
-              className="motion-safe:fade-left space-y-1 rounded-xl border bg-gradient-to-tl from-background/60 from-50% p-6 md:ms-16"
+              className="motion-safe:fade-left space-y-1 rounded-xl border bg-gradient-to-tl from-background/60 from-50% p-6 shadow-sm md:ms-16"
             >
               <time className="motion-safe:fade-left block text-sm leading-none text-muted-foreground">
                 {item.date}
@@ -46,7 +46,7 @@ export default async function Carreer() {
                 <Badge className="motion-safe:scale-up">{item.type.name}</Badge>
               </div>
 
-              <p className="motion-safe:fade-left mb-4 text-muted-foreground">
+              <p className="motion-safe:fade-left prose prose-zinc mb-4 dark:prose-invert">
                 {item.about}
               </p>
             </li>

@@ -9,22 +9,24 @@ export default async function Hero() {
 
   return (
     <section>
-      <div className="container flex flex-col items-center justify-center gap-4 space-y-4 text-center">
+      <div className="container flex flex-col items-center justify-center gap-8">
         {/* hero graphic  */}
-        <div className="w-full max-w-lg py-4 [&>*]:h-full [&>*]:w-full [&>*]:object-contain">
+        <div className="w-full max-w-lg [&>*]:h-full [&>*]:w-full [&>*]:object-contain">
           <LaptopSVG />
         </div>
 
-        <div className="space-y-2">
-          <h1 className="animate-gradient bg-gradient-to-r from-orange-400 via-fuchsia-400 to-blue-400 bg-clip-text text-5xl font-black tracking-tighter text-transparent md:text-6xl lg:text-7xl">
-            Jordan Cortés
-          </h1>
+        <div className="space-y-8 text-center">
+          <div className="space-y-2">
+            <h1 className="animate-gradient bg-gradient-to-r from-orange-400 via-fuchsia-400 to-blue-400 bg-clip-text text-6xl font-black tracking-tight text-transparent md:text-7xl">
+              Jordan Cortés
+            </h1>
 
-          <p className="text-lg text-muted-foreground">
-            {t.subheading}
-            <br />
-            {t.subheading2}
-          </p>
+            <h2 className="prose text-lg text-muted-foreground">
+              {t.subheading}
+              <br />
+              {t.subheading2}
+            </h2>
+          </div>
         </div>
 
         <div className="flex gap-4">
