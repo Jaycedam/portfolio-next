@@ -10,11 +10,9 @@ export default function BlogMDX({
   params: { slug: string };
 }) {
   return (
-    <section>
-      <Suspense fallback={<SkeletonArticle />}>
-        <MDXContent repoFolder="blog" name={slug} />
-      </Suspense>
-    </section>
+    <Suspense fallback={<SkeletonArticle />}>
+      <MDXContent repoFolder="blog" name={slug} />
+    </Suspense>
   );
 }
 

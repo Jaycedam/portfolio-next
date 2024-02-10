@@ -19,7 +19,7 @@ export default async function MDXContent({
   const { meta, content } = mdx;
 
   return (
-    <div className="container space-y-8">
+    <section className="container space-y-8">
       <div className="mx-auto max-w-prose space-y-4">
         <Badge variant="secondary">{meta.area}</Badge>
         <h1 className="title">{meta.title}</h1>
@@ -57,6 +57,6 @@ export default async function MDXContent({
       <article className="prose-h2:heading prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary">
         {content}
       </article>
-    </div>
+    </section>
   );
 }

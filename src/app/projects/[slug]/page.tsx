@@ -10,11 +10,9 @@ export default function ProjectMDX({
   params: { slug: string };
 }) {
   return (
-    <section>
-      <Suspense fallback={<SkeletonArticle />}>
-        <MDXContent repoFolder="projects" name={slug} />
-      </Suspense>
-    </section>
+    <Suspense fallback={<SkeletonArticle />}>
+      <MDXContent repoFolder="projects" name={slug} />
+    </Suspense>
   );
 }
 
