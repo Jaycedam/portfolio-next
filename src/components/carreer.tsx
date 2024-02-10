@@ -4,7 +4,6 @@ import { Carreer } from "@prisma/client";
 
 export default async function Carreer() {
   let data = await getCarreers();
-  await new Promise((resolve) => setTimeout(resolve, 5000));
 
   return (
     <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">
