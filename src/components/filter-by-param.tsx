@@ -1,8 +1,5 @@
-"use client";
-
 import { RepoFolder } from "@/utils/types";
 import Link from "next/link";
-import { useSearchParams } from "next/navigation";
 import {
   Accordion,
   AccordionContent,
@@ -10,16 +7,19 @@ import {
   AccordionTrigger,
 } from "@components/ui/accordion";
 import { buttonVariants } from "@components/ui/button";
+import { getMDXMeta } from "@/utils/fetch-mdx";
 
-export default function FilterByParam({
-  tags,
+export default async function FilterByParam({
   repoFolder,
 }: {
   repoFolder: RepoFolder;
-  tags: { tag: string }[];
 }) {
-  const searchParams = useSearchParams();
-  const tagParams = searchParams.get("tags");
+  const data = await getMDXMeta(repoFolder);
+
+  // sets an array from all the tags from the original data variable
+  const tags = Array.from(new Set(data.flatMap((item) => item.tags))).map(
+    (tag) => ({ tag })
+  );
 
   return (
     <Accordion type="single" collapsible>
@@ -30,16 +30,10 @@ export default function FilterByParam({
             {tags.map((tag, idx) => (
               <Link
                 key={idx}
-                className={`${buttonVariants({
+                className={buttonVariants({
                   variant: "outline",
                   size: "sm",
                 })}
-
-                ${
-                  tagParams === tag.tag
-                    ? "!bg-accent !text-accent-foreground"
-                    : ""
-                }`}
                 href={`/${repoFolder}?tags=${tag.tag}`}
               >
                 {tag.tag}

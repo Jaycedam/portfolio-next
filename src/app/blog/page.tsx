@@ -1,5 +1,10 @@
 import BlogPosts from "@/components/blog-posts";
-import SkeletonProjects from "@/components/skeleton/skeleton-projects";
+import FilterByParam from "@/components/filter-by-param";
+import SkeletonBlogPosts from "@/components/skeleton/skeleton-blog-posts";
+import { buttonVariants } from "@/components/ui/button";
+import es from "@/locales/es";
+import { X } from "lucide-react";
+import Link from "next/link";
 import { Suspense } from "react";
 
 export default function BlogPostsPage({
@@ -9,10 +14,39 @@ export default function BlogPostsPage({
     tags?: string | string[];
   };
 }) {
+  const t = es.blog;
+  const tags = searchParams?.tags;
+
   return (
-    <Suspense fallback={<SkeletonProjects />}>
-      <BlogPosts tags={searchParams?.tags} />
-    </Suspense>
+    <section className="container space-y-8">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h1 className="title">
+          {t.heading}{" "}
+          {tags && (
+            <span className="space-x-8 text-xl font-normal text-muted-foreground">
+              {tags}
+            </span>
+          )}
+        </h1>
+
+        {tags && (
+          <Link
+            className={buttonVariants({ variant: "secondary", size: "sm" })}
+            href="/blog"
+          >
+            <X className="h-4 w-auto" />
+            &nbsp; Borrar filtros
+          </Link>
+        )}
+      </div>
+
+      <Suspense fallback={<SkeletonBlogPosts />}>
+        <>
+          <FilterByParam repoFolder="blog" />
+          <BlogPosts tags={searchParams?.tags} />
+        </>
+      </Suspense>
+    </section>
   );
 }
 

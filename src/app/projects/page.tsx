@@ -1,5 +1,10 @@
+import FilterByParam from "@/components/filter-by-param";
 import Projects from "@/components/projects";
 import SkeletonProjects from "@/components/skeleton/skeleton-projects";
+import { buttonVariants } from "@/components/ui/button";
+import es from "@/locales/es";
+import { X } from "lucide-react";
+import Link from "next/link";
 import { Suspense } from "react";
 
 export default function ProjectsPage({
@@ -9,10 +14,39 @@ export default function ProjectsPage({
     tags?: string | string[];
   };
 }) {
+  const t = es.projects;
+  const tags = searchParams?.tags;
+
   return (
-    <Suspense fallback={<SkeletonProjects />}>
-      <Projects tags={searchParams?.tags} />
-    </Suspense>
+    <section className="container space-y-8">
+      <div className="flex flex-wrap items-end justify-between gap-4">
+        <h1 className="title">
+          {t.heading}{" "}
+          {tags && (
+            <span className="space-x-8 text-xl font-normal text-muted-foreground">
+              {tags}
+            </span>
+          )}
+        </h1>
+
+        {tags && (
+          <Link
+            className={buttonVariants({ variant: "secondary", size: "sm" })}
+            href="/projects"
+          >
+            <X className="h-4 w-auto" />
+            &nbsp; Borrar filtros
+          </Link>
+        )}
+      </div>
+
+      <Suspense fallback={<SkeletonProjects />}>
+        <>
+          <FilterByParam repoFolder="projects" />
+        </>
+        <Projects tags={searchParams?.tags} />
+      </Suspense>
+    </section>
   );
 }
 

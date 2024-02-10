@@ -41,7 +41,7 @@ export default function RootLayout({
       <body>
         <Providers>
           <Navbar />
-          <main className="flex-grow py-16">
+          <main className="flex-grow py-10">
             {modal}
             {children}
           </main>
