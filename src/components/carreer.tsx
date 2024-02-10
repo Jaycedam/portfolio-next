@@ -6,13 +6,13 @@ export default async function Carreer() {
   let data = await getCarreers();
 
   return (
-    <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">
+    <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l md:mx-auto md:before:block">
       {/* circle of timeline  */}
       <span className="motion-safe:scale-up sticky -left-8 top-1/4 hidden h-8 w-8 items-center justify-center rounded-full bg-primary md:flex"></span>
       {data?.map((item, idx) => (
         <li
           key={idx}
-          className="motion-safe:fade-left space-y-1 rounded-xl border bg-gradient-to-tl from-background/60 from-50% p-6 shadow-sm md:ms-16"
+          className="motion-safe:fade-left space-y-1 rounded-xl border bg-background p-6 shadow-sm md:ms-16"
         >
           <time className="motion-safe:fade-left block text-sm leading-none text-muted-foreground">
             {item.date}

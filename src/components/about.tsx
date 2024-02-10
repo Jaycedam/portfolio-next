@@ -50,6 +50,14 @@ export default async function About() {
       <div className="mx-auto space-y-8">
         <p className="prose text-muted-foreground">{t.paragraph}</p>
 
+        <a
+          href="/jordan-cortes-cv.pdf"
+          target="_blank"
+          className={buttonVariants({ variant: "default" })}
+        >
+          Descargar CV
+        </a>
+
         {/* knoledge section  */}
         <div className="space-y-8">
           <div className="space-y-2">

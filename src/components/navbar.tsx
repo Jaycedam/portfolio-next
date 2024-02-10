@@ -33,7 +33,7 @@ export default async function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b border-border/50 bg-background/60 px-4 backdrop-blur md:px-8">
+    <header className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b bg-background/60 px-4 backdrop-blur md:px-8">
       <div className="flex gap-4">
         {/* logo  */}
         <Link aria-label="homepage" href="/">

@@ -54,23 +54,19 @@ export default async function Home() {
         </div>
       </section>
 
-      <section id="carreer" className="container space-y-4">
-        <div className="space-y-2 text-center">
-          <h1 className="heading">Carrera Profesional</h1>
-          <p className="subheading mx-auto max-w-prose">
-            como Desarrollador de Software.
-          </p>
-          <a
-            href="/jordan-cortes-cv.pdf"
-            target="_blank"
-            className={buttonVariants({ variant: "default" })}
-          >
-            Descargar CV
-          </a>
+      <section
+        id="carreer"
+        className="scroll-py-16 border-y bg-gradient-to-b from-muted/20 to-muted/10 py-16"
+      >
+        <div className="container space-y-8">
+          <div className="mx-auto max-w-prose space-y-2 text-center">
+            <h1 className="heading">Carrera Profesional</h1>
+            <p className="subheading">como Desarrollador de Software.</p>
+          </div>
+          <Suspense fallback={<SkeletonCarreer />}>
+            <Carreer />
+          </Suspense>
         </div>
-        <Suspense fallback={<SkeletonCarreer />}>
-          <Carreer />
-        </Suspense>
       </section>
 
       <About />
