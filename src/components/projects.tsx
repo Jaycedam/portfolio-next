@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
+import { badgeVariants } from "@components/ui/badge";
 
 export default async function Projects({
   homepage = false,
@@ -35,7 +36,7 @@ export default async function Projects({
   return (
     <div className="space-y-4">
       <div
-        className={`grid gap-2 ${
+        className={`grid gap-8 ${
           homepage ? "md:grid-cols-2" : "md:grid-cols-3"
         }`}
       >
@@ -51,14 +52,14 @@ function ProjectCard({ id, image, title, area }: MDXMeta) {
   return (
     // scroll false to avoid scrolling to the top on modal
     <Link
-      className="group relative isolate aspect-square overflow-hidden rounded-xl border outline-none transition-all duration-500 focus-visible:ring-2 focus-visible:ring-ring"
+      className="group relative isolate aspect-square overflow-hidden rounded-3xl outline-none transition-all duration-500 hover:scale-[102%] focus-visible:ring-2 focus-visible:ring-ring"
       href={`/projects/${id}`}
       scroll={false}
     >
       {/* overlay  */}
-      <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[20%] w-full flex-col items-center justify-center bg-gradient-to-t from-black/80 p-4 text-center text-zinc-50 ">
-        <h2 className="text-xl font-bold">{title}</h2>
-        <p className="text-sm">{area}</p>
+      <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[30%] w-full flex-col items-start justify-end gap-1 bg-gradient-to-t from-black/50 p-4 text-zinc-50 md:p-8">
+        <h2 className="text-2xl font-bold">{title}</h2>
+        <p className={badgeVariants({ variant: "default" })}>{area}</p>
       </div>
       <Image
         src={image}
@@ -69,7 +70,7 @@ function ProjectCard({ id, image, title, area }: MDXMeta) {
           iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNMUQQAAO8Ah7R22bwAAAAASUVORK5CYII="
         fill
         sizes="(max-width: 768px) 100vw, 50vw"
-        className="object-cover transition-all duration-500 group-hover:scale-110 group-focus:scale-110 group-active:scale-100"
+        className="object-cover transition-all duration-500 group-active:scale-100 motion-safe:group-hover:scale-105 motion-safe:group-focus:scale-105"
       />
     </Link>
   );
