@@ -70,7 +70,7 @@ export default function ContactForm() {
                       <FormItem>
                         <FormLabel>{t.email}</FormLabel>
                         <FormControl>
-                          <Input placeholder="" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -83,7 +83,7 @@ export default function ContactForm() {
                       <FormItem>
                         <FormLabel>{t.subject}</FormLabel>
                         <FormControl>
-                          <Input placeholder="" {...field} />
+                          <Input {...field} />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
@@ -98,11 +98,7 @@ export default function ContactForm() {
                     <FormItem>
                       <FormLabel>{t.message}</FormLabel>
                       <FormControl>
-                        <Textarea
-                          placeholder=""
-                          className="resize-y"
-                          {...field}
-                        />
+                        <Textarea className="resize-y" {...field} />
                       </FormControl>
                       <FormMessage />
                     </FormItem>
