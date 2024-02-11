@@ -49,7 +49,7 @@ export default async function MDXContent({
         {content}
       </article>
 
-      <div className="mx-auto flex max-w-prose flex-wrap gap-2 py-8">
+      <div className="mx-auto flex max-w-prose flex-wrap gap-4 py-8">
         <Tags />
         {meta.tags.map((tag, idx) => (
           <Link
