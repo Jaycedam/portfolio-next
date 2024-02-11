@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { RepoFolder } from "@/utils/types";
 import "@app/code-highlight.css";
 import Link from "next/link";
+import { Tags } from "lucide-react";
 
 export default async function MDXContent({
   name,
@@ -19,26 +20,16 @@ export default async function MDXContent({
   const { meta, content } = mdx;
 
   return (
-    <section className="container space-y-8">
-      <div className="mx-auto max-w-prose space-y-4">
-        <Badge variant="secondary">{meta.area}</Badge>
-        <h1 className="title">{meta.title}</h1>
-
-        <div className="mx-auto flex max-w-prose flex-wrap gap-2">
-          {meta.tags.map((tag, idx) => (
-            <Link
-              href={`/${repoFolder}?tags=${tag}`}
-              key={idx}
-              className={`${badgeVariants({
-                variant: "outline",
-              })} hover:bg-accent hover:text-accent-foreground focus:ring-0 focus:ring-offset-0`}
-            >
-              {tag}
-            </Link>
-          ))}
+    <section className="container space-y-16">
+      <div className="mx-auto max-w-prose space-y-8">
+        <div className="flex flex-wrap items-start gap-2">
+          <h1 className="title">{meta.title}</h1>
+          <Badge variant="secondary">{meta.area}</Badge>
         </div>
 
-        <p className="prose prose-zinc dark:prose-invert">{meta.description}</p>
+        <p className="prose prose-zinc text-muted-foreground dark:prose-invert">
+          {meta.description}
+        </p>
       </div>
 
       <div className="w-fulll relative aspect-video">
@@ -57,6 +48,19 @@ export default async function MDXContent({
       <article className="prose-h2:heading prose prose-zinc mx-auto dark:prose-invert prose-a:text-primary">
         {content}
       </article>
+
+      <div className="mx-auto flex max-w-prose flex-wrap gap-2 py-8">
+        <Tags />
+        {meta.tags.map((tag, idx) => (
+          <Link
+            href={`/${repoFolder}?tags=${tag}`}
+            key={idx}
+            className={badgeVariants()}
+          >
+            {tag}
+          </Link>
+        ))}
+      </div>
     </section>
   );
 }

@@ -6,8 +6,8 @@ import {
   AccordionItem,
   AccordionTrigger,
 } from "@components/ui/accordion";
-import { buttonVariants } from "@components/ui/button";
 import { getMDXMeta } from "@/utils/fetch-mdx";
+import { badgeVariants } from "@components/ui/badge";
 
 export default async function FilterByParam({
   repoFolder,
@@ -30,9 +30,8 @@ export default async function FilterByParam({
             {tags.map((tag, idx) => (
               <Link
                 key={idx}
-                className={buttonVariants({
+                className={badgeVariants({
                   variant: "outline",
-                  size: "sm",
                 })}
                 href={`/${repoFolder}?tags=${tag.tag}`}
               >

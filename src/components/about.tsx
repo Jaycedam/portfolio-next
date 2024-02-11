@@ -1,5 +1,6 @@
 import { buttonVariants } from "@components/ui/button";
 import es from "@/locales/es";
+import { badgeVariants } from "@components/ui/badge";
 
 const items1: string[] = [
   "Next.js",
@@ -27,9 +28,8 @@ const items2: string[] = [
 function ItemBtn({ item }: { item: string }) {
   return (
     <p
-      className={`motion-safe:fade-up ${buttonVariants({
-        variant: "secondary",
-        size: "sm",
+      className={`motion-safe:fade-up ${badgeVariants({
+        variant: "outline",
       })}`}
     >
       {item}
