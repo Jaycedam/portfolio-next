@@ -123,8 +123,8 @@ const config: Config = {
         "scale-up": "scale-up linear both",
       },
       fontFamily: {
-        sans: ["var(--font-inter)"],
-        mono: ["var(--font-jetbrains-mono)"],
+        sans: ["var(--font-geist-sans)"],
+        mono: ["var(--font-geist-mono)"],
       },
     },
   },
