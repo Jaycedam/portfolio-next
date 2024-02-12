@@ -13,7 +13,7 @@ export default async function Hero() {
         {/* graphic for hero  */}
         <div className="relative">
           <p className="absolute -right-4 -top-4 z-10 whitespace-nowrap rounded-3xl bg-foreground/10 p-4 font-black text-foreground shadow backdrop-blur md:-right-16">
-            // Hello, World.
+            {"// Hello, World."}
           </p>
 
           <Image
