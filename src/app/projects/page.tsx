@@ -2,6 +2,7 @@ import FilterByParam from "@/components/filter-by-param";
 import Projects from "@/components/projects";
 import SkeletonProjects from "@/components/skeleton/skeleton-projects";
 import { buttonVariants } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import es from "@/locales/es";
 import { X } from "lucide-react";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function ProjectsPage({
   searchParams,
 }: {
   searchParams?: {
-    tags?: string | string[];
+    tags?: string;
   };
 }) {
   const t = es.projects;
@@ -40,10 +41,11 @@ export default function ProjectsPage({
         )}
       </div>
 
-      <Suspense fallback={<SkeletonProjects />}>
-        <>
-          <FilterByParam repoFolder="projects" />
-        </>
+      <Suspense fallback={<Skeleton className="h-10 w-full" />}>
+        <FilterByParam repoFolder="projects" />
+      </Suspense>
+
+      <Suspense key={tags} fallback={<SkeletonProjects />}>
         <Projects tags={searchParams?.tags} />
       </Suspense>
     </section>

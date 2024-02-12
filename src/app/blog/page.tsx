@@ -2,6 +2,7 @@ import BlogPosts from "@/components/blog-posts";
 import FilterByParam from "@/components/filter-by-param";
 import SkeletonBlogPosts from "@/components/skeleton/skeleton-blog-posts";
 import { buttonVariants } from "@/components/ui/button";
+import { Skeleton } from "@/components/ui/skeleton";
 import es from "@/locales/es";
 import { X } from "lucide-react";
 import Link from "next/link";
@@ -11,7 +12,7 @@ export default function BlogPostsPage({
   searchParams,
 }: {
   searchParams?: {
-    tags?: string | string[];
+    tags?: string;
   };
 }) {
   const t = es.blog;
@@ -40,11 +41,12 @@ export default function BlogPostsPage({
         )}
       </div>
 
-      <Suspense fallback={<SkeletonBlogPosts />}>
-        <>
-          <FilterByParam repoFolder="blog" />
-          <BlogPosts tags={searchParams?.tags} />
-        </>
+      <Suspense fallback={<Skeleton className="h-10 w-full" />}>
+        <FilterByParam repoFolder="blog" />
+      </Suspense>
+
+      <Suspense key={tags} fallback={<SkeletonBlogPosts />}>
+        <BlogPosts tags={searchParams?.tags} />
       </Suspense>
     </section>
   );

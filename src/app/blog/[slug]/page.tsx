@@ -10,7 +10,7 @@ export default function BlogMDX({
   params: { slug: string };
 }) {
   return (
-    <Suspense fallback={<SkeletonArticle />}>
+    <Suspense key={slug} fallback={<SkeletonArticle />}>
       <MDXContent repoFolder="blog" name={slug} />
     </Suspense>
   );

@@ -16,7 +16,6 @@ export default function SkeletonProjects({
 }) {
   return (
     <div className="space-y-6">
-      {!homepage && <Skeleton className="h-10 w-full" />}
       <div
         className={`grid gap-2 ${
           homepage ? "md:grid-cols-2" : "md:grid-cols-3"

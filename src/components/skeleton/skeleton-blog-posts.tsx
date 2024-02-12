@@ -16,8 +16,6 @@ export default function SkeletonBlogPosts({
 }) {
   return (
     <div className="space-y-4">
-      {!homepage && <Skeleton className="h-10 w-full" />}
-
       <div className="grid gap-2 md:grid-cols-2">
         <SkeletonLoader count={4} />
       </div>
