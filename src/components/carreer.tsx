@@ -12,7 +12,7 @@ export default async function Carreer() {
       {data?.map((item, idx) => (
         <li
           key={idx}
-          className="motion-safe:fade-left space-y-1 rounded-xl border bg-background p-6 shadow-sm md:ms-16"
+          className="motion-safe:fade-left space-y-1 rounded-3xl border bg-background p-6 shadow-sm md:ms-16"
         >
           <time className="motion-safe:fade-left block text-sm leading-none text-muted-foreground">
             {item.date}

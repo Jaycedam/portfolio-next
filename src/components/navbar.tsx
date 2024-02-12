@@ -5,7 +5,12 @@ import LogoSVG from "@components/svg/logo-svg";
 import { getServerSession } from "next-auth/next";
 import Link from "next/link";
 import { NavLinks } from "@/utils/types";
-import { Sheet, SheetClose, SheetContent, SheetTrigger } from "./ui/sheet";
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetTrigger,
+} from "@components/ui/sheet";
 import { MailPlus, Menu } from "lucide-react";
 import SignOutBtn from "@components/sign-out-btn";
 import { options } from "@/app/api/auth/[...nextauth]/options";
@@ -33,7 +38,7 @@ export default async function Navbar() {
   ];
 
   return (
-    <header className="sticky top-0 z-50 flex h-14 w-full items-center justify-between border-b bg-background/60 px-4 backdrop-blur md:px-8">
+    <header className="sticky top-1 z-50 mx-auto flex h-14 w-[95%] items-center justify-between gap-4 rounded-full border bg-background/60 px-4 backdrop-blur md:w-auto md:max-w-full md:px-8">
       <div className="flex gap-4">
         {/* logo  */}
         <Link aria-label="homepage" href="/">
@@ -87,7 +92,7 @@ export default async function Navbar() {
           </SheetTrigger>
           <SheetContent
             side="top"
-            className="grid items-center justify-center rounded-b-xl text-center"
+            className="grid items-center justify-center rounded-b-3xl text-center"
           >
             <ul className="flex flex-col flex-wrap items-center gap-4 px-8 py-16">
               {navLinks.map((item, index) => (
