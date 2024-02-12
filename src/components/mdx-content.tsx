@@ -41,7 +41,7 @@ export default async function MDXContent({
           src={meta.image}
           alt="preview"
           fill
-          className="rounded-xl object-cover"
+          className="rounded-3xl object-cover"
         />
       </div>
 
