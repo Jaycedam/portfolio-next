@@ -58,8 +58,8 @@ function ProjectCard({ id, image, title, area }: MDXMeta) {
     >
       {/* overlay  */}
       <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[30%] w-full flex-col items-start justify-end gap-1 bg-gradient-to-t from-black/50 p-4 text-zinc-50 md:p-8">
+        <p className={badgeVariants()}>{area}</p>
         <h2 className="text-xl font-bold">{title}</h2>
-        <p className="text-sm">{area}</p>
       </div>
       <Image
         src={image}
