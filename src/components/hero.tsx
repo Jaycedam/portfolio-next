@@ -3,6 +3,7 @@ import { Code, MailPlus } from "lucide-react";
 import Link from "next/link";
 import es from "@/locales/es";
 import Image from "next/image";
+import hero from "@/../public//profile.webp";
 
 export default async function Hero() {
   const t = es.hero;
@@ -12,7 +13,7 @@ export default async function Hero() {
       <div className="container flex flex-col items-center justify-center gap-8">
         {/* graphic for hero  */}
         <div className="relative">
-          <p className="absolute -right-4 -top-4 z-10 whitespace-nowrap rounded-3xl bg-foreground/10 p-4 font-black text-foreground shadow backdrop-blur md:-right-16">
+          <p className="absolute -right-16 -top-4 z-10 whitespace-nowrap rounded-3xl bg-foreground/10 p-4 font-black text-foreground shadow backdrop-blur">
             {"// Hello, World."}
           </p>
 
@@ -20,7 +21,8 @@ export default async function Hero() {
             alt=""
             width={200}
             height={200}
-            src="/profile.webp"
+            placeholder="blur"
+            src={hero}
             className="rounded-full"
           />
         </div>
