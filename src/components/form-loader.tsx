@@ -7,25 +7,34 @@ import {
   getCarreerTypeById,
 } from "@/utils/get-data";
 
-/** This component allows fetching the data directly
- * so it can be used in a modal with intersecting routes,
- * wrapping in Suspense when we call this component
- * makes the modal appear before all the data is ready. */
+/**
+ *
+ * @description Pass the id to update the entity, otherwise it creates a new one. It renders the form of the type selected.
+ */
 export default async function FormLoader({
   id,
   type,
 }: {
-  id: number;
+  id?: number;
   type: TableSelection;
 }) {
   switch (type) {
     case "carreer":
-      const carreer = await getCarreerById(id);
       const typeList = await getCarreerTypes();
-      return <CarreerForm carreer={carreer} typeCbo={typeList} />;
+
+      // if id, then update
+      if (id) {
+        const carreer = await getCarreerById(id);
+        return <CarreerForm carreer={carreer} typeCbo={typeList} />;
+      }
+      return <CarreerForm typeCbo={typeList} />;
 
     case "carreer-type":
-      const type = await getCarreerTypeById(id);
-      return <CarreerTypeForm carreerType={type} />;
+      // if id, then update
+      if (id) {
+        const type = await getCarreerTypeById(id);
+        return <CarreerTypeForm carreerType={type} />;
+      }
+      return <CarreerTypeForm />;
   }
 }

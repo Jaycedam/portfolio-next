@@ -1,13 +1,12 @@
 import { Button } from "@components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@components/ui/dialog";
-import CarreerTypeForm from "@components/form/carreer-type-form";
-import { getCarreerTypes } from "@utils/get-data";
-import DataTable from "@/components/react-table";
-import { typeColumns } from "@/components/table-column-definitions";
 import { Plus } from "lucide-react";
+import { Suspense } from "react";
+import TableLoader from "@/components/table-loader";
+import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
+import FormLoader from "@/components/form-loader";
 
-export default async function CarreerTypeAdminPage() {
-  const data = await getCarreerTypes();
+export default function CarreerTypeAdminPage() {
   return (
     <section>
       <div className="container space-y-4">
@@ -20,12 +19,16 @@ export default async function CarreerTypeAdminPage() {
               </Button>
             </DialogTrigger>
             <DialogContent>
-              <CarreerTypeForm />
+              <Suspense>
+                <FormLoader type="carreer-type" />
+              </Suspense>
             </DialogContent>
           </Dialog>
         </div>
 
-        <DataTable data={data} columns={typeColumns} />
+        <Suspense fallback={<SkeletonAdminTable />}>
+          <TableLoader type="carreer-type" />
+        </Suspense>
       </div>
     </section>
   );

@@ -1,5 +1,6 @@
 import FormLoader from "@/components/form-loader";
 import { Card, CardContent } from "@/components/ui/card";
+import { Suspense } from "react";
 
 export default function UpdateCarreer({
   params: { id },
@@ -11,7 +12,10 @@ export default function UpdateCarreer({
       <div className="container">
         <Card>
           <CardContent className="py-8">
-            <FormLoader id={Number(id)} type="carreer" />
+            {/* todo: add fallback skeleton */}
+            <Suspense>
+              <FormLoader id={Number(id)} type="carreer" />
+            </Suspense>
           </CardContent>
         </Card>
       </div>
