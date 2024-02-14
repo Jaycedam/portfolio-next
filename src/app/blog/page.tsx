@@ -1,6 +1,12 @@
 import BlogPosts from "@/components/blog-posts";
 import FilterByParam from "@/components/filter-by-param";
 import SkeletonBlogPosts from "@/components/skeleton/skeleton-blog-posts";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import es from "@/locales/es";
@@ -41,9 +47,16 @@ export default function BlogPostsPage({
         )}
       </div>
 
-      <Suspense fallback={<Skeleton className="h-10 w-full" />}>
-        <FilterByParam repoFolder="blog" />
-      </Suspense>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>¿Buscando algo específico?</AccordionTrigger>
+          <AccordionContent className="flex flex-wrap gap-4">
+            <Suspense fallback={<Skeleton className="h-10 w-full" />}>
+              <FilterByParam repoFolder="blog" />
+            </Suspense>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
 
       <Suspense key={tags} fallback={<SkeletonBlogPosts />}>
         <BlogPosts tags={searchParams?.tags} />

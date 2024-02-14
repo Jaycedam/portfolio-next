@@ -1,6 +1,12 @@
 import FilterByParam from "@/components/filter-by-param";
 import Projects from "@/components/projects";
 import SkeletonProjects from "@/components/skeleton/skeleton-projects";
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion";
 import { buttonVariants } from "@/components/ui/button";
 import { Skeleton } from "@/components/ui/skeleton";
 import es from "@/locales/es";
@@ -41,9 +47,16 @@ export default function ProjectsPage({
         )}
       </div>
 
-      <Suspense fallback={<Skeleton className="h-10 w-full" />}>
-        <FilterByParam repoFolder="projects" />
-      </Suspense>
+      <Accordion type="single" collapsible>
+        <AccordionItem value="item-1">
+          <AccordionTrigger>¿Buscando algo específico?</AccordionTrigger>
+          <AccordionContent className="flex flex-wrap gap-4">
+            <Suspense fallback={<Skeleton className="h-10 w-full" />}>
+              <FilterByParam repoFolder="projects" />
+            </Suspense>
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
 
       <Suspense key={tags} fallback={<SkeletonProjects />}>
         <Projects tags={searchParams?.tags} />
