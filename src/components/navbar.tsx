@@ -15,6 +15,7 @@ import { MailPlus, Menu } from "lucide-react";
 import SignOutBtn from "@components/sign-out-btn";
 import { options } from "@/app/api/auth/[...nextauth]/options";
 import es from "@/locales/es";
+import { Separator } from "@components/ui/separator";
 
 export default async function Navbar() {
   const t = es.nav;
@@ -60,6 +61,8 @@ export default async function Navbar() {
           </ul>
         </nav>
       </div>
+
+      <Separator orientation="vertical" className="h-2/4" />
 
       {/* icons nav  */}
       <nav className="hidden md:block">
