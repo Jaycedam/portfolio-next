@@ -14,7 +14,7 @@ import { MoonStar, Sun } from "lucide-react";
 import es from "@/locales/es";
 
 export function ThemeToggle() {
-  const { setTheme } = useTheme();
+  const { setTheme, themes } = useTheme();
   const t = es.themetoggle;
 
   return (
@@ -29,7 +29,6 @@ export function ThemeToggle() {
             className="absolute h-5 rotate-90 scale-0 opacity-100 transition-all duration-300  ease-out
           dark:rotate-0 dark:scale-100 dark:opacity-100"
           />
-
           <span className="sr-only">Toggle theme</span>
         </Button>
       </DropdownMenuTrigger>
@@ -37,24 +36,15 @@ export function ThemeToggle() {
         <DropdownMenuLabel>{t.label}</DropdownMenuLabel>
         <DropdownMenuSeparator />
 
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => setTheme("light")}
-        >
-          {t.light}
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => setTheme("dark")}
-        >
-          {t.dark}
-        </DropdownMenuItem>
-        <DropdownMenuItem
-          className="cursor-pointer"
-          onClick={() => setTheme("system")}
-        >
-          {t.system}
-        </DropdownMenuItem>
+        {themes.map((theme) => (
+          <DropdownMenuItem
+            key={theme}
+            className="cursor-pointer capitalize"
+            onClick={() => setTheme(theme)}
+          >
+            {theme}
+          </DropdownMenuItem>
+        ))}
       </DropdownMenuContent>
     </DropdownMenu>
   );

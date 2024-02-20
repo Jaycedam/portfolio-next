@@ -3,6 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { buttonVariants } from "@components/ui/button";
+import { cn } from "@/lib/utils";
 
 export default function NavLink({
   href,
@@ -17,9 +18,12 @@ export default function NavLink({
   return (
     <Link
       {...rest}
-      className={`${buttonVariants({ variant: "ghost" })} ${
-        pathname === href ? "text-foreground" : "text-muted-foreground"
-      }`}
+      className={cn(
+        buttonVariants({ variant: "ghost" }),
+        pathname === href
+          ? "bg-accent text-accent-foreground"
+          : "text-muted-foreground"
+      )}
       href={href}
     >
       {children}

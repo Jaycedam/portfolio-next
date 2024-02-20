@@ -1,7 +1,7 @@
 import Footer from "@components/footer";
 import Navbar from "@components/navbar";
 import "@app/globals.css";
-import { Providers } from "@components/providers";
+import { ThemeProvider } from "@/components/theme-provider";
 import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { SpeedInsights } from "@vercel/speed-insights/next";
@@ -28,7 +28,12 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body>
-        <Providers>
+        <ThemeProvider
+          enableSystem
+          defaultTheme="system"
+          attribute="class"
+          themes={["light", "dark", "dracula"]}
+        >
           <Navbar />
           <main className="flex-grow py-10">
             {modal}
@@ -37,7 +42,7 @@ export default function RootLayout({
           <Toaster position="top-center" richColors />
           <SpeedInsights />
           <Footer />
-        </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );
