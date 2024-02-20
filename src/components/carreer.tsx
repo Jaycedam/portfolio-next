@@ -6,7 +6,7 @@ export default async function Carreer() {
   let data = await getCarreers();
 
   return (
-    <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l md:mx-auto md:before:block">
+    <ol className="relative max-w-prose space-y-8 before:absolute before:left-4 before:hidden before:h-full before:border-l before:border-border md:mx-auto md:before:block">
       {/* circle of timeline  */}
       <span className="motion-safe:scale-up sticky -left-8 top-1/4 hidden h-8 w-8 items-center justify-center rounded-full bg-primary md:flex"></span>
       {data?.map((item, idx) => (
