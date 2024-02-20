@@ -21,7 +21,7 @@ export default function NavLink({
       className={cn(
         buttonVariants({ variant: "ghost" }),
         pathname === href
-          ? "bg-accent text-accent-foreground"
+          ? "bg-primary text-primary-foreground"
           : "text-muted-foreground"
       )}
       href={href}

@@ -45,7 +45,7 @@ export default async function MDXContent({
         />
       </div>
 
-      <article className="prose-h2:heading prose prose-zinc mx-auto dark:prose-invert prose-headings:text-foreground prose-p:text-foreground prose-a:text-foreground prose-ol:text-foreground prose-ul:text-foreground">
+      <article className="prose-h2:heading prose prose-zinc mx-auto dark:prose-invert">
         {content}
       </article>
 

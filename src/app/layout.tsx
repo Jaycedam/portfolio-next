@@ -32,7 +32,7 @@ export default function RootLayout({
           enableSystem
           defaultTheme="system"
           attribute="class"
-          themes={["light", "dark", "dracula"]}
+          themes={["light", "dark"]}
         >
           <Navbar />
           <main className="flex-grow py-10">
