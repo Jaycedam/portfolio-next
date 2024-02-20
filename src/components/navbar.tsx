@@ -46,7 +46,7 @@ export default async function Navbar() {
           <LogoSVG size={10} />
         </Link>
         <nav className="hidden md:block">
-          <ul className="flex items-center gap-4">
+          <ul className="flex h-full items-center gap-4">
             {navLinks.map((item, index) => (
               <li key={index}>
                 <NavLink href={item.href}>{item.label}</NavLink>

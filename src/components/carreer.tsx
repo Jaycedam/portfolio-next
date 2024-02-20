@@ -23,10 +23,12 @@ export default async function Carreer() {
               {item.name} - {item.company}
             </h2>
 
-            <Badge className="motion-safe:scale-up">{item.type.name}</Badge>
+            <Badge variant="secondary" className="motion-safe:scale-up">
+              {item.type.name}
+            </Badge>
           </div>
 
-          <p className="motion-safe:fade-left prose prose-zinc mb-4 dark:prose-invert">
+          <p className="motion-safe:fade-left prose prose-zinc mb-4 text-muted-foreground dark:prose-invert">
             {item.about}
           </p>
         </li>
