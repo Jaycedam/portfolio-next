@@ -39,7 +39,7 @@ export default async function Navbar() {
   ];
 
   return (
-    <header className="sticky top-1 z-50 mx-auto flex h-14 w-[95%] items-center justify-between gap-4 rounded-full border bg-background/60 px-4 backdrop-blur md:w-auto md:max-w-full md:px-8">
+    <header className="sticky top-1 z-50 mx-auto flex h-14 w-[95%] items-center justify-between gap-4 rounded-full border bg-background/60 px-4 shadow backdrop-blur md:w-auto md:max-w-full md:px-8">
       <div className="flex gap-4">
         {/* logo  */}
         <Link aria-label="homepage" href="/">
@@ -62,7 +62,7 @@ export default async function Navbar() {
         </nav>
       </div>
 
-      <Separator orientation="vertical" className="h-2/4" />
+      <Separator orientation="vertical" className="hidden h-2/4 md:block" />
 
       {/* icons nav  */}
       <nav className="hidden md:block">

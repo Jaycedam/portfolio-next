@@ -30,7 +30,7 @@ export default async function Home() {
             href="/projects"
           >
             Ver más
-            <ChevronRight className="h-4 w-0 transition-all group-hover:w-4" />
+            <ChevronRight className="h-4 w-4 transition-all md:w-0 md:group-hover:w-4" />
           </Link>
         </div>
       </section>
@@ -49,7 +49,7 @@ export default async function Home() {
             href="/blog"
           >
             Ver más
-            <ChevronRight className="h-4 w-0 transition-all group-hover:w-4" />
+            <ChevronRight className="h-4 w-4 transition-all md:w-0 md:group-hover:w-4" />
           </Link>
         </div>
       </section>
