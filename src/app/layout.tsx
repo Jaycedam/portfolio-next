@@ -20,8 +20,8 @@ export default function RootLayout({
   modal: React.ReactNode;
 }) {
   return (
-    // suppressHydrationWarning only applies one level deep, so it won't block hydration warnings on other elements,
-    // it's necessary for the next-themes pckg since it updates that element
+    // suppressHydrationWarning only applies one level deep, it won't block hydration warnings on the children
+    // it's necessary for the next-themes pckg since it updates that element on the client and it desyncs with the server
     <html
       lang="es"
       className={`${GeistSans.variable} ${GeistMono.variable} scroll-smooth`}
