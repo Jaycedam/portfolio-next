@@ -2,7 +2,6 @@ import Link from "next/link";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 import { MDXMeta } from "@/utils/types";
 import Image from "next/image";
-import { badgeVariants } from "@components/ui/badge";
 
 export default async function Projects({
   homepage = false,
@@ -57,8 +56,8 @@ function ProjectCard({ id, image, title, area }: MDXMeta) {
       scroll={false}
     >
       {/* overlay  */}
-      <div className="pointer-events-none absolute bottom-0 z-10 flex min-h-[30%] w-full flex-col items-start justify-end gap-1 bg-gradient-to-t from-black/50 p-4 text-zinc-50 md:p-8">
-        <p className={badgeVariants()}>{area}</p>
+      <div className="pointer-events-none absolute bottom-0 z-10 grid min-h-[30%] w-full place-content-end bg-gradient-to-t from-black/60 p-4 text-end text-zinc-50 md:p-8">
+        <p className="text-sm">{area}</p>
         <h2 className="text-xl font-bold">{title}</h2>
       </div>
       <Image
