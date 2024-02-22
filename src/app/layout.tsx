@@ -6,6 +6,7 @@ import { GeistSans } from "geist/font/sans";
 import { GeistMono } from "geist/font/mono";
 import { SpeedInsights } from "@vercel/speed-insights/next";
 import { Toaster } from "@components/ui/sonner";
+import NextTopLoader from "nextjs-toploader";
 
 export const metadata = {
   title: "Jordan Cortés",
@@ -34,6 +35,8 @@ export default function RootLayout({
           attribute="class"
           themes={["light", "dark"]}
         >
+          <NextTopLoader showSpinner={false} color="hsl(var(--brand))" />
+
           <Navbar />
           <main className="flex-grow py-10">
             {modal}
