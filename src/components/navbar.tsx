@@ -49,13 +49,17 @@ export default async function Navbar() {
           <ul className="flex h-full items-center gap-4">
             {navLinks.map((item, index) => (
               <li key={index}>
-                <NavLink href={item.href}>{item.label}</NavLink>
+                <NavLink layoutId="navbar" href={item.href}>
+                  {item.label}
+                </NavLink>
               </li>
             ))}
 
             {session && (
               <li>
-                <NavLink href="/admin">Admin</NavLink>
+                <NavLink layoutId="navbar" href="/admin">
+                  Admin
+                </NavLink>
               </li>
             )}
           </ul>
@@ -102,14 +106,18 @@ export default async function Navbar() {
                 <li key={index}>
                   {/* SheetClose is used as child to close the nav when the child is clicked */}
                   <SheetClose asChild>
-                    <NavLink href={item.href}>{item.label}</NavLink>
+                    <NavLink layoutId="navbar" href={item.href}>
+                      {item.label}
+                    </NavLink>
                   </SheetClose>
                 </li>
               ))}
               {session && (
                 <li>
                   <SheetClose asChild>
-                    <NavLink href="/admin">Admin</NavLink>
+                    <NavLink layoutId="navbar" href="/admin">
+                      Admin
+                    </NavLink>
                   </SheetClose>
                 </li>
               )}

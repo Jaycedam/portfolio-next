@@ -7,13 +7,17 @@ import { MotionDiv } from "@components/motion-elements";
 
 export default function NavLink({
   href,
+  layoutId,
   children,
   ...rest
 }: {
   href: string;
+  layoutId: string;
   children: React.ReactNode;
 }) {
   const pathname = usePathname();
+
+  // TODO: remove workaround for originY in sticky container, so it doesn't lose position on scroll
 
   return (
     <Link
@@ -28,9 +32,9 @@ export default function NavLink({
     >
       <span className="relative z-10">{children}</span>
 
-      {pathname === href ? (
+      {pathname === href && (
         <MotionDiv
-          layoutId="navlink"
+          layoutId={layoutId}
           style={{
             borderRadius: 9999,
             // originY is only added due to a bug in framer motion and nextjs,
@@ -41,8 +45,6 @@ export default function NavLink({
           transition={{ duration: 0.5, type: "spring" }}
           className="absolute inset-0 bg-primary"
         />
-      ) : (
-        ""
       )}
     </Link>
   );
