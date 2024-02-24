@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { buttonVariants } from "@components/ui/button";
+import { ExternalLink } from "lucide-react";
 
 export function HeaderImage({ src, alt }: { src: string; alt: string }) {
   return (
@@ -24,6 +25,7 @@ export function LinkButton({ title, href }: { title: string; href: string }) {
       target="_blank"
     >
       {title}
+      <ExternalLink className="ml-1 h-4 w-4" />
     </a>
   );
 }
