@@ -1,4 +1,4 @@
-import AdminSidebar from "@components/admin-sidebar";
+import AdminNav from "@/components/admin-nav";
 
 export const metadata = {
   title: "Admin - Jordan Cortés",
@@ -12,8 +12,8 @@ export default async function AdminLayout({
 }) {
   // checks if user is authenticated, else redirect to 401
   return (
-    <div className="space-y-16 md:grid md:grid-cols-[auto_1fr] md:gap-8 md:space-y-0">
-      <AdminSidebar />
+    <div className="space-y-16">
+      <AdminNav />
       {children}
     </div>
   );
