@@ -1,8 +1,9 @@
-import FormLoader from "@/components/form-loader";
-import { Card, CardContent } from "@/components/ui/card";
+import CarreerTypeFormLoader from "@/components/form/carreer-type-form-loader";
+import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
 
-export default function UpdateCarreerType({
+export default function UpdateCarreerTypePage({
   params: { id },
 }: {
   params: { id: string };
@@ -11,10 +12,14 @@ export default function UpdateCarreerType({
     <section>
       <div className="container">
         <Card>
+          <CardHeader>
+            <CardTitle>Update Carreer Type</CardTitle>
+          </CardHeader>
+
           <CardContent className="py-8">
             {/* todo: add fallback skeleton */}
-            <Suspense>
-              <FormLoader id={Number(id)} type="carreer-type" />
+            <Suspense fallback={<SkeletonAdminTable />}>
+              <CarreerTypeFormLoader id={Number(id)} />
             </Suspense>
           </CardContent>
         </Card>

@@ -29,7 +29,6 @@ export default function CarreerTypeForm({
 
   // check if project is being passed down to update, else create new one on db
   const formAction = carreerType ? updateCarreerType : createCarreerType;
-  const formTitle = carreerType ? "Update Carreer Type" : "Create Carreer Type";
 
   // form definition
   const form = useForm<CarreerTypeForm>({
@@ -61,7 +60,6 @@ export default function CarreerTypeForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-        <h1 className="text-lg font-bold">{formTitle}</h1>
         <FormField
           control={form.control}
           name="id"
@@ -80,7 +78,7 @@ export default function CarreerTypeForm({
           name="name"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Name (EN)</FormLabel>
+              <FormLabel>Name</FormLabel>
               <FormControl>
                 <Input placeholder="" {...field} />
               </FormControl>

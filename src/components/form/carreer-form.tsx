@@ -39,7 +39,6 @@ export default function CarreerForm({
 
   // check if project is being passed down to update, else create new one on db
   const formAction = carreer ? updateCarreer : createCarreer;
-  const formTitle = carreer ? "Update Carreer" : "Create Carreer";
 
   // form definition
   const form = useForm<CarreerForm>({
@@ -75,8 +74,6 @@ export default function CarreerForm({
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(handleSubmit)} className="space-y-4">
-        <h1 className="text-lg font-bold">{formTitle}</h1>
-
         <FormField
           control={form.control}
           name="id"
