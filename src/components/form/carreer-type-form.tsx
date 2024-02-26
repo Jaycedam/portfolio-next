@@ -51,6 +51,7 @@ export default function CarreerTypeForm({
         form.reset();
         return;
       }
+      // ERROR: we have to redirect, otherwise the intercepting route throws a 404 when revalidating
       router.push("/admin/carreer-type");
     } else if (!result?.success) {
       toast.error(result.message);
