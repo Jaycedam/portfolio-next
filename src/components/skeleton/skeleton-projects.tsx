@@ -3,7 +3,7 @@ import { Skeleton } from "@components/ui/skeleton";
 // skeleton for image in the project list
 function SkeletonLoader({ count }: { count: number }) {
   return Array.from({ length: count }, (_, index) => (
-    <Skeleton key={index} className="aspect-square rounded-xl" />
+    <Skeleton key={index} className="aspect-square rounded-3xl" />
   ));
 }
 
@@ -17,7 +17,7 @@ export default function SkeletonProjects({
   return (
     <div className="space-y-6">
       <div
-        className={`grid gap-2 ${
+        className={`grid gap-8 ${
           homepage ? "md:grid-cols-2" : "md:grid-cols-3"
         }`}
       >
