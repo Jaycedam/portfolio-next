@@ -10,7 +10,7 @@ The projects and blog posts are rendered in a Modal using Intercepting Routes an
 
 It has an Admin page protected with next-auth using credentials, the users password is hashed with bcrypt.
 
-[Live version]([https://www.jordancortes.dev](https://portfolio-app-jaycedam.vercel.app/))
+[Live version](https://portfolio-app-jaycedam.vercel.app)
 
 ![preview](/public/website-preview.webp)
 
