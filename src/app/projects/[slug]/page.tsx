@@ -4,11 +4,17 @@ import SkeletonArticle from "@/components/skeleton/skeleton-article";
 import { getMDXByName, getMDXMeta } from "@/utils/fetch-mdx";
 import { Metadata } from "next/types";
 
-export default function ProjectMDX({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
+export default async function ProjectMDX(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   return (
     <Suspense key={slug} fallback={<SkeletonArticle />}>
       <MDXContent repoFolder="projects" name={slug} />
@@ -16,11 +22,17 @@ export default function ProjectMDX({
   );
 }
 
-export async function generateMetadata({
-  params: { slug },
-}: {
-  params: { slug: string };
-}): Promise<Metadata> {
+export async function generateMetadata(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+): Promise<Metadata> {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   const mdx = await getMDXByName(slug, "projects");
 
   return {

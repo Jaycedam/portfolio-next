@@ -4,11 +4,17 @@ import { Suspense } from "react";
 import SkeletonArticle from "@/components/skeleton/skeleton-article";
 import { getMDXMeta } from "@/utils/fetch-mdx";
 
-export default function Page({
-  params: { slug },
-}: {
-  params: { slug: string };
-}) {
+export default async function Page(
+  props: {
+    params: Promise<{ slug: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    slug
+  } = params;
+
   return (
     <Modal>
       {/* TODO: change skeleton */}

@@ -3,11 +3,17 @@ import SkeletonAdminTable from "@/components/skeleton/skeleton-admin-table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Suspense } from "react";
 
-export default function UpdateCarreerTypePage({
-  params: { id },
-}: {
-  params: { id: string };
-}) {
+export default async function UpdateCarreerTypePage(
+  props: {
+    params: Promise<{ id: string }>;
+  }
+) {
+  const params = await props.params;
+
+  const {
+    id
+  } = params;
+
   return (
     <section>
       <div className="container">

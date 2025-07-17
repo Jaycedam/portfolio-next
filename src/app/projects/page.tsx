@@ -14,13 +14,14 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
-export default function ProjectsPage({
-  searchParams,
-}: {
-  searchParams?: {
-    tags?: string;
-  };
-}) {
+export default async function ProjectsPage(
+  props: {
+    searchParams?: Promise<{
+      tags?: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const t = es.projects;
   const tags = searchParams?.tags;
 

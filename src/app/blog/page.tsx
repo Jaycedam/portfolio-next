@@ -14,13 +14,14 @@ import { X } from "lucide-react";
 import Link from "next/link";
 import { Suspense } from "react";
 
-export default function BlogPostsPage({
-  searchParams,
-}: {
-  searchParams?: {
-    tags?: string;
-  };
-}) {
+export default async function BlogPostsPage(
+  props: {
+    searchParams?: Promise<{
+      tags?: string;
+    }>;
+  }
+) {
+  const searchParams = await props.searchParams;
   const t = es.blog;
   const tags = searchParams?.tags;
 
